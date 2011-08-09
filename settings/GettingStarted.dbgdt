@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Project>
+  <Desktop>
+    <Static>
+      <Debug-Log>
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1861</ColumnWidth1></Debug-Log>
+      <Build>
+        
+        
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>720</ColumnWidth1><ColumnWidth2>372</ColumnWidth2><ColumnWidth3>93</ColumnWidth3></Build>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>351</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+      </Workspace>
+      <Disassembly>
+        
+        
+        
+      <MixedMode>1</MixedMode><CodeCovShow>1</CodeCovShow><InstrProfShow>1</InstrProfShow></Disassembly>
+    <Watch><Format><struct_types/><watch_formats><Fmt><Key>{W}Watch-0:preadholdingdata[0]</Key><Value>4</Value></Fmt><Fmt><Key>{W}Watch-0:preadholdingdata[12]</Key><Value>4</Value></Fmt><Fmt><Key>{W}Watch-0:preadholdingdata[13]</Key><Value>4</Value></Fmt><Fmt><Key>{W}Watch-0:preadholdingdata[14]</Key><Value>4</Value></Fmt><Fmt><Key>{W}Watch-0:preadholdingdata[15]</Key><Value>4</Value></Fmt><Fmt><Key>{W}Watch-0:preadholdingdata[16]</Key><Value>4</Value></Fmt><Fmt><Key>{W}Watch-0:preadholdingdata[17]</Key><Value>4</Value></Fmt><Fmt><Key>{W}Watch-0:preadholdingdata[18]</Key><Value>4</Value></Fmt><Fmt><Key>{W}Watch-0:preadholdingdata[19]</Key><Value>4</Value></Fmt><Fmt><Key>{W}Watch-0:preadholdingdata[1]</Key><Value>4</Value></Fmt><Fmt><Key>{W}Watch-0:preadholdingdata[20]</Key><Value>4</Value></Fmt></watch_formats></Format><Column0>169</Column0><Column1>100</Column1><Column2>100</Column2><Column3>100</Column3></Watch><QuickWatch><PreferedWindows><Position>2</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows/></PreferedWindows><Column0>100</Column0><Column1>100</Column1><Column2>100</Column2><Column3>100</Column3></QuickWatch><CallStack><PreferedWindows><Position>1</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows/></PreferedWindows><ViewArgs>1</ViewArgs></CallStack></Static>
+    <Windows>
+      
+      
+      
+    <Wnd1>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-20855-20341</Identity>
+            <TabName>Debug Log</TabName>
+            <Factory>Debug-Log</Factory>
+            <Session/>
+          </Tab>
+          <Tab>
+            <Identity>TabID-20333-20351</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd1><Wnd2>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-31604-20344</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>GettingStarted</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd2><Wnd3>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-9584-20348</Identity>
+            <TabName>Disassembly</TabName>
+            <Factory>Disassembly</Factory>
+            <Session/>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd3><Wnd4><Tabs><Tab><Identity>TabID-9418-4475</Identity><TabName>Watch</TabName><Factory>Watch</Factory><Session><Expressions><Expression><Expression>Messages[26]</Expression></Expression><Expression><Expression>mi_p_t</Expression></Expression><Expression><Expression>mism_t</Expression></Expression><Expression><Expression>mi_d_t</Expression></Expression><Expression><Expression>mi_kd_t</Expression></Expression><Expression><Expression>mi_dc_t</Expression></Expression><Expression><Expression>clc_li_t</Expression></Expression><Expression><Expression>preadholdingdata[12]</Expression></Expression><Expression><Expression>i</Expression></Expression><Expression><Expression>buf[8]</Expression></Expression><Expression><Expression>code_e</Expression></Expression><Expression><Expression>data[1]</Expression></Expression><Expression><Expression>tx_buffer[0]</Expression></Expression><Expression><Expression>tx_buffer[1]</Expression></Expression><Expression><Expression>tx_buffer[2]</Expression></Expression><Expression><Expression>tx_buffer[3]</Expression></Expression><Expression><Expression>tx_buffer[4]</Expression></Expression><Expression><Expression>tx_buffer[5]</Expression></Expression><Expression><Expression>tx_buffer[6]</Expression></Expression><Expression><Expression>data[0]</Expression></Expression><Expression><Expression>preadholdingdata[0]</Expression></Expression><Expression><Expression>preadholdingdata[1]</Expression></Expression><Expression><Expression>i</Expression></Expression><Expression><Expression>c_f_o</Expression></Expression><Expression><Expression>data_addr.modbus_data</Expression></Expression><Expression><Expression>dict_vars[1]</Expression></Expression></Expressions><TabId>0</TabId><Column0>169</Column0><Column1>100</Column1><Column2>100</Column2><Column3>100</Column3></Session></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd4></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\main_scr.cpp</Filename><XPos>0</XPos><YPos>133</YPos><SelStart>5435</SelStart><SelEnd>5435</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\disconnect.c</Filename><XPos>0</XPos><YPos>5</YPos><SelStart>2554</SelStart><SelEnd>2554</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ai_test.cpp</Filename><XPos>0</XPos><YPos>26</YPos><SelStart>2172</SelStart><SelEnd>2172</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\processing.h</Filename><XPos>0</XPos><YPos>11</YPos><SelStart>1096</SelStart><SelEnd>1096</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\timers.c</Filename><XPos>0</XPos><YPos>54</YPos><SelStart>1381</SelStart><SelEnd>1381</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\board.h</Filename><XPos>0</XPos><YPos>425</YPos><SelStart>9191</SelStart><SelEnd>9191</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\screens.c</Filename><XPos>0</XPos><YPos>122</YPos><SelStart>1291</SelStart><SelEnd>1291</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\led_control.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>572</SelStart><SelEnd>572</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\processing.cpp</Filename><XPos>0</XPos><YPos>217</YPos><SelStart>6164</SelStart><SelEnd>6164</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\adc_fsm.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>237</SelStart><SelEnd>237</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\board.c</Filename><XPos>0</XPos><YPos>341</YPos><SelStart>7635</SelStart><SelEnd>7635</SelEnd></Tab><ActiveTab>10</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\cstartup_M.s</Filename><XPos>0</XPos><YPos>170</YPos><SelStart>6724</SelStart><SelEnd>6724</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\main.cpp</Filename><XPos>0</XPos><YPos>408</YPos><SelStart>11943</SelStart><SelEnd>11943</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ao_test.cpp</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>1</SelStart><SelEnd>1</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\dict.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\dict.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\variables.c</Filename><XPos>0</XPos><YPos>147</YPos><SelStart>19280</SelStart><SelEnd>19280</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\adc_fsm.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>316</SelStart><SelEnd>316</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\main_scr.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\lut_scr.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-018ee898><key>iaridepm.enu1</key></Toolbar-018ee898></Sizes></Row0><Row1><Sizes><Toolbar-031a1838><key>debuggergui.enu1</key></Toolbar-031a1838></Sizes></Row1><Row2><Sizes><Toolbar-031a2198><key>armjlink.enu1</key></Toolbar-031a2198></Sizes></Row2></Top><Left><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>886</Bottom><Right>442</Right><x>-2</x><y>-2</y><xscreen>202</xscreen><yscreen>807</yscreen><sizeHorzCX>105208</sizeHorzCX><sizeHorzCY>715426</sizeHorzCY><sizeVertCX>231250</sizeVertCX><sizeVertCY>787234</sizeVertCY></Rect></Wnd2></Sizes></Row0></Left><Right><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>886</Bottom><Right>220</Right><x>-2</x><y>-2</y><xscreen>202</xscreen><yscreen>807</yscreen><sizeHorzCX>105208</sizeHorzCX><sizeHorzCY>715426</sizeHorzCY><sizeVertCX>115625</sizeVertCX><sizeVertCY>787234</sizeVertCY></Rect></Wnd3></Sizes></Row0><Row1><Sizes><Wnd4><Rect><Top>-2</Top><Left>218</Left><Bottom>886</Bottom><Right>453</Right><x>218</x><y>-2</y><xscreen>284</xscreen><yscreen>1305</yscreen><sizeHorzCX>147917</sizeHorzCX><sizeHorzCY>1156915</sizeHorzCY><sizeVertCX>122396</sizeVertCX><sizeVertCY>787234</sizeVertCY></Rect></Wnd4></Sizes></Row1></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>149</Bottom><Right>1922</Right><x>-2</x><y>-2</y><xscreen>1924</xscreen><yscreen>151</yscreen><sizeHorzCX>1002083</sizeHorzCX><sizeHorzCY>133865</sizeHorzCY><sizeVertCX>105208</sizeVertCX><sizeVertCY>715426</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Project>
+
+

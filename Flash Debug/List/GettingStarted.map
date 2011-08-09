@@ -1,0 +1,2448 @@
+###############################################################################
+#                                                                             #
+# IAR ELF Linker V5.50.0.51878/W32 for ARM              13/Jul/2011  04:02:03 #
+# Copyright (C) 2007-2010 IAR Systems AB.                                     #
+#                                                                             #
+#    Output file  =  C:\Users\V\Desktop\G_proj\1768\Flash                     #
+#                    Debug\Exe\GettingStarted.out.tmp                         #
+#    Map file     =  C:\Users\V\Desktop\G_proj\1768\Flash                     #
+#                    Debug\List\GettingStarted.map                            #
+#    Command line =  "C:\Users\V\Desktop\G_proj\1768\Flash                    #
+#                    Debug\Obj\LPC_Uart.o" "C:\Users\V\Desktop\G_proj\1768\Fl #
+#                    ash Debug\Obj\adc_fsm.o" "C:\Users\V\Desktop\G_proj\1768 #
+#                    \Flash Debug\Obj\ai_test.o"                              #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash                    #
+#                    Debug\Obj\ao_test.o" "C:\Users\V\Desktop\G_proj\1768\Fla #
+#                    sh Debug\Obj\bmps.o" "C:\Users\V\Desktop\G_proj\1768\Fla #
+#                    sh Debug\Obj\board.o" "C:\Users\V\Desktop\G_proj\1768\Fl #
+#                    ash Debug\Obj\buttons.o" "C:\Users\V\Desktop\G_proj\1768 #
+#                    \Flash Debug\Obj\checkbox.o"                             #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash                    #
+#                    Debug\Obj\cstartup_M.o" "C:\Users\V\Desktop\G_proj\1768\ #
+#                    Flash Debug\Obj\dict.o" "C:\Users\V\Desktop\G_proj\1768\ #
+#                    Flash Debug\Obj\disconnect.o"                            #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash                    #
+#                    Debug\Obj\do_test.o" "C:\Users\V\Desktop\G_proj\1768\Fla #
+#                    sh Debug\Obj\editor_scr.o" "C:\Users\V\Desktop\G_proj\17 #
+#                    68\Flash Debug\Obj\ethernet_scr.o"                       #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash Debug\Obj\font.o"  #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash Debug\Obj\irq.o"   #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash Debug\Obj\keyb.o"  #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash Debug\Obj\lcd.o"   #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash                    #
+#                    Debug\Obj\lcd_control.o" "C:\Users\V\Desktop\G_proj\1768 #
+#                    \Flash Debug\Obj\lcd_low_level.o"                        #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash                    #
+#                    Debug\Obj\led_control.o" "C:\Users\V\Desktop\G_proj\1768 #
+#                    \Flash Debug\Obj\lut_scr.o"                              #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash Debug\Obj\main.o"  #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash                    #
+#                    Debug\Obj\main_scr.o" "C:\Users\V\Desktop\G_proj\1768\Fl #
+#                    ash Debug\Obj\menu_scr.o" "C:\Users\V\Desktop\G_proj\176 #
+#                    8\Flash Debug\Obj\messages.o"                            #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash                    #
+#                    Debug\Obj\misc_scr.o" "C:\Users\V\Desktop\G_proj\1768\Fl #
+#                    ash Debug\Obj\modbus.o" "C:\Users\V\Desktop\G_proj\1768\ #
+#                    Flash Debug\Obj\msg_scr.o" "C:\Users\V\Desktop\G_proj\17 #
+#                    68\Flash Debug\Obj\param_scr.o"                          #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash                    #
+#                    Debug\Obj\pass_controller.o"                             #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash                    #
+#                    Debug\Obj\pass_scr.o" "C:\Users\V\Desktop\G_proj\1768\Fl #
+#                    ash Debug\Obj\power_control.o"                           #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash                    #
+#                    Debug\Obj\processing.o" "C:\Users\V\Desktop\G_proj\1768\ #
+#                    Flash Debug\Obj\pwm_test.o"                              #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash                    #
+#                    Debug\Obj\relay_control.o" "C:\Users\V\Desktop\G_proj\17 #
+#                    68\Flash Debug\Obj\rs232_scr.o"                          #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash                    #
+#                    Debug\Obj\rs485_scr.o" "C:\Users\V\Desktop\G_proj\1768\F #
+#                    lash Debug\Obj\screens.o" "C:\Users\V\Desktop\G_proj\176 #
+#                    8\Flash Debug\Obj\timers.o"                              #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash                    #
+#                    Debug\Obj\trend_scr.o" "C:\Users\V\Desktop\G_proj\1768\F #
+#                    lash Debug\Obj\usbase.o" "C:\Users\V\Desktop\G_proj\1768 #
+#                    \Flash Debug\Obj\variables.o" --redirect                 #
+#                    _Scanf=_ScanfSmall -o "C:\Users\V\Desktop\G_proj\1768\Fl #
+#                    ash Debug\Exe\GettingStarted.out.tmp" --map              #
+#                    "C:\Users\V\Desktop\G_proj\1768\Flash                    #
+#                    Debug\List\GettingStarted.map" --config                  #
+#                    C:\Users\V\Desktop\G_proj\1768\config\LPC1768_Flash.icf  #
+#                    --semihosting --entry __iar_program_start                #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000100 to 0x0007ffff] { ro };
+"P2":  place in [from 0x10000000 to 0x10007fff] {
+          rw, block CSTACK, block HEAP };
+
+  Section            Kind        Address     Size  Object
+  -------            ----        -------     ----  ------
+"A1":                                        0xc4
+  .intvec            ro code  0x00000000     0xc4  cstartup_M.o [1]
+                            - 0x000000c4     0xc4
+
+"P1":                                     0x131e4
+  .rodata            const    0x00000100   0x2e1c  variables.o [1]
+  .text              ro code  0x00002f1c   0x16ac  main.o [1]
+  .text              ro code  0x000045c8   0x1148  usbase.o [1]
+  .text              ro code  0x00005710    0xcc2  xprintffull.o [3]
+  .text              ro code  0x000063d4    0xbbc  processing.o [1]
+  .text              ro code  0x00006f90    0xb88  board.o [1]
+  .text              ro code  0x00007b18    0x788  lcd.o [1]
+  .text              ro code  0x000082a0    0x778  main_scr.o [1]
+  .rodata            const    0x00008a18    0x6e0  screens.o [1]
+  .text              ro code  0x000090f8    0x4a8  variables.o [1]
+  .text              ro code  0x000095a0    0x426  misc_scr.o [1]
+  .text              ro code  0x000099c8    0x418  keyb.o [1]
+  .text              ro code  0x00009de0    0x3d6  trend_scr.o [1]
+  .rodata            const    0x0000a1b8    0x37c  font.o [1]
+  .text              ro code  0x0000a534    0x374  lut_scr.o [1]
+  .text              ro code  0x0000a8a8    0x368  ai_test.o [1]
+  .text              ro code  0x0000ac10    0x358  modbus.o [1]
+  .text              ro code  0x0000af68    0x350  adc_fsm.o [1]
+  .text              ro code  0x0000b2b8    0x350  pwm_test.o [1]
+  .text              ro code  0x0000b608    0x348  LPC_Uart.o [1]
+  .text              ro code  0x0000b950    0x348  rs485_scr.o [1]
+  .text              ro code  0x0000bc98    0x334  editor_scr.o [1]
+  .text              ro code  0x0000bfcc    0x32c  do_test.o [1]
+  .rodata            const    0x0000c2f8    0x30c  menu_scr.o [1]
+  .text              ro code  0x0000c604    0x304  ao_test.o [1]
+  .text              ro code  0x0000c908    0x300  param_scr.o [1]
+  .text              ro code  0x0000cc08    0x2d0  rs232_scr.o [1]
+  .text              ro code  0x0000ced8    0x2b0  ethernet_scr.o [1]
+  .text              ro code  0x0000d188    0x246  DblDiv.o [4]
+  .text              ro code  0x0000d3d0    0x240  disconnect.o [1]
+  .text              ro code  0x0000d610    0x23c  menu_scr.o [1]
+  .text              ro code  0x0000d84c    0x224  pass_scr.o [1]
+  .text              ro code  0x0000da70    0x1f6  string.o [3]
+  .text              ro code  0x0000dc68    0x1ec  timers.o [1]
+  .text              ro code  0x0000de54    0x1b0  xstoflt.o [3]
+  .text              ro code  0x0000e004    0x1a2  DblMul.o [4]
+  .text              ro code  0x0000e1a8    0x19c  msg_scr.o [1]
+  .text              ro code  0x0000e344    0x17e  DblSub.o [4]
+  .text              ro code  0x0000e4c2    0x16c  lcd_low_level.o [1]
+  .text              ro code  0x0000e630    0x160  xfexp.o [3]
+  .text              ro code  0x0000e790    0x160  xdtento.o [3]
+  .rodata            const    0x0000e8f0    0x150  font.o [1]
+  .text              ro code  0x0000ea40    0x12e  I64DivMod.o [4]
+  .text              ro code  0x0000eb70    0x128  led_control.o [1]
+  .text              ro code  0x0000ec98    0x118  xstoul.o [3]
+  .text              ro code  0x0000edb0    0x108  xdscale.o [3]
+  .rodata            const    0x0000eeb8    0x100  modbus.o [1]
+  .rodata            const    0x0000efb8    0x100  modbus.o [1]
+  .text              ro code  0x0000f0b8     0xfc  FltDiv.o [4]
+  .text              ro code  0x0000f1b4     0xf6  xstopfx.o [3]
+  .text              ro code  0x0000f2ac     0xe6  DblAdd.o [4]
+  .text              ro code  0x0000f394     0xe4  FltSub.o [4]
+  .text              ro code  0x0000f478     0xd8  FltMul.o [4]
+  .text              ro code  0x0000f550     0xc6  xdnorm.o [3]
+  .text              ro code  0x0000f618     0xc4  pass_controller.o [1]
+  .text              ro code  0x0000f6dc     0xc0  lcd_control.o [1]
+  .text              ro code  0x0000f79c     0xc0  xfdscale.o [3]
+  .text              ro code  0x0000f85c     0xbc  xstod.o [3]
+  .text              ro code  0x0000f918     0xbc  xxmemxmalloc.o [3]
+  .text              ro code  0x0000f9d4     0xb8  messages.o [1]
+  .text              ro code  0x0000fa8c     0xac  checkbox.o [1]
+  .text              ro code  0x0000fb38     0xac  irq.o [1]
+  .text              ro code  0x0000fbe4     0x94  font.o [1]
+  .text              ro code  0x0000fc78     0x90  DblToFlt.o [4]
+  .text              ro code  0x0000fd08     0x8c  FltAdd.o [4]
+  .text              ro code  0x0000fd94     0x88  xxmemxfree.o [3]
+  .text              ro code  0x0000fe1c     0x88  xsyslock.o [3]
+  .text              ro code  0x0000fea4     0x84  font.o [1]
+  .text              ro code  0x0000ff28     0x82  xfdnorm.o [3]
+  .text              ro code  0x0000ffac     0x78  ABImemmove.o [4]
+  .text              ro code  0x00010024     0x78  strtol.o [3]
+  .text              ro code  0x0001009c     0x74  xreportassert.o [3]
+  .text              ro code  0x00010110     0x70  ABImemcpy.o [4]
+  .text              ro code  0x00010180     0x70  cppinit.o [3]
+  .text              ro code  0x000101f0     0x6c  power_control.o [1]
+  .text              ro code  0x0001025c     0x68  iarttio.o [5]
+  .text              ro code  0x000102c4     0x68  expf.o [3]
+  .text              ro code  0x0001032c     0x64  adc_fsm.o [1]
+  .text              ro code  0x00010390     0x64  xdtento.o [3]
+  .text              ro code  0x000103f4     0x5c  ao_test.o [1]
+  .rodata            const    0x00010450     0x58  ai_test.o [1]
+  .rodata            const    0x000104a8     0x58  ao_test.o [1]
+  .rodata            const    0x00010500     0x58  do_test.o [1]
+  .rodata            const    0x00010558     0x58  editor_scr.o [1]
+  .rodata            const    0x000105b0     0x58  ethernet_scr.o [1]
+  .rodata            const    0x00010608     0x58  keyb.o [1]
+  .rodata            const    0x00010660     0x58  lut_scr.o [1]
+  .rodata            const    0x000106b8     0x58  main_scr.o [1]
+  .rodata            const    0x00010710     0x58  menu_scr.o [1]
+  .rodata            const    0x00010768     0x58  misc_scr.o [1]
+  .rodata            const    0x000107c0     0x58  msg_scr.o [1]
+  .rodata            const    0x00010818     0x58  param_scr.o [1]
+  .rodata            const    0x00010870     0x58  pass_scr.o [1]
+  .rodata            const    0x000108c8     0x58  pwm_test.o [1]
+  .rodata            const    0x00010920     0x58  rs232_scr.o [1]
+  .rodata            const    0x00010978     0x58  rs485_scr.o [1]
+  .rodata            const    0x000109d0     0x58  trend_scr.o [1]
+  .rodata            const    0x00010a28     0x58  usbase.o [1]
+  .text              ro code  0x00010a80     0x58  editor_scr.o [1]
+  .text              ro code  0x00010ad8     0x58  memchr.o [4]
+  .text              ro code  0x00010b30     0x56  DblToI32.o [4]
+  .rodata            const    0x00010b88     0x50  xstoul.o [3]
+  .text              ro code  0x00010bd8     0x50  ai_test.o [1]
+  .text              ro code  0x00010c28     0x50  ai_test.o [1]
+  .text              ro code  0x00010c78     0x50  ao_test.o [1]
+  .text              ro code  0x00010cc8     0x50  usbase.o [1]
+  .text              ro code  0x00010d18     0x4e  FltToDbl.o [4]
+  .rodata            const    0x00010d68     0x4c  bmps.o [1]
+  .text              ro code  0x00010db4     0x4c  lcd.o [1]
+  .rodata            const    0x00010e00     0x48  xdtento.o [3]
+  .text              ro code  0x00010e48     0x48  do_test.o [1]
+  .text              ro code  0x00010e90     0x48  MtxWrapper.o [3]
+  .text              ro code  0x00010ed8     0x48  xassert.o [3]
+  .text              ro code  0x00010f20     0x46  usbase.o [1]
+  .text              ro code  0x00010f66     0x46  usbase.o [1]
+  .text              ro code  0x00010fac     0x44  FltToS32.o [4]
+  .text              ro code  0x00010ff0     0x44  strcpy.o [4]
+  .text              ro code  0x00011034     0x42  usbase.o [1]
+  .text              ro code  0x00011076     0x42  usbase.o [1]
+  .text              ro code  0x000110b8     0x40  main.o [1]
+  .text              ro code  0x000110f8     0x40  usbase.o [1]
+  .text              ro code  0x00011138     0x40  usbase.o [1]
+  .text              ro code  0x00011178     0x3c  LPC_Uart.o [1]
+  .text              ro code  0x000111b4     0x3c  LPC_Uart.o [1]
+  .text              ro code  0x000111f0     0x3c  ai_test.o [1]
+  .text              ro code  0x0001122c     0x3c  ao_test.o [1]
+  .text              ro code  0x00011268     0x38  board.o [1]
+  .text              ro code  0x000112a0     0x38  board.o [1]
+  .text              ro code  0x000112d8     0x36  strlen.o [4]
+  .rodata            const    0x00011310     0x34  bmps.o [1]
+  .rodata            const    0x00011344     0x34  irq.o [1]
+  .text              ro code  0x00011378     0x34  ai_test.o [1]
+  .text              ro code  0x000113ac     0x34  ao_test.o [1]
+  .text              ro code  0x000113e0     0x32  editor_scr.o [1]
+  .rodata            const    0x00011414     0x30  ethernet_scr.o [1]
+  .rodata            const    0x00011444     0x30  xreportassert.o [3]
+  .text              ro code  0x00011474     0x30  ai_test.o [1]
+  .text              ro code  0x000114a4     0x30  usbase.o [1]
+  .text              ro code  0x000114d4     0x30  sprintf.o [3]
+  .text              ro code  0x00011504     0x30  I32ToFlt.o [4]
+  .text              ro code  0x00011534     0x30  ao_test.o [1]
+  .text              ro code  0x00011564     0x30  copy_init3.o [4]
+  .text              ro code  0x00011594     0x2e  I32ToDbl.o [4]
+  .text              ro code  0x000115c4     0x2e  DblCmpLe.o [4]
+  .text              ro code  0x000115f4     0x2e  DblCmpGe.o [4]
+  .text              ro code  0x00011622     0x2e  lcd.o [1]
+  .rodata            const    0x00011650     0x2c  ai_test.o [1]
+  .rodata            const    0x0001167c     0x2c  usbase.o [1]
+  .rodata            const    0x000116a8     0x2c  usbase.o [1]
+  .rodata            const    0x000116d4     0x2c  usbase.o [1]
+  .rodata            const    0x00011700     0x2c  usbase.o [1]
+  .rodata            const    0x0001172c     0x2c  usbase.o [1]
+  .text              ro code  0x00011758     0x2c  main.o [1]
+  .text              ro code  0x00011784     0x2c  data_init3.o [4]
+  .text              ro code  0x000117b0     0x2a  ai_test.o [1]
+  .rodata            const    0x000117dc     0x28  irq.o [1]
+  .text              ro code  0x00011804     0x28  bmps.o [1]
+  .text              ro code  0x0001182c     0x28  relay_control.o [1]
+  .text              ro code  0x00011854     0x28  usbase.o [1]
+  .text              ro code  0x0001187c     0x28  usbase.o [1]
+  .text              ro code  0x000118a4     0x28  xgetmemchunk.o [3]
+  .text              ro code  0x000118cc     0x28  usbase.o [1]
+  .text              ro code  0x000118f4     0x28  putchar.o [3]
+  .text              ro code  0x0001191c     0x26  usbase.o [1]
+  .text              ro code  0x00011942     0x26  usbase.o [1]
+  .rodata            const    0x00011968     0x24  ai_test.o [1]
+  .text              ro code  0x0001198c     0x24  main.o [1]
+  .text              ro code  0x000119b0     0x24  newop_0.o [3]
+  .text              ro code  0x000119d4     0x24  FltCmpLe.o [4]
+  .text              ro code  0x000119f8     0x24  FltCmpGe.o [4]
+  .text              ro code  0x00011a1c     0x24  processing.o [1]
+  .text              ro code  0x00011a40     0x24  zero_init3.o [4]
+  .text              ro code  0x00011a64     0x22  usbase.o [1]
+  .text              ro code  0x00011a86     0x22  iarwrite.o [5]
+  .iar.init_table    const    0x00011aa8     0x24  - Linker created -
+  .rodata            const    0x00011acc     0x20  bmps.o [1]
+  .rodata            const    0x00011aec     0x20  bmps.o [1]
+  .rodata            const    0x00011b0c     0x20  led_control.o [1]
+  .rodata            const    0x00011b2c     0x20  usbase.o [1]
+  .rodata            const    0x00011b4c     0x20  xstoflt.o [3]
+  .text              ro code  0x00011b6c     0x20  DblCmpEq.o [4]
+  .text              ro code  0x00011b8c     0x20  ai_test.o [1]
+  .text              ro code  0x00011bac     0x20  iarwstd.o [5]
+  .text              ro code  0x00011bcc     0x1e  ai_test.o [1]
+  .text              ro code  0x00011bea     0x1e  ai_test.o [1]
+  .text              ro code  0x00011c08     0x1e  ai_test.o [1]
+  .text              ro code  0x00011c26     0x1e  editor_scr.o [1]
+  .text              ro code  0x00011c44     0x1e  ethernet_scr.o [1]
+  .text              ro code  0x00011c62     0x1e  lut_scr.o [1]
+  .text              ro code  0x00011c80     0x1e  main_scr.o [1]
+  .text              ro code  0x00011c9e     0x1e  menu_scr.o [1]
+  .text              ro code  0x00011cbc     0x1e  msg_scr.o [1]
+  .text              ro code  0x00011cda     0x1e  param_scr.o [1]
+  .text              ro code  0x00011cf8     0x1e  pass_scr.o [1]
+  .text              ro code  0x00011d16     0x1e  rs232_scr.o [1]
+  .text              ro code  0x00011d34     0x1e  rs485_scr.o [1]
+  .text              ro code  0x00011d52     0x1e  trend_scr.o [1]
+  .text              ro code  0x00011d70     0x1e  usbase.o [1]
+  .text              ro code  0x00011d8e     0x1e  usbase.o [1]
+  .text              ro code  0x00011dac     0x1e  usbase.o [1]
+  .text              ro code  0x00011dca     0x1e  usbase.o [1]
+  .text              ro code  0x00011de8     0x1e  usbase.o [1]
+  .text              ro code  0x00011e06     0x1e  usbase.o [1]
+  .text              ro code  0x00011e24     0x1e  usbase.o [1]
+  .text              ro code  0x00011e42     0x1e  usbase.o [1]
+  .text              ro code  0x00011e60     0x1e  usbase.o [1]
+  .text              ro code  0x00011e7e     0x1e  strcat.o [3]
+  .text              ro code  0x00011e9c     0x1e  dwrite.o [5]
+  .rodata            const    0x00011ebc     0x1c  bmps.o [1]
+  .rodata            const    0x00011ed8     0x1c  bmps.o [1]
+  .rodata            const    0x00011ef4     0x1c  bmps.o [1]
+  .rodata            const    0x00011f10     0x1c  processing.o [1]
+  .rodata            const    0x00011f2c     0x1c  processing.o [1]
+  .rodata            const    0x00011f48     0x1c  processing.o [1]
+  .rodata            const    0x00011f64     0x1c  usbase.o [1]
+  .text              ro code  0x00011f80     0x1c  FltCmpEq.o [4]
+  .text              ro code  0x00011f9c     0x1c  do_test.o [1]
+  .text              ro code  0x00011fb8     0x1c  usbase.o [1]
+  .text              ro code  0x00011fd4     0x1c  usbase.o [1]
+  .text              ro code  0x00011ff0     0x1c  usbase.o [1]
+  .text              ro code  0x0001200c     0x1c  usbase.o [1]
+  .text              ro code  0x00012028     0x1a  ai_test.o [1]
+  .text              ro code  0x00012042     0x1a  do_test.o [1]
+  .text              ro code  0x0001205c     0x1a  usbase.o [1]
+  .text              ro code  0x00012076     0x1a  usbase.o [1]
+  .text              ro code  0x00012090     0x1a  usbase.o [1]
+  .text              ro code  0x000120aa     0x1a  usbase.o [1]
+  .text              ro code  0x000120c4     0x1a  usbase.o [1]
+  .rodata            const    0x000120e0     0x18  ai_test.o [1]
+  .rodata            const    0x000120f8     0x18  ao_test.o [1]
+  .rodata            const    0x00012110     0x18  do_test.o [1]
+  .rodata            const    0x00012128     0x18  do_test.o [1]
+  .rodata            const    0x00012140     0x18  main.o [1]
+  .rodata            const    0x00012158     0x18  pwm_test.o [1]
+  .rodata            const    0x00012170     0x18  trend_scr.o [1]
+  .text              ro code  0x00012188     0x18  board.o [1]
+  .text              ro code  0x000121a0     0x18  processing.o [1]
+  .text              ro code  0x000121b8     0x18  processing.o [1]
+  .text              ro code  0x000121d0     0x18  processing.o [1]
+  .text              ro code  0x000121e8     0x18  screens.o [1]
+  .text              ro code  0x00012200     0x18  timers.o [1]
+  .text              ro code  0x00012218     0x18  timers.o [1]
+  .text              ro code  0x00012230     0x18  usbase.o [1]
+  .text              ro code  0x00012248     0x18  ao_test.o [1]
+  .text              ro code  0x00012260     0x18  usbase.o [1]
+  .text              ro code  0x00012278     0x18  usbase.o [1]
+  .text              ro code  0x00012290     0x18  usbase.o [1]
+  .text              ro code  0x000122a8     0x18  usbase.o [1]
+  .text              ro code  0x000122c0     0x18  usbase.o [1]
+  .text              ro code  0x000122d8     0x18  usbase.o [1]
+  .text              ro code  0x000122f0     0x18  usbase.o [1]
+  .text              ro code  0x00012308     0x18  usbase.o [1]
+  .text              ro code  0x00012320     0x18  usbase.o [1]
+  .text              ro code  0x00012338     0x16  cmain.o [4]
+  .text              ro code  0x00012350     0x16  strchr.o [4]
+  .text              ro code  0x00012366     0x16  ai_test.o [1]
+  .text              ro code  0x0001237c     0x16  lcd.o [1]
+  .text              ro code  0x00012392     0x16  main.o [1]
+  .text              ro code  0x000123a8     0x16  usbase.o [1]
+  .text              ro code  0x000123be     0x16  usbase.o [1]
+  .text              ro code  0x000123d4     0x16  usbase.o [1]
+  .rodata            const    0x000123ec     0x14  ethernet_scr.o [1]
+  .rodata            const    0x00012400     0x14  rs232_scr.o [1]
+  .rodata            const    0x00012414     0x14  rs485_scr.o [1]
+  .text              ro code  0x00012428     0x14  errno.o [3]
+  .text              ro code  0x0001243c     0x14  exit.o [5]
+  .text              ro code  0x00012450     0x14  usbase.o [1]
+  .text              ro code  0x00012464     0x14  usbase.o [1]
+  .text              ro code  0x00012478     0x14  usbase.o [1]
+  .text              ro code  0x0001248c     0x14  usbase.o [1]
+  .text              ro code  0x000124a0     0x14  usbase.o [1]
+  .text              ro code  0x000124b4     0x14  usbase.o [1]
+  .text              ro code  0x000124c8     0x12  usbase.o [1]
+  .text              ro code  0x000124da     0x12  usbase.o [1]
+  .text              ro code  0x000124ec     0x12  usbase.o [1]
+  .text              ro code  0x000124fe     0x12  usbase.o [1]
+  .text              ro code  0x00012510     0x12  usbase.o [1]
+  .text              ro code  0x00012522     0x12  usbase.o [1]
+  .text              ro code  0x00012534     0x12  usbase.o [1]
+  .text              ro code  0x00012546     0x12  usbase.o [1]
+  .text              ro code  0x00012558     0x12  usbase.o [1]
+  .text              ro code  0x0001256a     0x12  usbase.o [1]
+  .rodata            const    0x00012580     0x10  xstod.o [3]
+  .rodata            const    0x00012590     0x10  adc_fsm.o [1]
+  .rodata            const    0x000125a0     0x10  adc_fsm.o [1]
+  .rodata            const    0x000125b0     0x10  adc_fsm.o [1]
+  .rodata            const    0x000125c0     0x10  ao_test.o [1]
+  .rodata            const    0x000125d0     0x10  bmps.o [1]
+  .rodata            const    0x000125e0     0x10  bmps.o [1]
+  .rodata            const    0x000125f0     0x10  board.o [1]
+  .rodata            const    0x00012600     0x10  keyb.o [1]
+  .rodata            const    0x00012610     0x10  main.o [1]
+  .rodata            const    0x00012620     0x10  main.o [1]
+  .rodata            const    0x00012630     0x10  misc_scr.o [1]
+  .rodata            const    0x00012640     0x10  misc_scr.o [1]
+  .rodata            const    0x00012650     0x10  pass_scr.o [1]
+  .rodata            const    0x00012660     0x10  rs232_scr.o [1]
+  .rodata            const    0x00012670     0x10  rs485_scr.o [1]
+  .text              ro code  0x00012680     0x10  board.o [1]
+  .text              ro code  0x00012690     0x10  board.o [1]
+  .text              ro code  0x000126a0     0x10  board.o [1]
+  .text              ro code  0x000126b0     0x10  board.o [1]
+  .text              ro code  0x000126c0     0x10  board.o [1]
+  .text              ro code  0x000126d0     0x10  board.o [1]
+  .text              ro code  0x000126e0     0x10  board.o [1]
+  .text              ro code  0x000126f0     0x10  board.o [1]
+  .text              ro code  0x00012700     0x10  board.o [1]
+  .text              ro code  0x00012710     0x10  board.o [1]
+  .text              ro code  0x00012720     0x10  board.o [1]
+  .text              ro code  0x00012730     0x10  board.o [1]
+  .text              ro code  0x00012740     0x10  board.o [1]
+  .text              ro code  0x00012750     0x10  board.o [1]
+  .text              ro code  0x00012760     0x10  board.o [1]
+  .text              ro code  0x00012770     0x10  lcd.o [1]
+  .text              ro code  0x00012780     0x10  lcd_low_level.o [1]
+  .text              ro code  0x00012790     0x10  lcd_low_level.o [1]
+  .text              ro code  0x000127a0     0x10  lcd_low_level.o [1]
+  .text              ro code  0x000127b0     0x10  timers.o [1]
+  .text              ro code  0x000127c0     0x10  timers.o [1]
+  .text              ro code  0x000127d0     0x10  timers.o [1]
+  .text              ro code  0x000127e0     0x10  usbase.o [1]
+  .text              ro code  0x000127f0     0x10  usbase.o [1]
+  .text              ro code  0x00012800     0x10  usbase.o [1]
+  .text              ro code  0x00012810     0x10  usbase.o [1]
+  .text              ro code  0x00012820     0x10  usbase.o [1]
+  .text              ro code  0x00012830     0x10  usbase.o [1]
+  .text              ro code  0x00012840     0x10  usbase.o [1]
+  .text              ro code  0x00012850     0x10  usbase.o [1]
+  .text              ro code  0x00012860     0x10  usbase.o [1]
+  .text              ro code  0x00012870     0x10  usbase.o [1]
+  .text              ro code  0x00012880     0x10  usbase.o [1]
+  .text              ro code  0x00012890     0x10  usbase.o [1]
+  .text              ro code  0x000128a0     0x10  usbase.o [1]
+  .text              ro code  0x000128b0     0x10  write.o [5]
+  .text              ro code  0x000128c0      0xe  cexit.o [4]
+  .text              ro code  0x000128ce      0xe  ai_test.o [1]
+  .text              ro code  0x000128dc      0xe  ai_test.o [1]
+  .text              ro code  0x000128ea      0xe  ai_test.o [1]
+  .text              ro code  0x000128f8      0xe  ai_test.o [1]
+  .text              ro code  0x00012906      0xe  ai_test.o [1]
+  .text              ro code  0x00012914      0xe  ai_test.o [1]
+  .text              ro code  0x00012922      0xe  ai_test.o [1]
+  .text              ro code  0x00012930      0xe  ai_test.o [1]
+  .text              ro code  0x0001293e      0xe  ai_test.o [1]
+  .text              ro code  0x0001294c      0xe  ai_test.o [1]
+  .text              ro code  0x0001295a      0xe  editor_scr.o [1]
+  .text              ro code  0x00012968      0xe  editor_scr.o [1]
+  .text              ro code  0x00012976      0xe  ethernet_scr.o [1]
+  .text              ro code  0x00012984      0xe  ethernet_scr.o [1]
+  .text              ro code  0x00012992      0xe  lut_scr.o [1]
+  .text              ro code  0x000129a0      0xe  lut_scr.o [1]
+  .text              ro code  0x000129ae      0xe  main_scr.o [1]
+  .text              ro code  0x000129bc      0xe  main_scr.o [1]
+  .text              ro code  0x000129ca      0xe  menu_scr.o [1]
+  .text              ro code  0x000129d8      0xe  menu_scr.o [1]
+  .text              ro code  0x000129e6      0xe  msg_scr.o [1]
+  .text              ro code  0x000129f4      0xe  msg_scr.o [1]
+  .text              ro code  0x00012a02      0xe  param_scr.o [1]
+  .text              ro code  0x00012a10      0xe  param_scr.o [1]
+  .text              ro code  0x00012a1e      0xe  pass_scr.o [1]
+  .text              ro code  0x00012a2c      0xe  pass_scr.o [1]
+  .text              ro code  0x00012a3a      0xe  rs232_scr.o [1]
+  .text              ro code  0x00012a48      0xe  rs232_scr.o [1]
+  .text              ro code  0x00012a56      0xe  rs485_scr.o [1]
+  .text              ro code  0x00012a64      0xe  rs485_scr.o [1]
+  .text              ro code  0x00012a72      0xe  trend_scr.o [1]
+  .text              ro code  0x00012a80      0xe  trend_scr.o [1]
+  .text              ro code  0x00012a8e      0xe  usbase.o [1]
+  .text              ro code  0x00012a9c      0xe  usbase.o [1]
+  .text              ro code  0x00012aaa      0xe  usbase.o [1]
+  .text              ro code  0x00012ab8      0xe  usbase.o [1]
+  .text              ro code  0x00012ac6      0xe  usbase.o [1]
+  .text              ro code  0x00012ad4      0xe  usbase.o [1]
+  .text              ro code  0x00012ae2      0xe  usbase.o [1]
+  .text              ro code  0x00012af0      0xe  usbase.o [1]
+  .text              ro code  0x00012afe      0xe  usbase.o [1]
+  .text              ro code  0x00012b0c      0xe  usbase.o [1]
+  .text              ro code  0x00012b1a      0xe  usbase.o [1]
+  .text              ro code  0x00012b28      0xe  usbase.o [1]
+  .text              ro code  0x00012b36      0xe  usbase.o [1]
+  .text              ro code  0x00012b44      0xe  usbase.o [1]
+  .text              ro code  0x00012b52      0xe  usbase.o [1]
+  .text              ro code  0x00012b60      0xe  usbase.o [1]
+  .text              ro code  0x00012b6e      0xe  usbase.o [1]
+  .text              ro code  0x00012b7c      0xe  usbase.o [1]
+  .text              ro code  0x00012b8a      0xe  usbase.o [1]
+  .text              ro code  0x00012b98      0xe  usbase.o [1]
+  .text              ro code  0x00012ba6      0xe  usbase.o [1]
+  .text              ro code  0x00012bb4      0xe  usbase.o [1]
+  .text              ro code  0x00012bc2      0xe  usbase.o [1]
+  .text              ro code  0x00012bd0      0xe  usbase.o [1]
+  .text              ro code  0x00012bde      0xe  usbase.o [1]
+  .text              ro code  0x00012bec      0xe  usbase.o [1]
+  .text              ro code  0x00012bfa      0xe  usbase.o [1]
+  .text              ro code  0x00012c08      0xe  usbase.o [1]
+  .text              ro code  0x00012c16      0xe  usbase.o [1]
+  .text              ro code  0x00012c24      0xe  usbase.o [1]
+  .text              ro code  0x00012c32      0xe  div.o [3]
+  .rodata            const    0x00012c40      0xc  bmps.o [1]
+  .rodata            const    0x00012c4c      0xc  bmps.o [1]
+  .rodata            const    0x00012c58      0xc  bmps.o [1]
+  .rodata            const    0x00012c64      0xc  bmps.o [1]
+  .rodata            const    0x00012c70      0xc  bmps.o [1]
+  .rodata            const    0x00012c7c      0xc  editor_scr.o [1]
+  .rodata            const    0x00012c88      0xc  editor_scr.o [1]
+  .rodata            const    0x00012c94      0xc  editor_scr.o [1]
+  .rodata            const    0x00012ca0      0xc  main.o [1]
+  .rodata            const    0x00012cac      0xc  main_scr.o [1]
+  .rodata            const    0x00012cb8      0xc  misc_scr.o [1]
+  .rodata            const    0x00012cc4      0xc  misc_scr.o [1]
+  .rodata            const    0x00012cd0      0xc  misc_scr.o [1]
+  .rodata            const    0x00012cdc      0xc  misc_scr.o [1]
+  .rodata            const    0x00012ce8      0xc  misc_scr.o [1]
+  .rodata            const    0x00012cf4      0xc  pwm_test.o [1]
+  .rodata            const    0x00012d00      0xc  rs232_scr.o [1]
+  .rodata            const    0x00012d0c      0xc  rs232_scr.o [1]
+  .rodata            const    0x00012d18      0xc  rs485_scr.o [1]
+  .rodata            const    0x00012d24      0xc  rs485_scr.o [1]
+  .rodata            const    0x00012d30      0xc  rs485_scr.o [1]
+  .text              ro code  0x00012d3c      0xc  board.o [1]
+  .text              ro code  0x00012d48      0xc  board.o [1]
+  .text              ro code  0x00012d54      0xc  board.o [1]
+  .text              ro code  0x00012d60      0xc  board.o [1]
+  .text              ro code  0x00012d6c      0xc  board.o [1]
+  .text              ro code  0x00012d78      0xc  board.o [1]
+  .text              ro code  0x00012d84      0xc  board.o [1]
+  .text              ro code  0x00012d90      0xc  board.o [1]
+  .text              ro code  0x00012d9c      0xc  ao_test.o [1]
+  .text              ro code  0x00012da8      0xc  ao_test.o [1]
+  .text              ro code  0x00012db4      0xc  ao_test.o [1]
+  .text              ro code  0x00012dc0      0xc  ao_test.o [1]
+  .text              ro code  0x00012dcc      0xc  ao_test.o [1]
+  .text              ro code  0x00012dd8      0xc  main.o [1]
+  .text              ro code  0x00012de4      0xc  main.o [1]
+  .text              ro code  0x00012df0      0xc  processing.o [1]
+  .text              ro code  0x00012dfc      0xc  processing.o [1]
+  .text              ro code  0x00012e08      0xc  processing.o [1]
+  .text              ro code  0x00012e14      0xc  processing.o [1]
+  .text              ro code  0x00012e20      0xc  processing.o [1]
+  .text              ro code  0x00012e2c      0xc  usbase.o [1]
+  .text              ro code  0x00012e38      0xc  usbase.o [1]
+  .text              ro code  0x00012e44      0xc  usbase.o [1]
+  .text              ro code  0x00012e50      0xc  usbase.o [1]
+  .text              ro code  0x00012e5c      0xc  usbase.o [1]
+  .text              ro code  0x00012e68      0xc  usbase.o [1]
+  .text              ro code  0x00012e74      0xc  usbase.o [1]
+  .text              ro code  0x00012e80      0xc  usbase.o [1]
+  .text              ro code  0x00012e8c      0xc  usbase.o [1]
+  .text              ro code  0x00012e98      0xc  usbase.o [1]
+  .text              ro code  0x00012ea4      0xc  usbase.o [1]
+  .text              ro code  0x00012eb0      0xc  usbase.o [1]
+  .text              ro code  0x00012ebc      0xc  usbase.o [1]
+  .text              ro code  0x00012ec8      0xc  usbase.o [1]
+  .text              ro code  0x00012ed4      0xc  usbase.o [1]
+  .text              ro code  0x00012ee0      0xc  usbase.o [1]
+  .text              ro code  0x00012eec      0xc  usbase.o [1]
+  .text              ro code  0x00012ef8      0xc  usbase.o [1]
+  .text              ro code  0x00012f04      0xc  usbase.o [1]
+  .text              ro code  0x00012f10      0xc  usbase.o [1]
+  .text              ro code  0x00012f1c      0xc  usbase.o [1]
+  .text              ro code  0x00012f28      0xc  usbase.o [1]
+  .text              ro code  0x00012f34      0xc  usbase.o [1]
+  .text              ro code  0x00012f40      0xc  usbase.o [1]
+  .text              ro code  0x00012f4c      0xc  usbase.o [1]
+  .text              ro code  0x00012f58      0xc  usbase.o [1]
+  .text              ro code  0x00012f64      0xc  usbase.o [1]
+  .text              ro code  0x00012f70      0xc  usbase.o [1]
+  .text              ro code  0x00012f7c      0xc  usbase.o [1]
+  .text              ro code  0x00012f88      0xc  cstartup_M.o [4]
+  .text              ro code  0x00012f94      0xa  lcd_low_level.o [1]
+  .text              ro code  0x00012f9e      0xa  lcd_low_level.o [1]
+  .text              ro code  0x00012fa8      0xa  lcd_low_level.o [1]
+  .text              ro code  0x00012fb2      0xa  lcd_low_level.o [1]
+  .text              ro code  0x00012fbc      0xa  lcd_low_level.o [1]
+  .text              ro code  0x00012fc6      0xa  lcd_low_level.o [1]
+  .text              ro code  0x00012fd0      0xa  usbase.o [1]
+  .text              ro code  0x00012fda      0xa  usbase.o [1]
+  .text              ro code  0x00012fe4      0xa  delop_0.o [3]
+  .text              ro code  0x00012fee      0xa  xsprout.o [3]
+  .rodata            const    0x00012ff8      0x8  ai_test.o [1]
+  .rodata            const    0x00013000      0x8  ai_test.o [1]
+  .rodata            const    0x00013008      0x8  ai_test.o [1]
+  .rodata            const    0x00013010      0x8  ai_test.o [1]
+  .rodata            const    0x00013018      0x8  ai_test.o [1]
+  .rodata            const    0x00013020      0x8  ai_test.o [1]
+  .rodata            const    0x00013028      0x8  ai_test.o [1]
+  .rodata            const    0x00013030      0x8  ai_test.o [1]
+  .rodata            const    0x00013038      0x8  bmps.o [1]
+  .rodata            const    0x00013040      0x8  checkbox.o [1]
+  .rodata            const    0x00013048      0x8  checkbox.o [1]
+  .rodata            const    0x00013050      0x8  do_test.o [1]
+  .rodata            const    0x00013058      0x8  do_test.o [1]
+  .rodata            const    0x00013060      0x8  do_test.o [1]
+  .rodata            const    0x00013068      0x8  do_test.o [1]
+  .rodata            const    0x00013070      0x8  do_test.o [1]
+  .rodata            const    0x00013078      0x8  do_test.o [1]
+  .rodata            const    0x00013080      0x8  editor_scr.o [1]
+  .rodata            const    0x00013088      0x8  editor_scr.o [1]
+  .rodata            const    0x00013090      0x8  editor_scr.o [1]
+  .rodata            const    0x00013098      0x8  ethernet_scr.o [1]
+  .rodata            const    0x000130a0      0x8  ethernet_scr.o [1]
+  .rodata            const    0x000130a8      0x8  ethernet_scr.o [1]
+  .rodata            const    0x000130b0      0x8  main.o [1]
+  .rodata            const    0x000130b8      0x8  main_scr.o [1]
+  .rodata            const    0x000130c0      0x8  main_scr.o [1]
+  .rodata            const    0x000130c8      0x8  main_scr.o [1]
+  .rodata            const    0x000130d0      0x8  main_scr.o [1]
+  .rodata            const    0x000130d8      0x8  main_scr.o [1]
+  .rodata            const    0x000130e0      0x8  main_scr.o [1]
+  .rodata            const    0x000130e8      0x8  main_scr.o [1]
+  .rodata            const    0x000130f0      0x8  main_scr.o [1]
+  .rodata            const    0x000130f8      0x8  misc_scr.o [1]
+  .rodata            const    0x00013100      0x8  msg_scr.o [1]
+  .rodata            const    0x00013108      0x8  pass_scr.o [1]
+  .rodata            const    0x00013110      0x8  pwm_test.o [1]
+  .rodata            const    0x00013118      0x8  pwm_test.o [1]
+  .rodata            const    0x00013120      0x8  pwm_test.o [1]
+  .rodata            const    0x00013128      0x8  relay_control.o [1]
+  .rodata            const    0x00013130      0x8  rs232_scr.o [1]
+  .rodata            const    0x00013138      0x8  rs485_scr.o [1]
+  .rodata            const    0x00013140      0x8  trend_scr.o [1]
+  .rodata            const    0x00013148      0x8  usbase.o [1]
+  .rodata            const    0x00013150      0x8  variables.o [1]
+  .rodata            const    0x00013158      0x8  variables.o [1]
+  .rodata            const    0x00013160      0x8  xprintffull.o [3]
+  .text              ro code  0x00013168      0x8  XShttio.o [3]
+  .text              ro code  0x00013170      0x8  ai_test.o [1]
+  .text              ro code  0x00013178      0x8  abort.o [3]
+  .text              ro code  0x00013180      0x6  usbase.o [1]
+  .text              ro code  0x00013186      0x6  usbase.o [1]
+  .text              ro code  0x0001318c      0x6  usbase.o [1]
+  .text              ro code  0x00013192      0x6  usbase.o [1]
+  .text              ro code  0x00013198      0x6  usbase.o [1]
+  .text              ro code  0x0001319e      0x6  usbase.o [1]
+  .text              ro code  0x000131a4      0x6  xpurevirtual.o [3]
+  .text              ro code  0x000131aa      0x6  exit.o [3]
+  .rodata            const    0x000131b0      0x4  adc_fsm.o [1]
+  .rodata            const    0x000131b4      0x4  adc_fsm.o [1]
+  .rodata            const    0x000131b8      0x4  adc_fsm.o [1]
+  .rodata            const    0x000131bc      0x4  processing.o [1]
+  .rodata            const    0x000131c0      0x4  timers.o [1]
+  .rodata            const    0x000131c4      0x4  timers.o [1]
+  .rodata            const    0x000131c8      0x4  iarttio.o [5]
+  .text              ro code  0x000131cc      0x2  I64DivZer.o [4]
+  .text              ro code  0x000131ce      0x4  ai_test.o [1]
+  .text              ro code  0x000131d2      0x4  ai_test.o [1]
+  .text              ro code  0x000131d6      0x4  editor_scr.o [1]
+  .text              ro code  0x000131da      0x4  processing.o [1]
+  .text              ro code  0x000131de      0x4  processing.o [1]
+  .text              ro code  0x000131e2      0x4  processing.o [1]
+  .text              ro code  0x000131e6      0x4  processing.o [1]
+  .text              ro code  0x000131ea      0x4  processing.o [1]
+  .text              ro code  0x000131ee      0x4  processing.o [1]
+  .text              ro code  0x000131f2      0x4  usbase.o [1]
+  .text              ro code  0x000131f6      0x4  usbase.o [1]
+  .text              ro code  0x000131fa      0x4  usbase.o [1]
+  .text              ro code  0x000131fe      0x4  usbase.o [1]
+  .text              ro code  0x00013202      0x4  usbase.o [1]
+  .text              ro code  0x00013206      0x4  usbase.o [1]
+  .text              ro code  0x0001320a      0x4  usbase.o [1]
+  .text              ro code  0x0001320e      0x4  usbase.o [1]
+  .text              ro code  0x00013212      0x4  usbase.o [1]
+  .text              ro code  0x00013216      0x4  usbase.o [1]
+  .text              ro code  0x0001321a      0x4  usbase.o [1]
+  .text              ro code  0x0001321e      0x4  usbase.o [1]
+  .text              ro code  0x00013222      0x4  usbase.o [1]
+  .text              ro code  0x00013226      0x4  usbase.o [1]
+  .text              ro code  0x0001322a      0x4  delaop_0.o [3]
+  .text              ro code  0x0001322e      0x4  newaop_0.o [3]
+  .text              ro code  0x00013232      0x4  low_level_init.o [3]
+  .text              ro code  0x00013236      0x2  ai_test.o [1]
+  .text              ro code  0x00013238      0x2  ai_test.o [1]
+  .text              ro code  0x0001323a      0x2  ai_test.o [1]
+  .text              ro code  0x0001323c      0x2  ai_test.o [1]
+  .text              ro code  0x0001323e      0x2  ai_test.o [1]
+  .text              ro code  0x00013240      0x2  ao_test.o [1]
+  .text              ro code  0x00013242      0x2  cstartup_M.o [1]
+  .text              ro code  0x00013244      0x2  processing.o [1]
+  .text              ro code  0x00013246      0x2  usbase.o [1]
+  .text              ro code  0x00013248      0x2  usbase.o [1]
+  .text              ro code  0x0001324a      0x2  usbase.o [1]
+  .text              ro code  0x0001324c      0x2  usbase.o [1]
+  .text              ro code  0x0001324e      0x2  usbase.o [1]
+  .text              ro code  0x00013250      0x2  usbase.o [1]
+  .text              ro code  0x00013252      0x2  usbase.o [1]
+  .text              ro code  0x00013254      0x2  usbase.o [1]
+  Initializer bytes  ro data  0x00013258     0x8c  <for P2 s0>
+                            - 0x000132e4  0x131e4
+
+"P2", part 1 of 3:                         0x25f8
+  HEAP                        0x10000000   0x2000  <Block>
+    HEAP             uninit   0x10000000   0x2000  <Block tail>
+  CSTACK                      0x10002000    0x400  <Block>
+    CSTACK           uninit   0x10002000    0x400  <Block tail>
+  .iar.dynexit                0x10002400    0x1f8  <Block>
+    .iar.dynexit     uninit   0x10002400      0xc  cppinit.o [3]
+    .iar.dynexit     uninit   0x1000240c    0x1ec  <Block tail>
+                            - 0x100025f8   0x25f8
+
+"P2", part 2 of 3:                           0x8c
+  P2 s0                       0x100025f8     0x8c  <Init block>
+    .data            inited   0x100025f8     0x34  bmps.o [1]
+    .data            inited   0x1000262c     0x20  led_control.o [1]
+    .data            inited   0x1000264c     0x14  LPC_Uart.o [1]
+    .data            inited   0x10002660      0x8  usbase.o [1]
+    .data            inited   0x10002668      0x8  usbase.o [1]
+    .data            inited   0x10002670      0x8  usbase.o [1]
+    .data            inited   0x10002678      0x8  XShttio.o [3]
+    .data            inited   0x10002680      0x4  main.o [1]
+                            - 0x10002684     0x8c
+
+"P2", part 3 of 3:                         0x2208
+  .bss               zero     0x10002684    0x500  messages.o [1]
+  .bss               zero     0x10002b84    0x408  modbus.o [1]
+  .bss               zero     0x10002f8c    0x400  LPC_Uart.o [1]
+  .bss               zero     0x1000338c    0x400  LPC_Uart.o [1]
+  .bss               zero     0x1000378c    0x400  LPC_Uart.o [1]
+  .bss               zero     0x10003b8c    0x400  LPC_Uart.o [1]
+  .bss               zero     0x10003f8c    0x400  lcd.o [1]
+  .bss               zero     0x1000438c    0x38c  variables.o [1]
+  .bss               zero     0x10004718     0x40  timers.o [1]
+  .bss               zero     0x10004758     0x14  xsyslock.o [3]
+  .bss               zero     0x1000476c     0x10  adc_fsm.o [1]
+  .bss               zero     0x1000477c     0x10  adc_fsm.o [1]
+  .bss               zero     0x1000478c     0x10  adc_fsm.o [1]
+  .bss               zero     0x1000479c     0x10  disconnect.o [1]
+  .bss               zero     0x100047ac     0x10  disconnect.o [1]
+  .bss               zero     0x100047bc     0x10  disconnect.o [1]
+  .bss               zero     0x100047cc     0x10  lcd.o [1]
+  .bss               zero     0x100047dc      0x8  led_control.o [1]
+  .bss               zero     0x100047e4      0x8  xxmemxmalloc.o [3]
+  .bss               zero     0x100047ec      0x8  errno.o [3]
+  .bss               zero     0x100047f4      0x4  LPC_Uart.o [1]
+  .bss               zero     0x100047f8      0x4  LPC_Uart.o [1]
+  .bss               zero     0x100047fc      0x4  LPC_Uart.o [1]
+  .bss               zero     0x10004800      0x4  LPC_Uart.o [1]
+  .bss               zero     0x10004804      0x4  LPC_Uart.o [1]
+  .bss               zero     0x10004808      0x4  LPC_Uart.o [1]
+  .bss               zero     0x1000480c      0x4  LPC_Uart.o [1]
+  .bss               zero     0x10004810      0x4  LPC_Uart.o [1]
+  .bss               zero     0x10004814      0x4  LPC_Uart.o [1]
+  .bss               zero     0x10004818      0x4  LPC_Uart.o [1]
+  .bss               zero     0x1000481c      0x4  adc_fsm.o [1]
+  .bss               zero     0x10004820      0x4  board.o [1]
+  .bss               zero     0x10004824      0x4  disconnect.o [1]
+  .bss               zero     0x10004828      0x4  disconnect.o [1]
+  .bss               zero     0x1000482c      0x4  lcd_control.o [1]
+  .bss               zero     0x10004830      0x4  led_control.o [1]
+  .bss               zero     0x10004834      0x4  pass_controller.o [1]
+  .bss               zero     0x10004838      0x4  processing.o [1]
+  .bss               zero     0x1000483c      0x4  timers.o [1]
+  .bss               zero     0x10004840      0x4  timers.o [1]
+  .bss               zero     0x10004844      0x4  timers.o [1]
+  .bss               zero     0x10004848      0x4  usbase.o [1]
+  .bss               zero     0x1000484c      0x4  usbase.o [1]
+  .bss               zero     0x10004850      0x4  new.o [3]
+  .bss               zero     0x10004854      0x4  xgetmemchunk.o [3]
+  .bss               zero     0x10004858      0x4  cppinit.o [3]
+  .bss               zero     0x1000485c      0x4  MtxWrapper.o [3]
+  .bss               zero     0x10004860      0x4  MtxWrapper.o [3]
+  .bss               zero     0x10004864      0x4  MtxWrapper.o [3]
+  .bss               zero     0x10004868      0x4  MtxWrapper.o [3]
+  .bss               zero     0x1000486c      0x1  LPC_Uart.o [1]
+  .bss               zero     0x1000486d      0x1  LPC_Uart.o [1]
+  .bss               zero     0x1000486e      0x1  LPC_Uart.o [1]
+  .bss               zero     0x1000486f      0x1  LPC_Uart.o [1]
+  .bss               zero     0x10004870      0x1  font.o [1]
+  .bss               zero     0x10004871      0x1  keyb.o [1]
+  .bss               zero     0x10004872      0x1  keyb.o [1]
+  .bss               zero     0x10004873      0x1  keyb.o [1]
+  .bss               zero     0x10004874      0x1  keyb.o [1]
+  .bss               zero     0x10004875      0x1  keyb.o [1]
+  .bss               zero     0x10004876      0x1  keyb.o [1]
+  .bss               zero     0x10004877      0x1  keyb.o [1]
+  .bss               zero     0x10004878      0x1  keyb.o [1]
+  .bss               zero     0x10004879      0x1  keyb.o [1]
+  .bss               zero     0x1000487a      0x1  keyb.o [1]
+  .bss               zero     0x1000487b      0x1  keyb.o [1]
+  .bss               zero     0x1000487c      0x1  keyb.o [1]
+  .bss               zero     0x1000487d      0x1  lcd.o [1]
+  .bss               zero     0x1000487e      0x1  lcd_control.o [1]
+  .bss               zero     0x1000487f      0x1  led_control.o [1]
+  .bss               zero     0x10004880      0x1  main_scr.o [1]
+  .bss               zero     0x10004881      0x1  modbus.o [1]
+  .bss               zero     0x10004882      0x1  pass_controller.o [1]
+  .bss               zero     0x10004883      0x1  power_control.o [1]
+  .bss               zero     0x10004884      0x1  power_control.o [1]
+  .bss               zero     0x10004885      0x1  timers.o [1]
+  .bss               zero     0x10004886      0x1  timers.o [1]
+  .bss               zero     0x10004887      0x1  timers.o [1]
+  .bss               zero     0x10004888      0x1  timers.o [1]
+                            - 0x10004889   0x2205
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x2205:
+          0x10002684  0x2205
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x8c (100% of destination):
+          0x00013258    0x8c
+    1 destination range, total size 0x8c:
+          0x100025f8    0x8c
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module             ro code  ro data  rw data
+    ------             -------  -------  -------
+C:\Users\V\Desktop\G_proj\1768\Flash Debug\Obj: [1]
+    LPC_Uart.o             960       20    4 160
+    adc_fsm.o              948       60       52
+    ai_test.o            1 570      256
+    ao_test.o            1 190      128
+    bmps.o                  40      428       52
+    board.o              3 424       16        4
+    checkbox.o             172       16
+    cstartup_M.o           198
+    disconnect.o           576                56
+    do_test.o              938      184
+    editor_scr.o         1 020      148
+    ethernet_scr.o         746      180
+    font.o                 280    1 228        1
+    irq.o                  172       92
+    keyb.o               1 048      104       12
+    lcd.o                2 088             1 041
+    lcd_control.o          192                 5
+    lcd_low_level.o        472
+    led_control.o          296       64       45
+    lut_scr.o              942       88
+    main.o               5 994       80        4
+    main_scr.o           1 970      164        1
+    menu_scr.o             630      868
+    messages.o             184             1 280
+    misc_scr.o           1 062      188
+    modbus.o               856      512    1 033
+    msg_scr.o              470       96
+    param_scr.o            826       88
+    pass_controller.o      196                 5
+    pass_scr.o             606      112
+    power_control.o        108                 2
+    processing.o         3 198       88        4
+    pwm_test.o             848      148
+    relay_control.o         40        8
+    rs232_scr.o            778      156
+    rs485_scr.o            898      168
+    screens.o               24    1 760
+    timers.o               588        8       80
+    trend_scr.o          1 040      120
+    usbase.o             7 404      400       32
+    variables.o          1 192   11 820      908
+    --------------------------------------------
+    Total:              46 184   19 796    8 777
+
+command line: [2]
+    --------------------------------------------
+    Total:
+
+dl7M_tl_in.a: [3]
+    MtxWrapper.o            72                16
+    XShttio.o                8        8        8
+    abort.o                  8
+    cppinit.o              112                16
+    delaop_0.o               4
+    delop_0.o               10
+    div.o                   14
+    errno.o                 20                 8
+    exit.o                   6
+    expf.o                 104
+    low_level_init.o         4
+    new.o                                      4
+    newaop_0.o               4
+    newop_0.o               36
+    putchar.o               40
+    sprintf.o               48
+    strcat.o                30
+    string.o               502
+    strtol.o               120
+    xassert.o               72
+    xdnorm.o               198
+    xdscale.o              264
+    xdtento.o              452       72
+    xfdnorm.o              130
+    xfdscale.o             192
+    xfexp.o                352
+    xgetmemchunk.o          40                 4
+    xprintffull.o        3 266        8
+    xpurevirtual.o           6
+    xreportassert.o        116       48
+    xsprout.o               10
+    xstod.o                188       16
+    xstoflt.o              432       32
+    xstopfx.o              246
+    xstoul.o               280       80
+    xsyslock.o             136                20
+    xxmemxfree.o           136
+    xxmemxmalloc.o         188                 8
+    --------------------------------------------
+    Total:               7 846      264       84
+
+rt7M_tl.a: [4]
+    ABImemcpy.o            112
+    ABImemmove.o           120
+    DblAdd.o               230
+    DblCmpEq.o              32
+    DblCmpGe.o              46
+    DblCmpLe.o              46
+    DblDiv.o               582
+    DblMul.o               418
+    DblSub.o               382
+    DblToFlt.o             144
+    DblToI32.o              86
+    FltAdd.o               140
+    FltCmpEq.o              28
+    FltCmpGe.o              36
+    FltCmpLe.o              36
+    FltDiv.o               252
+    FltMul.o               216
+    FltSub.o               228
+    FltToDbl.o              78
+    FltToS32.o              68
+    I32ToDbl.o              46
+    I32ToFlt.o              48
+    I64DivMod.o            302
+    I64DivZer.o              2
+    cexit.o                 14
+    cmain.o                 22
+    copy_init3.o            48
+    cstartup_M.o            12
+    data_init3.o            44
+    memchr.o                88
+    strchr.o                22
+    strcpy.o                68
+    strlen.o                54
+    zero_init3.o            36
+    --------------------------------------------
+    Total:               4 086
+
+shb_l.a: [5]
+    dwrite.o                30
+    exit.o                  20
+    iarttio.o              104        4
+    iarwrite.o              34
+    iarwstd.o               32
+    write.o                 16
+    --------------------------------------------
+    Total:                 236        4
+
+    Gaps                    28       22
+    Linker created                   38    9 708
+------------------------------------------------
+    Grand Total:        58 380   20 124   18 569
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address    Size  Type      Object
+-----                      -------    ----  ----      ------
+.iar.dynexit$$Base      0x10002400           --   Gb  - Linker created -
+.iar.dynexit$$Limit     0x100025f8           --   Gb  - Linker created -
+ADC_IRQHandler          0x00013243          Code  Wk  cstartup_M.o [1]
+AdcClkClr               0x000078af     0xe  Code  Gb  board.o [1]
+AdcClkSet               0x000078bd     0xe  Code  Gb  board.o [1]
+AdcInitPio              0x000078df    0x36  Code  Gb  board.o [1]
+AdcKeyClr               0x00012741    0x10  Code  Gb  board.o [1]
+AdcKeySet               0x000127b1    0x10  Code  Gb  timers.o [1]
+AdcMosiClr              0x000078cb     0xa  Code  Gb  board.o [1]
+AdcMosiSet              0x000078d5     0xa  Code  Gb  board.o [1]
+AiTestScreen::ActiveLoop()
+                        0x0000abbd    0x54  Code  Gb  ai_test.o [1]
+AiTestScreen::AiTestScreen()
+                        0x0000a8a9     0xc  Code  Gb  ai_test.o [1]
+AiTestScreen::AiTestScreen() [internal]
+                        0x0000a8b5    0x1e  Code  Gb  ai_test.o [1]
+AiTestScreen::Paint()   0x0000a985   0x206  Code  Gb  ai_test.o [1]
+AiTestScreen::PlaceControls()
+                        0x0000a8d3    0xb2  Code  Gb  ai_test.o [1]
+AiTestScreen::~AiTestScreen()
+                        0x0001294d     0xe  Code  Gb  ai_test.o [1]
+AiTestScreen::~AiTestScreen() [deleting]
+                        0x0001293f     0xe  Code  Gb  ai_test.o [1]
+AiTestScreen::~AiTestScreen() [internal]
+                        0x00011c09    0x1e  Code  Gb  ai_test.o [1]
+AoTestScreen::Activated(unsigned long *)
+                        0x0000c64b    0x18  Code  Gb  ao_test.o [1]
+AoTestScreen::ActiveLoop()
+                        0x0000c8bd     0xc  Code  Gb  ao_test.o [1]
+AoTestScreen::AoTestScreen()
+                        0x0000c605     0xc  Code  Gb  ao_test.o [1]
+AoTestScreen::AoTestScreen() [internal]
+                        0x0000c62d    0x1e  Code  Gb  ao_test.o [1]
+AoTestScreen::DrawTableLine(int, char)
+                        0x0000c779    0x62  Code  Gb  ao_test.o [1]
+AoTestScreen::Paint()   0x0000c823    0x9a  Code  Gb  ao_test.o [1]
+AoTestScreen::PlaceControls()
+                        0x0000c663   0x116  Code  Gb  ao_test.o [1]
+AoTestScreen::UpdateButtonValues()
+                        0x0000c7db    0x48  Code  Gb  ao_test.o [1]
+AoTestScreen::~AoTestScreen()
+                        0x0000c61f     0xe  Code  Gb  ao_test.o [1]
+AoTestScreen::~AoTestScreen() [deleting]
+                        0x0000c611     0xe  Code  Gb  ao_test.o [1]
+AoTestScreen::~AoTestScreen() [internal]
+                        0x0000c8c9    0x2a  Code  Gb  ao_test.o [1]
+BOD_IRQHandler          0x00013243          Code  Wk  cstartup_M.o [1]
+BoardInit               0x000073cd    0x16  Code  Gb  board.o [1]
+BusFault_Handler        0x00013243          Code  Wk  cstartup_M.o [1]
+CAN_IRQHandler          0x00013243          Code  Wk  cstartup_M.o [1]
+CRC16                   0x0000ac11    0x3e  Code  Gb  modbus.o [1]
+CSTACK$$Base            0x10002000           --   Gb  - Linker created -
+CSTACK$$Limit           0x10002400           --   Gb  - Linker created -
+ChannelHN::ChannelHN()  0x00012e21     0xc  Code  Gb  processing.o [1]
+ChannelHN::ChannelHN() [internal]
+                        0x000121d1    0x18  Code  Gb  processing.o [1]
+ChannelHN::Init()       0x00006a67    0x12  Code  Gb  processing.o [1]
+ChannelHN::LoadVariables()
+                        0x00006bd7    0xf2  Code  Gb  processing.o [1]
+ChannelHN::Process()    0x00006ad7   0x100  Code  Gb  processing.o [1]
+ChannelHN::RefreshVariables()
+                        0x00006a79    0x5e  Code  Gb  processing.o [1]
+ChannelHN::SaveResults()
+                        0x00006cc9    0x28  Code  Gb  processing.o [1]
+ChannelHN::SetEE(float)
+                        0x000131ef     0x4  Code  Gb  processing.o [1]
+ChannelO2::ChannelO2()  0x00012e15     0xc  Code  Gb  processing.o [1]
+ChannelO2::ChannelO2() [internal]
+                        0x000121b9    0x18  Code  Gb  processing.o [1]
+ChannelO2::GetEE()      0x000131eb     0x4  Code  Gb  processing.o [1]
+ChannelO2::Init()       0x0000692f     0xe  Code  Gb  processing.o [1]
+ChannelO2::LoadVariables()
+                        0x000067d3    0xec  Code  Gb  processing.o [1]
+ChannelO2::Process()    0x0000693d   0x12a  Code  Gb  processing.o [1]
+ChannelO2::RefreshVariables()
+                        0x000068e7    0x48  Code  Gb  processing.o [1]
+ChannelO2::SaveResults()
+                        0x000068bf    0x28  Code  Gb  processing.o [1]
+ChannelO2::SetCelFT(float)
+                        0x000131e7     0x4  Code  Gb  processing.o [1]
+ChannelProcessor::ChannelProcessor() [internal]
+                        0x00013245     0x2  Code  Gb  processing.o [1]
+ChannelProcessor::ChannelProcessor() [subobject]
+                        0x00012dfd     0xc  Code  Gb  processing.o [1]
+ChannelProcessor::SetGeneralFault(char)
+                        0x000131db     0x4  Code  Gb  processing.o [1]
+ChannelProcessor::SetSide(char)
+                        0x00011a1d    0x24  Code  Gb  processing.o [1]
+ChannelProcessor::SetTempFault(char)
+                        0x000131df     0x4  Code  Gb  processing.o [1]
+ChannelTemp::ChannelTemp()
+                        0x00012e09     0xc  Code  Gb  processing.o [1]
+ChannelTemp::ChannelTemp() [internal]
+                        0x000121a1    0x18  Code  Gb  processing.o [1]
+ChannelTemp::GetCelFT()
+                        0x000131e3     0x4  Code  Gb  processing.o [1]
+ChannelTemp::Init()     0x000064a9    0x28  Code  Gb  processing.o [1]
+ChannelTemp::LoadVariables()
+                        0x000064d1    0xb6  Code  Gb  processing.o [1]
+ChannelTemp::Process()  0x000065bd   0x1b8  Code  Gb  processing.o [1]
+ChannelTemp::RefreshVariables()
+                        0x00006587    0x36  Code  Gb  processing.o [1]
+ChannelTemp::SaveResults()
+                        0x00006775    0x5e  Code  Gb  processing.o [1]
+Clapp(T_CLAPP *, float)
+                        0x000063e1    0xc8  Code  Gb  processing.o [1]
+ClrSysBit               0x0000ec67    0x10  Code  Gb  led_control.o [1]
+DacInitPio              0x000077e7    0x26  Code  Gb  board.o [1]
+DacSclkClr              0x00012721    0x10  Code  Gb  board.o [1]
+DacSclkSet              0x00012731    0x10  Code  Gb  board.o [1]
+DacSyncClr              0x00012701    0x10  Code  Gb  board.o [1]
+DacSyncSet              0x00012711    0x10  Code  Gb  board.o [1]
+DataUnlock              0x0000ac4f     0x8  Code  Gb  modbus.o [1]
+DebugMon_Handler        0x00013243          Code  Wk  cstartup_M.o [1]
+Delay                   0x00007541     0xa  Code  Gb  board.o [1]
+DinClr                  0x00011269    0x38  Code  Gb  board.o [1]
+DinSet                  0x000112a1    0x38  Code  Gb  board.o [1]
+DoTestScreen::Activated(unsigned long *)
+                        0x0000c28b    0x18  Code  Gb  do_test.o [1]
+DoTestScreen::ActiveLoop()
+                        0x0000c27f     0xc  Code  Gb  do_test.o [1]
+DoTestScreen::DoTestScreen()
+                        0x0000bfcd     0xc  Code  Gb  do_test.o [1]
+DoTestScreen::DoTestScreen() [internal]
+                        0x0000bff5    0x1e  Code  Gb  do_test.o [1]
+DoTestScreen::Paint()   0x0000c16d   0x112  Code  Gb  do_test.o [1]
+DoTestScreen::PlaceControls()
+                        0x0000c031   0x13c  Code  Gb  do_test.o [1]
+DoTestScreen::getTag(char)
+                        0x0000c013    0x1e  Code  Gb  do_test.o [1]
+DoTestScreen::~DoTestScreen()
+                        0x0000bfe7     0xe  Code  Gb  do_test.o [1]
+DoTestScreen::~DoTestScreen() [deleting]
+                        0x0000bfd9     0xe  Code  Gb  do_test.o [1]
+DoTestScreen::~DoTestScreen() [internal]
+                        0x0000c2a3    0x2a  Code  Gb  do_test.o [1]
+DrawCheckBox            0x0000fa8d    0xac  Code  Gb  checkbox.o [1]
+DtorRecArray            0x10002400     0xc  Data  Lc  cppinit.o [3]
+EINT0_IRQHandler        0x00013243          Code  Wk  cstartup_M.o [1]
+EINT1_IRQHandler        0x00013243          Code  Wk  cstartup_M.o [1]
+EINT2_IRQHandler        0x00013243          Code  Wk  cstartup_M.o [1]
+EINT3_IRQHandler        0x00013243          Code  Wk  cstartup_M.o [1]
+EditAllowed             0x0000f619    0x26  Code  Gb  pass_controller.o [1]
+EditorScreen::Activated(unsigned long *)
+                        0x0000bdab    0x3c  Code  Gb  editor_scr.o [1]
+EditorScreen::ActiveLoop()
+                        0x0000bde7    0xf6  Code  Gb  editor_scr.o [1]
+EditorScreen::EditorScreen(unsigned long)
+                        0x0000bc99     0xc  Code  Gb  editor_scr.o [1]
+EditorScreen::EditorScreen(unsigned long) [internal]
+                        0x0000bca5    0x26  Code  Gb  editor_scr.o [1]
+EditorScreen::Paint()   0x0000bedd    0xce  Code  Gb  editor_scr.o [1]
+EditorScreen::PlaceControls()
+                        0x0000bccb    0xe0  Code  Gb  editor_scr.o [1]
+EditorScreen::~EditorScreen()
+                        0x00012969     0xe  Code  Gb  editor_scr.o [1]
+EditorScreen::~EditorScreen() [deleting]
+                        0x0001295b     0xe  Code  Gb  editor_scr.o [1]
+EditorScreen::~EditorScreen() [internal]
+                        0x00011c27    0x1e  Code  Gb  editor_scr.o [1]
+EthernetScreen::ActiveLoop()
+                        0x0000d17d     0xc  Code  Gb  ethernet_scr.o [1]
+EthernetScreen::EthernetScreen()
+                        0x0000ced9     0xc  Code  Gb  ethernet_scr.o [1]
+EthernetScreen::EthernetScreen() [internal]
+                        0x0000cee5    0x1e  Code  Gb  ethernet_scr.o [1]
+EthernetScreen::Paint()
+                        0x0000d06b    0xf2  Code  Gb  ethernet_scr.o [1]
+EthernetScreen::PlaceControls()
+                        0x0000cf23   0x148  Code  Gb  ethernet_scr.o [1]
+EthernetScreen::~EthernetScreen()
+                        0x00012985     0xe  Code  Gb  ethernet_scr.o [1]
+EthernetScreen::~EthernetScreen() [deleting]
+                        0x00012977     0xe  Code  Gb  ethernet_scr.o [1]
+EthernetScreen::~EthernetScreen() [internal]
+                        0x00011c45    0x1e  Code  Gb  ethernet_scr.o [1]
+Ethernet_IRQHandler     0x00013243          Code  Wk  cstartup_M.o [1]
+FillUart0TransmitBuffer
+                        0x0000b621    0x68  Code  Gb  LPC_Uart.o [1]
+FillUart1TransmitBuffer
+                        0x0000b811    0x4e  Code  Gb  LPC_Uart.o [1]
+FlashCfg                0x00007229     0xc  Code  Gb  board.o [1]
+FlashInit               0x00007341     0xc  Code  Gb  board.o [1]
+GPDMA_IRQHandler        0x00013243          Code  Wk  cstartup_M.o [1]
+GetAdcMiso              0x0001032d    0x64  Code  Gb  adc_fsm.o [1]
+GetAdcValue             0x00007955    0x48  Code  Gb  board.o [1]
+GetBmp                  0x00011805     0xa  Code  Gb  bmps.o [1]
+GetBmpHeight            0x00011817     0x8  Code  Gb  bmps.o [1]
+GetBmpWidth             0x0001180f     0x8  Code  Gb  bmps.o [1]
+GetCharWidth            0x0000fc03    0x24  Code  Gb  font.o [1]
+GetDataByModbusAddr     0x0000946b    0x80  Code  Gb  variables.o [1]
+GetDeviceAddr           0x0000ac57     0x4  Code  Gb  modbus.o [1]
+GetFloatValueByTag      0x0000921f     0xa  Code  Gb  variables.o [1]
+GetFontData             0x0000fc27    0x44  Code  Gb  font.o [1]
+GetFontHeight           0x0000fbeb    0x18  Code  Gb  font.o [1]
+GetHeater0State         0x0000ddd5     0x6  Code  Gb  timers.o [1]
+GetHeater1State         0x0000dddb     0x6  Code  Gb  timers.o [1]
+GetIntValueByTag        0x00009215     0xa  Code  Gb  variables.o [1]
+GetKbdBus               0x0000754b    0x8a  Code  Gb  board.o [1]
+GetMessage              0x0000fa49     0xe  Code  Gb  messages.o [1]
+GetNameByTag            0x00009229     0xe  Code  Gb  variables.o [1]
+GetParamMessage         0x0000fa15    0x34  Code  Gb  messages.o [1]
+GetPasswordEntered      0x0000f63f    0x20  Code  Gb  pass_controller.o [1]
+GetPwm0                 0x00012201    0x18  Code  Gb  timers.o [1]
+GetPwm1                 0x00012219    0x18  Code  Gb  timers.o [1]
+GetScreen               0x000121e9    0x18  Code  Gb  screens.o [1]
+GetStringByTag          0x00009253   0x130  Code  Gb  variables.o [1]
+GetSysMiso              0x00012189    0x18  Code  Gb  board.o [1]
+GetTimer                0x0000ddbf     0xa  Code  Gb  timers.o [1]
+GetTypeByTag            0x00009245     0xe  Code  Gb  variables.o [1]
+GetUart0TxBuffer        0x0000b61b     0x6  Code  Gb  LPC_Uart.o [1]
+GetUnitByTag            0x00009237     0xe  Code  Gb  variables.o [1]
+GetVideoBuff            0x00007b19     0x6  Code  Gb  lcd.o [1]
+GpioInit                0x0000734d    0x74  Code  Gb  board.o [1]
+HEAP$$Base              0x10000000           --   Gb  - Linker created -
+HEAP$$Limit             0x10002000           --   Gb  - Linker created -
+HardFault_Handler       0x00013243          Code  Wk  cstartup_M.o [1]
+I2C0_IRQHandler         0x00013243          Code  Wk  cstartup_M.o [1]
+I2C1_IRQHandler         0x00013243          Code  Wk  cstartup_M.o [1]
+I2C2_IRQHandler         0x00013243          Code  Wk  cstartup_M.o [1]
+I2S_IRQHandler          0x00013243          Code  Wk  cstartup_M.o [1]
+InitAdc                 0x0000afd9    0x26  Code  Gb  adc_fsm.o [1]
+InitAdcFSM              0x0000afff    0x1a  Code  Gb  adc_fsm.o [1]
+InitClock               0x00007235   0x10c  Code  Gb  board.o [1]
+InitDisconn             0x0000d3d1    0x18  Code  Gb  disconnect.o [1]
+InitKeyb                0x00009a03    0x1a  Code  Gb  keyb.o [1]
+InitMessages            0x0000f9d5    0x16  Code  Gb  messages.o [1]
+InitPowerControl        0x000101f1     0x2  Code  Gb  power_control.o [1]
+InitRepetitiveTimer     0x00006f91    0x54  Code  Gb  board.o [1]
+InitSysTick             0x00006fe5    0x44  Code  Gb  board.o [1]
+InitTimer0              0x00007029    0xa8  Code  Gb  board.o [1]
+InitTimer1              0x000070d1    0xac  Code  Gb  board.o [1]
+InitTimer2              0x0000717d    0xac  Code  Gb  board.o [1]
+InitWdt                 0x000079b5    0x3a  Code  Gb  board.o [1]
+KeyCodeToASCII          0x00009a1d    0x2e  Code  Gb  keyb.o [1]
+LCD_Font                0x0000fea5    0x84  Code  Gb  font.o [1]
+LCD_horline             0x00007c47    0x72  Code  Gb  lcd.o [1]
+LCD_rect                0x00007d9f   0x132  Code  Gb  lcd.o [1]
+LCD_vertline            0x00007cb9    0xe6  Code  Gb  lcd.o [1]
+LcdA0Clr                0x00012781    0x10  Code  Gb  lcd_low_level.o [1]
+LcdA0Set                0x00012771    0x10  Code  Gb  lcd.o [1]
+LcdBmp                  0x00007ed1   0x19a  Code  Gb  lcd.o [1]
+LcdClear                0x00007c0d    0x3a  Code  Gb  lcd.o [1]
+LcdData                 0x0000746f    0xd2  Code  Gb  board.o [1]
+LcdDraw                 0x00007b37    0xd6  Code  Gb  lcd.o [1]
+LcdE1Clr                0x00012fb3     0xa  Code  Gb  lcd_low_level.o [1]
+LcdE1Set                0x00012fa9     0xa  Code  Gb  lcd_low_level.o [1]
+LcdE2Clr                0x00012fc7     0xa  Code  Gb  lcd_low_level.o [1]
+LcdE2Set                0x00012fbd     0xa  Code  Gb  lcd_low_level.o [1]
+LcdEClr                 0x000127a1    0x10  Code  Gb  lcd_low_level.o [1]
+LcdESet                 0x00012791    0x10  Code  Gb  lcd_low_level.o [1]
+LcdFrame                0x00008157    0x5c  Code  Gb  lcd.o [1]
+LcdInitModule           0x0000e57f    0xb0  Code  Gb  lcd_low_level.o [1]
+LcdInitPio              0x00007459    0x16  Code  Gb  board.o [1]
+LcdInvertCurrentColor   0x00007b27    0x10  Code  Gb  lcd.o [1]
+LcdLine                 0x000080d9    0x52  Code  Gb  lcd.o [1]
+LcdRect                 0x0000812b    0x2c  Code  Gb  lcd.o [1]
+LcdResClr               0x00012f9f     0xa  Code  Gb  lcd_low_level.o [1]
+LcdResSet               0x00012f95     0xa  Code  Gb  lcd_low_level.o [1]
+LcdSetAddress           0x0000e53f    0x20  Code  Gb  lcd_low_level.o [1]
+LcdSetColor             0x00007b1f     0x8  Code  Gb  lcd.o [1]
+LcdSetLine              0x0000e55f    0x20  Code  Gb  lcd_low_level.o [1]
+LcdSetPage              0x0000e51f    0x20  Code  Gb  lcd_low_level.o [1]
+LcdStroke               0x00010db5    0x4c  Code  Gb  lcd.o [1]
+LcdText                 0x000081b3    0xe0  Code  Gb  lcd.o [1]
+LcdWriteByte            0x0000e4f7    0x28  Code  Gb  lcd_low_level.o [1]
+LoadProcessingVariables()
+                        0x00006f41     0xc  Code  Gb  processing.o [1]
+LoadValuesFromFram      0x0000917d    0x4c  Code  Gb  variables.o [1]
+LutScreen::ActiveLoop()
+                        0x0000a89d     0xc  Code  Gb  lut_scr.o [1]
+LutScreen::DrawTableLine(int, int, char)
+                        0x0000a703    0x6a  Code  Gb  lut_scr.o [1]
+LutScreen::LutScreen(char, int)
+                        0x0000a535     0xe  Code  Gb  lut_scr.o [1]
+LutScreen::LutScreen(char, int) [internal]
+                        0x0000a543    0x3e  Code  Gb  lut_scr.o [1]
+LutScreen::Paint()      0x0000a76d   0x124  Code  Gb  lut_scr.o [1]
+LutScreen::PlaceControls()
+                        0x0000a581   0x182  Code  Gb  lut_scr.o [1]
+LutScreen::~LutScreen()
+                        0x000129a1     0xe  Code  Gb  lut_scr.o [1]
+LutScreen::~LutScreen() [deleting]
+                        0x00012993     0xe  Code  Gb  lut_scr.o [1]
+LutScreen::~LutScreen() [internal]
+                        0x00011c63    0x1e  Code  Gb  lut_scr.o [1]
+MainScreen::Activated(unsigned long *)
+                        0x00008965    0x1c  Code  Gb  main_scr.o [1]
+MainScreen::ActiveLoop()
+                        0x00008981    0x6e  Code  Gb  main_scr.o [1]
+MainScreen::MainScreen()
+                        0x00012dd9     0xc  Code  Gb  main.o [1]
+MainScreen::MainScreen() [internal]
+                        0x00011759    0x2c  Code  Gb  main.o [1]
+MainScreen::Paint()     0x000082a1   0x6c4  Code  Gb  main_scr.o [1]
+MainScreen::~MainScreen()
+                        0x000129bd     0xe  Code  Gb  main_scr.o [1]
+MainScreen::~MainScreen() [deleting]
+                        0x000129af     0xe  Code  Gb  main_scr.o [1]
+MainScreen::~MainScreen() [internal]
+                        0x00011c81    0x1e  Code  Gb  main_scr.o [1]
+MemManage_Handler       0x00013243          Code  Wk  cstartup_M.o [1]
+MenuScreen::ActiveLoop()
+                        0x0000d841     0xc  Code  Gb  menu_scr.o [1]
+MenuScreen::MenuScreen(char, int)
+                        0x0000d611     0xe  Code  Gb  menu_scr.o [1]
+MenuScreen::MenuScreen(char, int) [internal]
+                        0x0000d61f    0x2a  Code  Gb  menu_scr.o [1]
+MenuScreen::Paint()     0x0000d7d7    0x5c  Code  Gb  menu_scr.o [1]
+MenuScreen::PlaceControls()
+                        0x0000d649   0x18e  Code  Gb  menu_scr.o [1]
+MenuScreen::~MenuScreen()
+                        0x000129d9     0xe  Code  Gb  menu_scr.o [1]
+MenuScreen::~MenuScreen() [deleting]
+                        0x000129cb     0xe  Code  Gb  menu_scr.o [1]
+MenuScreen::~MenuScreen() [internal]
+                        0x00011c9f    0x1e  Code  Gb  menu_scr.o [1]
+MessageWindow::ActiveLoop()
+                        0x0000e271    0x34  Code  Gb  msg_scr.o [1]
+MessageWindow::MessageWindow(int, char *, char *, char *, char *)
+                        0x00012393    0x16  Code  Gb  main.o [1]
+MessageWindow::MessageWindow(int, char *, char *, char *, char *) [internal]
+                        0x000110b9    0x40  Code  Gb  main.o [1]
+MessageWindow::Paint()  0x0000e2a5    0xa0  Code  Gb  msg_scr.o [1]
+MessageWindow::PlaceControls()
+                        0x0000e1a9    0xbe  Code  Gb  msg_scr.o [1]
+MessageWindow::~MessageWindow()
+                        0x000129f5     0xe  Code  Gb  msg_scr.o [1]
+MessageWindow::~MessageWindow() [deleting]
+                        0x000129e7     0xe  Code  Gb  msg_scr.o [1]
+MessageWindow::~MessageWindow() [internal]
+                        0x00011cbd    0x1e  Code  Gb  msg_scr.o [1]
+Messages                0x10002684   0x500  Data  Gb  messages.o [1]
+Mid                     0x0000b019    0x2e  Code  Gb  adc_fsm.o [1]
+MiscScreen::Activated(unsigned long *)
+                        0x000095e7    0x10  Code  Gb  misc_scr.o [1]
+MiscScreen::ActiveLoop()
+                        0x0000999d     0xc  Code  Gb  misc_scr.o [1]
+MiscScreen::MiscScreen()
+                        0x000095a1     0xc  Code  Gb  misc_scr.o [1]
+MiscScreen::MiscScreen() [internal]
+                        0x000095c9    0x1e  Code  Gb  misc_scr.o [1]
+MiscScreen::Paint()     0x0000987d    0xea  Code  Gb  misc_scr.o [1]
+MiscScreen::PlaceControls()
+                        0x000095f7   0x23c  Code  Gb  misc_scr.o [1]
+MiscScreen::UpdateButtonValues()
+                        0x00009833    0x4a  Code  Gb  misc_scr.o [1]
+MiscScreen::~MiscScreen()
+                        0x000095bb     0xe  Code  Gb  misc_scr.o [1]
+MiscScreen::~MiscScreen() [deleting]
+                        0x000095ad     0xe  Code  Gb  misc_scr.o [1]
+MiscScreen::~MiscScreen() [internal]
+                        0x000099a9    0x1e  Code  Gb  misc_scr.o [1]
+ModbusDecode            0x0000ae33   0x126  Code  Gb  modbus.o [1]
+ModbusRxHandler         0x0000af59    0x10  Code  Gb  modbus.o [1]
+MotorControlPWM_IRQHandler
+                        0x00013243          Code  Wk  cstartup_M.o [1]
+NMI_Handler             0x00013243          Code  Wk  cstartup_M.o [1]
+NVIC_ClrPend            0x0000fb71    0x38  Code  Gb  irq.o [1]
+NVIC_IntEnable          0x0000fb39    0x38  Code  Gb  irq.o [1]
+NVIC_IntPri             0x0000fba9    0x28  Code  Gb  irq.o [1]
+NormalizeCoord          0x0000806b    0x6e  Code  Gb  lcd.o [1]
+OutputClr               0x00007401    0x1e  Code  Gb  board.o [1]
+OutputSet               0x000073e3    0x1e  Code  Gb  board.o [1]
+PLL0_IRQHandler         0x00013243          Code  Wk  cstartup_M.o [1]
+PLL1_IRQHandler         0x00013243          Code  Wk  cstartup_M.o [1]
+PWM1_IRQHandler         0x00013243          Code  Wk  cstartup_M.o [1]
+ParamScreen::ActiveLoop()
+                        0x0000cbfd     0xc  Code  Gb  param_scr.o [1]
+ParamScreen::DrawTableLine(int, char)
+                        0x0000cac3    0x6a  Code  Gb  param_scr.o [1]
+ParamScreen::Paint()    0x0000cb2d    0xc2  Code  Gb  param_scr.o [1]
+ParamScreen::ParamScreen(char, int)
+                        0x0000c909     0xe  Code  Gb  param_scr.o [1]
+ParamScreen::ParamScreen(char, int) [internal]
+                        0x0000c917    0x26  Code  Gb  param_scr.o [1]
+ParamScreen::PlaceControls()
+                        0x0000c93d   0x13a  Code  Gb  param_scr.o [1]
+ParamScreen::UpdateButtonValues(T_PARAM_SCREEN_DESCRIPTOR)
+                        0x0000ca77    0x4c  Code  Gb  param_scr.o [1]
+ParamScreen::~ParamScreen()
+                        0x00012a11     0xe  Code  Gb  param_scr.o [1]
+ParamScreen::~ParamScreen() [deleting]
+                        0x00012a03     0xe  Code  Gb  param_scr.o [1]
+ParamScreen::~ParamScreen() [internal]
+                        0x00011cdb    0x1e  Code  Gb  param_scr.o [1]
+PassScreen::Activated(unsigned long *)
+                        0x0000d8f5    0x34  Code  Gb  pass_scr.o [1]
+PassScreen::ActiveLoop()
+                        0x0000d929    0xcc  Code  Gb  pass_scr.o [1]
+PassScreen::Paint()     0x0000d9f5    0x70  Code  Gb  pass_scr.o [1]
+PassScreen::PassScreen()
+                        0x00012de5     0xc  Code  Gb  main.o [1]
+PassScreen::PassScreen() [internal]
+                        0x0001198d    0x24  Code  Gb  main.o [1]
+PassScreen::PlaceControls()
+                        0x0000d84d    0xa8  Code  Gb  pass_scr.o [1]
+PassScreen::~PassScreen()
+                        0x00012a2d     0xe  Code  Gb  pass_scr.o [1]
+PassScreen::~PassScreen() [deleting]
+                        0x00012a1f     0xe  Code  Gb  pass_scr.o [1]
+PassScreen::~PassScreen() [internal]
+                        0x00011cf9    0x1e  Code  Gb  pass_scr.o [1]
+PendSV_Handler          0x00013243          Code  Wk  cstartup_M.o [1]
+PrintScreen             0x0000ae01     0xc  Code  Gb  modbus.o [1]
+ProcessAdc              0x0000b047   0x248  Code  Gb  adc_fsm.o [1]
+ProcessDisconn          0x0000d3e9   0x214  Code  Gb  disconnect.o [1]
+ProcessEncoderDebounce  0x00009b4b    0x66  Code  Gb  keyb.o [1]
+ProcessEncoderFSM       0x00009bb1    0xf6  Code  Gb  keyb.o [1]
+ProcessInit()           0x00006f13    0x2e  Code  Gb  processing.o [1]
+ProcessKeyFSM           0x00009a4b   0x100  Code  Gb  keyb.o [1]
+ProcessKeyb             0x00009ca7   0x102  Code  Gb  keyb.o [1]
+ProcessLcdControl       0x0000f6dd    0xc0  Code  Gb  lcd_control.o [1]
+ProcessLeds             0x0000eb81    0xd6  Code  Gb  led_control.o [1]
+ProcessLeftPowerControl
+                        0x000101f3    0x30  Code  Gb  power_control.o [1]
+ProcessMessages         0x0000fa57    0x32  Code  Gb  messages.o [1]
+ProcessPassController   0x0000f65f    0x74  Code  Gb  pass_controller.o [1]
+ProcessRightPowerControl
+                        0x00010223    0x30  Code  Gb  power_control.o [1]
+ProcessSysState         0x0000ec77     0xc  Code  Gb  led_control.o [1]
+ProcessTimer1           0x0000dd87     0x8  Code  Gb  timers.o [1]
+ProcessTimer2           0x0000dd8f     0x8  Code  Gb  timers.o [1]
+ProcessTimer3           0x0000dd97    0x28  Code  Gb  timers.o [1]
+ProcessTimers           0x0000dccd    0xba  Code  Gb  timers.o [1]
+Processing::LoadVariables()
+                        0x00006d8f    0x62  Code  Gb  processing.o [1]
+Processing::ProcessDSP()
+                        0x00006df1   0x116  Code  Gb  processing.o [1]
+Processing::Processing()
+                        0x000063d5     0xc  Code  Gb  processing.o [1]
+Processing::Processing() [internal]
+                        0x00006cf1    0x9e  Code  Gb  processing.o [1]
+ProcessingHandler()     0x00006f07     0xc  Code  Gb  processing.o [1]
+Pwm0Clr                 0x000127c1    0x10  Code  Gb  timers.o [1]
+Pwm0Set                 0x00012751    0x10  Code  Gb  board.o [1]
+Pwm1Clr                 0x000127d1    0x10  Code  Gb  timers.o [1]
+Pwm1Set                 0x00012761    0x10  Code  Gb  board.o [1]
+PwmInitPio              0x0000799d    0x18  Code  Gb  board.o [1]
+PwmTestScreen::Activated(unsigned long *)
+                        0x0000b59f    0x18  Code  Gb  pwm_test.o [1]
+PwmTestScreen::ActiveLoop()
+                        0x0000b593     0xc  Code  Gb  pwm_test.o [1]
+PwmTestScreen::Paint()  0x0000b42d   0x166  Code  Gb  pwm_test.o [1]
+PwmTestScreen::PlaceControls()
+                        0x0000b2ff   0x12e  Code  Gb  pwm_test.o [1]
+PwmTestScreen::PwmTestScreen()
+                        0x0000b2b9     0xc  Code  Gb  pwm_test.o [1]
+PwmTestScreen::PwmTestScreen() [internal]
+                        0x0000b2e1    0x1e  Code  Gb  pwm_test.o [1]
+PwmTestScreen::~PwmTestScreen()
+                        0x0000b2d3     0xe  Code  Gb  pwm_test.o [1]
+PwmTestScreen::~PwmTestScreen() [deleting]
+                        0x0000b2c5     0xe  Code  Gb  pwm_test.o [1]
+PwmTestScreen::~PwmTestScreen() [internal]
+                        0x0000b5b7    0x2a  Code  Gb  pwm_test.o [1]
+QE_IRQHandler           0x00013243          Code  Wk  cstartup_M.o [1]
+RICOMPVAL               0x400b0000     0x4  Data  Wk  board.o [1]
+RIMASK                  0x400b0004     0x4  Data  Wk  board.o [1]
+RIT_IRQHandler          0x0000ddfb    0x16  Code  Gb  timers.o [1]
+RTC_IRQHandler          0x00013243          Code  Wk  cstartup_M.o [1]
+ReadIntFromFram         0x00007769    0x12  Code  Gb  board.o [1]
+ReadMultipleHoldings    0x0000ad63    0x18  Code  Gb  modbus.o [1]
+ReadMultipleHoldingsAnswer
+                        0x0000ac5b    0x84  Code  Gb  modbus.o [1]
+ReadTemp                0x0000777b    0x3a  Code  Gb  board.o [1]
+Region$$Table$$Base     0x00011aa8           --   Gb  - Linker created -
+Region$$Table$$Limit    0x00011acc           --   Gb  - Linker created -
+ResetTimer              0x0000ddc9     0xc  Code  Gb  timers.o [1]
+ResetWdt                0x000079f5    0x12  Code  Gb  board.o [1]
+Rs232Screen::ActiveLoop()
+                        0x0000cecd     0xc  Code  Gb  rs232_scr.o [1]
+Rs232Screen::Paint()    0x0000cdb9    0xf2  Code  Gb  rs232_scr.o [1]
+Rs232Screen::PlaceControls()
+                        0x0000cc33   0x186  Code  Gb  rs232_scr.o [1]
+Rs232Screen::Rs232Screen()
+                        0x0000cc09     0xc  Code  Gb  rs232_scr.o [1]
+Rs232Screen::Rs232Screen() [internal]
+                        0x0000cc15    0x1e  Code  Gb  rs232_scr.o [1]
+Rs232Screen::~Rs232Screen()
+                        0x00012a49     0xe  Code  Gb  rs232_scr.o [1]
+Rs232Screen::~Rs232Screen() [deleting]
+                        0x00012a3b     0xe  Code  Gb  rs232_scr.o [1]
+Rs232Screen::~Rs232Screen() [internal]
+                        0x00011d17    0x1e  Code  Gb  rs232_scr.o [1]
+Rs485Screen::ActiveLoop()
+                        0x0000bc8d     0xc  Code  Gb  rs485_scr.o [1]
+Rs485Screen::Paint()    0x0000bb43   0x124  Code  Gb  rs485_scr.o [1]
+Rs485Screen::PlaceControls()
+                        0x0000b97f   0x1c4  Code  Gb  rs485_scr.o [1]
+Rs485Screen::Rs485Screen()
+                        0x0000b951     0xc  Code  Gb  rs485_scr.o [1]
+Rs485Screen::Rs485Screen() [internal]
+                        0x0000b95d    0x22  Code  Gb  rs485_scr.o [1]
+Rs485Screen::~Rs485Screen()
+                        0x00012a65     0xe  Code  Gb  rs485_scr.o [1]
+Rs485Screen::~Rs485Screen() [deleting]
+                        0x00012a57     0xe  Code  Gb  rs485_scr.o [1]
+Rs485Screen::~Rs485Screen() [internal]
+                        0x00011d35    0x1e  Code  Gb  rs485_scr.o [1]
+SPI_IRQHandler          0x00013243          Code  Wk  cstartup_M.o [1]
+SSP0_IRQHandler         0x00013243          Code  Wk  cstartup_M.o [1]
+SSP1_IRQHandler         0x00013243          Code  Wk  cstartup_M.o [1]
+SVC_Handler             0x00013243          Code  Wk  cstartup_M.o [1]
+SYS_GetFpclk            0x0000b691     0x6  Code  Gb  LPC_Uart.o [1]
+SaveValuesToFram        0x000091c9    0x4c  Code  Gb  variables.o [1]
+SendMessage             0x0000fa07     0xe  Code  Gb  messages.o [1]
+SendParamMessage        0x0000f9eb    0x1c  Code  Gb  messages.o [1]
+SetA0                   0x0000e4c3    0x16  Code  Gb  lcd_low_level.o [1]
+SetAdcMode              0x0000afad    0x2c  Code  Gb  adc_fsm.o [1]
+SetChip                 0x0000e4d9    0x1e  Code  Gb  lcd_low_level.o [1]
+SetDataByModbusAddr     0x000094f1    0x9e  Code  Gb  variables.o [1]
+SetDefaulValueByTag     0x0000942b    0x40  Code  Gb  variables.o [1]
+SetDefaultValues        0x000090f9    0x84  Code  Gb  variables.o [1]
+SetDispLedState         0x0000eb71     0x8  Code  Gb  led_control.o [1]
+SetFloatValueByTag      0x000093f3    0x38  Code  Gb  variables.o [1]
+SetFont                 0x0000fbe5     0x6  Code  Gb  font.o [1]
+SetIntValueByTag        0x000093bb    0x38  Code  Gb  variables.o [1]
+SetPixel                0x00011623    0x2e  Code  Gb  lcd.o [1]
+SetProcessingHandler    0x0000dde1     0x6  Code  Gb  timers.o [1]
+SetRelayState           0x0001182d    0x28  Code  Gb  relay_control.o [1]
+SetSysBit               0x0000ec57    0x10  Code  Gb  led_control.o [1]
+SetSysSpiBusState       0x0000eb79     0x8  Code  Gb  led_control.o [1]
+SetTimer1Width          0x0000dc69    0x32  Code  Gb  timers.o [1]
+SetTimer2Width          0x0000dc9b    0x32  Code  Gb  timers.o [1]
+SetUart0RxHandler       0x0000b689     0x8  Code  Gb  LPC_Uart.o [1]
+SetValueByTag           0x00009383    0x38  Code  Gb  variables.o [1]
+SpiCsClr                0x000126b1    0x10  Code  Gb  board.o [1]
+SpiCsSet                0x000126a1    0x10  Code  Gb  board.o [1]
+SpiMosiClr              0x000126e1    0x10  Code  Gb  board.o [1]
+SpiMosiSet              0x000126f1    0x10  Code  Gb  board.o [1]
+SpiSclkClr              0x000126d1    0x10  Code  Gb  board.o [1]
+SpiSclkSet              0x000126c1    0x10  Code  Gb  board.o [1]
+SpiWriteUInt32          0x0000741f    0x3a  Code  Gb  board.o [1]
+StartAdcConvertion      0x0000af69    0x44  Code  Gb  adc_fsm.o [1]
+SysFramCsClr            0x00012691    0x10  Code  Gb  board.o [1]
+SysFramCsSet            0x00012681    0x10  Code  Gb  board.o [1]
+SysMosiClr              0x00012d3d     0xc  Code  Gb  board.o [1]
+SysMosiSet              0x00012d49     0xc  Code  Gb  board.o [1]
+SysRegCsClr             0x00012d91     0xc  Code  Gb  board.o [1]
+SysRegCsSet             0x00012d85     0xc  Code  Gb  board.o [1]
+SysSclkClr              0x00012d55     0xc  Code  Gb  board.o [1]
+SysSclkSet              0x00012d61     0xc  Code  Gb  board.o [1]
+SysSpiInitPio           0x000075d5    0x40  Code  Gb  board.o [1]
+SysSpiReadBuffer        0x000076f3    0x66  Code  Gb  board.o [1]
+SysSpiReadByte          0x0000764b    0x34  Code  Gb  board.o [1]
+SysSpiWriteBuffer       0x0000767f    0x74  Code  Gb  board.o [1]
+SysSpiWriteByte         0x00007615    0x36  Code  Gb  board.o [1]
+SysTempCsClr            0x00012d79     0xc  Code  Gb  board.o [1]
+SysTempCsSet            0x00012d6d     0xc  Code  Gb  board.o [1]
+SysTick_Handler         0x0000dde7    0x14  Code  Gb  timers.o [1]
+T0MR0                   0x40004018     0x4  Data  Wk  board.o [1]
+T0PR                    0x4000400c     0x4  Data  Wk  board.o [1]
+T1MR0                   0x40008018     0x4  Data  Wk  board.o [1]
+T1PR                    0x4000800c     0x4  Data  Wk  board.o [1]
+T2MR0                   0x40090018     0x4  Data  Wk  board.o [1]
+T2PR                    0x4009000c     0x4  Data  Wk  board.o [1]
+TMR0_IRQHandler         0x00002f1d    0x1e  Code  Gb  main.o [1]
+TMR1_IRQHandler         0x00002f3b    0x1a  Code  Gb  main.o [1]
+TMR2_IRQHandler         0x00002f55    0x1a  Code  Gb  main.o [1]
+TMR3_IRQHandler         0x00013243          Code  Wk  cstartup_M.o [1]
+TargetResetInit         0x000073c1     0xc  Code  Gb  board.o [1]
+Timers                  0x10004718    0x40  Data  Gb  timers.o [1]
+TrendScreen::ActiveLoop()
+                        0x0000a18d    0x2a  Code  Gb  trend_scr.o [1]
+TrendScreen::Paint()    0x00009ee1   0x1f0  Code  Gb  trend_scr.o [1]
+TrendScreen::PlaceControls()
+                        0x00009e2f    0xb2  Code  Gb  trend_scr.o [1]
+TrendScreen::Shift()    0x0000a155    0x38  Code  Gb  trend_scr.o [1]
+TrendScreen::TrendScreen(int, float, float, char)
+                        0x00009de1    0x14  Code  Gb  trend_scr.o [1]
+TrendScreen::TrendScreen(int, float, float, char) [internal]
+                        0x00009df5    0x3a  Code  Gb  trend_scr.o [1]
+TrendScreen::ValueToCoord(float)
+                        0x0000a0d1    0x60  Code  Gb  trend_scr.o [1]
+TrendScreen::~TrendScreen()
+                        0x00012a81     0xe  Code  Gb  trend_scr.o [1]
+TrendScreen::~TrendScreen() [deleting]
+                        0x00012a73     0xe  Code  Gb  trend_scr.o [1]
+TrendScreen::~TrendScreen() [internal]
+                        0x00011d53    0x1e  Code  Gb  trend_scr.o [1]
+U0RBRTHR                0x4000c000     0x1  Data  Wk  LPC_Uart.o [1]
+U1RBRTHR                0x40010000     0x1  Data  Wk  LPC_Uart.o [1]
+UART0_IRQHandler        0x0000b785    0x7e  Code  Gb  LPC_Uart.o [1]
+UART1_IRQHandler        0x0000b85f    0x78  Code  Gb  LPC_Uart.o [1]
+UART2_IRQHandler        0x00013243          Code  Wk  cstartup_M.o [1]
+UART3_IRQHandler        0x00013243          Code  Wk  cstartup_M.o [1]
+USB_IRQHandler          0x00013243          Code  Wk  cstartup_M.o [1]
+Uart0Config             0x1000264c    0x14  Data  Gb  LPC_Uart.o [1]
+Uart0Init               0x0000b697    0xba  Code  Gb  LPC_Uart.o [1]
+Uart0ResetRxBuf         0x0000b609    0x12  Code  Gb  LPC_Uart.o [1]
+Uart0Transmit           0x0000b751    0x34  Code  Gb  LPC_Uart.o [1]
+Uart0WriteRxBuf         0x00011179    0x3c  Code  Gb  LPC_Uart.o [1]
+Uart1ResetRxBuf         0x0000b803     0xe  Code  Gb  LPC_Uart.o [1]
+Uart1WriteRxBuf         0x000111b5    0x3c  Code  Gb  LPC_Uart.o [1]
+UsageFault_Handler      0x00013243          Code  Wk  cstartup_M.o [1]
+Virtual function table for AiTestScreen
+                        0x00010450    0x58  Data  Gb  ai_test.o [1]
+Virtual function table for AoTestScreen
+                        0x000104a8    0x58  Data  Gb  ao_test.o [1]
+Virtual function table for ChannelHN
+                        0x00011f48    0x1c  Data  Gb  processing.o [1]
+Virtual function table for ChannelO2
+                        0x00011f2c    0x1c  Data  Gb  processing.o [1]
+Virtual function table for ChannelTemp
+                        0x00011f10    0x1c  Data  Gb  processing.o [1]
+Virtual function table for DoTestScreen
+                        0x00010500    0x58  Data  Gb  do_test.o [1]
+Virtual function table for EditorScreen
+                        0x00010558    0x58  Data  Gb  editor_scr.o [1]
+Virtual function table for EthernetScreen
+                        0x000105b0    0x58  Data  Gb  ethernet_scr.o [1]
+Virtual function table for LutScreen
+                        0x00010660    0x58  Data  Gb  lut_scr.o [1]
+Virtual function table for MainScreen
+                        0x000106b8    0x58  Data  Gb  main_scr.o [1]
+Virtual function table for MenuScreen
+                        0x00010710    0x58  Data  Gb  menu_scr.o [1]
+Virtual function table for MessageWindow
+                        0x000107c0    0x58  Data  Gb  msg_scr.o [1]
+Virtual function table for MiscScreen
+                        0x00010768    0x58  Data  Gb  misc_scr.o [1]
+Virtual function table for ParamScreen
+                        0x00010818    0x58  Data  Gb  param_scr.o [1]
+Virtual function table for PassScreen
+                        0x00010870    0x58  Data  Gb  pass_scr.o [1]
+Virtual function table for PwmTestScreen
+                        0x000108c8    0x58  Data  Gb  pwm_test.o [1]
+Virtual function table for Rs232Screen
+                        0x00010920    0x58  Data  Gb  rs232_scr.o [1]
+Virtual function table for Rs485Screen
+                        0x00010978    0x58  Data  Gb  rs485_scr.o [1]
+Virtual function table for TrendScreen
+                        0x000109d0    0x58  Data  Gb  trend_scr.o [1]
+Virtual function table for usBmpButton
+                        0x000116d4    0x2c  Data  Gb  usbase.o [1]
+Virtual function table for usButton
+                        0x0001167c    0x2c  Data  Gb  usbase.o [1]
+Virtual function table for usCheckBox
+                        0x0001172c    0x2c  Data  Gb  usbase.o [1]
+Virtual function table for usControl
+                        0x00011650    0x2c  Data  Gb  ai_test.o [1]
+Virtual function table for usCursor
+                        0x00011f64    0x1c  Data  Gb  usbase.o [1]
+Virtual function table for usEditor
+                        0x00011700    0x2c  Data  Gb  usbase.o [1]
+Virtual function table for usGraphic
+                        0x00011968    0x24  Data  Gb  ai_test.o [1]
+Virtual function table for usScreen
+                        0x00010a28    0x58  Data  Gb  usbase.o [1]
+Virtual function table for usScreenList
+                        0x00011b2c    0x20  Data  Gb  usbase.o [1]
+Virtual function table for usTextButton
+                        0x000116a8    0x2c  Data  Gb  usbase.o [1]
+WDTC                    0x40000004     0x4  Data  Wk  board.o [1]
+WDT_IRQHandler          0x00013243          Code  Wk  cstartup_M.o [1]
+WriteByteToAdc          0x00007915    0x40  Code  Gb  board.o [1]
+WriteIntToFram          0x00007759    0x10  Code  Gb  board.o [1]
+WriteMultipleHoldings   0x0000ad93    0x5a  Code  Gb  modbus.o [1]
+WriteMultipleHoldingsAnswer
+                        0x0000ad21    0x42  Code  Gb  modbus.o [1]
+WritePrintScreenAnswer  0x0000ae0d    0x26  Code  Gb  modbus.o [1]
+WriteSingleRegister     0x0000ad7b    0x18  Code  Gb  modbus.o [1]
+WriteSingleRegisterAnswer
+                        0x0000acdf    0x42  Code  Gb  modbus.o [1]
+WriteSysReg             0x000077b5    0x32  Code  Gb  board.o [1]
+WriteToDac              0x0000780d    0xa2  Code  Gb  board.o [1]
+_A_CCLKCFG              0x400fc104     0x4  Data  Wk  board.o [1]
+_A_CLKSRCSEL            0x400fc10c     0x4  Data  Wk  board.o [1]
+_A_CLRPEND0             0xe000e280     0x4  Data  Wk  irq.o [1]
+_A_FIO0CLR              0x2009c01c     0x4  Data  Wk  board.o [1]
+_A_FIO0DIR              0x2009c000     0x4  Data  Wk  board.o [1]
+_A_FIO0MASK             0x2009c010     0x4  Data  Wk  board.o [1]
+_A_FIO0PIN              0x2009c014     0x4  Data  Wk  adc_fsm.o [1]
+_A_FIO0SET              0x2009c018     0x4  Data  Wk  board.o [1]
+_A_FIO1CLR              0x2009c03c     0x4  Data  Wk  board.o [1]
+_A_FIO1DIR              0x2009c020     0x4  Data  Wk  board.o [1]
+_A_FIO1MASK             0x2009c030     0x4  Data  Wk  board.o [1]
+_A_FIO1PIN              0x2009c034     0x4  Data  Wk  board.o [1]
+_A_FIO1SET              0x2009c038     0x4  Data  Wk  board.o [1]
+_A_FIO2CLR              0x2009c05c     0x4  Data  Wk  board.o [1]
+_A_FIO2DIR              0x2009c040     0x4  Data  Wk  board.o [1]
+_A_FIO2MASK             0x2009c050     0x4  Data  Wk  board.o [1]
+_A_FIO2SET              0x2009c058     0x4  Data  Wk  board.o [1]
+_A_FIO3CLR              0x2009c07c     0x4  Data  Wk  timers.o [1]
+_A_FIO3DIR              0x2009c060     0x4  Data  Wk  board.o [1]
+_A_FIO3MASK             0x2009c070     0x4  Data  Wk  board.o [1]
+_A_FIO3SET              0x2009c078     0x4  Data  Wk  board.o [1]
+_A_FIO4CLR              0x2009c09c     0x4  Data  Wk  board.o [1]
+_A_FIO4DIR              0x2009c080     0x4  Data  Wk  board.o [1]
+_A_FIO4MASK             0x2009c090     0x4  Data  Wk  board.o [1]
+_A_FIO4SET              0x2009c098     0x4  Data  Wk  board.o [1]
+_A_FLASHCFG             0x400fc000     0x4  Data  Wk  board.o [1]
+_A_ICSR                 0xe000ed04     0x4  Data  Wk  timers.o [1]
+_A_IP0                  0xe000e400     0x4  Data  Wk  irq.o [1]
+_A_PCLKSEL0             0x400fc1a8     0x4  Data  Wk  board.o [1]
+_A_PCLKSEL1             0x400fc1ac     0x4  Data  Wk  board.o [1]
+_A_PCONP                0x400fc0c4     0x4  Data  Wk  board.o [1]
+_A_PINSEL0              0x4002c000     0x4  Data  Wk  LPC_Uart.o [1]
+_A_PINSEL1              0x4002c004     0x4  Data  Wk  board.o [1]
+_A_PINSEL2              0x4002c008     0x4  Data  Wk  board.o [1]
+_A_PINSEL3              0x4002c00c     0x4  Data  Wk  board.o [1]
+_A_PINSEL4              0x4002c010     0x4  Data  Wk  LPC_Uart.o [1]
+_A_PINSEL7              0x4002c01c     0x4  Data  Wk  board.o [1]
+_A_PINSEL8              0x4002c020     0x4  Data  Wk  board.o [1]
+_A_PINSEL9              0x4002c024     0x4  Data  Wk  board.o [1]
+_A_PLL0CFG              0x400fc084     0x4  Data  Wk  board.o [1]
+_A_PLL0CON              0x400fc080     0x4  Data  Wk  board.o [1]
+_A_PLL0FEED             0x400fc08c     0x4  Data  Wk  board.o [1]
+_A_PLL0STAT             0x400fc088     0x4  Data  Wk  board.o [1]
+_A_RICTRL               0x400b0008     0x4  Data  Wk  board.o [1]
+_A_SCS                  0x400fc1a0     0x4  Data  Wk  board.o [1]
+_A_SETENA0              0xe000e100     0x4  Data  Wk  irq.o [1]
+_A_SYSTICKCSR           0xe000e010     0x4  Data  Wk  board.o [1]
+_A_SYSTICKCVR           0xe000e018     0x4  Data  Wk  board.o [1]
+_A_SYSTICKRVR           0xe000e014     0x4  Data  Wk  board.o [1]
+_A_T0CTCR               0x40004070     0x4  Data  Wk  board.o [1]
+_A_T0IR                 0x40004000     0x4  Data  Wk  board.o [1]
+_A_T0MCR                0x40004014     0x4  Data  Wk  board.o [1]
+_A_T0TCR                0x40004004     0x4  Data  Wk  board.o [1]
+_A_T1CTCR               0x40008070     0x4  Data  Wk  board.o [1]
+_A_T1IR                 0x40008000     0x4  Data  Wk  board.o [1]
+_A_T1MCR                0x40008014     0x4  Data  Wk  board.o [1]
+_A_T1TCR                0x40008004     0x4  Data  Wk  board.o [1]
+_A_T2CTCR               0x40090070     0x4  Data  Wk  board.o [1]
+_A_T2IR                 0x40090000     0x4  Data  Wk  board.o [1]
+_A_T2MCR                0x40090014     0x4  Data  Wk  board.o [1]
+_A_T2TCR                0x40090004     0x4  Data  Wk  board.o [1]
+_A_U0FCR                0x4000c008     0x4  Data  Wk  LPC_Uart.o [1]
+_A_U0IER                0x4000c004     0x4  Data  Wk  LPC_Uart.o [1]
+_A_U0LCR                0x4000c00c     0x4  Data  Wk  LPC_Uart.o [1]
+_A_U0LSR                0x4000c014     0x4  Data  Wk  LPC_Uart.o [1]
+_A_U1FCR                0x40010008     0x4  Data  Wk  LPC_Uart.o [1]
+_A_U1IER                0x40010004     0x4  Data  Wk  LPC_Uart.o [1]
+_A_U1LSR                0x40010014     0x4  Data  Wk  LPC_Uart.o [1]
+_A_WDCLKSEL             0x40000010     0x4  Data  Wk  board.o [1]
+_A_WDFEED               0x40000008     0x4  Data  Wk  board.o [1]
+_A_WDMOD                0x40000000     0x4  Data  Wk  board.o [1]
+_Allocator<void>::allocate(unsigned int)
+                        0x00012e5d     0xc  Code  Gb  usbase.o [1]
+_Allocator<void>::deallocate(void *)
+                        0x00012e69     0xc  Code  Gb  usbase.o [1]
+_ClassUtil::_AllocHolder<allocator<void>, (bool)0>::_AllocHolder() [internal]
+                        0x00013247     0x2  Code  Gb  usbase.o [1]
+_ClassUtil::_AllocHolder<allocator<void>, (bool)0>::_AllocHolder() [subobject]
+                        0x00012e39     0xc  Code  Gb  usbase.o [1]
+_ClassUtil::_AllocHolder<allocator<void>, (bool)0>::_Alval()
+                        0x00012fd1     0xa  Code  Gb  usbase.o [1]
+_ClassUtil::_AllocHolder<allocator<void>, (bool)0>::_Alval() const
+                        0x00012fdb     0xa  Code  Gb  usbase.o [1]
+_Destroy<list<usControl *, allocator<usControl *>>::_Node>(T1 *)
+                        0x00012e81     0xc  Code  Gb  usbase.o [1]
+_Destroy<list<usScreen *, allocator<usScreen *>>::_Node>(T1 *)
+                        0x00012e75     0xc  Code  Gb  usbase.o [1]
+_GenldDefault           0x00006139   0x24e  Code  Lc  xprintffull.o [3]
+_LdtobDefault           0x00005d25   0x40e  Code  Lc  xprintffull.o [3]
+_List_value<allocator<void>>::_Alty()
+                        0x00012261    0x18  Code  Gb  usbase.o [1]
+_List_value<allocator<void>>::_Disconnect(_List_value<allocator<void>>::_GenNode *)
+                        0x00012465    0x14  Code  Gb  usbase.o [1]
+_List_value<allocator<void>>::_GenNode::_GenNode(_List_value<allocator<void>>::_GenNode*, _List_value<allocator<void>>::_GenNode*)
+                        0x00012ec9     0xc  Code  Gb  usbase.o [1]
+_List_value<allocator<void>>::_GenNode::_GenNode(_List_value<allocator<void>>::_GenNode*, _List_value<allocator<void>>::_GenNode*) [internal]
+                        0x00013187     0x6  Code  Gb  usbase.o [1]
+_List_value<allocator<void>>::_GenNode::_GenNode(_List_value<allocator<void>>::_GenNode*, _List_value<allocator<void>>::_GenNode*) [subobject]
+                        0x00012ebd     0xc  Code  Gb  usbase.o [1]
+_List_value<allocator<void>>::_GenNode::~_GenNode()
+                        0x00012ae3     0xe  Code  Gb  usbase.o [1]
+_List_value<allocator<void>>::_GenNode::~_GenNode() [internal]
+                        0x00013251     0x2  Code  Gb  usbase.o [1]
+_List_value<allocator<void>>::_GenNode::~_GenNode() [subobject]
+                        0x00012ad5     0xe  Code  Gb  usbase.o [1]
+_List_value<allocator<void>>::_Incsize(unsigned int)
+                        0x00011a65    0x22  Code  Gb  usbase.o [1]
+_List_value<allocator<void>>::_List_value() [internal]
+                        0x00011fb9    0x1c  Code  Gb  usbase.o [1]
+_List_value<allocator<void>>::_List_value() [subobject]
+                        0x00012ed5     0xc  Code  Gb  usbase.o [1]
+_List_value<allocator<void>>::~_List_value() [internal]
+                        0x00012831    0x10  Code  Gb  usbase.o [1]
+_List_value<allocator<void>>::~_List_value() [subobject]
+                        0x00012c09     0xe  Code  Gb  usbase.o [1]
+_LitobDefault           0x00005c17   0x10e  Code  Lc  xprintffull.o [3]
+_Printf                 0x00005711   0x506  Code  Gb  xprintffull.o [3]
+_PutcharsDefault        0x000063a1    0x32  Code  Lc  xprintffull.o [3]
+_SProut                 0x00012fef     0xa  Code  Gb  xsprout.o [3]
+_Stoflt                 0x0000de55   0x1b0  Code  Gb  xstoflt.o [3]
+_Stopfx                 0x0000f1b5    0xf6  Code  Gb  xstopfx.o [3]
+_String_val::_String_val(char_allocator) [internal]
+                        0x00012dc1     0xc  Code  Gb  ao_test.o [1]
+_String_val::_String_val(char_allocator) [subobject]
+                        0x00012db5     0xc  Code  Gb  ao_test.o [1]
+__aeabi_assert          0x00010edb    0x46  Code  Gb  xassert.o [3]
+__aeabi_cdcmpeq         0x00011b6d          Code  Gb  DblCmpEq.o [4]
+__aeabi_cdcmple         0x000115c5          Code  Gb  DblCmpLe.o [4]
+__aeabi_cdrcmple        0x000115f5          Code  Gb  DblCmpGe.o [4]
+__aeabi_cfcmpeq         0x00011f81          Code  Gb  FltCmpEq.o [4]
+__aeabi_cfcmple         0x000119d5          Code  Gb  FltCmpLe.o [4]
+__aeabi_cfrcmple        0x000119f9          Code  Gb  FltCmpGe.o [4]
+__aeabi_d2f             0x0000fc79          Code  Gb  DblToFlt.o [4]
+__aeabi_d2iz            0x00010b31          Code  Gb  DblToI32.o [4]
+__aeabi_d2uiz           0x00010b5d          Code  Gb  DblToI32.o [4]
+__aeabi_dadd            0x0000f2ad          Code  Gb  DblAdd.o [4]
+__aeabi_ddiv            0x0000d189          Code  Gb  DblDiv.o [4]
+__aeabi_dmul            0x0000e005          Code  Gb  DblMul.o [4]
+__aeabi_dsub            0x0000e345          Code  Gb  DblSub.o [4]
+__aeabi_errno_addr      0x00012429    0x14  Code  Gb  errno.o [3]
+__aeabi_f2d             0x00010d19          Code  Gb  FltToDbl.o [4]
+__aeabi_f2iz            0x00010fad          Code  Gb  FltToS32.o [4]
+__aeabi_fadd            0x0000fd09          Code  Gb  FltAdd.o [4]
+__aeabi_fdiv            0x0000f0b9          Code  Gb  FltDiv.o [4]
+__aeabi_fmul            0x0000f479          Code  Gb  FltMul.o [4]
+__aeabi_fsub            0x0000f395          Code  Gb  FltSub.o [4]
+__aeabi_i2d             0x00011595          Code  Gb  I32ToDbl.o [4]
+__aeabi_i2f             0x00011505          Code  Gb  I32ToFlt.o [4]
+__aeabi_ldiv0           0x000131cd          Code  Gb  I64DivZer.o [4]
+__aeabi_ldivmod         0x0000ea41          Code  Gb  I64DivMod.o [4]
+__aeabi_memcpy          0x00010111          Code  Gb  ABImemcpy.o [4]
+__aeabi_memcpy4         0x0001012b          Code  Gb  ABImemcpy.o [4]
+__aeabi_memcpy8         0x0001012b          Code  Gb  ABImemcpy.o [4]
+__aeabi_memmove         0x0000ffad          Code  Gb  ABImemmove.o [4]
+__aeabi_memmove4        0x0000ffad          Code  Gb  ABImemmove.o [4]
+__aeabi_memmove8        0x0000ffad          Code  Gb  ABImemmove.o [4]
+__aeabi_ui2d            0x000115a9          Code  Gb  I32ToDbl.o [4]
+__aeabi_ui2f            0x00011519          Code  Gb  I32ToFlt.o [4]
+__aeabi_uldivmod        0x0000ea55          Code  Gb  I64DivMod.o [4]
+__call_dtors            0x000101ad     0x2  Code  Gb  cppinit.o [3]
+__cmain                 0x00012339          Code  Gb  cmain.o [4]
+__cstart_call_dtors     0x000128c3          Code  Gb  cexit.o [4]
+__cxa_atexit            0x00010181    0x2c  Code  Gb  cppinit.o [3]
+__cxa_finalize          0x000101af    0x36  Code  Gb  cppinit.o [3]
+__cxa_pure_virtual      0x000131a5     0x6  Code  Gb  xpurevirtual.o [3]
+__data_Aldata           0x100047e4     0x8  Data  Gb  xxmemxmalloc.o [3]
+__data_GetMemChunk      0x000118a5    0x28  Code  Gb  xgetmemchunk.o [3]
+__dwrite                0x00011e9d    0x1e  Code  Gb  dwrite.o [5]
+__exit                  0x0001243d    0x14  Code  Gb  exit.o [5]
+__iar_Dnorm             0x0000f551    0xc6  Code  Gb  xdnorm.o [3]
+__iar_Dscale            0x0000edb1   0x108  Code  Gb  xdscale.o [3]
+__iar_Dtento            0x0000e791   0x160  Code  Gb  xdtento.o [3]
+__iar_Dunscale          0x00010391    0x64  Code  Gb  xdtento.o [3]
+__iar_EmptyStepPoint    0x00010ed9     0x2  Code  Gb  xassert.o [3]
+__iar_Errno             0x100047f0     0x4  Data  Gb  errno.o [3]
+__iar_FDnorm            0x0000ff29    0x82  Code  Gb  xfdnorm.o [3]
+__iar_FDscale           0x0000f79d    0xc0  Code  Gb  xfdscale.o [3]
+__iar_FExp              0x0000e631   0x160  Code  Gb  xfexp.o [3]
+__iar_Locksyslock       0x0000fe43    0x46  Code  Gb  xsyslock.o [3]
+__iar_Memchr            0x00010ad9          Code  Gb  memchr.o [4]
+__iar_Mtxdst            0x00010e9f     0xe  Code  Gb  MtxWrapper.o [3]
+__iar_Mtxinit           0x00010e91     0xe  Code  Gb  MtxWrapper.o [3]
+__iar_Mtxlock           0x00010ead     0xe  Code  Gb  MtxWrapper.o [3]
+__iar_Mtxunlock         0x00010ebb     0xe  Code  Gb  MtxWrapper.o [3]
+__iar_New_hand          0x10004850     0x4  Data  Gb  new.o [3]
+__iar_ReportAssert      0x000100b3    0x52  Code  Gb  xreportassert.o [3]
+__iar_Stod              0x0000f85d    0xbc  Code  Gb  xstod.o [3]
+__iar_Stoul             0x0000ec99   0x118  Code  Gb  xstoul.o [3]
+__iar_Strchr            0x00012351          Code  Gb  strchr.o [4]
+__iar_Tls_setup___iar_Errno
+                        0x100047ec     0x4  Data  Gb  errno.o [3]
+__iar_Unlocksyslock     0x0000fe89    0x14  Code  Gb  xsyslock.o [3]
+__iar_close_ttio        0x0001025d    0x26  Code  Gb  iarttio.o [5]
+__iar_copy_init3        0x00011565    0x30  Code  Gb  copy_init3.o [4]
+__iar_d2uiz             0x00010b67          Code  Gb  DblToI32.o [4]
+__iar_dadd              0x0000f2bf          Code  Gb  DblAdd.o [4]
+__iar_data_init3        0x00011785    0x2c  Code  Gb  data_init3.o [4]
+__iar_dsub              0x0000e357          Code  Gb  DblSub.o [4]
+__iar_dsubStart         0x0000e369          Code  Gb  DblSub.o [4]
+__iar_fadd              0x0000fd17          Code  Gb  FltAdd.o [4]
+__iar_fsub              0x0000f3a3          Code  Gb  FltSub.o [4]
+__iar_fsubStart         0x0000f3b1          Code  Gb  FltSub.o [4]
+__iar_get_ttio          0x00010285    0x40  Code  Gb  iarttio.o [5]
+__iar_lookup_ttioh      0x00013169     0x8  Code  Gb  XShttio.o [3]
+__iar_program_start     0x00012f89          Code  Gb  cstartup_M.o [4]
+__iar_sh_stdout         0x00011bad    0x20  Code  Gb  iarwstd.o [5]
+__iar_sh_write          0x00011a87    0x22  Code  Gb  iarwrite.o [5]
+__iar_ttio_handles      0x10002678     0x8  Data  Lc  XShttio.o [3]
+__iar_ui2d              0x000115ab          Code  Gb  I32ToDbl.o [4]
+__iar_ui2f              0x0001151b          Code  Gb  I32ToFlt.o [4]
+__iar_zero_init3        0x00011a41    0x24  Code  Gb  zero_init3.o [4]
+__low_level_init        0x00013233     0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000          Data  Gb  cstartup_M.o [1]
+__vector_table_0x1c     0x0000001c          Data  Gb  cstartup_M.o [1]
+__write                 0x000128b1    0x10  Code  Gb  write.o [5]
+_call_main              0x00012345          Code  Gb  cmain.o [4]
+_exit                   0x000128c1          Code  Gb  cexit.o [4]
+_key_code               0x10004872     0x1  Data  Gb  keyb.o [1]
+_key_state              0x10004874     0x1  Data  Gb  keyb.o [1]
+_main                   0x0001234b          Code  Gb  cmain.o [4]
+abort                   0x00013179     0x8  Code  Gb  abort.o [3]
+adc_bits                0x000131b8     0x4  Data  Gb  adc_fsm.o [1]
+adc_state               0x1000481c     0x4  Data  Gb  adc_fsm.o [1]
+adc_values              0x1000476c    0x10  Data  Gb  adc_fsm.o [1]
+adc_values_1            0x1000477c    0x10  Data  Gb  adc_fsm.o [1]
+adc_values_2            0x1000478c    0x10  Data  Gb  adc_fsm.o [1]
+allocator<_List_value<allocator<void>>::_GenNode>::allocator<void>(const allocator<T1>&)
+                        0x00012e8d     0xc  Code  Gb  usbase.o [1]
+allocator<_List_value<allocator<void>>::_GenNode>::allocator<void>(const allocator<T1>&) [internal]
+                        0x00013249     0x2  Code  Gb  usbase.o [1]
+allocator<_List_value<allocator<void>>::_GenNode>::max_size() const
+                        0x00012821    0x10  Code  Gb  usbase.o [1]
+allocator<list<usControl *, allocator<usControl *>>::_Node>::allocate(unsigned int)
+                        0x000124ed    0x12  Code  Gb  usbase.o [1]
+allocator<list<usControl *, allocator<usControl *>>::_Node>::allocator<void>(const allocator<T1>&)
+                        0x00012ea5     0xc  Code  Gb  usbase.o [1]
+allocator<list<usControl *, allocator<usControl *>>::_Node>::allocator<void>(const allocator<T1>&) [internal]
+                        0x0001324d     0x2  Code  Gb  usbase.o [1]
+allocator<list<usControl *, allocator<usControl *>>::_Node>::deallocate(list<usControl *, allocator<usControl *>>::_Node *, unsigned int)
+                        0x00012811    0x10  Code  Gb  usbase.o [1]
+allocator<list<usControl *, allocator<usControl *>>::_Node>::destroy(list<usControl *, allocator<usControl *>>::_Node *)
+                        0x00012ac7     0xe  Code  Gb  usbase.o [1]
+allocator<list<usScreen *, allocator<usScreen *>>::_Node>::allocate(unsigned int)
+                        0x000124db    0x12  Code  Gb  usbase.o [1]
+allocator<list<usScreen *, allocator<usScreen *>>::_Node>::allocator<void>(const allocator<T1>&)
+                        0x00012e99     0xc  Code  Gb  usbase.o [1]
+allocator<list<usScreen *, allocator<usScreen *>>::_Node>::allocator<void>(const allocator<T1>&) [internal]
+                        0x0001324b     0x2  Code  Gb  usbase.o [1]
+allocator<list<usScreen *, allocator<usScreen *>>::_Node>::deallocate(list<usScreen *, allocator<usScreen *>>::_Node *, unsigned int)
+                        0x00012801    0x10  Code  Gb  usbase.o [1]
+allocator<list<usScreen *, allocator<usScreen *>>::_Node>::destroy(list<usScreen *, allocator<usScreen *>>::_Node *)
+                        0x00012ab9     0xe  Code  Gb  usbase.o [1]
+allocator<void>::allocator()
+                        0x00012eb1     0xc  Code  Gb  usbase.o [1]
+allocator<void>::allocator() [internal]
+                        0x0001324f     0x2  Code  Gb  usbase.o [1]
+auchCRCHi               0x0000eeb8   0x100  Data  Gb  modbus.o [1]
+auchCRCLo               0x0000efb8   0x100  Data  Gb  modbus.o [1]
+aux_gains               0x000131b0     0x4  Data  Gb  adc_fsm.o [1]
+big_font                0x0000e8f0   0x150  Data  Gb  font.o [1]
+blink_flag              0x1000487f     0x1  Data  Gb  led_control.o [1]
+bmp_backward            0x00011ed8    0x1c  Data  Gb  bmps.o [1]
+bmp_cross               0x00013038     0x8  Data  Gb  bmps.o [1]
+bmp_exlamation          0x00011acc    0x20  Data  Gb  bmps.o [1]
+bmp_forward             0x00011ebc    0x1c  Data  Gb  bmps.o [1]
+bmp_height              0x000125e0    0x10  Data  Gb  bmps.o [1]
+bmp_hn                  0x00010d68    0x4c  Data  Gb  bmps.o [1]
+bmp_home                0x00011ef4    0x1c  Data  Gb  bmps.o [1]
+bmp_ids                 0x10002660     0x8  Data  Lc  usbase.o [1]
+bmp_key_input           0x00011aec    0x20  Data  Gb  bmps.o [1]
+bmp_o2                  0x00011310    0x34  Data  Gb  bmps.o [1]
+bmp_small_che           0x00012c4c     0xc  Data  Gb  bmps.o [1]
+bmp_small_hn            0x00012c70     0xc  Data  Gb  bmps.o [1]
+bmp_small_ne            0x00012c58     0xc  Data  Gb  bmps.o [1]
+bmp_small_o2            0x00012c64     0xc  Data  Gb  bmps.o [1]
+bmp_small_tp            0x00012c40     0xc  Data  Gb  bmps.o [1]
+bmp_width               0x000125d0    0x10  Data  Gb  bmps.o [1]
+bmps                    0x100025f8    0x34  Data  Gb  bmps.o [1]
+board_state             0x10004820     0x4  Data  Gb  board.o [1]
+cb                      0x00013048     0x8  Data  Gb  checkbox.o [1]
+ch0_flag                0x10004886     0x1  Data  Gb  timers.o [1]
+ch0_width               0x1000483c     0x4  Data  Gb  timers.o [1]
+ch1_flag                0x10004887     0x1  Data  Gb  timers.o [1]
+ch1_width               0x10004840     0x4  Data  Gb  timers.o [1]
+char_allocator::char_allocator()
+                        0x00012da9     0xc  Code  Gb  ao_test.o [1]
+char_allocator::char_allocator() [internal]
+                        0x00013241     0x2  Code  Gb  ao_test.o [1]
+char_traits::length(const char *)
+                        0x00012d9d     0xc  Code  Gb  ao_test.o [1]
+checked_cb              0x00013040     0x8  Data  Gb  checkbox.o [1]
+clearlocks              0x0000fe1d    0x26  Code  Lc  xsyslock.o [3]
+clk_arr                 0x000125f0    0x10  Data  Gb  board.o [1]
+curr_color              0x1000487d     0x1  Data  Gb  lcd.o [1]
+curr_font               0x10004870     0x1  Data  Gb  font.o [1]
+cursor                  0x10004848     0x4  Data  Gb  usbase.o [1]
+d_c                     0x000131bc     0x4  Data  Lc  processing.o [1]
+dac_tags                0x000125c0    0x10  Data  Lc  ao_test.o [1]
+data_busy               0x10004881     0x1  Data  Gb  modbus.o [1]
+deb_state1              0x10004879     0x1  Data  Gb  keyb.o [1]
+deb_state2              0x1000487a     0x1  Data  Gb  keyb.o [1]
+dict_var_descrs         0x00000100  0x2e1c  Data  Gb  variables.o [1]
+dict_vars               0x1000438c   0x38c  Data  Gb  variables.o [1]
+digits                  0x00010bb0    0x28  Data  Lc  xstoul.o [3]
+disconn_adc_code        0x100047bc    0x10  Data  Gb  disconnect.o [1]
+disconn_hth             0x100047ac    0x10  Data  Gb  disconnect.o [1]
+disconn_i               0x10004828     0x4  Data  Gb  disconnect.o [1]
+disconn_lth             0x1000479c    0x10  Data  Gb  disconnect.o [1]
+disconn_state           0x10004824     0x4  Data  Gb  disconnect.o [1]
+disp_led_states         0x100047dc     0x8  Data  Gb  led_control.o [1]
+disp_leds               0x00011b0c    0x20  Data  Gb  led_control.o [1]
+div                     0x00012c33     0xe  Code  Gb  div.o [3]
+exit                    0x000131ab     0x6  Code  Gb  exit.o [3]
+exp(float)              0x00012df1     0xc  Code  Gb  processing.o [1]
+expf                    0x000102c5    0x68  Code  Gb  expf.o [3]
+flash_flag              0x10004880     0x1  Data  Gb  main_scr.o [1]
+free                    0x0000fd95    0x84  Code  Gb  xxmemxfree.o [3]
+getScreenList()         0x0000462b     0x8  Code  Gb  usbase.o [1]
+getSystemCursor()       0x00004633     0x8  Code  Gb  usbase.o [1]
+getTag(int, int)        0x0000cf03    0x20  Code  Gb  ethernet_scr.o [1]
+kbd_CfgLines            0x000099c9    0x3a  Code  Gb  keyb.o [1]
+key_code                0x10004871     0x1  Data  Gb  keyb.o [1]
+key_codes               0x00010608    0x58  Data  Gb  keyb.o [1]
+key_flag                0x10004888     0x1  Data  Gb  timers.o [1]
+key_state               0x10004873     0x1  Data  Gb  keyb.o [1]
+l_encoder_button        0x10004877     0x1  Data  Gb  keyb.o [1]
+l_encoder_rotor         0x10004875     0x1  Data  Gb  keyb.o [1]
+l_encoder_state         0x1000487b     0x1  Data  Gb  keyb.o [1]
+lcd_control_state       0x1000487e     0x1  Data  Gb  lcd_control.o [1]
+list<usControl *, allocator<usControl *>>::_Alnod() const
+                        0x00012291    0x18  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::_Buynode(list<usControl *, allocator<usControl *>>::_Node *, list<usControl *, allocator<usControl *>>::_Node *, usControl *)
+                        0x00011139    0x40  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::_Head()
+                        0x00013255     0x2  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::_Incsize(unsigned int)
+                        0x00012891    0x10  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::_Insert(list<usControl *, allocator<usControl *>>::iterator, usControl *)
+                        0x000124b5    0x14  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::_Insert0(list<usControl *, allocator<usControl *>>::iterator, usControl *)
+                        0x00011077    0x42  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::_Myval(_List_value<allocator<void>>::_GenNode *)
+                        0x00013203     0x4  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::_Next(_List_value<allocator<void>>::_GenNode *)
+                        0x000131fb     0x4  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::_Node::_Node(_List_value<allocator<void>>::_GenNode *, _List_value<allocator<void>>::_GenNode *, usControl *)
+                        0x00012eed     0xc  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::_Node::_Node(_List_value<allocator<void>>::_GenNode *, _List_value<allocator<void>>::_GenNode *, usControl *) [internal]
+                        0x00012091    0x1a  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::_Node::~_Node()
+                        0x00012c25     0xe  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::_Node::~_Node() [internal]
+                        0x00012851    0x10  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::_Prev(_List_value<allocator<void>>::_GenNode *)
+                        0x00013193     0x6  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::_Tidy()
+                        0x00011dcb    0x1e  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::begin()
+                        0x00011ff1    0x1c  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::clear()
+                        0x00011d8f    0x1e  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::const_iterator::_Mynode() const
+                        0x00013213     0x4  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::const_iterator::const_iterator(list<usControl *, allocator<usControl *>>::_Node *) [internal]
+                        0x0001320b     0x4  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::const_iterator::const_iterator(list<usControl *, allocator<usControl *>>::_Node *) [subobject]
+                        0x00012f05     0xc  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::const_iterator::operator !=(const list<usControl *, allocator<usControl *>>::const_iterator&) const
+                        0x000120c5    0x1a  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::const_iterator::operator ==(const list<usControl *, allocator<usControl *>>::const_iterator&) const
+                        0x00012511    0x12  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::empty() const
+                        0x00012871    0x10  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::end()
+                        0x000122c1    0x18  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::erase(list<usControl *, allocator<usControl *>>::iterator)
+                        0x00010f67    0x46  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::erase(list<usControl *, allocator<usControl *>>::iterator, list<usControl *, allocator<usControl *>>::iterator)
+                        0x00011943    0x26  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::iterator::iterator(list<usControl *, allocator<usControl *>>::_Node *)
+                        0x00012f29     0xc  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::iterator::iterator(list<usControl *, allocator<usControl *>>::_Node *) [internal]
+                        0x00012535    0x12  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::iterator::operator *() const
+                        0x00012f41     0xc  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::iterator::operator ++()
+                        0x00012559    0x12  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::iterator::operator ++(int)
+                        0x0001248d    0x14  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::list()
+                        0x00012f59     0xc  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::list() [internal]
+                        0x00012aff     0xe  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::push_back(usControl *)
+                        0x00012321    0x18  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::size() const
+                        0x00013217     0x4  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::~list()
+                        0x00012b1b     0xe  Code  Gb  usbase.o [1]
+list<usControl *, allocator<usControl *>>::~list() [internal]
+                        0x000123d5    0x16  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::_Alnod() const
+                        0x00012279    0x18  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::_Buynode(list<usScreen *, allocator<usScreen *>>::_Node *, list<usScreen *, allocator<usScreen *>>::_Node *, usScreen *)
+                        0x000110f9    0x40  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::_Head()
+                        0x00013253     0x2  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::_Incsize(unsigned int)
+                        0x00012881    0x10  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::_Insert(list<usScreen *, allocator<usScreen *>>::iterator, usScreen *)
+                        0x000124a1    0x14  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::_Insert0(list<usScreen *, allocator<usScreen *>>::iterator, usScreen *)
+                        0x00011035    0x42  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::_Myval(_List_value<allocator<void>>::_GenNode *)
+                        0x000131ff     0x4  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::_Next(_List_value<allocator<void>>::_GenNode *)
+                        0x000131f7     0x4  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::_Node::_Node(_List_value<allocator<void>>::_GenNode *, _List_value<allocator<void>>::_GenNode *, usScreen *)
+                        0x00012ee1     0xc  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::_Node::_Node(_List_value<allocator<void>>::_GenNode *, _List_value<allocator<void>>::_GenNode *, usScreen *) [internal]
+                        0x00012077    0x1a  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::_Node::~_Node()
+                        0x00012c17     0xe  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::_Node::~_Node() [internal]
+                        0x00012841    0x10  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::_Prev(_List_value<allocator<void>>::_GenNode *)
+                        0x0001318d     0x6  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::_Tidy()
+                        0x00011dad    0x1e  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::begin()
+                        0x00011fd5    0x1c  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::clear()
+                        0x00011d71    0x1e  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::const_iterator::_Mynode() const
+                        0x0001320f     0x4  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::const_iterator::const_iterator(list<usScreen *, allocator<usScreen *>>::_Node *) [internal]
+                        0x00013207     0x4  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::const_iterator::const_iterator(list<usScreen *, allocator<usScreen *>>::_Node *) [subobject]
+                        0x00012ef9     0xc  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::const_iterator::operator !=(const list<usScreen *, allocator<usScreen *>>::const_iterator&) const
+                        0x000120ab    0x1a  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::const_iterator::operator ==(const list<usScreen *, allocator<usScreen *>>::const_iterator&) const
+                        0x000124ff    0x12  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::end()
+                        0x000122a9    0x18  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::erase(list<usScreen *, allocator<usScreen *>>::iterator)
+                        0x00010f21    0x46  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::erase(list<usScreen *, allocator<usScreen *>>::iterator, list<usScreen *, allocator<usScreen *>>::iterator)
+                        0x0001191d    0x26  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::iterator::iterator()
+                        0x00012f11     0xc  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::iterator::iterator() [internal]
+                        0x00012861    0x10  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::iterator::iterator(list<usScreen *, allocator<usScreen *>>::_Node *)
+                        0x00012f1d     0xc  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::iterator::iterator(list<usScreen *, allocator<usScreen *>>::_Node *) [internal]
+                        0x00012523    0x12  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::iterator::operator *() const
+                        0x00012f35     0xc  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::iterator::operator ++()
+                        0x00012547    0x12  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::iterator::operator ++(int)
+                        0x00012479    0x14  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::iterator::operator --()
+                        0x0001256b    0x12  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::list()
+                        0x00012f4d     0xc  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::list() [internal]
+                        0x00012af1     0xe  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::push_back(usScreen *)
+                        0x00012309    0x18  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::rbegin()
+                        0x000122d9    0x18  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::remove_if<pred>(T1)
+                        0x00010cc9    0x50  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::rend()
+                        0x000122f1    0x18  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::~list()
+                        0x00012b0d     0xe  Code  Gb  usbase.o [1]
+list<usScreen *, allocator<usScreen *>>::~list() [internal]
+                        0x000123bf    0x16  Code  Gb  usbase.o [1]
+main                    0x00002f79  0x164c  Code  Gb  main.o [1]
+main_gains              0x000131b4     0x4  Data  Gb  adc_fsm.o [1]
+main_modes              0x000125b0    0x10  Data  Gb  adc_fsm.o [1]
+malloc                  0x0000f919    0xb6  Code  Gb  xxmemxmalloc.o [3]
+max_width               0x000131c0     0x4  Data  Gb  timers.o [1]
+memchr                  0x00010ad9          Code  Gb  memchr.o [4]
+menues                  0x0000c2f8   0x30c  Data  Lc  menu_scr.o [1]
+min                     0x0001237d    0x16  Code  Gb  lcd.o [1]
+min_width               0x000131c4     0x4  Data  Gb  timers.o [1]
+mtx                     0x1000475c    0x10  Data  Lc  xsyslock.o [3]
+mtxdst                  0x10004860     0x4  Data  Lc  MtxWrapper.o [3]
+mtxinit                 0x1000485c     0x4  Data  Lc  MtxWrapper.o [3]
+mtxlock                 0x10004864     0x4  Data  Lc  MtxWrapper.o [3]
+mtxunlock               0x10004868     0x4  Data  Lc  MtxWrapper.o [3]
+ndigs                   0x00010b88    0x28  Data  Lc  xstoul.o [3]
+next_abi_dtor_rec       0x10004858     0x4  Data  Lc  cppinit.o [3]
+operator !=<list<usScreen *, allocator<usScreen *>>::iterator>(const reverse_iterator<T1> &, const reverse_iterator<T1> &)
+                        0x0001205d    0x1a  Code  Gb  usbase.o [1]
+operator ==<list<usScreen *, allocator<usScreen *>>::iterator>(const reverse_iterator<T1> &, const reverse_iterator<T1> &)
+                        0x000127f1    0x10  Code  Gb  usbase.o [1]
+operator delete (void *)
+                        0x00012fe5     0xa  Code  Gb  delop_0.o [3]
+operator delete[] (void *)
+                        0x0001322b     0x4  Code  Gb  delaop_0.o [3]
+operator new (unsigned int)
+                        0x000119b1    0x24  Code  Gb  newop_0.o [3]
+operator new (unsigned int, void *)
+                        0x00013181     0x6  Code  Gb  usbase.o [1]
+operator new[] (unsigned int)
+                        0x0001322f     0x4  Code  Gb  newaop_0.o [3]
+out                     0x0001009d    0x16  Code  Lc  xreportassert.o [3]
+pSHPR3                  0x10002680     0x4  Data  Gb  main.o [1]
+pages                   0x100047cc    0x10  Data  Gb  lcd.o [1]
+pass_state              0x10004882     0x1  Data  Gb  pass_controller.o [1]
+password_reset_time     0x10004834     0x4  Data  Gb  pass_controller.o [1]
+pow_l_state             0x10004883     0x1  Data  Gb  power_control.o [1]
+pow_r_state             0x10004884     0x1  Data  Gb  power_control.o [1]
+pows                    0x00010e00    0x48  Data  Lc  xdtento.o [3]
+pred::operator ()(usScreen *&)
+                        0x0001200d    0x1c  Code  Gb  usbase.o [1]
+pred::pred(int)         0x00012f7d     0xc  Code  Gb  usbase.o [1]
+pred::pred(int) [internal]
+                        0x00013227     0x4  Code  Gb  usbase.o [1]
+processing              0x10004838     0x4  Data  Gb  processing.o [1]
+processing_handler      0x10004844     0x4  Data  Gb  timers.o [1]
+putchar                 0x000118f5    0x28  Code  Gb  putchar.o [3]
+pwm_ch                  0x10004885     0x1  Data  Gb  timers.o [1]
+r_encoder_button        0x10004878     0x1  Data  Gb  keyb.o [1]
+r_encoder_rotor         0x10004876     0x1  Data  Gb  keyb.o [1]
+r_encoder_state         0x1000487c     0x1  Data  Gb  keyb.o [1]
+reverse_iterator<list<usScreen *, allocator<usScreen *>>::iterator>::_Equal(const reverse_iterator<list<usScreen *, allocator<usScreen *>>::iterator>&) const
+                        0x000127e1    0x10  Code  Gb  usbase.o [1]
+reverse_iterator<list<usScreen *, allocator<usScreen *>>::iterator>::operator *() const
+                        0x000123a9    0x16  Code  Gb  usbase.o [1]
+reverse_iterator<list<usScreen *, allocator<usScreen *>>::iterator>::reverse_iterator()
+                        0x00012e45     0xc  Code  Gb  usbase.o [1]
+reverse_iterator<list<usScreen *, allocator<usScreen *>>::iterator>::reverse_iterator() [internal]
+                        0x00012aab     0xe  Code  Gb  usbase.o [1]
+reverse_iterator<list<usScreen *, allocator<usScreen *>>::iterator>::reverse_iterator(list<usScreen *, allocator<usScreen *>>::iterator)
+                        0x00012e51     0xc  Code  Gb  usbase.o [1]
+reverse_iterator<list<usScreen *, allocator<usScreen *>>::iterator>::reverse_iterator(list<usScreen *, allocator<usScreen *>>::iterator) [internal]
+                        0x000131f3     0x4  Code  Gb  usbase.o [1]
+scr_backlight_time      0x1000482c     0x4  Data  Gb  lcd_control.o [1]
+screen_list             0x1000484c     0x4  Data  Gb  usbase.o [1]
+screens                 0x00008a18   0x6e0  Data  Gb  screens.o [1]
+small_font              0x0000a1b8   0x37c  Data  Gb  font.o [1]
+sprintf                 0x000114d5    0x30  Code  Gb  sprintf.o [3]
+strcat                  0x00011e7f    0x1e  Code  Gb  strcat.o [3]
+strchr                  0x00012351          Code  Gb  strchr.o [4]
+strcpy                  0x00010ff1          Code  Gb  strcpy.o [4]
+string::_Copy(unsigned int, unsigned int)
+                        0x0000db83    0x6c  Code  Gb  string.o [3]
+string::_Grow(unsigned int, bool)
+                        0x0000dbef    0x4a  Code  Gb  string.o [3]
+string::_Myptr() const  0x00012a9d     0xe  Code  Gb  usbase.o [1]
+string::_Tidy(bool, unsigned int)
+                        0x0000dc39    0x2e  Code  Gb  string.o [3]
+string::assign(const char *)
+                        0x00012249    0x18  Code  Gb  ao_test.o [1]
+string::assign(const char *, unsigned int)
+                        0x0000dadd    0x60  Code  Gb  string.o [3]
+string::assign(const string&, unsigned int, unsigned int)
+                        0x0000da71    0x6c  Code  Gb  string.o [3]
+string::c_str() const   0x00012e2d     0xc  Code  Gb  usbase.o [1]
+string::erase(unsigned int, unsigned int)
+                        0x0000db3d    0x46  Code  Gb  string.o [3]
+string::string(const char *)
+                        0x00012dcd     0xc  Code  Gb  ao_test.o [1]
+string::string(const char *) [internal]
+                        0x00011535    0x30  Code  Gb  ao_test.o [1]
+string::~string()       0x00012a8f     0xe  Code  Gb  usbase.o [1]
+string::~string() [internal]
+                        0x00012451    0x14  Code  Gb  usbase.o [1]
+strlen                  0x000112d9          Code  Gb  strlen.o [4]
+strtod                  0x000124c9    0x12  Code  Gb  usbase.o [1]
+strtol                  0x00010025    0x78  Code  Gb  strtol.o [3]
+sys_spi_states          0x1000262c    0x20  Data  Gb  led_control.o [1]
+sys_state               0x10004830     0x4  Data  Gb  led_control.o [1]
+syslock_o               0x10004758     0x4  Data  Lc  xsyslock.o [3]
+uart0_rx_buff           0x10002f8c   0x400  Data  Gb  LPC_Uart.o [1]
+uart0_rx_count          0x100047fc     0x4  Data  Gb  LPC_Uart.o [1]
+uart0_rx_error_flag     0x10004800     0x4  Data  Gb  LPC_Uart.o [1]
+uart0_rx_flag           0x1000486c     0x1  Data  Gb  LPC_Uart.o [1]
+uart0_rx_handler        0x100047f4     0x4  Data  Gb  LPC_Uart.o [1]
+uart0_tx_buff           0x1000338c   0x400  Data  Gb  LPC_Uart.o [1]
+uart0_tx_count          0x10004804     0x4  Data  Gb  LPC_Uart.o [1]
+uart0_tx_flag           0x1000486d     0x1  Data  Gb  LPC_Uart.o [1]
+uart0_tx_len            0x10004808     0x4  Data  Gb  LPC_Uart.o [1]
+uart1_rx_buff           0x1000378c   0x400  Data  Gb  LPC_Uart.o [1]
+uart1_rx_count          0x1000480c     0x4  Data  Gb  LPC_Uart.o [1]
+uart1_rx_error_flag     0x10004810     0x4  Data  Gb  LPC_Uart.o [1]
+uart1_rx_flag           0x1000486e     0x1  Data  Gb  LPC_Uart.o [1]
+uart1_rx_handler        0x100047f8     0x4  Data  Gb  LPC_Uart.o [1]
+uart1_tx_buff           0x10003b8c   0x400  Data  Gb  LPC_Uart.o [1]
+uart1_tx_count          0x10004814     0x4  Data  Gb  LPC_Uart.o [1]
+uart1_tx_flag           0x1000486f     0x1  Data  Gb  LPC_Uart.o [1]
+uart1_tx_len            0x10004818     0x4  Data  Gb  LPC_Uart.o [1]
+usBmpButton::Paint()    0x00004f8b    0xba  Code  Gb  usbase.o [1]
+usBmpButton::usBmpButton(unsigned char, unsigned short, unsigned short, unsigned short, unsigned char, button_id, int, int)
+                        0x00011379    0x34  Code  Gb  ai_test.o [1]
+usBmpButton::usBmpButton(unsigned char, unsigned short, unsigned short, unsigned short, unsigned char, button_id, int, int) [internal]
+                        0x00010c29    0x50  Code  Gb  ai_test.o [1]
+usBmpButton::~usBmpButton()
+                        0x00012bc3     0xe  Code  Gb  usbase.o [1]
+usBmpButton::~usBmpButton() [deleting]
+                        0x00012bb5     0xe  Code  Gb  usbase.o [1]
+usBmpButton::~usBmpButton() [internal]
+                        0x00011e25    0x1e  Code  Gb  usbase.o [1]
+usButton::Click()       0x00004ec9     0xe  Code  Gb  usbase.o [1]
+usButton::Enter()       0x00004ebd     0xc  Code  Gb  usbase.o [1]
+usButton::Paint()       0x00004da9   0x114  Code  Gb  usbase.o [1]
+usButton::usButton(unsigned char, unsigned short, unsigned short, unsigned short, unsigned char, int, int) [internal]
+                        0x00010bd9    0x50  Code  Gb  ai_test.o [1]
+usButton::usButton(unsigned char, unsigned short, unsigned short, unsigned short, unsigned char, int, int) [subobject]
+                        0x000117b1    0x2a  Code  Gb  ai_test.o [1]
+usButton::usButton(unsigned char, unsigned short, unsigned short, unsigned short, unsigned char, unsigned char, int, int) [internal]
+                        0x00010c79    0x50  Code  Gb  ao_test.o [1]
+usButton::usButton(unsigned char, unsigned short, unsigned short, unsigned short, unsigned char, unsigned char, int, int) [subobject]
+                        0x000113ad    0x34  Code  Gb  ao_test.o [1]
+usButton::~usButton()   0x00012b8b     0xe  Code  Gb  usbase.o [1]
+usButton::~usButton() [deleting]
+                        0x00012b6f     0xe  Code  Gb  usbase.o [1]
+usButton::~usButton() [internal]
+                        0x00011e07    0x1e  Code  Gb  usbase.o [1]
+usButton::~usButton() [subobject]
+                        0x00012b7d     0xe  Code  Gb  usbase.o [1]
+usCheckBox::Enter()     0x00005623    0x24  Code  Gb  usbase.o [1]
+usCheckBox::Paint()     0x00005647    0xaa  Code  Gb  usbase.o [1]
+usCheckBox::setChecked(bool)
+                        0x00012043    0x1a  Code  Gb  do_test.o [1]
+usCheckBox::usCheckBox(unsigned char, unsigned char, unsigned char, int, int)
+                        0x00011f9d    0x1c  Code  Gb  do_test.o [1]
+usCheckBox::usCheckBox(unsigned char, unsigned char, unsigned char, int, int) [internal]
+                        0x00010e49    0x48  Code  Gb  do_test.o [1]
+usCheckBox::~usCheckBox()
+                        0x00012bfb     0xe  Code  Gb  usbase.o [1]
+usCheckBox::~usCheckBox() [deleting]
+                        0x00012bed     0xe  Code  Gb  usbase.o [1]
+usCheckBox::~usCheckBox() [internal]
+                        0x00011e61    0x1e  Code  Gb  usbase.o [1]
+usControl::Enter()      0x0001323b     0x2  Code  Gb  ai_test.o [1]
+usControl::Focus()      0x0001323d     0x2  Code  Gb  ai_test.o [1]
+usControl::setFocused(bool)
+                        0x000118cd    0x28  Code  Gb  usbase.o [1]
+usControl::usControl(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) [internal]
+                        0x000111f1    0x3c  Code  Gb  ai_test.o [1]
+usControl::usControl(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) [subobject]
+                        0x00011b8d    0x20  Code  Gb  ai_test.o [1]
+usControl::~usControl()
+                        0x00012931     0xe  Code  Gb  ai_test.o [1]
+usControl::~usControl() [deleting]
+                        0x00012923     0xe  Code  Gb  ai_test.o [1]
+usControl::~usControl() [internal]
+                        0x00011beb    0x1e  Code  Gb  ai_test.o [1]
+usControl::~usControl() [subobject]
+                        0x00012b45     0xe  Code  Gb  usbase.o [1]
+usCursor::ClearCursor()
+                        0x00004693    0x20  Code  Gb  usbase.o [1]
+usCursor::DrawCursor()  0x0000467b    0x18  Code  Gb  usbase.o [1]
+usCursor::Hide()        0x000128a1    0x10  Code  Gb  usbase.o [1]
+usCursor::Paint()       0x00004709    0x20  Code  Gb  usbase.o [1]
+usCursor::Process()     0x000046b3    0x56  Code  Gb  usbase.o [1]
+usCursor::Show()        0x0001319f     0x6  Code  Gb  usbase.o [1]
+usCursor::getXCoord()   0x0001321b     0x4  Code  Gb  usbase.o [1]
+usCursor::getYCoord()   0x0001321f     0x4  Code  Gb  usbase.o [1]
+usCursor::setCoord(char, char)
+                        0x00013199     0x6  Code  Gb  usbase.o [1]
+usCursor::usCursor()    0x00012f65     0xc  Code  Gb  usbase.o [1]
+usCursor::usCursor() [internal]
+                        0x00011855    0x28  Code  Gb  usbase.o [1]
+usCursor::~usCursor()   0x00012b37     0xe  Code  Gb  usbase.o [1]
+usCursor::~usCursor() [deleting]
+                        0x00012b29     0xe  Code  Gb  usbase.o [1]
+usCursor::~usCursor() [internal]
+                        0x00011de9    0x1e  Code  Gb  usbase.o [1]
+usEditor::CursorLeft()  0x00005557    0x18  Code  Gb  usbase.o [1]
+usEditor::CursorRight()
+                        0x00005531    0x26  Code  Gb  usbase.o [1]
+usEditor::CursorUpdate()
+                        0x0000540d    0x56  Code  Gb  usbase.o [1]
+usEditor::DecreaseValue(char)
+                        0x000055c9    0x5a  Code  Gb  usbase.o [1]
+usEditor::Enter()       0x00005463     0xc  Code  Gb  usbase.o [1]
+usEditor::IncreaseValue(char)
+                        0x0000556f    0x5a  Code  Gb  usbase.o [1]
+usEditor::InsertChar(char)
+                        0x0000538d    0x66  Code  Gb  usbase.o [1]
+usEditor::Paint()       0x00005097    0x96  Code  Gb  usbase.o [1]
+usEditor::Process()     0x0000512d   0x250  Code  Gb  usbase.o [1]
+usEditor::Update()      0x000053f3    0x14  Code  Gb  usbase.o [1]
+usEditor::getValue()    0x0000546f    0x32  Code  Gb  usbase.o [1]
+usEditor::setMode(editor_mode)
+                        0x0000552d     0x4  Code  Gb  usbase.o [1]
+usEditor::setTag(int)   0x000054ed    0x40  Code  Gb  usbase.o [1]
+usEditor::setValue(T_VAR)
+                        0x000054a1    0x46  Code  Gb  usbase.o [1]
+usEditor::usEditor(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
+                        0x0000460b    0x20  Code  Gb  usbase.o [1]
+usEditor::usEditor(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) [internal]
+                        0x00005045    0x52  Code  Gb  usbase.o [1]
+usEditor::~usEditor()   0x00012bdf     0xe  Code  Gb  usbase.o [1]
+usEditor::~usEditor() [deleting]
+                        0x00012bd1     0xe  Code  Gb  usbase.o [1]
+usEditor::~usEditor() [internal]
+                        0x00011e43    0x1e  Code  Gb  usbase.o [1]
+usFsm::getState()       0x000131d3     0x4  Code  Gb  ai_test.o [1]
+usFsm::setState(unsigned short)
+                        0x000131cf     0x4  Code  Gb  ai_test.o [1]
+usFsm::usFsm(unsigned short) [internal]
+                        0x00013171     0x8  Code  Gb  ai_test.o [1]
+usFsm::usFsm(unsigned short) [subobject]
+                        0x000128cf     0xe  Code  Gb  ai_test.o [1]
+usFsm::~usFsm() [internal]
+                        0x00012367    0x16  Code  Gb  ai_test.o [1]
+usFsm::~usFsm() [subobject]
+                        0x000128dd     0xe  Code  Gb  ai_test.o [1]
+usGraphic::Paint()      0x00013237     0x2  Code  Gb  ai_test.o [1]
+usGraphic::Process()    0x00013239     0x2  Code  Gb  ai_test.o [1]
+usGraphic::Update()     0x00012915     0xe  Code  Gb  ai_test.o [1]
+usGraphic::usGraphic(unsigned char, unsigned char, unsigned char, unsigned char) [internal]
+                        0x00011475    0x30  Code  Gb  ai_test.o [1]
+usGraphic::usGraphic(unsigned char, unsigned char, unsigned char, unsigned char) [subobject]
+                        0x00012029    0x1a  Code  Gb  ai_test.o [1]
+usGraphic::~usGraphic()
+                        0x00012907     0xe  Code  Gb  ai_test.o [1]
+usGraphic::~usGraphic() [deleting]
+                        0x000128eb     0xe  Code  Gb  ai_test.o [1]
+usGraphic::~usGraphic() [internal]
+                        0x00011bcd    0x1e  Code  Gb  ai_test.o [1]
+usGraphic::~usGraphic() [subobject]
+                        0x000128f9     0xe  Code  Gb  ai_test.o [1]
+usScreen::ActivateFocusedControl()
+                        0x00004c3b    0x16  Code  Gb  usbase.o [1]
+usScreen::Activated(unsigned long *)
+                        0x00004c01    0x3a  Code  Gb  usbase.o [1]
+usScreen::ActiveLoop()  0x00004c95    0xae  Code  Gb  usbase.o [1]
+usScreen::AddControl(usControl *)
+                        0x00004961    0x14  Code  Gb  usbase.o [1]
+usScreen::ChildDeactivated(unsigned char)
+                        0x0001323f     0x2  Code  Gb  ai_test.o [1]
+usScreen::ChildScreenActivate(unsigned char)
+                        0x00004da3     0x6  Code  Gb  usbase.o [1]
+usScreen::Deactivate()  0x00004d91    0x12  Code  Gb  usbase.o [1]
+usScreen::DecFocus()    0x000049e3    0x28  Code  Gb  usbase.o [1]
+usScreen::DecSecondaryOrder()
+                        0x00004ac5    0xb0  Code  Gb  usbase.o [1]
+usScreen::GetScrId()    0x00013223     0x4  Code  Gb  usbase.o [1]
+usScreen::IncFocus()    0x000049b9    0x2a  Code  Gb  usbase.o [1]
+usScreen::IncSecondaryOrder()
+                        0x00004a0b    0xba  Code  Gb  usbase.o [1]
+usScreen::Paint()       0x00004975    0x44  Code  Gb  usbase.o [1]
+usScreen::PlaceControls()
+                        0x00004c51     0x2  Code  Gb  usbase.o [1]
+usScreen::Process()     0x00004d43    0x4e  Code  Gb  usbase.o [1]
+usScreen::RemoveControls()
+                        0x00004c53    0x42  Code  Gb  usbase.o [1]
+usScreen::SetFocus(unsigned char)
+                        0x000131d7     0x4  Code  Gb  editor_scr.o [1]
+usScreen::Update()      0x00004b75    0x8c  Code  Gb  usbase.o [1]
+usScreen::usScreen(unsigned char, int, bool, bool) [internal]
+                        0x00004877    0x6e  Code  Gb  usbase.o [1]
+usScreen::usScreen(unsigned char, int, bool, bool) [subobject]
+                        0x000045c9    0x18  Code  Gb  usbase.o [1]
+usScreen::~usScreen()   0x000045ef     0xe  Code  Gb  usbase.o [1]
+usScreen::~usScreen() [deleting]
+                        0x000045fd     0xe  Code  Gb  usbase.o [1]
+usScreen::~usScreen() [internal]
+                        0x000048e5    0x7c  Code  Gb  usbase.o [1]
+usScreen::~usScreen() [subobject]
+                        0x000045e1     0xe  Code  Gb  usbase.o [1]
+usScreenList::AddScreen(usScreen *)
+                        0x00004785    0x52  Code  Gb  usbase.o [1]
+usScreenList::Process()
+                        0x000047d7    0xa0  Code  Gb  usbase.o [1]
+usScreenList::RemoveScreen(int)
+                        0x0000476d    0x18  Code  Gb  usbase.o [1]
+usScreenList::RemoveScreens()
+                        0x00004729    0x44  Code  Gb  usbase.o [1]
+usScreenList::usScreenList()
+                        0x00012f71     0xc  Code  Gb  usbase.o [1]
+usScreenList::usScreenList() [internal]
+                        0x00012231    0x18  Code  Gb  usbase.o [1]
+usScreenList::~usScreenList()
+                        0x00012b61     0xe  Code  Gb  usbase.o [1]
+usScreenList::~usScreenList() [deleting]
+                        0x00012b53     0xe  Code  Gb  usbase.o [1]
+usScreenList::~usScreenList() [internal]
+                        0x0001187d    0x28  Code  Gb  usbase.o [1]
+usSystemInit()          0x0000463b    0x40  Code  Gb  usbase.o [1]
+usTextButton::Paint()   0x00004ed7    0xb4  Code  Gb  usbase.o [1]
+usTextButton::usTextButton(unsigned char, unsigned short, unsigned short, unsigned short, unsigned char, const char *, int, int)
+                        0x000113e1    0x32  Code  Gb  editor_scr.o [1]
+usTextButton::usTextButton(unsigned char, unsigned short, unsigned short, unsigned short, unsigned char, const char *, int, int) [internal]
+                        0x00010a81    0x58  Code  Gb  editor_scr.o [1]
+usTextButton::usTextButton(unsigned char, unsigned short, unsigned short, unsigned short, unsigned char, const char *, unsigned char, int, int)
+                        0x0001122d    0x3c  Code  Gb  ao_test.o [1]
+usTextButton::usTextButton(unsigned char, unsigned short, unsigned short, unsigned short, unsigned char, const char *, unsigned char, int, int) [internal]
+                        0x000103f5    0x5c  Code  Gb  ao_test.o [1]
+usTextButton::~usTextButton()
+                        0x00012ba7     0xe  Code  Gb  usbase.o [1]
+usTextButton::~usTextButton() [deleting]
+                        0x00012b99     0xe  Code  Gb  usbase.o [1]
+usTextButton::~usTextButton() [internal]
+                        0x000114a5    0x30  Code  Gb  usbase.o [1]
+video_buff              0x10003f8c   0x400  Data  Gb  lcd.o [1]
+write_multiple_data     0x10002b84   0x408  Data  Gb  modbus.o [1]
+
+
+[1] = C:\Users\V\Desktop\G_proj\1768\Flash Debug\Obj
+[2] = command line
+[3] = dl7M_tl_in.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  58 380 bytes of readonly  code memory
+  20 124 bytes of readonly  data memory
+  18 569 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,289 @@
+###############################################################################
+#                                                                             #
+# IAR ELF Linker V5.50.0.51878/W32 for ARM              26/Nov/2010  04:00:03 #
+# Copyright (C) 2007-2010 IAR Systems AB.                                     #
+#                                                                             #
+#    Output file  =  C:\Program Files\IAR Systems\Embedded Workbench          #
+#                    5.4\arm\examples\NXP\LPC17xx\IAR-LPC-1768-SK\GettingStar #
+#                    ted\RAM Debug\Exe\GettingStarted.out.tmp                 #
+#    Map file     =  C:\Program Files\IAR Systems\Embedded Workbench          #
+#                    5.4\arm\examples\NXP\LPC17xx\IAR-LPC-1768-SK\GettingStar #
+#                    ted\RAM Debug\List\GettingStarted.map                    #
+#    Command line =  "C:\Program Files\IAR Systems\Embedded Workbench         #
+#                    5.4\arm\examples\NXP\LPC17xx\IAR-LPC-1768-SK\GettingStar #
+#                    ted\RAM Debug\Obj\cstartup_M.o" "C:\Program Files\IAR    #
+#                    Systems\Embedded Workbench 5.4\arm\examples\NXP\LPC17xx\ #
+#                    IAR-LPC-1768-SK\GettingStarted\RAM Debug\Obj\main.o"     #
+#                    --redirect _Printf=_PrintfTiny --redirect                #
+#                    _Scanf=_ScanfSmall -o "C:\Program Files\IAR              #
+#                    Systems\Embedded Workbench 5.4\arm\examples\NXP\LPC17xx\ #
+#                    IAR-LPC-1768-SK\GettingStarted\RAM                       #
+#                    Debug\Exe\GettingStarted.out.tmp" --map "C:\Program      #
+#                    Files\IAR Systems\Embedded Workbench                     #
+#                    5.4\arm\examples\NXP\LPC17xx\IAR-LPC-1768-SK\GettingStar #
+#                    ted\RAM Debug\List\GettingStarted.map" --config          #
+#                    "C:\Program Files\IAR Systems\Embedded Workbench         #
+#                    5.4\arm\examples\NXP\LPC17xx\IAR-LPC-1768-SK\GettingStar #
+#                    ted\config\LPC1768_Ram.icf" --semihosting --entry        #
+#                    __iar_program_start                                      #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x10000000 { ro section .intvec };
+"P1":  place in [from 0x10000100 to 0x10007fff] { ro };
+"P2":  place in [from 0x10000100 to 0x10007fff] {
+          rw, block CSTACK, block HEAP };
+
+  Section            Kind        Address   Size  Object
+  -------            ----        -------   ----  ------
+"A1":                                      0xc4
+  .intvec            ro code  0x10000000   0xc4  cstartup_M.o [1]
+                            - 0x100000c4   0xc4
+
+"P1":                                     0x680
+  .text              ro code  0x10000100  0x308  main.o [1]
+  .rodata            const    0x10000408   0x74  main.o [1]
+  .text              ro code  0x1000047c   0x74  xreportassert.o [3]
+  .text              ro code  0x100004f0   0x68  iarttio.o [5]
+  .text              ro code  0x10000558   0x48  xassert.o [3]
+  .rodata            const    0x100005a0   0x34  main.o [1]
+  .rodata            const    0x100005d4   0x30  xreportassert.o [3]
+  .text              ro code  0x10000604   0x30  copy_init3.o [4]
+  .text              ro code  0x10000634   0x2c  data_init3.o [4]
+  .text              ro code  0x10000660   0x28  putchar.o [3]
+  .text              ro code  0x10000688   0x22  iarwrite.o [5]
+  .iar.init_table    const    0x100006ac   0x14  - Linker created -
+  .text              ro code  0x100006c0   0x20  iarwstd.o [5]
+  .text              ro code  0x100006e0   0x1e  dwrite.o [5]
+  .text              ro code  0x10000700   0x16  cmain.o [4]
+  .text              ro code  0x10000718   0x14  exit.o [5]
+  .text              ro code  0x1000072c   0x10  write.o [5]
+  .text              ro code  0x1000073c    0xc  cstartup_M.o [4]
+  .text              ro code  0x10000748    0xa  cexit.o [4]
+  .text              ro code  0x10000754    0x8  XShttio.o [3]
+  .text              ro code  0x1000075c    0x8  abort.o [3]
+  .text              ro code  0x10000764    0x6  exit.o [3]
+  .rodata            const    0x1000076c    0x4  iarttio.o [5]
+  .text              ro code  0x10000770    0x4  low_level_init.o [3]
+  .text              ro code  0x10000774    0x2  cstartup_M.o [1]
+  Initializer bytes  ro data  0x10000778    0x8  <for P2 s0>
+                            - 0x10000780  0x680
+
+"P2", part 1 of 2:                        0x800
+  CSTACK                      0x10000780  0x800  <Block>
+    CSTACK           uninit   0x10000780  0x800  <Block tail>
+                            - 0x10000f80  0x800
+
+"P2", part 2 of 2:                          0x8
+  P2 s0                       0x10000f80    0x8  <Init block>
+    .data            inited   0x10000f80    0x8  XShttio.o [3]
+                            - 0x10000f88    0x8
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Copy (__iar_copy_init3)
+    1 source range, total size 0x8 (100% of destination):
+          0x10000778   0x8
+    1 destination range, total size 0x8:
+          0x10000f80   0x8
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+C:\Program Files\IAR Systems\Embedded Workbench 5.4\arm\examples\NXP\LPC17xx\IAR-LPC-1768-SK\GettingStarted\RAM Debug\Obj: [1]
+    cstartup_M.o          198
+    main.o                776      168
+    -------------------------------------------
+    Total:                974      168
+
+command line: [2]
+    -------------------------------------------
+    Total:
+
+dl7M_tl_in.a: [3]
+    XShttio.o               8        8        8
+    abort.o                 8
+    exit.o                  6
+    low_level_init.o        4
+    putchar.o              40
+    xassert.o              72
+    xreportassert.o       116       48
+    -------------------------------------------
+    Total:                254       56        8
+
+rt7M_tl.a: [4]
+    cexit.o                10
+    cmain.o                22
+    copy_init3.o           48
+    cstartup_M.o           12
+    data_init3.o           44
+    -------------------------------------------
+    Total:                136
+
+shb_l.a: [5]
+    dwrite.o               30
+    exit.o                 20
+    iarttio.o             104        4
+    iarwrite.o             34
+    iarwstd.o              32
+    write.o                16
+    -------------------------------------------
+    Total:                236        4
+
+    Gaps                    6        4
+    Linker created                  22    2 048
+-----------------------------------------------
+    Grand Total:        1 606      254    2 056
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                    Address  Size  Type      Object
+-----                    -------  ----  ----      ------
+ADC_IRQHandler        0x10000775        Code  Wk  cstartup_M.o [1]
+BOD_IRQHandler        0x10000775        Code  Wk  cstartup_M.o [1]
+BusFault_Handler      0x10000775        Code  Wk  cstartup_M.o [1]
+CAN_IRQHandler        0x10000775        Code  Wk  cstartup_M.o [1]
+CSTACK$$Base          0x10000780         --   Gb  - Linker created -
+CSTACK$$Limit         0x10000f80         --   Gb  - Linker created -
+DebugMon_Handler      0x10000775        Code  Wk  cstartup_M.o [1]
+EINT0_IRQHandler      0x10000775        Code  Wk  cstartup_M.o [1]
+EINT1_IRQHandler      0x10000775        Code  Wk  cstartup_M.o [1]
+EINT2_IRQHandler      0x10000775        Code  Wk  cstartup_M.o [1]
+EINT3_IRQHandler      0x10000775        Code  Wk  cstartup_M.o [1]
+Ethernet_IRQHandler   0x10000775        Code  Wk  cstartup_M.o [1]
+GPDMA_IRQHandler      0x10000775        Code  Wk  cstartup_M.o [1]
+GpioInit              0x10000267  0x50  Code  Gb  main.o [1]
+HardFault_Handler     0x10000775        Code  Wk  cstartup_M.o [1]
+I2C0_IRQHandler       0x10000775        Code  Wk  cstartup_M.o [1]
+I2C1_IRQHandler       0x10000775        Code  Wk  cstartup_M.o [1]
+I2C2_IRQHandler       0x10000775        Code  Wk  cstartup_M.o [1]
+I2S_IRQHandler        0x10000775        Code  Wk  cstartup_M.o [1]
+InitClock             0x10000197  0xd0  Code  Gb  main.o [1]
+MemManage_Handler     0x10000775        Code  Wk  cstartup_M.o [1]
+MotorControlPWM_IRQHandler
+                      0x10000775        Code  Wk  cstartup_M.o [1]
+NMI_Handler           0x10000775        Code  Wk  cstartup_M.o [1]
+NVIC_ClrPend          0x10000139  0x38  Code  Gb  main.o [1]
+NVIC_IntEnable        0x10000101  0x38  Code  Gb  main.o [1]
+PLL0_IRQHandler       0x10000775        Code  Wk  cstartup_M.o [1]
+PLL1_IRQHandler       0x10000775        Code  Wk  cstartup_M.o [1]
+PWM1_IRQHandler       0x10000775        Code  Wk  cstartup_M.o [1]
+PendSV_Handler        0x10000775        Code  Wk  cstartup_M.o [1]
+QE_IRQHandler         0x10000775        Code  Wk  cstartup_M.o [1]
+RIT_IRQHandler        0x10000775        Code  Wk  cstartup_M.o [1]
+RTC_IRQHandler        0x10000775        Code  Wk  cstartup_M.o [1]
+Region$$Table$$Base   0x100006ac         --   Gb  - Linker created -
+Region$$Table$$Limit  0x100006c0         --   Gb  - Linker created -
+SPI_IRQHandler        0x10000775        Code  Wk  cstartup_M.o [1]
+SSP0_IRQHandler       0x10000775        Code  Wk  cstartup_M.o [1]
+SSP1_IRQHandler       0x10000775        Code  Wk  cstartup_M.o [1]
+SVC_Handler           0x10000775        Code  Wk  cstartup_M.o [1]
+SysTick_Handler       0x10000775        Code  Wk  cstartup_M.o [1]
+T0MR0                 0x40004018   0x4  Data  Wk  main.o [1]
+T0PR                  0x4000400c   0x4  Data  Wk  main.o [1]
+TMR0_IRQHandler       0x10000171  0x26  Code  Gb  main.o [1]
+TMR1_IRQHandler       0x10000775        Code  Wk  cstartup_M.o [1]
+TMR2_IRQHandler       0x10000775        Code  Wk  cstartup_M.o [1]
+TMR3_IRQHandler       0x10000775        Code  Wk  cstartup_M.o [1]
+UART0_IRQHandler      0x10000775        Code  Wk  cstartup_M.o [1]
+UART1_IRQHandler      0x10000775        Code  Wk  cstartup_M.o [1]
+UART2_IRQHandler      0x10000775        Code  Wk  cstartup_M.o [1]
+UART3_IRQHandler      0x10000775        Code  Wk  cstartup_M.o [1]
+USB_IRQHandler        0x10000775        Code  Wk  cstartup_M.o [1]
+UsageFault_Handler    0x10000775        Code  Wk  cstartup_M.o [1]
+WDT_IRQHandler        0x10000775        Code  Wk  cstartup_M.o [1]
+_A_CCLKCFG            0x400fc104   0x4  Data  Wk  main.o [1]
+_A_CLKSRCSEL          0x400fc10c   0x4  Data  Wk  main.o [1]
+_A_CLRPEND0           0xe000e280   0x4  Data  Wk  main.o [1]
+_A_FIO0DIR            0x2009c000   0x4  Data  Wk  main.o [1]
+_A_FIO0MASK           0x2009c010   0x4  Data  Wk  main.o [1]
+_A_FIO1DIR            0x2009c020   0x4  Data  Wk  main.o [1]
+_A_FIO1MASK           0x2009c030   0x4  Data  Wk  main.o [1]
+_A_FIO1PIN            0x2009c034   0x4  Data  Wk  main.o [1]
+_A_FIO1SET            0x2009c038   0x4  Data  Wk  main.o [1]
+_A_FIO2DIR            0x2009c040   0x4  Data  Wk  main.o [1]
+_A_FIO2MASK           0x2009c050   0x4  Data  Wk  main.o [1]
+_A_FIO3DIR            0x2009c060   0x4  Data  Wk  main.o [1]
+_A_FIO3MASK           0x2009c070   0x4  Data  Wk  main.o [1]
+_A_FIO4DIR            0x2009c080   0x4  Data  Wk  main.o [1]
+_A_FIO4MASK           0x2009c090   0x4  Data  Wk  main.o [1]
+_A_FLASHCFG           0x400fc000   0x4  Data  Wk  main.o [1]
+_A_PCLKSEL0           0x400fc1a8   0x4  Data  Wk  main.o [1]
+_A_PCLKSEL1           0x400fc1ac   0x4  Data  Wk  main.o [1]
+_A_PCONP              0x400fc0c4   0x4  Data  Wk  main.o [1]
+_A_PINSEL0            0x4002c000   0x4  Data  Wk  main.o [1]
+_A_PINSEL1            0x4002c004   0x4  Data  Wk  main.o [1]
+_A_PINSEL2            0x4002c008   0x4  Data  Wk  main.o [1]
+_A_PINSEL3            0x4002c00c   0x4  Data  Wk  main.o [1]
+_A_PINSEL4            0x4002c010   0x4  Data  Wk  main.o [1]
+_A_PINSEL7            0x4002c01c   0x4  Data  Wk  main.o [1]
+_A_PINSEL8            0x4002c020   0x4  Data  Wk  main.o [1]
+_A_PINSEL9            0x4002c024   0x4  Data  Wk  main.o [1]
+_A_PLL0CFG            0x400fc084   0x4  Data  Wk  main.o [1]
+_A_PLL0CON            0x400fc080   0x4  Data  Wk  main.o [1]
+_A_PLL0FEED           0x400fc08c   0x4  Data  Wk  main.o [1]
+_A_PLL0STAT           0x400fc088   0x4  Data  Wk  main.o [1]
+_A_SCS                0x400fc1a0   0x4  Data  Wk  main.o [1]
+_A_SETENA0            0xe000e100   0x4  Data  Wk  main.o [1]
+_A_T0CTCR             0x40004070   0x4  Data  Wk  main.o [1]
+_A_T0IR               0x40004000   0x4  Data  Wk  main.o [1]
+_A_T0MCR              0x40004014   0x4  Data  Wk  main.o [1]
+_A_T0TCR              0x40004004   0x4  Data  Wk  main.o [1]
+__aeabi_assert        0x1000055b  0x46  Code  Gb  xassert.o [3]
+__cmain               0x10000701        Code  Gb  cmain.o [4]
+__dwrite              0x100006e1  0x1e  Code  Gb  dwrite.o [5]
+__exit                0x10000719  0x14  Code  Gb  exit.o [5]
+__iar_EmptyStepPoint  0x10000559   0x2  Code  Gb  xassert.o [3]
+__iar_ReportAssert    0x10000493  0x52  Code  Gb  xreportassert.o [3]
+__iar_close_ttio      0x100004f1  0x26  Code  Gb  iarttio.o [5]
+__iar_copy_init3      0x10000605  0x30  Code  Gb  copy_init3.o [4]
+__iar_data_init3      0x10000635  0x2c  Code  Gb  data_init3.o [4]
+__iar_get_ttio        0x10000519  0x40  Code  Gb  iarttio.o [5]
+__iar_lookup_ttioh    0x10000755   0x8  Code  Gb  XShttio.o [3]
+__iar_program_start   0x1000073d        Code  Gb  cstartup_M.o [4]
+__iar_sh_stdout       0x100006c1  0x20  Code  Gb  iarwstd.o [5]
+__iar_sh_write        0x10000689  0x22  Code  Gb  iarwrite.o [5]
+__iar_ttio_handles    0x10000f80   0x8  Data  Lc  XShttio.o [3]
+__low_level_init      0x10000771   0x4  Code  Gb  low_level_init.o [3]
+__vector_table        0x10000000        Data  Gb  cstartup_M.o [1]
+__vector_table_0x1c   0x1000001c        Data  Gb  cstartup_M.o [1]
+__write               0x1000072d  0x10  Code  Gb  write.o [5]
+_call_main            0x1000070d        Code  Gb  cmain.o [4]
+_exit                 0x10000749        Code  Gb  cexit.o [4]
+_main                 0x10000713        Code  Gb  cmain.o [4]
+abort                 0x1000075d   0x8  Code  Gb  abort.o [3]
+exit                  0x10000765   0x6  Code  Gb  exit.o [3]
+main                  0x100002b7  0xae  Code  Gb  main.o [1]
+out                   0x1000047d  0x16  Code  Lc  xreportassert.o [3]
+putchar               0x10000661  0x28  Code  Gb  putchar.o [3]
+
+
+[1] = C:\Program Files\IAR Systems\Embedded Workbench 5.4\arm\examples\NXP\LPC17xx\IAR-LPC-1768-SK\GettingStarted\RAM Debug\Obj
+[2] = command line
+[3] = dl7M_tl_in.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  1 606 bytes of readonly  code memory
+    254 bytes of readonly  data memory
+  2 056 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
