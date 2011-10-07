@@ -1862,6 +1862,18 @@
     <name>$PROJ_DIR$\screens.h</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\tagvaluelabel.cpp</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\tagvaluelabel.h</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\thermocouple.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\thermocouple.h</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\timers.c</name>
   </file>
   <file>
@@ -1872,6 +1884,12 @@
   </file>
   <file>
     <name>$PROJ_DIR$\trend_scr.h</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\twocolscr.cpp</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\twocolscr.h</name>
   </file>
   <file>
     <name>$PROJ_DIR$\type.h</name>

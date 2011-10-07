@@ -126,8 +126,9 @@ void LutScreen::Activated(unsigned long *param)                                 
 {
   usScreen::Activated();//(param);
 };
-*/
+
 void LutScreen::ActiveLoop(void)                              
 {
  usScreen::ActiveLoop();
 };
+*/

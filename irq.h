@@ -1,7 +1,7 @@
 #ifndef __IRQ_H
 #define __IRQ_H
 
-#include "arm_comm.h"
+//#include "arm_comm.h"
 
 #define HIGHEST_PRIORITY  0x01
 #define LOWEST_PRIORITY   0x0F
@@ -15,7 +15,7 @@
  *
  *
  *************************************************************************/
-void NVIC_IntEnable(Int32U IntNumber);
+void NVIC_IntEnable(unsigned long IntNumber);
 
 /*************************************************************************
  * Function Name: NVIC_IntDisable
@@ -26,7 +26,7 @@ void NVIC_IntEnable(Int32U IntNumber);
  *
  *
  *************************************************************************/
-void NVIC_IntDisable(Int32U IntNumber);
+void NVIC_IntDisable(unsigned long IntNumber);
 
 /*************************************************************************
  * Function Name: NVIC_ClrPend
@@ -37,7 +37,7 @@ void NVIC_IntDisable(Int32U IntNumber);
  *
  *
  *************************************************************************/
-void NVIC_ClrPend(Int32U IntNumber);
+void NVIC_ClrPend(unsigned long IntNumber);
 
 /*************************************************************************
  * Function Name: NVIC_ClrPend
@@ -48,7 +48,7 @@ void NVIC_ClrPend(Int32U IntNumber);
  *
  *
  *************************************************************************/
-void NVIC_IntPri(Int32U IntNumber, Int8U Priority);
+void NVIC_IntPri(unsigned long IntNumber, char Priority);
 
 #endif /* end __IRQ_H */
 

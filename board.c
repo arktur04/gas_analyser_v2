@@ -278,7 +278,7 @@ void SpiWriteUInt32(unsigned long UInt32)
     };
     SpiSclkSet();
   };
-  SpiCsSet();
+  SpiCsSet(); 
 }
 
 void LcdInitPio(void)
@@ -413,7 +413,7 @@ void SysSpiWriteByte(char byte)
     else
       SysMosiClr();
     SysSclkSet();
-  };
+  }; 
  // Delay();
 //  SpiCsSet();
  // Delay();

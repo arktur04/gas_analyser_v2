@@ -10,6 +10,7 @@
 //------------------------------------------------------------------------------
 #define PARAM_SCREEN 0
 #define CLAPP_SCREEN 1
+#define TWO_COL_SCREEN 2
 //------------------------------------------------------------------------------
 //  screens id's
 //------------------------------------------------------------------------------
@@ -18,52 +19,61 @@
 #define SCR_MENU_1    2
 #define SCR_MENU_2    3
 #define SCR_MENU_3    4
+#define SCR_MENU_4    5
 
-#define SCR_THERM_L_0 5
-#define SCR_THERM_L_1 6
-#define SCR_THERM_L_2 7
+#define SCR_THERM_L_0 6
+#define SCR_THERM_L_1 7
+#define SCR_THERM_L_2 8
 
-#define SCR_THERM_R_0 8
-#define SCR_THERM_R_1 9
-#define SCR_THERM_R_2 10
+#define SCR_THERM_R_0 9
+#define SCR_THERM_R_1 10
+#define SCR_THERM_R_2 11
 
-#define SCR_O2_L_0    11
-#define SCR_O2_L_1    12
-#define SCR_O2_L_2    13
+#define SCR_O2_L_0    12
+#define SCR_O2_L_1    13
+#define SCR_O2_L_2    14
 
-#define SCR_O2_R_0    14
-#define SCR_O2_R_1    15
-#define SCR_O2_R_2    16
+#define SCR_O2_R_0    15
+#define SCR_O2_R_1    16
+#define SCR_O2_R_2    17
 
-#define SCR_HN_L_0    17
-#define SCR_HN_L_1    18
-#define SCR_HN_L_2    19
+#define SCR_HN_L_0    18
+#define SCR_HN_L_1    19
+#define SCR_HN_L_2    20
 
-#define SCR_HN_R_0    20
-#define SCR_HN_R_1    21
-#define SCR_HN_R_2    22
+#define SCR_HN_R_0    21
+#define SCR_HN_R_1    22
+#define SCR_HN_R_2    23
 
-#define SCR_TH_L      23
-#define SCR_TH_R      24
+#define SCR_TH_L      24
+#define SCR_TH_R      25
 
-#define SCR_RS232     25
-#define SCR_RS485     26
-#define SCR_ETHERNET  27
+#define SCR_RS232     26
+#define SCR_RS485     27
+#define SCR_ETHERNET  28
 
-#define SCR_DO_TEST   28
-#define SCR_AI_TEST   29
-#define SCR_AO_TEST   30
-#define SCR_PWM_TEST  31
-#define SCR_TREND_L   32
-#define SCR_TREND_R   33
-#define SCR_MISC      34
+#define SCR_DO_TEST   29
+#define SCR_AI_TEST   30
+#define SCR_AO_TEST   31
+#define SCR_PWM_TEST  32
+#define SCR_TREND_L   33
+#define SCR_TREND_R   34
+#define SCR_MISC      35
 
-#define SCR_EDITOR    35
-#define SCR_PASS      36
-#define SCR_MSG       37
+#define SCR_EDITOR    36
+#define SCR_PASS      37
+#define SCR_MSG       38
 
-#define SCR_RES_THR_0   38
-#define SCR_RES_THR_1   39
+#define SCR_RES_THR_0 39
+#define SCR_RES_THR_1 40
+
+#define SCR_TC_CALIBR_L 41
+#define SCR_TC_CALIBR_R 42
+
+#define SCR_CH_CALIBR_L 43
+#define SCR_CH_CALIBR_R 44
+
+#define SCR_OUT_CALIBR  45
 //------------------------------------------------------------------------------
 // 
 //------------------------------------------------------------------------------
@@ -85,6 +95,16 @@ typedef struct{
   char home_allowed; //кнопка "главный экран" разрешена
   char forward_allowed; //кнопка "вперед" разрешена
 } T_CLAPP_SCREEN_DESCRIPTOR;
+
+
+typedef struct{
+  char header[25]; //заголовок экрана
+  int var[5][2];
+  int number; //номер экрана
+  char back_allowed; //кнопка "назад" разрешена
+  char home_allowed; //кнопка "главный экран" разрешена
+  char forward_allowed; //кнопка "вперед" разрешена
+} T_TWO_COL_SCREEN_DESCRIPTOR;
 /*
 typedef struct{
   char header[25]; //заголовок экрана
@@ -108,6 +128,7 @@ typedef union
 {
   T_PARAM_SCREEN_DESCRIPTOR param_screen;
   T_CLAPP_SCREEN_DESCRIPTOR clapp_screen;
+  T_TWO_COL_SCREEN_DESCRIPTOR two_col_screen;
 } T_SCREEN_;
 
 typedef struct 

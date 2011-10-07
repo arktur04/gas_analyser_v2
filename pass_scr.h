@@ -6,6 +6,7 @@
 
 #include "usbase.h"
 #include "variables.h"
+#include "screens.h"
 
 class PassScreen: public usScreen{
 public:

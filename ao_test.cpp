@@ -23,7 +23,7 @@ AoTestScreen::AoTestScreen():usScreen(MSG_DAC_OUT_TEST_SCREEN_ACTIVATE, SCR_AO_T
  // message_to_activate = MSG_DAC_OUT_TEST_SCREEN_ACTIVATE;  
 };
 
-void AoTestScreen::Activated(unsigned long *param)
+void AoTestScreen::Activated(unsigned long * param)
 {
   usScreen::Activated(param);
   SetIntValueByTag(DAC_TEST_FLAG, 1);
@@ -67,9 +67,9 @@ void AoTestScreen::UpdateButtonValues()
   
 void AoTestScreen::AoTestScreen::Paint(void)
 { 
-  char str[10];
+  //char str[10];
   
-   LcdClear();
+  LcdClear();
   SetFont(SMALL_FONT);
   LcdText(1, 0, 118, 7, "Тест аналоговых выходов");
   LcdLine(0, 8, 127, 8);  

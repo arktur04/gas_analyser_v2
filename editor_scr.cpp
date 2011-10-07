@@ -126,7 +126,7 @@ void EditorScreen::ActiveLoop(void)
   {
     if(param == SCR_EDITOR)
     {
-      SetValueByTag(var_tag, editor->getValue());
+      setTagValue(var_tag, editor->getValue());
       
       SendParamMessage(MSG_CHILD_SCREEN_DEACTIVATED, SCR_EDITOR);
     }
@@ -205,10 +205,10 @@ void EditorScreen::Paint(void)
   sprintf(buffer1, "¬ведите %s", GetNameByTag(var_tag));
   
  // void(usBase::*)() pDelegate = &this.Delegate();
-  usBase Base;
+ // usBase Base;
  // PDELEGATE myDelegate = &EditorScreen::OnClick;
   
-  USMESSAGE some_msg; //  FOR DEBUG
+ // USMESSAGE some_msg; //  FOR DEBUG
  // sprintf(buffer1, "%d", sizeof myDelegate);
          // (this->*myDelegate)(some_msg);
   

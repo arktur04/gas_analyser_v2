@@ -68,11 +68,11 @@ void PwmTestScreen::Paint(void)
   LcdText(25, 33, 49, 41, "Обрыв");
   LcdText(0, 44, 49, 52, "Перегрузка");
   
-  DrawCheckBox(51, 32, GetIntValueByTag(FLT_NE_L), FALSE);
-  DrawCheckBox(81, 32, GetIntValueByTag(FLT_NE_R), FALSE);
+  DrawCheckBox(51, 32, GetIntValueByTag(FLT_NE_L), false);
+  DrawCheckBox(81, 32, GetIntValueByTag(FLT_NE_R), false);
    
-  DrawCheckBox(51, 43, FALSE, FALSE);                                           // overload checkbox
-  DrawCheckBox(81, 43, FALSE, FALSE);                                           // overload checkbox
+  DrawCheckBox(51, 43, false, false);                                           // overload checkbox
+  DrawCheckBox(81, 43, false, false);                                           // overload checkbox
   
   
   GetStringByTag(PWM_1, ID_CURR_VAL, str, BUF_SIZE);

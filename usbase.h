@@ -27,6 +27,8 @@ usCursor* getSystemCursor(void);
 
 usScreenList* getScreenList();
 
+void usDrawTagValue(char x1, char y1, int Tag);
+
 //------------------------------------------------------------------------------
 typedef struct{
   u16 MsgID;
@@ -103,15 +105,21 @@ class usScreen;
 class usGraphic: public usFsm{
   friend class usScreen;
 private:
+  u8 m_x, m_y, m_width, m_height;
 protected:
-  u8 x, y, width, height;
+//  u8 x, y, width, height;
   virtual void Paint(void){};// = 0;
 public:
   usGraphic(u8 _x, u8 _y, u8 _width, u8 _height):
-    x(_x), y(_y), width(_width), height(_height) {};
-    virtual ~usGraphic(){};
+    m_x(_x), m_y(_y), m_width(_width), m_height(_height) {};
+  virtual ~usGraphic(){};
   virtual void Update(void) {Paint();};
   virtual void Process(void){};// = 0;
+  
+  u8 getLeft() {return m_x;};
+  u8 getTop() {return m_y;};
+  u8 getHeight() {return m_height;};
+  u8 getWidth() {return m_width;}
 };
 
 class usControl: public usGraphic{
@@ -119,6 +127,7 @@ class usControl: public usGraphic{
 private:
 protected:
   bool focused;
+  bool focusEnabled;
   u8 secondary_order;
  /* virtual void KeyEvent(char KeyCode){};
   virtual void MessageEvent(MESSAGE Msg){};
@@ -127,7 +136,7 @@ protected:
   virtual void Enter() {};
 public:
   usControl(u8 _x, u8 _y, u8 _width, u8 _height, u8 _secondary_order):
-    secondary_order(_secondary_order), focused(false), 
+    secondary_order(_secondary_order), focused(false), focusEnabled(true),
     usGraphic(_x, _y, _width, _height) {};
     virtual ~usControl(){};
   bool getFocused(void){return focused;};
@@ -144,6 +153,11 @@ public:
   u8 get_secondary_order(void) {return secondary_order;};
   void set_secondary_order(u8 _secondary_order)
     {secondary_order = _secondary_order;};
+  bool getFocusEnabled() {return focusEnabled;};
+  void setFocusEnabled(bool _focus_enabled) 
+  {
+    focusEnabled = _focus_enabled;
+  };
 };
 
 class usScreenList{
@@ -159,6 +173,11 @@ public:
   virtual void Process();
 };
 
+class usControlList: public list<usControl*>{
+public:
+  usControl*operator[] (int i);
+};
+
 class usScreen: public usFsm{
   friend usScreenList;
 private:
@@ -171,12 +190,13 @@ protected:
   u8 focus_number;
   u8 auto_refresh;
   usControl* pFocusedControl;
-  list<usControl*> controlList;
+ // list<usControl*> controlList;
+  usControlList control_list;
   int scr_id;
   int child_screen;
  // list<usControl*>::iterator iter;
   virtual void Activated(unsigned long *param);
-  virtual void ActiveLoop(void) = 0;
+  virtual void ActiveLoop();//= 0;
   virtual void ChildDeactivated(u8 child_result) {};
   virtual void Deactivate(void);
   virtual void ChildScreenActivate(u8 ScreenId);
@@ -184,6 +204,8 @@ protected:
   virtual usControl* AddControl(usControl* pcontrol);
   virtual void IncFocus();
   virtual void DecFocus();
+  virtual usControl* FindFocused();                                              // do we need  ??
+  //virtual usControl* FindBySecondaryOrder(s8 so);
   virtual void IncSecondaryOrder();
   virtual void DecSecondaryOrder();
   virtual void PlaceControls();
@@ -223,7 +245,7 @@ protected:
   /*  virtual void KeyEvent(char KeyCode);
   virtual void MessageEvent(MESSAGE Msg);*/
   virtual void Enter();
-  void Click();
+  virtual void Click();
   
   int msg_on_click;
   int msg_param;
@@ -245,7 +267,7 @@ public:
 };
 
 class usTextButton: public usButton{
-private:
+protected:
   
   virtual void Paint(void);
 public:
@@ -276,11 +298,13 @@ private:
 public:
   usBmpButton(u8 _x, u16 _y, u16 _width, u16 _height, u8 _secondary_order, 
               button_id _btn_id, int _msg_on_click, int _msg_param):
-    usButton(_x, _y, _width, _height, _secondary_order, _msg_on_click, _msg_param),
+    usButton(_x, _y, _width, _height, _secondary_order, _msg_on_click,
+             _msg_param),
     btn_id(_btn_id) {};
     virtual ~usBmpButton(){};
 };
 //------------------------------------------------------------------------------
+
 enum editor_mode{EM_INT, EM_FLOAT};
 
 class usEditor: public usControl{
@@ -328,19 +352,19 @@ public:
   usCheckBox(u8 _x, u8 _y, u8 _secondary_order, int _msg_on_click, int _msg_param): 
     msg_on_click(_msg_on_click), msg_param(_msg_param),
     checked(false), usControl(_x, _y, 10, 10, _secondary_order) {};
-    virtual ~usCheckBox(){};
+  virtual ~usCheckBox(){};
     
-    virtual void Enter();
-    //------------
-    void setChecked(bool _checked)
+  virtual void Enter();
+  //------------
+  void setChecked(bool _checked)
+  {
+    if(checked != _checked)
     {
-      if(checked != _checked)
-      {
-        checked = _checked;
-        Update();
-      };
+      checked = _checked;
+      Update();
     };
-    bool getChecked() {return checked;};
+  };
+  bool getChecked() {return checked;};
 protected:
   virtual void Paint();
 private:
@@ -348,7 +372,24 @@ private:
   int msg_on_click;
   int msg_param;
 };
+/*
+class usCustomTextLabel: public usGraphic{
+public:  
+  usCustomTextLabel(u8 _x, u8 _y, u8 _width, u8 _height, string text):
+    usGraphic(_x, _y, _width, _height) {};
+  virtual ~usCustomTextLabel(){};  
+protected:
+  virtual void Paint(void);
+private:
+  string text;
+};
 
+class usTagLabel: public usCustomTextLabel{
+  usTagLabel(u8 _x, u8 _y, int _tag), tag(_tag);
+private:
+  int tag;
+};
+*/
 //------------------------------------------------------------------------------
 /*                        DO NOT DELETE YET !!!
 class usBmp{

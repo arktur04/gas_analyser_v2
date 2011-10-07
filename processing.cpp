@@ -7,7 +7,7 @@ extern "C"{
 #include "board.h"
 #include "timers.h"
 #include "messages.h"
-  
+#include "thermocouple.h"
 #include "adc_fsm.h"
 };
 
@@ -74,22 +74,21 @@ void ChannelTemp::LoadVariables()
   t_cl_e = GetFloatValueByTag(T_CL_E);
   //--------------------------------------------
   //Loading NVRAM variables
-  //int
-  shift_t = GetIntValueByTag(base_temp); 
   //float
-  k_cd_t = GetFloatValueByTag(base_temp + 1);
-  t_f_t = GetFloatValueByTag(base_temp + 2);
-  adj_s_t = GetFloatValueByTag(base_temp + 3);
-  k_p_t = GetFloatValueByTag(base_temp + 4);
-  k_d_t = GetFloatValueByTag(base_temp + 5);
-  t_df_t = GetFloatValueByTag(base_temp + 6);
-  ki_t = GetFloatValueByTag(base_temp + 7);
-  disp_t = GetFloatValueByTag(base_temp + 8);
-  sm_t = GetFloatValueByTag(base_temp + 9);
-  k_clc_t = GetFloatValueByTag(base_temp + 10);
+  shift_t = GetFloatValueByTag(base_temp + SHIFT_T); 
+  k_cd_t = GetFloatValueByTag(base_temp + K_CD_T);
+  t_f_t = GetFloatValueByTag(base_temp + T_F_T);
+  adj_s_t = GetFloatValueByTag(base_temp + ADJ_S_T);
+  k_p_t = GetFloatValueByTag(base_temp + K_P_T);
+  k_d_t = GetFloatValueByTag(base_temp + K_D_T);
+  t_df_t = GetFloatValueByTag(base_temp + T_DF_T);
+  ki_t = GetFloatValueByTag(base_temp + KI_T);
+  disp_t = GetFloatValueByTag(base_temp + DISP_T);
+  sm_t = GetFloatValueByTag(base_temp + SM_T);
+  k_clc_t = GetFloatValueByTag(base_temp + K_CLC_T);
   //int
-  lim_lo_t = GetIntValueByTag(base_temp + 11);
-  lim_hi_t = GetIntValueByTag(base_temp + 12); 
+  lim_lo_t = GetIntValueByTag(base_temp + LIM_LO_T);
+  lim_hi_t = GetIntValueByTag(base_temp + LIM_HI_T); 
   
   RefreshVariables();
 }
@@ -105,18 +104,23 @@ void ChannelTemp::RefreshVariables()
 
 void ChannelTemp::Process()
 {
-  if(!temp_fault)
+  if(!tempFault)
   {
     //step 1
-    cd_sh_t = code_t + shift_t;
+    //cd_sh_t = code_t + shift_t;
     //step 2
-    t_t = cd_sh_t * k_cd_t * 1.0e-6;
+  //  u_t = cd_sh_t * k_cd_t * 1.0e-6;
+    
+    //step 1, 2
+    u_t = (code_t * k_cd_t + shift_t) * 1.0e-3;
+    
+    t_t = mvToTemp(u_t);
     //step 3
     cel_t = t_t + t_cl_e;
     //step 4
     //k_f_t = exp(-d_c/t_f_t);
-    //cel_f_t = k_f_t * (cel_f_t_1 - cel_t) + cel_t;
-    cel_f_t = cel_t * d_c / (t_f_t + d_c) +  cel_f_t_1 * t_f_t / (t_f_t + d_c);
+    //cel_f_t = k_f_t * (cel_f_t_1 - cel_t) + cel_t;                                                                    
+    cel_f_t = (cel_t * d_c +  cel_f_t_1 * t_f_t) / (t_f_t + d_c);  //debug!!
     //step 5
     mism_t = adj_s_t - cel_f_t;
     //step 6
@@ -160,17 +164,20 @@ void ChannelTemp::Process()
 };
 
 void ChannelTemp::SaveResults()
-{
-  SetFloatValueByTag(base_temp + CEL_F_T, cel_f_t);
-  SetIntValueByTag(base_temp + CLC_LI_T, clc_li_t);
+{  
+ // SetFloatValueByTag(base_temp + CEL_F_T, cel_f_t);
+                                                                      //debug
+/*  SetIntValueByTag(base_temp + CLC_LI_T, clc_li_t); */
+  SetFloatValueByTag(base_temp + U_T, u_t);
+  SetFloatValueByTag(base_temp + T_T, t_t);
   
-  SetFloatValueByTag(base_temp + MISM_T, mism_t);
+/*  SetFloatValueByTag(base_temp + MISM_T, mism_t);
   
   SetFloatValueByTag(base_temp + MI_DC_T, mi_dc_t);
   SetFloatValueByTag(base_temp + SK_INT_T, sk_int_t);
   SetFloatValueByTag(base_temp + L_COMP_T, l_comp_t);
   SetFloatValueByTag(base_temp + MI_P_T, mi_p_t);
-  SetFloatValueByTag(base_temp + MI_KD_T, mi_kd_t);
+  SetFloatValueByTag(base_temp + MI_KD_T, mi_kd_t); */
 };
 //------------------------------------------------------------------------------
 
@@ -184,15 +191,57 @@ void ChannelO2::LoadVariables()
   if(side == LEFT_CH)
   {
     code_e = GetIntValueByTag(ADC_2);
+/*    range = GetIntValueByTag(RANGE_O2_L);
+    switch(range)
+    {
+    case 0:
+    case 1:
+      min = GetFloatValueByTag(MIN1_O2_L);
+      max = GetFloatValueByTag(MIN1_O2_L);
+      break;
+    case 2:
+      min = GetFloatValueByTag(MIN2_O2_L);
+      max = GetFloatValueByTag(MIN2_O2_L);
+      break;
+    case 3:
+      min = GetFloatValueByTag(MIN3_O2_L);
+      max = GetFloatValueByTag(MIN3_O2_L);
+      break;
+    default:
+      min = GetFloatValueByTag(MIN4_O2_L);
+      max = GetFloatValueByTag(MIN4_O2_L);
+      break;
+    };*/
   }
   else
   {
     code_e = GetIntValueByTag(ADC_4);
+/*    range = GetIntValueByTag(RANGE_O2_R);
+    switch(range)
+    {
+    case 0:
+    case 1:
+      min = GetFloatValueByTag(MIN1_O2_R);
+      max = GetFloatValueByTag(MIN1_O2_R);
+      break;
+    case 2:
+      min = GetFloatValueByTag(MIN2_O2_R);
+      max = GetFloatValueByTag(MIN2_O2_R);
+      break;
+    case 3:
+      min = GetFloatValueByTag(MIN3_O2_R);
+      max = GetFloatValueByTag(MIN3_O2_R);
+      break;
+    default:
+      min = GetFloatValueByTag(MIN4_O2_R);
+      max = GetFloatValueByTag(MIN4_O2_R);
+      break;
+    };*/
   };
   
   //Loading NVRAM variables
   //int
-  shift_e = GetIntValueByTag(base_o2 + SHIFT_E); 
+  shift_e = GetFloatValueByTag(base_o2 + SHIFT_E); 
   //float
   k_cd_e = GetFloatValueByTag(base_o2 + K_CD_E);
   t_f_e = GetFloatValueByTag(base_o2 + T_F_E);
@@ -213,8 +262,8 @@ void ChannelO2::LoadVariables()
   k_i_o = GetFloatValueByTag(base_o2 + K_I_O);
   //int
   sh_4_o = GetIntValueByTag(base_o2 + SH_4_O);  
-  
-  RefreshVariables();
+
+  //RefreshVariables();
 };
 
 void ChannelO2::SaveResults()
@@ -222,6 +271,17 @@ void ChannelO2::SaveResults()
   SetFloatValueByTag(base_temp + E_E, e_e); //debug tags is located in /temp/
   
   SetFloatValueByTag(base_o2 + C_KL_O, c_kl_o);
+  if(side == LEFT_CH)
+  {
+    SetFloatValueByTag(CURR_O2_L, curr_o_o);
+    SetFloatValueByTag(E_F_E_L, e_f_e);
+  }
+  else
+  {
+    SetFloatValueByTag(CURR_O2_R, curr_o_o);
+    SetFloatValueByTag(E_F_E_R, e_f_e);
+  };
+  
   SetIntValueByTag(base_o2 + CI_O_O, ci_o_o);
 }
 
@@ -230,6 +290,9 @@ void ChannelO2::RefreshVariables()
   k_f_e = exp(-d_c/t_f_e);
   k_ff_t = exp(-d_c / t_ff_t);
   k_f_o = exp(-d_c/t_f_o);
+  
+  a = 16.0 / (max - min);
+  b = 20.0 - a * max;
 }
 
 void ChannelO2::Init()
@@ -241,7 +304,7 @@ void ChannelO2::Init()
 
 void ChannelO2::Process()
 { 
-  if(!general_fault)
+  if(!(tempFault || o2Fault))
   {
     //step 1
     cd_sh_e = code_e + shift_e;
@@ -277,7 +340,9 @@ void ChannelO2::Process()
     c_kl_o = 0;
   };
   //step 12
-  c_o_o = (int)(k_i_o * c_kl_o);
+  curr_o_o = a * c_kl_o + b;
+  
+  c_o_o = (int)(k_i_o * curr_o_o);
   //step 13
   ci_o_o = c_o_o + sh_4_o;
   //-------------------------------------
@@ -300,11 +365,14 @@ void ChannelHN::RefreshVariables()
   k_ff_h = exp(-d_c/t_ff_h);
   k_d_h = exp(-d_c / t_d_h);
   k_fd_h = exp(-d_c / t_fd_h);
+  
+  a = 16.0 / (max - min);
+  b = 20.0 - a * max;
 }
 
 void ChannelHN::Process()
 {
-  if(!general_fault)
+  if(!(tempFault || o2Fault))
   {
     //step 1
     //k_f_h = exp(-d_c / t_f_h);
@@ -343,7 +411,8 @@ void ChannelHN::Process()
     c_kl_h = 0;
   };
   //step 9
-  ci_h = (int)(k_i_h * c_kl_h);
+  curr_o_h = a * c_kl_h + b;
+  ci_h = (int)(k_i_h * curr_o_h);
   //step 10
   ci_o_h = sh_4_h + ci_h;
   //---------------------------------------------------------
@@ -387,6 +456,17 @@ void ChannelHN::LoadVariables()
   k_i_h = GetFloatValueByTag(base_hn + K_I_H);
   
   sh_4_h = GetIntValueByTag(base_hn + SH_4_H);
+  /*
+  if(side == LEFT_CH)
+  {
+    min = GetFloatValueByTag(MIN_H_L);
+    max = GetFloatValueByTag(MIN_H_L);
+  }
+  else
+  {
+    min = GetFloatValueByTag(MIN_H_R);
+    max = GetFloatValueByTag(MIN_H_R);
+  };*/
 };
 
 void ChannelHN::SaveResults()
@@ -395,9 +475,18 @@ void ChannelHN::SaveResults()
   SetIntValueByTag(base_hn + CI_O_H, ci_o_h);
   
   SetFloatValueByTag(base_temp + E_FF_D, c_fd_h);
+  
+  if(side == LEFT_CH)
+  {  
+    SetFloatValueByTag(CURR_H_L, curr_o_h);
+  }
+  else
+  {
+    SetFloatValueByTag(CURR_H_R, curr_o_h);
+  }; 
 };
 
-Processing::Processing(void)
+Processing::Processing(void)  //ctor
 {
   leftTemp.SetSide(LEFT_CH);
   rightTemp.SetSide(RIGHT_CH);
@@ -444,30 +533,42 @@ void Processing::ProcessDSP(void)
    // LoadVariables();
     ProcessAdc(); 
     
-    leftTemp.SetTempFault(GetIntValueByTag(FLT_TP_L));
-    leftTemp.Process();
-    leftO2.SetGeneralFault(GetIntValueByTag(FLT_GA_L));
+    leftTemp.setTempFault(GetIntValueByTag(FLT_TP_L));
+    leftTemp.Process();  /*
+    leftO2.setTempFault(GetIntValueByTag(FLT_TP_L));
+    leftO2.setO2Fault(GetIntValueByTag(FLT_CH_L));
+    
     leftO2.SetCelFT(leftTemp.GetCelFT());
     leftO2.Process();
-    leftHN.SetGeneralFault(GetIntValueByTag(FLT_GA_L)); 
+    
+    leftHN.setTempFault(GetIntValueByTag(FLT_TP_L)); 
+    leftHN.setTempFault(GetIntValueByTag(FLT_CH_L));
+                                         
     leftHN.SetEE(leftO2.GetEE());
     leftHN.Process();
-    leftO2.SaveResults();
+    leftO2.SaveResults();*/
     leftTemp.SaveResults();
-    leftHN.SaveResults();
+  /*   leftHN.SaveResults();  
+   
+    rightTemp.setTempFault(GetIntValueByTag(FLT_TP_R));
     
-    rightTemp.SetTempFault(GetIntValueByTag(FLT_TP_R));
     rightTemp.Process();
-    rightO2.SetGeneralFault(GetIntValueByTag(FLT_GA_R)); 
+
+    rightO2.setTempFault(GetIntValueByTag(FLT_TP_R));
+    rightO2.setO2Fault(GetIntValueByTag(FLT_CH_R));
+
     rightO2.SetCelFT(rightTemp.GetCelFT());
     rightO2.Process();
-    rightHN.SetGeneralFault(GetIntValueByTag(FLT_GA_R)); 
+    
+    rightHN.setTempFault(GetIntValueByTag(FLT_TP_R));
+    rightHN.setO2Fault(GetIntValueByTag(FLT_CH_R));
+    
     rightHN.SetEE(rightO2.GetEE());
     rightHN.Process();
     rightTemp.SaveResults();
    //  FIO1SET = SPI_MISO;
     rightO2.SaveResults();
-    rightHN.SaveResults();
+    rightHN.SaveResults();*/
 };
 //------------------------------------------------------------------------------
 Processing*processing;

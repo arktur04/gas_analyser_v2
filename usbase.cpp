@@ -31,6 +31,15 @@ usCursor* getSystemCursor(void)
   return cursor;
 };
 
+void usDrawTagValue(char x, char y, int tag)
+{
+  #define BUF_SIZE 10
+  char str[BUF_SIZE];
+  
+  GetStringByTag(tag, ID_CURR_VAL, str, BUF_SIZE);
+  LcdText(x, y, x + strlen(str) * GetCharWidth(' '), y + GetFontHeight(), str);
+}
+
 void usSystemInit(void)
 {
   cursor = new usCursor();
@@ -183,6 +192,21 @@ void usScreenList::Process()
   };
 };
 //------------------------------------------------------------------------------
+// usControlList
+
+usControl*usControlList::operator[] (int i)
+{
+  int cnt = 0;
+  for(iterator iter = begin(); iter != end(); iter++)
+  {
+    if(i == cnt)
+      return *iter;
+    cnt++;
+  };
+  
+  return *begin();  //normally unreachable condition
+};
+//------------------------------------------------------------------------------
 // usScreen
 
 usScreen::usScreen(u8 _message_to_activate, int _scr_id, bool auto_activate, 
@@ -206,7 +230,18 @@ usScreen::usScreen(u8 _message_to_activate, int _scr_id, bool auto_activate,
 };
 
 usScreen::~usScreen()
-{
+{ 
+  for(list<usControl*>::iterator iter = control_list.begin();
+      iter != control_list.end();
+      iter++)
+  {
+    delete (*iter);
+    *iter = (usControl*)(0);
+  };
+  
+  control_list.clear();
+
+/*
   for(list<usControl*>::iterator iter = controlList.begin();
       iter != controlList.end();
       iter++)
@@ -215,19 +250,19 @@ usScreen::~usScreen()
     *iter = (usControl*)(0);
   };
   
-  controlList.clear();
+  controlList.clear();*/
 };
 
 usControl* usScreen::AddControl(usControl* pcontrol)
 {
-  controlList.push_back(pcontrol);
+  control_list.push_back(pcontrol);
   return pcontrol;
 };
 
 void usScreen::Paint(void)
 {
-  list<usControl*>::iterator iter = controlList.begin();
-  while(iter != controlList.end())
+  list<usControl*>::iterator iter = control_list.begin();
+  while(iter != control_list.end())
   {
     usControl* pcontrol = *iter;
     pcontrol->Paint();
@@ -235,27 +270,38 @@ void usScreen::Paint(void)
   };
 };
 
-void usScreen::IncFocus(){
-  if(focus_number < controlList.size() - 1)
+void usScreen::IncFocus()
+{
+//  list<usControl*>::iterator iter = controlList.begin();
+  do
   {
-    focus_number++;
+    if(focus_number < control_list.size() - 1)
+    {
+      focus_number++;
+    }
+    else
+    {
+      focus_number = 0;
+    };
   }
-  else
-  {
-    focus_number = 0;
-  };
+  while(!control_list[focus_number]->focusEnabled);
   Update();
 };
 
-void usScreen::DecFocus(){
-  if(focus_number > 0)
+void usScreen::DecFocus()
+{
+  do
   {
-    focus_number--;
+    if(focus_number > 0)
+    {
+      focus_number--;
+    }
+    else
+    {
+      focus_number = control_list.size() - 1 ;
+    };
   }
-  else
-  {
-    focus_number = controlList.size() - 1 ;
-  };
+  while(!control_list[focus_number]->focusEnabled);
   Update();
 };
 /* DO NOT REMOVE YET!
@@ -286,67 +332,101 @@ void usScreen::usControl* usScreen::GetControlBySecondaryOrder(s8 so){
 };
 */
 
-void usScreen::IncSecondaryOrder(){
-  //so = GetControlByOrder(focus_number)->secondary_order;
-  s8 so = -1;
+usControl* usScreen::FindFocused()
+{
   s8 i = 0;
-  list<usControl*>::iterator iter = controlList.begin();
-  while(iter != controlList.end()){
-    if(i == focus_number){
-      so = (*iter)->secondary_order;
-      break;
-    };
+  list<usControl*>::iterator iter = control_list.begin();
+  while(iter != control_list.end())
+  {
+    if(i == focus_number)
+      return (*iter);
     iter++;
     i++;
   };
-  if(so < controlList.size() - 1){
+  return (usControl*)0; //not reachable normally;
+};
+
+void usScreen::IncSecondaryOrder()
+{
+  s8 so = -1;
+  s8 i = 0;
+  if(pFocusedControl)
+  {
+    so = pFocusedControl->secondary_order + 1;
+  }
+  else
+  {
+    so = 0;
+  };
+  
+  if(so <= control_list.size() - 1)
+  {
     i = 0;
-    iter = controlList.begin();
-    while(iter != controlList.end()){
-      if((*iter)->secondary_order == so + 1){
-        focus_number = i;
-        break;
+    list<usControl*>::iterator iter = control_list.begin();
+    while(iter != control_list.end())
+    {
+      if((*iter)->secondary_order == so) 
+      {
+        if((*iter)->focusEnabled)
+        {
+          focus_number = i;
+          break;
+        }
+        else
+        {
+          ++so;
+        };
       };
-      iter++;
-      i++;
+      ++iter;
+      ++i;
     };
   };
   Update();
 };
 
-void usScreen::DecSecondaryOrder(){
+void usScreen::DecSecondaryOrder()
+{
   s8 so = -1;
   s8 i = 0;
-  list<usControl*>::iterator iter = controlList.begin();
-  while(iter != controlList.end()){
-    if(i == focus_number){
-      so = (*iter)->secondary_order;
-      break;
-    };
-    iter++;
-    i++;
+  if(pFocusedControl)
+  {
+    so = pFocusedControl->secondary_order - 1;
+  }
+  else
+  {
+    so = 0;
   };
-  if(so > 0){
-    i = 0;
-    iter = controlList.begin();
-    while(iter != controlList.end()){
-      if((*iter)->secondary_order == so - 1){
-       
-        focus_number = i;
-        break;
+  
+  if(so >= 0)
+  {
+    i = control_list.size() - 1;
+    list<usControl*>::reverse_iterator iter = control_list.rbegin();
+    while(iter != control_list.rend())
+    {
+      if((*iter)->secondary_order == so) 
+      {
+        if((*iter)->focusEnabled)
+        {
+          focus_number = i;
+          break;
+        }
+        else
+        {
+          --so;
+        };
       };
-      iter++;
-      i++;
+      ++iter;
+      --i;
     };
   };
-  Update();
+  Update();  
 };
   
 void usScreen::Update(void)
 {
   s8 i = 0;
-  for(list<usControl*>::iterator iter = controlList.begin();
-      iter != controlList.end();
+  for(list<usControl*>::iterator iter = control_list.begin();
+      iter != control_list.end();
       iter++)
   {
     (*iter)->setFocused(i == focus_number);
@@ -361,8 +441,8 @@ void usScreen::Update(void)
 void usScreen::Activated(unsigned long *param)
 {
   // usControl control;
-  list<usControl*>::iterator iter = controlList.begin();
-  if(!controlList.empty()){
+  list<usControl*>::iterator iter = control_list.begin();
+  if(!control_list.empty()){
     (*iter)->focused = true;
     pFocusedControl = *iter;  //focus the first control on the screen
  /*   if(auto_activate_first_control){
@@ -389,11 +469,14 @@ void usScreen::PlaceControls()
 
 void usScreen::RemoveControls()
 {
-  for(list<usControl*>::iterator iter = controlList.begin(); iter != controlList.end(); iter++)
+  for(list<usControl*>::iterator iter = control_list.begin();
+      iter != control_list.end();
+      iter++)
     delete (*iter);
 };
 
-void usScreen::ActiveLoop(){
+void usScreen::ActiveLoop()
+{
   unsigned long key_code;
   if(pFocusedControl)
   {
@@ -532,8 +615,10 @@ void usScreen::ChildScreenActivate(u8 ScreenId)
 //------------------------------------------------------------------------------
 void usButton::Paint(void)
 {
-  char x2 = x + width;
-  char y2 = y + height;
+  char x = getLeft();
+  char y = getTop();
+  char x2 = getLeft() + getWidth();
+  char y2 = getTop() + getHeight();
     
   LcdSetColor(BLACK); 
   if(btn_style & BS_ROUNDED)
@@ -584,6 +669,11 @@ void usButton::Click()
 //------------------------------------------------------------------------------
 void usTextButton::Paint(void)
 {
+  char x = getLeft(),
+  y = getTop(), 
+  width = getWidth(),
+  height = getHeight();
+  
   usButton::Paint();
   SetFont(SMALL_FONT);
   LcdSetColor(BLACK);
@@ -603,7 +693,12 @@ static char bmp_ids[6] = {-1, -1, -1, BMP_FORWARD, BMP_BACKWARD, BMP_HOME};
 
 void usBmpButton::Paint(void)
 {
-    char bmp_id = bmp_ids[btn_id];
+  char bmp_id = bmp_ids[btn_id];
+  char x = getLeft(),
+  y = getTop(), 
+  width = getWidth(),
+  height = getHeight();
+  
   if(focused){
     LcdSetColor(BLACK);
     LcdRect(x + 1, y + 1, x + width - 1, y + height - 1);
@@ -621,6 +716,7 @@ void usBmpButton::Paint(void)
   
   usButton::Paint();
 };
+
 //------------------------------------------------------------------------------
 /*
 class usEditor: public usControl{
@@ -668,6 +764,11 @@ usEditor::usEditor(u8 _x, u8 _y, u8 _width, u8 _height, u8 _secondary_order):
 
 void usEditor::Paint()
 {
+  char x = getLeft(),
+  y = getTop(), 
+  width = getWidth(),
+  height = getHeight();
+  
   char x2 = x + width;
   char y2 = y + height;
     
@@ -684,7 +785,7 @@ void usEditor::Paint()
 
 void usEditor::Process()
 {
-  char ch;
+ // char ch;
   unsigned long key_code;
   if(GetMessage(MSG_L_ENCODER_CCW))
   {
@@ -863,7 +964,12 @@ void usEditor::Update()
   
 void usEditor::CursorUpdate()
 {
+  char x = getLeft(),
+  y = getTop(), 
+  width = getWidth(),
+  height = getHeight();
   char x_coord, y_coord;
+  
   x_coord = x + 2 + cur_pos * 5;
   y_coord = y + 3;
   if((cursor->getXCoord() != x_coord) || (cursor->getYCoord() != y_coord))
@@ -1031,6 +1137,11 @@ void usCheckBox::Enter()
 
 void usCheckBox::Paint()
 {
+  char x = getLeft(),
+  y = getTop(), 
+  width = getWidth(),
+  height = getHeight();
+  
   static char checked_cb[8] = {0xFF, 0x99, 0xB1, 0xE1, 0xF1, 0x9D, 0x87, 0xFF};
   static char cb[8] = {0xFF, 0x81, 0x81, 0x81, 0x81, 0x81, 0x81, 0xFF};
   LcdSetColor(BLACK);
@@ -1052,7 +1163,20 @@ void usCheckBox::Paint()
   };   
 };
 //------------------------------------------------------------------------------
-
+/*
+virtual void usCustomTextLabel::Paint(void)
+{
+  usGraphic::Paint();
+  SetFont(SMALL_FONT);
+  LcdSetColor(BLACK);
+  LcdText(x + 2, y + 2, x + width - 2, y + height - 2, (char*)text.c_str());
+};
+//------------------------------------------------------------------------------
+usTagLabel::usTagLabel(u8 _x, u8 _y, int _tag)
+{
+  usCustomTextLabel(_x, _y, )
+}
+*/
 #ifdef OLDCODE 
    
   char key_code;

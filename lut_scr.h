@@ -20,7 +20,7 @@ private:
   void DrawTableLine(int tag_x, int tag_y, char line);
 protected:
  // virtual void Update(void);
-  virtual void ActiveLoop(void);
+//  virtual void ActiveLoop(void);
  // virtual void Activated(unsigned long *param);
   virtual void Paint(void);
   virtual void PlaceControls();

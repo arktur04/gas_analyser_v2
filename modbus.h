@@ -16,15 +16,18 @@ typedef struct WRITEMULTIPLEDATA_{
 
 void DataUnlock(void);
 
-void ModbusRxHandler(char *buf, int len);
+void ModbusRxHandler0(char *buf, int len);
+void ModbusRxHandler1(char *buf, int len);
 
 char ReadMultipleHoldingsAnswer(unsigned short start_addr, unsigned short num,
-                                unsigned short *data);
+                                unsigned short *data, char uartNum);
 
-char WriteSingleRegisterAnswer(unsigned short start_addr, unsigned short value);
+char WriteSingleRegisterAnswer(unsigned short start_addr, unsigned short value, 
+                               char uartNum);
 
-char WriteMultipleHoldingsAnswer(unsigned short start_addr, unsigned short num);
+char WriteMultipleHoldingsAnswer(unsigned short start_addr, unsigned short num, 
+                                 char uartNum);
 
-void WritePrintScreenAnswer(char *data);
+void WritePrintScreenAnswer(char *data, char uartNum);
 
 #endif

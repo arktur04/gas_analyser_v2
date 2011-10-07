@@ -77,7 +77,7 @@ void MiscScreen::DrawTableLine(int tag, char line)
 
 void MiscScreen::UpdateButtonValues()
 {
-  #define BUF_SIZE 10
+  const char BUF_SIZE = 10;
   char str[BUF_SIZE];
   GetStringByTag(SCR_BACKLIGHT_TIME, ID_CURR_VAL, str, BUF_SIZE);
   pBtns[2]->text.assign(str);
@@ -91,7 +91,7 @@ void MiscScreen::UpdateButtonValues()
   
 void MiscScreen::Paint(void)
 { 
-  char str[10];
+ // char str[10];
   
   LcdClear();
   SetFont(SMALL_FONT);

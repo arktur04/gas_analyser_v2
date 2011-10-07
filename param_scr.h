@@ -28,7 +28,7 @@ private:
   void UpdateButtonValues(T_PARAM_SCREEN_DESCRIPTOR screen);
 protected:
  // virtual void Update(void);
-  virtual void ActiveLoop(void);
+//  virtual void ActiveLoop(void);
  // virtual void Activated();//(unsigned long *param); 
   virtual void Paint(void);
   virtual void PlaceControls();

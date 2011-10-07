@@ -6,12 +6,27 @@
 #include "LPC_Uart.h"
 #include <stdio.h>
 
-  const char aux_gains[4] = {G_1, G_1, G_1, G_1};
-  const char main_gains[4] = {G_1, G_4, G_1, G_4};
-  const int main_modes[4] = {0x200F, 0x200A, 0x200F, 0x200A};
-  const char adc_bits[4] = {24, 24, 16, 24};
+#define MIDCODE 32768
+#define THR_UP (MIDCODE / 2 - 2048)
+#define THR_DOWN (MIDCODE - 512)
+
+const char gains[5] = {16UL, 8UL, 4UL, 2UL, 1UL};
+
+const char aux_gains[4] = {G_1, G_1, G_1, G_1};
+const int main_modes[4] = {0x200F, 0x200A, 0x200F, 0x200A};
+const char adc_bits[4] = {16, 24, 16, 24};
   
-char adc_state[4] = {0, 0, 0, 0}, adc_iteration_count = 0;
+const int tag_0[4] = {ADC_1, ADC_2, ADC_3, ADC_4};
+const int tag_1[4] = {ADC_1_, ADC_2_, ADC_3_, ADC_4_};
+const char autoRangeAllowed[4] = {FALSE, FALSE, FALSE, TRUE};
+
+char main_gains[4] = {G_1, G_1, G_1, G_1};  
+char adc_state[4] = {0, 0, 0, 0};
+
+unsigned int upThrs[4] = {0, THR_UP, 0, THR_UP};
+unsigned int downThrs[4] = {0, THR_DOWN, 0, THR_DOWN};
+
+//char adc_iteration_count = 0;
 unsigned int adc_values[4]; //values of the measured input voltage in adc discretes
 unsigned int adc_values_1[4] = {0, 0, 0, 0};
 unsigned int adc_values_2[4] = {0, 0, 0, 0};
@@ -216,7 +231,7 @@ void InitAdc(void)
 }
 */
 
-void InitAdc(char num)
+void initAdc(char num)
 {
 //  char conf_m_byte, conf_l_byte;
   
@@ -224,7 +239,7 @@ void InitAdc(char num)
  {
    WriteByteToAdc(num, 0xFF);
  };
- adc_state[num] = 3;
+ adc_state[num] = 0;                                                                      //  changed from  adc_state[num] = 3;
  /*
   conf_m_byte = (1 << 4) | G_1 | UNIPOLAR;  //changed 0x48
   conf_l_byte = (0x01 << 7) | (0x00 << 4)| 0x00;// | (gain << 8) | polarity;
@@ -245,10 +260,10 @@ void InitAdc(char num)
  */
 }
 
-void InitAdcFSM(void)
+void initAdcFsm(void)
 {
   for(char i = 0; i < 4; i++)
-    InitAdc(i);
+    initAdc(i);
 }
 
 #define CURR_MODE1 (0 << 2)
@@ -312,8 +327,6 @@ unsigned long int Mid(unsigned long int val1,
 */
 void ProcessAdc(void)
 {
-  const int tag_0[4] = {ADC_1, ADC_2, ADC_3, ADC_4};
-  const int tag_1[4] = {ADC_1_, ADC_2_, ADC_3_, ADC_4_};
   unsigned long int code;
   
   for(char i= 0; i < 4; i++)
@@ -323,21 +336,36 @@ void ProcessAdc(void)
     case 0:
       if(!GetAdcMiso(i))
       {   
-        adc_values[i] = GetAdcValue(i, adc_bits[i]);
-        code = Mid(adc_values[i], adc_values_1[i], adc_values_2[i]);
+        adc_values[i] = MIDCODE - GetAdcValue(i, adc_bits[i]);
+        code = adc_values[i];// | (gains[main_gains[i]] << 24);
+         
+     //   code = Mid(adc_values[i], adc_values_1[i], adc_values_2[i]);
         SetIntValueByTag(tag_0[i], code);
         // preparing to next convertion cycle  
         SetAdcMode(i, 0x2002);
         StartAdcConvertion(i, 1, aux_gains[i], UNIPOLAR);                        // changed from: StartAdcConvertion(i, 1, aux_gains[i], BIPOLAR); 
         ResetTimer(ADC_TIME_OUT);
         adc_state[i] = 1;
+        /*
         //-------------------------------------------------------
         for(int j = 0; j < 4; j++)
         {
           adc_values_2[j] = adc_values_1[j];
           adc_values_1[j] = adc_values[j];
+        };*/
+        //-------------------------------------------------------  
+        // unsigned int upThrs[4] = {15800, 15800, 15800, 15800};
+        // unsigned int downThrs[4] = {1024, 1024, 1024, 1024};
+        if(autoRangeAllowed[i] && (adc_values[i] < upThrs[i]) && (main_gains[i] < G_16))
+        {
+          ++main_gains[i];
+       //   adc_state[i] = 3;
         };
-        //-------------------------------------------------------        
+        if(autoRangeAllowed[i] && (adc_values[i] > downThrs[i]) && (main_gains[i] > G_1))
+        {
+          --main_gains[i];
+        //  adc_state[i] = 3;
+        };
       }
       else
       {
@@ -351,7 +379,7 @@ void ProcessAdc(void)
       if(!GetAdcMiso(i))
       {   
         //-------------------------------------------------------
-        code = GetAdcValue(i, adc_bits[i]) >> 8;                                             // divide by 256 for 24-bit adc
+        code = GetAdcValue(i, adc_bits[i]);                                             
         SetIntValueByTag(tag_1[i], code);//adc_values[i]);
         //-------------------------------------------------------
         // preparing to next convertion cycle  
@@ -371,8 +399,7 @@ void ProcessAdc(void)
       break;      
     case 2: // epic fail! reset ADCs!
       ResetTimer(ADC_TIME_OUT);
-      InitAdc(i);
-   //   adc_state[i] = 3;
+      initAdc(i);          //   adc_state[i] = 3;
       break;
     case 3:  //full-scale calibration  ???
       if(!GetAdcMiso(i))
@@ -490,7 +517,7 @@ void ProcessAdc(void)
         //-------------------------------------------------------        
       }
       else
-        InitAdc();
+        initAdc();
       break;
     case 1: //check if input wires are broken 
       if(RdyIsLow())

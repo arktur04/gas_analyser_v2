@@ -111,20 +111,48 @@ void DataUnlock(void)
   data_busy = 0;
 }
 
+void DataLock(void)
+{
+  data_busy = 1;
+}
+
 char GetDeviceAddr(void)
 {
   return 1;                                                                           //debug
 }
 
+void uartTransmit(int length, char uartNum)
+{
+  switch(uartNum)
+  {
+  case 0:   
+    Uart0Transmit(length);
+    SendMessage(MSG_UART0_TX);
+    break;
+  case 1:   
+    Uart1Transmit(length);
+    SendMessage(MSG_UART1_TX);
+    break;
+  };
+}
+
 char ReadMultipleHoldingsAnswer(unsigned short start_addr, unsigned short num,
-                                unsigned short *data)
+                                unsigned short *data, char uartNum)
 {
   int crc;
   int i;
 
   char* tx_buffer;
   
-  tx_buffer = GetUart0TxBuffer();
+  switch(uartNum)
+  {
+  case 0:   
+    tx_buffer = GetUart0TxBuffer();
+    break;
+  case 1:   
+    tx_buffer = GetUart1TxBuffer();
+    break;
+  };
   //---------------------------------
   tx_buffer[0] = GetDeviceAddr();
   tx_buffer[1] = 0x03;  
@@ -140,17 +168,27 @@ char ReadMultipleHoldingsAnswer(unsigned short start_addr, unsigned short num,
   
   tx_buffer[num * 2 + 3] = crc >> 8;
   tx_buffer[num * 2 + 4] = crc;
-  
-  Uart0Transmit(num * 2 + 5);
+
+  uartTransmit(num * 2 + 5, uartNum);
+
   return 1;
 }
 
-char WriteSingleRegisterAnswer(unsigned short start_addr, unsigned short value)
+char WriteSingleRegisterAnswer(unsigned short start_addr, unsigned short value,
+                               char uartNum)
 {
   int crc;
   char* tx_buffer;
   
-  tx_buffer = GetUart0TxBuffer();
+  switch(uartNum)
+  {
+  case 0:   
+    tx_buffer = GetUart0TxBuffer();
+    break;
+  case 1:   
+    tx_buffer = GetUart1TxBuffer();
+    break;
+  };
   //---------------------------------
   tx_buffer[0] = GetDeviceAddr();
   tx_buffer[1] = 0x06;  
@@ -163,17 +201,26 @@ char WriteSingleRegisterAnswer(unsigned short start_addr, unsigned short value)
   
   tx_buffer[6] = crc >> 8;
   tx_buffer[7] = crc;
+
+  uartTransmit(8, uartNum);
   
-  Uart0Transmit(8);
   return 1;
 }
 
-char WriteMultipleHoldingsAnswer(unsigned short start_addr, unsigned short num)
+char WriteMultipleHoldingsAnswer(unsigned short start_addr, unsigned short num, char uartNum)
 {
   int crc;
   char* tx_buffer;
-    
-  tx_buffer = GetUart0TxBuffer();
+  
+  switch(uartNum)
+  {
+  case 0:   
+    tx_buffer = GetUart0TxBuffer();
+    break;
+  case 1:   
+    tx_buffer = GetUart1TxBuffer();
+    break;
+  };
   //---------------------------------
   tx_buffer[0] = GetDeviceAddr();
   tx_buffer[1] = 0x10;  
@@ -187,30 +234,45 @@ char WriteMultipleHoldingsAnswer(unsigned short start_addr, unsigned short num)
   tx_buffer[6] = crc >> 8;
   tx_buffer[7] = crc;
   
-  Uart0Transmit(8);
-  
+  uartTransmit(8, uartNum);
   return 1;
 }
 
-char ReadMultipleHoldings(unsigned short start_addr, unsigned short num)
+char ReadMultipleHoldings(unsigned short start_addr, unsigned short num, char uartNum)
 {
-  SendParamMessage(MSG_UART0READHOLDINGS, (start_addr << 16) | num);
+  switch(uartNum)
+  {
+  case 0:
+    SendParamMessage(MSG_UART0READHOLDINGS, (start_addr << 16) | num);
+    break;
+  case 1:
+    SendParamMessage(MSG_UART0READHOLDINGS, (start_addr << 16) | num);
+    break;
+  };  
   return 1;
 }
 
-char WriteSingleRegister(unsigned short start_addr, unsigned short value)
+char WriteSingleRegister(unsigned short start_addr, unsigned short value, char uartNum)
 {
-  SendParamMessage(MSG_UART0WRITESINGLEHOLDING, (start_addr << 16) | value);
+  switch(uartNum)
+  {
+  case 0:
+    SendParamMessage(MSG_UART0WRITESINGLEHOLDING, (start_addr << 16) | value);
+    break;
+  case 1:
+    SendParamMessage(MSG_UART1WRITESINGLEHOLDING, (start_addr << 16) | value);
+    break;
+  };
   return 1;
 }
 
 char WriteMultipleHoldings(unsigned short start_addr, unsigned short num,
-                           char data_len, char* data)
+                           char data_len, char* data, char uartNum)
 {
   if(data_busy) 
     return 0; // denial of service
   
-  data_busy = 1;
+  DataLock();
   
   write_multiple_data.start_addr = start_addr;
   write_multiple_data.num = num;
@@ -219,33 +281,54 @@ char WriteMultipleHoldings(unsigned short start_addr, unsigned short num,
   for(int i = 0; i < data_len; i += 2)
     write_multiple_data.data[i / 2] = (data[i] << 8) | data[i + 1] ;
   
-
-   // SendParamMessage(MSG_UART0READHOLDINGS, (start_addr << 16) | num);
-  SendParamMessage(MSG_UART0WRITEMULTIPLEREGS, (unsigned long)&write_multiple_data);
-//                   (unsigned long)&write_multiple_data);  
-  
+  switch(uartNum)
+  {
+  case 0:
+    SendParamMessage(MSG_UART0WRITEMULTIPLEHOLDINGS,
+                     (unsigned long)&write_multiple_data);
+  case 1:
+    SendParamMessage(MSG_UART1WRITEMULTIPLEHOLDINGS,
+                     (unsigned long)&write_multiple_data);   
+  };
   return 1;
 }
 
-char PrintScreen(void)
+char PrintScreen(char uartNum)
 {
-  SendMessage(MSG_UART0PRINTSCREEN);
+  switch(uartNum)
+  {
+  case 0:
+    SendMessage(MSG_UART0PRINTSCREEN);
+    break;
+  case 1:
+    SendMessage(MSG_UART1PRINTSCREEN);
+    break;
+  };
   return 1;
 }
 
-void WritePrintScreenAnswer(char *data)
+void WritePrintScreenAnswer(char *data, char uartNum)
 {
   char* tx_buffer;
-    
-  tx_buffer = GetUart0TxBuffer();
+  
+  switch(uartNum)
+  {
+  case 0:
+    tx_buffer = GetUart0TxBuffer();
+    break;
+  case 1:
+    tx_buffer = GetUart1TxBuffer();
+    break;
+  };
+  
   for(int i = 0; i< 1024; i++)
   {
     tx_buffer[i] = data[i];
   };
-  Uart0Transmit(1024);
+  uartTransmit(1024, uartNum);
 }
 //------------------------------------------------------------------------------
-signed int ModbusDecode(char *buf, int len)
+signed int ModbusDecode(char *buf, int len, char uartNum)
 {
   char i;
   unsigned short start_addr, num, value, crc;
@@ -297,20 +380,27 @@ signed int ModbusDecode(char *buf, int len)
   switch(buf[1])
   {
   case 0x03: //read multiple holding registers (0x04)
-    return ReadMultipleHoldings(start_addr, num);
+    return ReadMultipleHoldings(start_addr, num, uartNum);
     //--------------------------------------------------------------------------
   case 0x06: //write single register (0x06)
-    return WriteSingleRegister(start_addr, value);
+    return WriteSingleRegister(start_addr, value, uartNum);
     //--------------------------------------------------------------------------
   case 0x10: //write multiple registers (0x10)
-    return WriteMultipleHoldings(start_addr, num, data_len, data);
+    return WriteMultipleHoldings(start_addr, num, data_len, data, uartNum);
   case 0xFF:
-    return PrintScreen();
+    return PrintScreen(uartNum);
   };
   return 0; //just for lulz
 };
     
-void ModbusRxHandler(char *buf, int len)
+void ModbusRxHandler0(char *buf, int len)
 {
-  ModbusDecode(buf, len);
+  ModbusDecode(buf, len, 0);
+  SendMessage(MSG_UART0_RX);
+}
+
+void ModbusRxHandler1(char *buf, int len)
+{
+  ModbusDecode(buf, len, 1);
+  SendMessage(MSG_UART1_RX);
 }

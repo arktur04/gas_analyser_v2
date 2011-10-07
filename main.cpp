@@ -2,7 +2,7 @@
 *    Main.cpp
 **************************************************************************/
 
-#define INIT_WDT 
+// #define INIT_WDT 
 
 extern "C"{
 #include <intrinsics.h>
@@ -54,6 +54,7 @@ extern "C"{
 #include "ethernet_scr.h"
 #include "trend_scr.h"
 #include "misc_scr.h"
+#include "twocolscr.h"
 #include "msg_scr.h"
 #include "pass_scr.h"
 #include "editor_scr.h"
@@ -140,6 +141,60 @@ extern "C" void TMR3_IRQHandler (void)
 */
 unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
 
+//  Modbus messages 
+
+union DATAADDR{
+  WRITEMULTIPLEDATA*modbus_data;
+  unsigned long param;
+};
+
+void onMsgReadHoldings(unsigned long param, char uartNum)
+{
+  unsigned long start_addr, num;
+  unsigned short * preadholdingdata; 
+  
+  start_addr = (param & 0xFFFF0000) >> 16;
+  num = (param & 0x0000FFFFUL);
+  
+  preadholdingdata = new unsigned short[num];
+  for(int i = 0; i < num; i++)
+    GetDataByModbusAddr(start_addr + i, &preadholdingdata[i]);
+  
+  ReadMultipleHoldingsAnswer(start_addr, num, preadholdingdata, uartNum);
+  delete[] preadholdingdata;
+}
+
+void onMsgWriteSingleHolding(unsigned long param, char uartNum)
+{
+  unsigned long  start_addr;
+  unsigned short value;
+  
+  start_addr = (param & 0xFFFF0000) >> 16;
+  value = (param & 0xFFFF);
+  
+  SetDataByModbusAddr(start_addr, value);
+  WriteSingleRegisterAnswer(start_addr, value, uartNum);
+}
+
+void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
+{
+  unsigned short start_addr, num;
+  char data_len;
+  DATAADDR data_addr;
+  
+  data_addr.param = param;
+  start_addr = data_addr.modbus_data->start_addr;
+  num = data_addr.modbus_data->num;
+  data_len = data_addr.modbus_data->data_len;
+  
+  if(data_len)
+    for(int i = 0; i < num; i++)
+      SetDataByModbusAddr(start_addr + i, 
+                          data_addr.modbus_data->data[i]);// % data_len]);
+  
+  WriteMultipleHoldingsAnswer(start_addr, num, uartNum);
+  DataUnlock();
+}      
 /*************************************************************************
  * Function Name: main
  * Parameters: none
@@ -155,11 +210,13 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
   TargetResetInit();
   //InitSemaphores();
   ProcessInit();
-  NVIC_IntPri(NVIC_RIT, 4 << 3);
+  NVIC_IntPri(NVIC_RIT, 1 << 3);                //changed from 4 << 3
   *(pSHPR3 + 3) = 0;
   NVIC_IntPri(NVIC_TIMER0, 2 << 3);
   NVIC_IntPri(NVIC_TIMER1, 3 << 3);
   NVIC_IntPri(NVIC_TIMER2, 3 << 3);
+  NVIC_IntPri(NVIC_UART0, 4 << 3);
+  NVIC_IntPri(NVIC_UART1, 4 << 3);
   
   InitSysTick();          //Key, pr = 0
   InitRepetitiveTimer();  //DSP, pr = 1
@@ -170,10 +227,10 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
   
  // UART_Init(UART0);
   Uart0Init();
-//  Uart1Init();
+  Uart1Init();
   
-  SetUart0RxHandler(ModbusRxHandler);
- // SetUart1RxHandler(ModbusRxHandler);
+  SetUart0RxHandler(ModbusRxHandler0);
+  SetUart1RxHandler(ModbusRxHandler1);
   
   __enable_interrupt();
 
@@ -198,73 +255,58 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
   InitMessages();
   InitKeyb();
  // InitCursor();
-  InitAdcFSM();
+  initAdcFsm();
   
   InitDisconn();
   InitPowerControl();
 
-//  SetCursorPos(100, 32);
-//  SendMessage(MSG_ADC_IN_TEST_SCREEN_ACTIVATE);
- // SendMessage(MSG_MAIN_SCREEN_ACTIVATE);
- // SendMessage(MSG_MENU_SCREEN_ACTIVATE);
-  
- // DrawParamScreen();
- //  SendMessage(MSG_PARAM_SCREEN_ACTIVATE);
-//  SendMessage(MSG_CLAPP_SCREEN_ACTIVATE);
- SendMessage(MSG_MAIN_SCREEN_ACTIVATE);             //!!!!!
-// SendMessage(MSG_EDITOR_SCREEN_ACTIVATE);
- // SendMessage(MSG_MAIN_SCREEN_ACTIVATE);
- // SendMessage(MSG_DAC_OUT_TEST_SCREEN_ACTIVATE);
- //  SendMessage(MSG_PWM_TEST_SCREEN_ACTIVATE);
- //  SendMessage(MSG_RS232_SCREEN_ACTIVATE);
- //  SendMessage(MSG_RS485_SCREEN_ACTIVATE);
-//  SendMessage(MSG_ETHERNET_SCREEN_ACTIVATE);
- // SendMessage(MSG_DISCR_OUT_TEST_SCREEN_ACTIVATE);
- // SendMessage(MSG_DAC_OUT_TEST_SCREEN_ACTIVATE);
-  // SendMessage(MSG_TREND_SCREEN_ACTIVATE);
+  //SendMessage(MSG_MAIN_SCREEN_ACTIVATE);      
    
+  SendMessage(MSG_TC_CALIBR_SCREEN_ACTIVATE);
+ 
   LoadValuesFromFram();
   SetIntValueByTag(DAC_TEST_FLAG, FALSE);
 
-  int debug = 0, debug2 = 0;
-  char s[4];
+ // int debug = 0, debug2 = 0;
+ // char s[4];
   unsigned int dac_codes[4];//  = {2048, 256, 256, 256};
-  char txbuf[] = {0x01, 0x03, 0x00, 0x00, 0x00, 0x01, 0x84, 0x0A};
+ // char txbuf[] = {0x01, 0x03, 0x00, 0x00, 0x00, 0x01, 0x84, 0x0A};
 
-  char state = 0;
+//  char state = 0;
   
-  char rx_data[256];
+ // char rx_data[256];
   unsigned long param;
   int btn_num;
   
   usSystemInit(); //usLib init
-  //Processing* processing = new Processing();                                             //temp //mb not temp?
   
       //     SendMessage(MSG_VAR_CHANGED);                                          //test purpouse only!
   
-  MainScreen* mainscreen = new MainScreen();
-  EditorScreen* editorscreen = NULL;// = new EditorScreen();
+  MainScreen* mainscreen = new MainScreen();       
+  EditorScreen* editorscreen = NULL;
  
   MenuScreen* menuscreen;
     
-  ParamScreen* paramscreen;// = new ParamScreen(0);
-  LutScreen* lutscreen;// = new LutScreen(7);
+  ParamScreen* paramscreen;
+  LutScreen* lutscreen;
   
-  Rs232Screen*rs232_screen;// = new Rs232Screen();
-  Rs485Screen*rs485_screen;// = new Rs485Screen();
-  EthernetScreen*ethernet_screen;// = new EthernetScreen();
+  Rs232Screen*rs232_screen;
+  Rs485Screen*rs485_screen;
+  EthernetScreen*ethernet_screen;
   
-  DoTestScreen*do_testcreen;// = new DoTestScreen();
-  AiTestScreen*ai_testscreen;// = new AiTestScreen();
-  AoTestScreen*ao_testscreen;// = new AoTestScreen();
-  PwmTestScreen*pwm_testscreen;// = new PwmTestScreen();
+  DoTestScreen*do_testcreen;
+  AiTestScreen*ai_testscreen;
+  AoTestScreen*ao_testscreen;
+  PwmTestScreen*pwm_testscreen;
 
-  TrendScreen*trend_screen;// = new TrendScreen(EMPTY_CELL, 0, 100);
+  TrendScreen*trend_screen;
   
   MessageWindow*def_warn_scr;
   PassScreen*pass_screen;
   
-  MiscScreen*misc_screen;// = new MiscScreen();
+  MiscScreen*misc_screen;
+  
+  TwoColSrc*calibr_screen;// = new TwoColSrc(22, SCR_TC_CALIBR_L);                                                         //temp
   
  // ai_testscreen = new AiTestScreen();                                                 //only for test
  // def_warn_scr = new MessageWindow(OK_CANCEL_MSW);
@@ -333,7 +375,7 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
   //  test_n = (++test_n) % 1000;
    // dac_codes[0] =  test_curr_val;
     //--------------------------
-    
+                                                                                                           
     //---------------------------------------
     // DAC test mode
     if(GetIntValueByTag(DAC_TEST_FLAG))
@@ -347,6 +389,8 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
     {
       dac_codes[0] = GetIntValueByTag(CI_O_O_L);
       dac_codes[1] = GetIntValueByTag(CI_O_H_L);
+      dac_codes[1] = 3856;
+        
       dac_codes[2] = GetIntValueByTag(CI_O_O_R);
       dac_codes[3] = GetIntValueByTag(CI_O_H_R);
     };
@@ -384,7 +428,7 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
     };
     //---------------------------------------
    // SetSysLedState(SYS_LED_DOUT0, ON);
-    
+  
   //  ProcessAdc();
     for(char i = 0; i < 4; i++)
       ProcessDisconn(i);
@@ -466,20 +510,6 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
         switch(btn_num)
         {
         case 0:
-          rs232_screen = new Rs232Screen();//(0, SCR_RS232);
-          break;
-        case 1:
-          rs485_screen = new Rs485Screen();
-          break;
-        case 2:
-          ethernet_screen = new EthernetScreen();
-          break;
-        };
-        break;
-      case 2:
-        switch(btn_num)
-        {
-        case 0:
           do_testcreen = new DoTestScreen();//(0, SCR_RS232);
           break;
         case 1:
@@ -492,8 +522,44 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
           pwm_testscreen = new PwmTestScreen();
           break;
         };
+        break;        
+      case 2:
+        {
+          switch(btn_num)
+          {
+          case 0:
+            calibr_screen =  new TwoColSrc(22, SCR_TC_CALIBR_L);
+            break;
+          case 1:
+            calibr_screen = new TwoColSrc(23, SCR_TC_CALIBR_R);
+            break;
+          case 2:
+            calibr_screen = new TwoColSrc(24, SCR_CH_CALIBR_L);
+            break;
+          case 3:
+            calibr_screen = new TwoColSrc(25, SCR_CH_CALIBR_R);
+            break;
+          case 4:
+            calibr_screen = new TwoColSrc(26, SCR_OUT_CALIBR);
+            break;
+          };
+        };
         break;
       case 3:
+        switch(btn_num)
+        {
+        case 0:
+          rs232_screen = new Rs232Screen();//(0, SCR_RS232);
+          break;
+        case 1:
+          rs485_screen = new Rs485Screen();
+          break;
+        case 2:
+          ethernet_screen = new EthernetScreen();
+          break;
+        };
+        break;
+      case 4:
         switch(btn_num)
         {
         case 0:
@@ -507,10 +573,10 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
           paramscreen = new ParamScreen(20, SCR_RES_THR_0);
           break;
         case 2:
-          trend_screen = new TrendScreen(/*CEL_F_T_L*/DEBUG_1, 500.0, 800.0, SCR_TREND_L);//(0, SCR_RS232);  //check the tag!
+          trend_screen = new TrendScreen(DEBUG_1, 500.0, 800.0, SCR_TREND_L);//(0, SCR_RS232);  //check the tag!
           break;
         case 3:
-          trend_screen = new TrendScreen(/*CEL_F_T_R*/DEBUG_2, 500.0, 800.0, SCR_TREND_R);                   //check the tag!
+          trend_screen = new TrendScreen(DEBUG_2, 500.0, 800.0, SCR_TREND_R);                   //check the tag!
           break;
         case 4:
           misc_screen = new MiscScreen();
@@ -539,6 +605,9 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
         menuscreen = new MenuScreen(3, SCR_MENU_3);
         break;
       case SCR_MENU_3:
+        menuscreen = new MenuScreen(3, SCR_MENU_4);
+        break;        
+      case SCR_MENU_4:
         paramscreen = new ParamScreen(0, SCR_THERM_L_0);
         break;
         
@@ -627,68 +696,101 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
         pwm_testscreen = new PwmTestScreen();
         break;
       case SCR_PWM_TEST:
+        calibr_screen =  new TwoColSrc(22, SCR_TC_CALIBR_L);
+        break;
+      case SCR_TC_CALIBR_L:
+        calibr_screen =  new TwoColSrc(23, SCR_TC_CALIBR_R);
+        break;
+      case SCR_TC_CALIBR_R:
+         calibr_screen =  new TwoColSrc(24, SCR_CH_CALIBR_L);
+        break;
+      case SCR_CH_CALIBR_L:
+         calibr_screen =  new TwoColSrc(25, SCR_CH_CALIBR_R);
+        break;
+      case SCR_CH_CALIBR_R:
+        paramscreen = new TwoColSrc(26, SCR_OUT_CALIBR);
+        break;
+      case SCR_OUT_CALIBR:
         paramscreen = new ParamScreen(20, SCR_RES_THR_0);
         break;
       case SCR_RES_THR_0:
         paramscreen = new ParamScreen(21, SCR_RES_THR_1);
         break;
+        //----------------------------------------------------------------------
+      case SCR_RES_THR_1:  // new variant
+        misc_screen = new MiscScreen();
+        break;  
+        /*  old variant
       case SCR_RES_THR_1:
-        trend_screen = new TrendScreen(/*CEL_F_T_L*/DEBUG_1, 500.0, 800.0, SCR_TREND_L);
+        trend_screen = new TrendScreen(DEBUG_1, 500.0, 800.0, SCR_TREND_L);
         break;
       case SCR_TREND_L:
-        trend_screen = new TrendScreen(/*CEL_F_T_R*/DEBUG_2, 500.0, 800.0, SCR_TREND_R);
+        trend_screen = new TrendScreen(DEBUG_2, 500.0, 800.0, SCR_TREND_R);
         break;
       case SCR_TREND_R:
         misc_screen = new MiscScreen();
         break;
-      };
+        */
+      };                                                                                               
 
-/*(
-#define SCR_MAIN      0 
-#define SCR_MENU_0    1
-#define SCR_MENU_1    2
-#define SCR_MENU_2    3
-#define SCR_MENU_3    4
 
-#define SCR_THERM_L_0 5
-#define SCR_THERM_L_1 6
-#define SCR_THERM_L_2 7
+//#define SCR_MAIN      0 
+//#define SCR_MENU_0    1
+//#define SCR_MENU_1    2
+//#define SCR_MENU_2    3
+//#define SCR_MENU_3    4
+//#define SCR_MENU_4    5
 
-#define SCR_THERM_R_0 8
-#define SCR_THERM_R_1 9
-#define SCR_THERM_R_2 10
+//#define SCR_THERM_L_0 6
+//#define SCR_THERM_L_1 7
+//#define SCR_THERM_L_2 8
 
-#define SCR_O2_L_0    11
-#define SCR_O2_L_1    12
-#define SCR_O2_L_2    13
+//#define SCR_THERM_R_0 9
+//#define SCR_THERM_R_1 10
+//#define SCR_THERM_R_2 11
 
-#define SCR_O2_R_0    14
-#define SCR_O2_R_1    15
-#define SCR_O2_R_2    16
+//#define SCR_O2_L_0    12
+//#define SCR_O2_L_1    13
+//#define SCR_O2_L_2    14
 
-#define SCR_HN_L_0    17
-#define SCR_HN_L_1    18
-#define SCR_HN_L_2    19
+//#define SCR_O2_R_0    15
+//#define SCR_O2_R_1    16
+//#define SCR_O2_R_2    17
 
-#define SCR_HN_R_0    20
-#define SCR_HN_R_1    21
-#define SCR_HN_R_2    22
+//#define SCR_HN_L_0    18
+//#define SCR_HN_L_1    19
+//#define SCR_HN_L_2    20
 
-#define SCR_TH_L      23
-#define SCR_TH_R      24
+//#define SCR_HN_R_0    21
+//#define SCR_HN_R_1    22
+//#define SCR_HN_R_2    23
 
-#define SCR_AI_TEST   25
-#define SCR_AO_TEST   26
-#define SCR_DO_TEST   27
-#define SCR_EDITOR    28
-#define SCR_ETHERNET  29
-#define SCR_LUT       30
-#define SCR_PWM_TEST  31
-#define SCR_RS232     33
-#define SCR_RS485     34
-#define SCR_TREND     35
-*/
-    };
+//#define SCR_TH_L      24   
+//#define SCR_TH_R      25
+
+//#define SCR_RS232     26
+//#define SCR_RS485     27
+//#define SCR_ETHERNET  28
+
+//#define SCR_DO_TEST   29
+//#define SCR_AI_TEST   30
+//#define SCR_AO_TEST   31
+//#define SCR_PWM_TEST  32
+//#define SCR_TREND_L   33
+//#define SCR_TREND_R   34
+//#define SCR_MISC      35
+
+//#define SCR_EDITOR    36
+//#define SCR_PASS      37
+//#define SCR_MSG       38
+
+//#define SCR_RES_THR_0 39
+//#define SCR_RES_THR_1 40
+
+//#define SCR_TC_CALIBR_L 41
+//#define SCR_TC_CALIBR_R 42
+                                                                                                                                  
+    };                                                                                             
     if(GetParamMessage(MSG_BTN_HOME, &param))
     {
       mainscreen = new MainScreen();
@@ -712,9 +814,12 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
         menuscreen = new MenuScreen(2, SCR_MENU_2);
         menuscreen->SetFocus(2);
         break;
-        
-      case SCR_THERM_L_0:
+      case SCR_MENU_4:
         menuscreen = new MenuScreen(3, SCR_MENU_3);
+        menuscreen->SetFocus(2);
+        break;        
+      case SCR_THERM_L_0:
+        menuscreen = new MenuScreen(4, SCR_MENU_4);
         menuscreen->SetFocus(2);
         break;
       case SCR_THERM_L_1:
@@ -827,29 +932,54 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
         ao_testscreen = new AoTestScreen();
         ao_testscreen->SetFocus(2);
         break;
-      case SCR_RES_THR_0:
+      case SCR_TC_CALIBR_L:
         pwm_testscreen = new PwmTestScreen();
         pwm_testscreen->SetFocus(2);
+        break;
+      case SCR_TC_CALIBR_R:
+        calibr_screen =  new TwoColSrc(22, SCR_TC_CALIBR_L);       
+        calibr_screen->SetFocus(2); 
+        break;
+      case SCR_CH_CALIBR_L:
+        calibr_screen =  new TwoColSrc(23, SCR_TC_CALIBR_R);       
+        calibr_screen->SetFocus(2);
+        break;
+      case SCR_CH_CALIBR_R:
+        calibr_screen =  new TwoColSrc(24, SCR_CH_CALIBR_L); 
+        calibr_screen->SetFocus(2);
+        break;
+      case SCR_OUT_CALIBR:
+        calibr_screen =  new TwoColSrc(25, SCR_CH_CALIBR_R);
+        calibr_screen->SetFocus(2);
+        break;        
+      case SCR_RES_THR_0:
+        calibr_screen =  new TwoColSrc(26, SCR_OUT_CALIBR);
+        calibr_screen->SetFocus(2);
         break;
       case SCR_RES_THR_1:
         paramscreen = new ParamScreen(20, SCR_RES_THR_0);
         paramscreen->SetFocus(2);
         break;  
+      case SCR_MISC:
+        paramscreen = new ParamScreen(21, SCR_RES_THR_1);
+        paramscreen->SetFocus(2);
+        break; 
+        /*
       case SCR_TREND_L:
         paramscreen = new ParamScreen(20, SCR_RES_THR_1);
         paramscreen->SetFocus(2);
         break;
       case SCR_TREND_R:
-        trend_screen = new TrendScreen(/*CEL_F_T_L*/DEBUG_1, 500.0, 800.0, SCR_TREND_L);
+        trend_screen = new TrendScreen(DEBUG_1, 500.0, 800.0, SCR_TREND_L);
         trend_screen->SetFocus(2);
         break;
       case SCR_MISC:
-        trend_screen = new TrendScreen(/*CEL_F_T_L*/DEBUG_2, 500.0, 800.0, SCR_TREND_R);
+        trend_screen = new TrendScreen(DEBUG_2, 500.0, 800.0, SCR_TREND_R);
         trend_screen->SetFocus(2);
-        break;
+        break; */
       };
-    };
-      
+    };                                                                                                            
+
     if(GetParamMessage(MSG_BTN_EDIT, &param))
     {
       if(EditAllowed() || GetPasswordEntered())                                                                    //!!!!!!!!!!!!!!
@@ -862,8 +992,8 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
         PassScreen*pass_screen = new PassScreen();
       };
     };
-
-    if(GetParamMessage(MSG_CHECKBOX, &param))
+                                                                                                       
+    if(GetParamMessage(MSG_CHECKBOX, &param))                                                                     
     {
     //  aux = GetIntValueByTag(param & 0xFFFFUL);
       switch(param & 0xFFFFUL)
@@ -894,7 +1024,7 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
         SetIntValueByTag(RIGHT_CH_ON, param & 0xFFFF0000);
         break;        
       };
-    };
+    };                                                                                                                                                                                                              
    
    /*
     if(GetIntValueByTag(DAC_TEST_FLAG))
@@ -928,8 +1058,22 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
     getScreenList()->Process();                                   //temp
 //------------------------------------------------------------------------------
 //                         Modbus command
-//------------------------------------------------------------------------------
-    unsigned long param;
+//------------------------------------------------------------------------------  
+                                                                                                          
+  if(GetParamMessage(MSG_UART0READHOLDINGS, &param))                                                          
+    onMsgReadHoldings(param, 0);
+  if(GetParamMessage(MSG_UART1READHOLDINGS, &param))
+    onMsgReadHoldings(param, 1);
+  if(GetParamMessage(MSG_UART0WRITESINGLEHOLDING, &param))
+    onMsgWriteSingleHolding(param, 0);
+  if(GetParamMessage(MSG_UART1WRITESINGLEHOLDING, &param))
+    onMsgWriteSingleHolding(param, 1);  
+  if(GetParamMessage(MSG_UART0WRITEMULTIPLEHOLDINGS, &param))
+    onMsgWriteMultipleHoldings(param, 0);
+  if(GetParamMessage(MSG_UART0WRITEMULTIPLEHOLDINGS, &param))
+    onMsgWriteMultipleHoldings(param, 1); 
+                                                                                                         
+/*    unsigned long param;
     unsigned short start_addr, num, value;
     char data_len;
     
@@ -965,12 +1109,11 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
 
     if(GetParamMessage(MSG_UART0WRITEMULTIPLEREGS, &data_addr.param))
     {   
-      /*
-        unsigned short start_addr;
-        unsigned short num;
-        char data_len;
-        char* data[DATABUFSIZE];
-       */
+       //unsigned short start_addr;
+       // unsigned short num;
+       // char data_len;
+       // char* data[DATABUFSIZE];
+       
       start_addr = data_addr.modbus_data->start_addr;
       num = data_addr.modbus_data->num;
       data_len = data_addr.modbus_data->data_len;
@@ -987,7 +1130,48 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
     if(GetMessage(MSG_UART0PRINTSCREEN)) 
     {
       WritePrintScreenAnswer(GetVideoBuff());
+    };*/
+//------------------------------------------------------------------------------                                                    
+//  uarts led control logic
+//------------------------------------------------------------------------------
+                                                                                                                                   
+    if(GetMessage(MSG_UART0_RX))                                                                                       
+    {
+      ResetTimer(TIMER_UART0_RX_LED);
+      SetSysSpiBusState(SYS_LED_RS232RX, ON);
     };
+    if(GetMessage(MSG_UART0_TX))
+    {
+      ResetTimer(TIMER_UART0_TX_LED);
+      SetSysSpiBusState(SYS_LED_RS232TX, ON);
+    };
+    if(GetMessage(MSG_UART1_RX))
+    {
+      ResetTimer(TIMER_UART1_RX_LED);
+      SetSysSpiBusState(SYS_LED_RS485RX, ON);
+    };
+    if(GetMessage(MSG_UART1_TX))                   
+    {
+      ResetTimer(TIMER_UART1_TX_LED);
+      SetSysSpiBusState(SYS_LED_RS485TX, ON);
+    };
+
+    if(GetTimer(TIMER_UART0_RX_LED) > 50)
+    {
+      SetSysSpiBusState(SYS_LED_RS232RX, OFF);
+    };    
+    if(GetTimer(TIMER_UART0_TX_LED) > 50)
+    {
+      SetSysSpiBusState(SYS_LED_RS232TX, OFF);
+    };
+    if(GetTimer(TIMER_UART1_RX_LED) > 50)
+    {
+      SetSysSpiBusState(SYS_LED_RS485RX, OFF);
+    };
+    if(GetTimer(TIMER_UART1_TX_LED) > 50)
+    {
+      SetSysSpiBusState(SYS_LED_RS485TX, OFF);
+    };                                                                                                                             
 //------------------------------------------------------------------------------
 //  threshold logic
 //------------------------------------------------------------------------------
@@ -1012,7 +1196,7 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
 #define C_KL_HN_L  182  //hn right
 #define C_KL_HN_R  183  //hn right
 */
-    
+                                                                                                                         
     if(!GetIntValueByTag(FTH_O2_L))
     {
       if(GetFloatValueByTag(C_KL_O_L) < 
@@ -1130,11 +1314,12 @@ unsigned long * pSHPR3 = (unsigned long *)0xE000ED20;
     
    // SetDispLedState(DISP_LED_L_ENC, ON);                                                  //temp
    // SetDispLedState(DISP_LED_R_ENC, OFF);                                                 //temp
+    
     //--------------------------------------------------------------------------
   //  OutputSet(LCD_LED);
     //--------------------------------------------------------------------------
     ProcessLeftPowerControl();
-    ProcessRightPowerControl();
+    ProcessRightPowerControl();                                                                                              
     ProcessMessages();
     ResetWdt();
   }

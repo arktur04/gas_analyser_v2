@@ -19,7 +19,11 @@
 #define TEMP_SENS_TIMER  8
 #define LED_BLINK_TIMER  9
 #define TREND_REFRESH_TIMER  10
-//#define DISP_RESET_TIMER  11
+
+#define TIMER_UART0_TX_LED   11
+#define TIMER_UART0_RX_LED   12
+#define TIMER_UART1_TX_LED   13
+#define TIMER_UART1_RX_LED   14
 
 #define DEB_TIMER1       14
 #define DEB_TIMER2       15

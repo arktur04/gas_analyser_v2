@@ -37,7 +37,7 @@ void ParamScreen::PlaceControls()
   for(char y = 0; y < 5; y++)
   {
     if(screen.var[y] == EMPTY_CELL)
-      break;  
+      break;
     
     AddControl(pBtns[y] = new usTextButton(49, y * 11 + 9,
                                            33, 11, y + 3,
@@ -117,8 +117,9 @@ void ParamScreen::Activated(unsigned long *param)                               
 {
   usScreen::Activated();//(param);
 };
-*/
+
 void ParamScreen::ActiveLoop(void)                            
 {
   usScreen::ActiveLoop();
 };
+*/

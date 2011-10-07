@@ -38,7 +38,7 @@ typedef struct
   T_VAR min_val;
   T_VAR max_val;
   char after_point; //знаков после запятой
-  char edit_allowed; //разрешено редактирование пользователем
+  char access_level; //права доступа
 } T_DICT_RECORD;
 */
 //-----------------------------------------------
@@ -48,6 +48,13 @@ typedef struct
 #define ID_CURR_VAL 2
 #define ID_MIN      3 
 #define ID_MAX      4
+
+//---------------------
+// Access rights
+#define ACCESS_0   0 //edit not allowed
+#define ACCESS_1   1 //pass 1 and pass 2, setting default values disabled
+#define ACCESS_2   2 //pass 2 only, setting default values enabled
+#define MODBUS_ACCESS 255  //access by modbus
 
 signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 //-----------------------------------------------
@@ -75,8 +82,8 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define CLC_LI_T 14
 #define MISM_T   15
 #define DEBUG0   16
-#define DEBUG1   17
-#define DEBUG2   18
+#define U_T      17
+#define T_T      18
 #define E_FF_D   19
 #define E_E      20
 #define MI_DC_T  21
@@ -104,8 +111,8 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define MISM_T_L   (BASE_T_R + MISM_T)
 
 #define DEBUG0_L   (BASE_T_L + DEBUG0)
-#define DEBUG1_L   (BASE_T_L + DEBUG1)
-#define DEBUG2_L   (BASE_T_L + DEBUG2)
+#define U_T_L      (BASE_T_L + U_T)
+#define T_T_L      (BASE_T_L + T_T)
 #define E_FF_D_L   (BASE_T_L + E_FF_D)
 #define E_E_L      (BASE_T_L + E_E)
 #define MI_DC_T_L  (BASE_T_L + MI_DC_T)
@@ -133,8 +140,8 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define MISM_T_R   (BASE_T_R + MISM_T)
 
 #define DEBUG0_R   (BASE_T_R + DEBUG0)
-#define DEBUG1_R   (BASE_T_R + DEBUG1)
-#define DEBUG2_R   (BASE_T_R + DEBUG2)
+#define U_T_R      (BASE_T_R + U_T)
+#define T_T_R      (BASE_T_R + T_T)
 #define E_FF_D_R   (BASE_T_R + E_FF_D)
 #define E_E_R      (BASE_T_R + E_E)
 #define MI_DC_T_R  (BASE_T_R + MI_DC_T)
@@ -145,7 +152,7 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 
 //Переменные настройки канала кислорода
 #define BASE_O2_L 53
-#define BASE_O2_R 73
+#define BASE_O2_R 74
 
 #define SHIFT_E  0
 #define K_CD_E   1
@@ -166,8 +173,9 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define K_I_O    16
 #define SH_4_O   17
 
-#define C_KL_O   18
-#define CI_O_O   19
+#define E_F_E    18
+#define C_KL_O   19
+#define CI_O_O   20
 
 #define SHIFT_E_L  (BASE_O2_L + SHIFT_E)
 #define K_CD_E_L   (BASE_O2_L + K_CD_E)
@@ -188,6 +196,7 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define K_I_O_L    (BASE_O2_L + K_I_O)
 #define SH_4_O_L   (BASE_O2_L + SH_4_O)
 
+#define E_F_E_L    (BASE_O2_L + E_F_E)
 #define C_KL_O_L   (BASE_O2_L + C_KL_O)
 #define CI_O_O_L   (BASE_O2_L + CI_O_O)
 
@@ -210,12 +219,13 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define K_I_O_R    (BASE_O2_R + K_I_O)
 #define SH_4_O_R   (BASE_O2_R + SH_4_O)
 
+#define E_F_E_R    (BASE_O2_R + E_F_E)
 #define C_KL_O_R   (BASE_O2_R + C_KL_O)
 #define CI_O_O_R   (BASE_O2_R + CI_O_O)
 
 //Переменные настройки канала химнедожога
-#define BASE_HN_L 93
-#define BASE_HN_R 115
+#define BASE_HN_L 95
+#define BASE_HN_R 117
 
 #define T_F_H    0
 #define T_FF_H   1
@@ -287,23 +297,23 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define CI_O_H_R   (BASE_HN_R + CI_O_H)
 
 //----------------------------------------------
-#define T_CL_E     137  //cold junction temp
+#define T_CL_E     139  //cold junction temp
 // output dac and pwm codes
 //#define CI_O_O_L 190  //dac code for the o2 left channel
 //#define CI_O_O_R 192  //dac code for the o2 right channel
 
 //----------------------------------------------
 //adc_codes  (main channel)
-#define ADC_1      138
-#define ADC_2      139
-#define ADC_3      140
-#define ADC_4      141
+#define ADC_1      140
+#define ADC_2      141
+#define ADC_3      142
+#define ADC_4      143
 
 //adc_codes  (second channel)
-#define ADC_1_     142
-#define ADC_2_     143
-#define ADC_3_     144
-#define ADC_4_     145
+#define ADC_1_     144
+#define ADC_2_     145
+#define ADC_3_     146
+#define ADC_4_     147
 /*
 //аналоговые входы, mV
 #define AN_IN_1    250
@@ -317,112 +327,123 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define AN_R_3    256
 #define AN_R_4    257
 */
-#define CHANNEL_STATE_L 146  //1 - on, 0- off, 2 - fail
-#define CHANNEL_STATE_R 147  //1 - on, 0- off, 2 - fail
+#define CHANNEL_STATE_L 148  //1 - on, 0- off, 2 - fail
+#define CHANNEL_STATE_R 149  //1 - on, 0- off, 2 - fail
 //-------------------------
-#define AN_OUT_1  148
-#define AN_OUT_2  149
-#define AN_OUT_3  150
-#define AN_OUT_4  151
+#define AN_OUT_1  150
+#define AN_OUT_2  151
+#define AN_OUT_3  152
+#define AN_OUT_4  153
 
-#define DAC_1     152
-#define DAC_2     153
-#define DAC_3     154
-#define DAC_4     155
+#define DAC_1     154
+#define DAC_2     155
+#define DAC_3     156
+#define DAC_4     157
 
-#define PWM_1     156
-#define PWM_2     157
+#define PWM_1     158
+#define PWM_2     159
 
-#define HEATER_STATE_L     158
-#define HEATER_STATE_R     159
-#define HEATER_OVERLOAD_L  160
-#define HEATER_OVERLOAD_R  161
+#define HEATER_STATE_L     160
+#define HEATER_STATE_R     161
+#define HEATER_OVERLOAD_L  162
+#define HEATER_OVERLOAD_R  163
 
 //failure signals
-#define FLT_CH_L  162 //left sensor failure
-#define FLT_CH_R  163 //right sensor failure
-#define FLT_TP_L  164 //left thermocouple failure
-#define FLT_TP_R  165 //right thermocouple failure
-#define FLT_NE_L  166 //left heater failure
-#define FLT_NE_R  167 //right heater failure
-#define FLT_GA_L  168 //left general failure
-#define FLT_GA_R  169 //right general failure
+#define FLT_CH_L  164 //left sensor failure
+#define FLT_CH_R  165 //right sensor failure
+#define FLT_TP_L  166 //left thermocouple failure
+#define FLT_TP_R  167 //right thermocouple failure
+#define FLT_NE_L  168 //left heater failure
+#define FLT_NE_R  169 //right heater failure
+#define FLT_GA_L  170 //left general failure
+#define FLT_GA_R  171 //right general failure
 
 //tresholds (NVRAM vars)
-#define THR_H_L   170  //left hn threshold 
-#define THR_H_R   171  //right hn threshold 
-#define THR_O_L   172  //left o2 threshold 
-#define THR_O_R   173  //right o2 threshold 
-#define G_TH_H_L  174  //left hn hysteresis 
-#define G_TH_H_R  175  //right hn hysteresis
-#define G_TH_O_L  176  //left o2 hysteresis
-#define G_TH_O_R  177  //right o2 hysteresis
+#define THR_H_L   172  //left hn threshold 
+#define THR_H_R   173  //right hn threshold 
+#define THR_O_L   174  //left o2 threshold 
+#define THR_O_R   175  //right o2 threshold 
+#define G_TH_H_L  176  //left hn hysteresis 
+#define G_TH_H_R  177  //right hn hysteresis
+#define G_TH_O_L  178  //left o2 hysteresis
+#define G_TH_O_R  179  //right o2 hysteresis
 
 //treshold outputs
-#define FTH_H_L   178  //left hn treshold output
-#define FTH_H_R   179  //right hn treshold output
-#define FTH_O2_L  180  //left o2 treshold output
-#define FTH_O2_R  181  //right o2 treshold output
+#define FTH_H_L   180  //left hn treshold output
+#define FTH_H_R   181  //right hn treshold output
+#define FTH_O2_L  182  //left o2 treshold output
+#define FTH_O2_R  183  //right o2 treshold output
 
 //------------------------------------------------------------------------------
-#define RS_232_SPEED  182  //rs-232 speed
-#define RS_232_EVEN   183  //rs-232 even
-#define RS_232_ODD    184  //rs-232 odd
-#define RS_232_STOP   185  //rs-232 stop bits
+#define RS_232_SPEED  184  //rs-232 speed
+#define RS_232_EVEN   185  //rs-232 even
+#define RS_232_ODD    186  //rs-232 odd
+#define RS_232_STOP   187  //rs-232 stop bits
 
-#define RS_485_SPEED  186  //rs-485 speed
-#define RS_485_EVEN   187  //rs-485 even
-#define RS_485_ODD    188  //rs-485 odd
-#define RS_485_STOP   189  //rs-485 stop
-#define RS_485_ADDR   190  //rs-485 addr
+#define RS_485_SPEED  188  //rs-485 speed
+#define RS_485_EVEN   189  //rs-485 even
+#define RS_485_ODD    190  //rs-485 odd
+#define RS_485_STOP   191  //rs-485 stop
+#define RS_485_ADDR   192  //rs-485 addr
 
-#define ETHERNET_IP_ADDR_0      191
-#define ETHERNET_IP_ADDR_1      192
-#define ETHERNET_IP_ADDR_2      193
-#define ETHERNET_IP_ADDR_3      194
+#define ETHERNET_IP_ADDR_0      193
+#define ETHERNET_IP_ADDR_1      194
+#define ETHERNET_IP_ADDR_2      195
+#define ETHERNET_IP_ADDR_3      196
 
-#define ETHERNET_IP_MASK_0      195
-#define ETHERNET_IP_MASK_1      196
-#define ETHERNET_IP_MASK_2      197
-#define ETHERNET_IP_MASK_3      198
+#define ETHERNET_IP_MASK_0      197
+#define ETHERNET_IP_MASK_1      198
+#define ETHERNET_IP_MASK_2      199
+#define ETHERNET_IP_MASK_3      200
 
-#define ETHERNET_IP_GATE_0      199
-#define ETHERNET_IP_GATE_1      200
-#define ETHERNET_IP_GATE_2      201
-#define ETHERNET_IP_GATE_3      202
+#define ETHERNET_IP_GATE_0      201
+#define ETHERNET_IP_GATE_1      202
+#define ETHERNET_IP_GATE_2      203
+#define ETHERNET_IP_GATE_3      204
 
-#define RELAY_OUT_0             203
-#define RELAY_OUT_1             204
-#define RELAY_OUT_2             205
-#define RELAY_OUT_3             206
-#define RELAY_OUT_4             207
-#define RELAY_OUT_5             208
+#define RELAY_OUT_0             205
+#define RELAY_OUT_1             206
+#define RELAY_OUT_2             207
+#define RELAY_OUT_3             208
+#define RELAY_OUT_4             209
+#define RELAY_OUT_5             210
 //--------------------------------------------
-#define INPUT0_RESISTANCE_DETECTOR_LOW_THRESHOLD 209
-#define INPUT0_RESISTANCE_DETECTOR_HI_THRESHOLD  210
-#define INPUT1_RESISTANCE_DETECTOR_LOW_THRESHOLD 211
-#define INPUT1_RESISTANCE_DETECTOR_HI_THRESHOLD  212
-#define INPUT2_RESISTANCE_DETECTOR_LOW_THRESHOLD 213
-#define INPUT2_RESISTANCE_DETECTOR_HI_THRESHOLD  214
-#define INPUT3_RESISTANCE_DETECTOR_LOW_THRESHOLD 215
-#define INPUT3_RESISTANCE_DETECTOR_HI_THRESHOLD  216
+#define INPUT0_RESISTANCE_DETECTOR_LOW_THRESHOLD 211
+#define INPUT0_RESISTANCE_DETECTOR_HI_THRESHOLD  212
+#define INPUT1_RESISTANCE_DETECTOR_LOW_THRESHOLD 213
+#define INPUT1_RESISTANCE_DETECTOR_HI_THRESHOLD  214
+#define INPUT2_RESISTANCE_DETECTOR_LOW_THRESHOLD 215
+#define INPUT2_RESISTANCE_DETECTOR_HI_THRESHOLD  216
+#define INPUT3_RESISTANCE_DETECTOR_LOW_THRESHOLD 217
+#define INPUT3_RESISTANCE_DETECTOR_HI_THRESHOLD  218
 
-#define SCR_BACKLIGHT_TIME   217
-#define PROTECT_RESET_TIME   218
+#define SCR_BACKLIGHT_TIME      219
+#define PROTECT_RESET_TIME      220
 
-#define PASS_RESET_TIME      219
+#define PASS_RESET_TIME         221
 
-#define LEFT_CH_ON           220
-#define RIGHT_CH_ON          221
-  
-#define DEBUG_1              222
-#define DEBUG_2              223
+#define LEFT_CH_ON              222
+#define RIGHT_CH_ON             223
+ 
+#define DEBUG_1                 224
+#define DEBUG_2                 225
 //------------------------------------------------------------------------------
-#define RELAY_OUT_TEST_FLAG  224
-#define DAC_TEST_FLAG        225 // true if the dac test sreen is active
-#define PWM_OUT_TEST_FLAG    226
+#define RELAY_OUT_TEST_FLAG     226
+#define DAC_TEST_FLAG           227 // true if the dac test sreen is active
+#define PWM_OUT_TEST_FLAG       228
 
-#define MAX_RECORD           227
+#define MAX_O2_L                229  
+#define MAX_O2_R                230
+#define MAX_XH_L                231
+#define MAX_XH_R                232   
+  
+#define CURR_O2_L               233
+#define CURR_O2_R               234
+#define CURR_H_L                235
+#define CURR_H_R                236
+
+//------------------------------------------------------------------------------
+#define MAX_RECORD              237
 
 //#define MAX_RECORDS 500
 
@@ -443,7 +464,7 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
   void SetDefaultValues(void);
   void LoadValuesFromFram(void);
   void SaveValuesToFram(void);
- // void SaveAllChanges(void);
+ 
   //-----------------------------------
   int GetNumberByTag(int tag);
   int GetIntValueByTag(int tag);
@@ -451,6 +472,7 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
   T_VAR GetValueByTag(int tag);
   char GetTypeByTag(int tag);
  // T_DICT_RECORD GetVarByTag(int tag);
+  signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
   
 //------------------------------------------------------------------------------
 //  Common functions
@@ -458,10 +480,14 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
   char* GetNameByTag(int tag);
   char* GetUnitByTag(int tag);
   
-  void SetValueByTag(int tag, T_VAR value);
-  void SetIntValueByTag(int tag, int value);
-  void SetFloatValueByTag(int tag, float value);
+  void setTagValue(int tag, T_VAR value);
+  void SetIntValueByTag(int tag, int i_value);
+  void SetFloatValueByTag(int tag, float f_value);
   void SetDefaulValueByTag(int tag);
+  
+  void setAccessLevel(char level);
+  char EditingEnabled(int tag);
+  char getAccessLevel(int tag);
   //  #define MSG_VAR_CHANGED          10
 //------------------------------------------------------------------------------
 #endif

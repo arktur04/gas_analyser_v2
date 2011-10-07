@@ -150,7 +150,7 @@ char Uart0Init(void)
   // Set Interrupt Enable Register
   U0IER = IER_RBR | IER_THRE | IER_RLS;
   NVIC_IntEnable(NVIC_UART0);
-  NVIC_IntPri(NVIC_UART0, HIGHEST_PRIORITY);
+ // NVIC_IntPri(NVIC_UART0, HIGHEST_PRIORITY);
   
   // Enable TxD0 and RxD0, bit 0~3=0101
   PINSEL0_bit.P0_2 = 0x1;
@@ -298,7 +298,7 @@ char Uart1Init(void)
   // Set Interrupt Enable Register
   U1IER = IER_RBR | IER_THRE | IER_RLS;
   NVIC_IntEnable(NVIC_UART1);
-  NVIC_IntPri(NVIC_UART1, HIGHEST_PRIORITY);
+ // NVIC_IntPri(NVIC_UART1, HIGHEST_PRIORITY);
   
   // Enable TxD1, RxD1 and RTS1
   PINSEL4_bit.P2_0 = 0x02;

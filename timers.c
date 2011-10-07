@@ -19,6 +19,7 @@ char ch0_flag, ch1_flag;
 void SetTimer1Width(int width)
 {
   int _width;
+  
   _width = 20000 - width;
   if(_width <= min_width)
   {
@@ -38,6 +39,7 @@ void SetTimer1Width(int width)
 void SetTimer2Width(int width)
 {
   int _width;
+
   _width = 20000 - width;
   if(_width <= min_width)
   {

@@ -4,7 +4,8 @@
 #ifndef DICT_h
 #define DICT_h
 
-#include "arm_comm.h"
+//#include "arm_comm.h"
+#include "type.h"
 //------------------------------------------------------------------------------
 // var_type
 //------------------------------------------------------------------------------
@@ -60,7 +61,7 @@ typedef struct
   float min_val;
   float max_val;
   char after_point; //знаков после запятой
-  char edit_allowed; //разрешено редактирование пользователем
+  char access_level; //права доступа
 } T_DICT_VAR_DESCR;
 
 //void DrawCheckBox(char x, char y, char checked, char selected);

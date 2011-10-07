@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <nxp/iolpc1768.h>
 #include <assert.h>
-#include "arm_comm.h"
+//#include "arm_comm.h"
 #include "irq.h"
 #include "board.h"
 
@@ -18,16 +18,15 @@ Int32U CriticalSecCntr;
  *
  *
  *************************************************************************/
-void NVIC_IntEnable(Int32U IntNumber)
+void NVIC_IntEnable(unsigned long IntNumber)
 {
-volatile unsigned long * pNVIC_SetEn = &SETENA0;
-
+  volatile unsigned long * pNVIC_SetEn = &SETENA0;
+  
   assert((NVIC_WDT <= IntNumber) && (NVIC_PLL1 >= IntNumber));
   IntNumber -= NVIC_WDT;
-
+  
   pNVIC_SetEn += IntNumber/32;
   *pNVIC_SetEn = (1UL<<(IntNumber%32));
-
 }
 
 /*************************************************************************
@@ -39,7 +38,7 @@ volatile unsigned long * pNVIC_SetEn = &SETENA0;
  *
  *
  *************************************************************************/
-void NVIC_IntDisable(Int32U IntNumber)
+void NVIC_IntDisable(unsigned long IntNumber)
 {
 volatile unsigned long * pNVIC_ClrEn = &CLRENA0;
 
@@ -60,7 +59,7 @@ volatile unsigned long * pNVIC_ClrEn = &CLRENA0;
  *
  *
  *************************************************************************/
-void NVIC_ClrPend(Int32U IntNumber)
+void NVIC_ClrPend(unsigned long IntNumber)
 {
   volatile unsigned long * pNVIC_ClrPend = &CLRPEND0;
 
@@ -81,7 +80,7 @@ void NVIC_ClrPend(Int32U IntNumber)
  *
  *
  *************************************************************************/
-void NVIC_IntPri(Int32U IntNumber, Int8U Priority)
+void NVIC_IntPri(unsigned long IntNumber, char Priority)
 {
 volatile Int8U * pNVIC_IntPri = (Int8U *)&IP0;
 

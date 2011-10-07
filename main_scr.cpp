@@ -16,8 +16,7 @@ extern "C"{
 #include "main_scr.h"
 #include "usbase.h"
 
-char
-flash_flag = 0;
+char flash_flag = 0;
 /*
 class usScreen: public usFsm{
 private:
