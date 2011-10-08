@@ -125,7 +125,7 @@ void MenuScreen::Paint(void)
   SetFont(SMALL_FONT);
   LcdText(0, 0, 127, 7, menues[scr_num].header);
   LcdLine(119, 0, 119, 8);
-  if(GetPasswordEntered()) 
+  if(getPasswordEntered()) 
     LcdText(121, 1, 127, 7, "*");  
  // LcdLine(0, 8, 127, 8);  
   

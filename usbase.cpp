@@ -843,7 +843,7 @@ void usEditor::Process()
     case KEY_9:
     case KEY_MINUS: 
     case KEY_DOT:
-      if(InsertChar(KeyCodeToASCII(key_code)))
+      if(InsertChar(keyCodeToASCII(key_code)))
       {
          Update();
          LcdDraw();

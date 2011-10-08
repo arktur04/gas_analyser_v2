@@ -16,7 +16,7 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   //                                                                                           
   //Переменные настройки канала термостатирования                                         
   {EMPTY_CELL,          INT,   INTERNAL,  -1,  -1,  "",         "",             0.0,  0.0, 10000.0, 3, ACCESS_0},  //empty cell in table
-  {BASE_T_L + SHIFT_T,  FLOAT,   INTERNAL,   0,  0,   "Shift_T",  "б/р",         55.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_L + SHIFT_T,  INT, INTERNAL,   0,  0,   "Shift_T",  "б/р",         55.0,  0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_L + K_CD_T,   FLOAT, INTERNAL,   1,  2,   "K_cd_T",   "E-6\x86\x43", 12.8,  0.0, 10000.0, 3, ACCESS_1}, //changed from "\x86\x43\x88\x65\x80"
   {BASE_T_L + T_F_T,    FLOAT, INTERNAL,   2,  4,   "T_f_T",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_L + ADJ_S_T,  FLOAT, INTERNAL,   3,  6,   "Adj_s_T",  "\x86\x43",   600.0,  0.0, 10000.0, 3, ACCESS_1},
@@ -26,25 +26,25 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_T_L + KI_T,     FLOAT, INTERNAL,   7,  14,  "Ki_t",     "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_L + DISP_T,   FLOAT, INTERNAL,   8,  16,  "Disp_t",   "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_L + SM_T,     FLOAT, INTERNAL,   9,  18,  "Sm_t",     "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_L + K_CLC_T,  FLOAT,   INTERNAL,  10,  20,  "K_clc_t",   "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_L + K_CLC_T,  FLOAT, INTERNAL,  10,  20,  "K_clc_t",   "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_L + LIM_LO_T, INT,   INTERNAL,  11,  22,  "Lim_lo_t", "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_L + LIM_HI_T, INT,   INTERNAL,  12,  24,  "Lim_hi_t", "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_L + CEL_F_T,  FLOAT, INTERNAL,  -1,  26 , "",         "-",         1.0,     0.0, 10000.0, 3, ACCESS_0},  //result 
+  {BASE_T_L + CEL_F_T,  FLOAT, INTERNAL,  -1,  26 , "Cel_f_t",         "-",         1.0,     0.0, 10000.0, 3, ACCESS_0},  //result 
   {CLC_LI_T_L,          INT,   INTERNAL,  -1,  -1, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},  //pwm code for the left channel
-  {MISM_T_L,            FLOAT,   INTERNAL,  -1,  28, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},   
+  {MISM_T_L,            FLOAT, INTERNAL,  -1,  28, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},   
   
-  {DEBUG0_L,            FLOAT,   INTERNAL,  -1,  30, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
-  {T_T_L,               FLOAT,   INTERNAL,  -1,  32, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
-  {U_T_L,               FLOAT,   INTERNAL,  -1,  34, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
-  {E_FF_D_L,            FLOAT,   INTERNAL,  -1,  36, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
-  {E_E_L,               FLOAT,   INTERNAL,  -1,  38, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
-  {MI_DC_T_L,           FLOAT,   INTERNAL,  -1,  40, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
-  {SK_INT_T_L,          FLOAT,   INTERNAL,  -1,  42, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
-  {L_COMP_T_L,          FLOAT,   INTERNAL,  -1,  44, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
-  {MI_P_T_L,            FLOAT,   INTERNAL,  -1,  46, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
-  {MI_KD_T_L,           FLOAT,   INTERNAL,  -1,  48, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
+  {CEL_T_L,             FLOAT, INTERNAL,  -1,  30, "Cel_t",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
+  {T_T_L,               FLOAT, INTERNAL,  -1,  32, "tтп",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
+  {U_T_L,               FLOAT, INTERNAL,  -1,  34, "Uвх",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
+  {E_FF_D_L,            FLOAT, INTERNAL,  -1,  36, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
+  {E_E_L,               FLOAT, INTERNAL,  -1,  38, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
+  {MI_DC_T_L,           FLOAT, INTERNAL,  -1,  40, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
+  {SK_INT_T_L,          FLOAT, INTERNAL,  -1,  42, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
+  {L_COMP_T_L,          FLOAT, INTERNAL,  -1,  44, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
+  {MI_P_T_L,            FLOAT, INTERNAL,  -1,  46, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
+  {MI_KD_T_L,           FLOAT, INTERNAL,  -1,  48, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
   
-  {BASE_T_R + SHIFT_T,  FLOAT,   INTERNAL,  20,  50,  "Shift_T",  "-",            0.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_R + SHIFT_T,  INT, INTERNAL,  20,  50,  "Shift_T",  "-",            0.0,  0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_R + K_CD_T,   FLOAT, INTERNAL,  21,  52,  "K_cd_T",   "E-6\x86\x43", 12.8,  0.0, 10000.0, 3, ACCESS_1},  //changed from "\x86\x43\x88\x65\x80"
   {BASE_T_R + T_F_T,    FLOAT, INTERNAL,  22,  54,  "T_f_T",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_R + ADJ_S_T,  FLOAT, INTERNAL,  23,  56,  "Adj_s_T",  "\x86\x43",   600.0,  0.0, 10000.0, 3, ACCESS_1},
@@ -54,16 +54,16 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_T_R + KI_T,     FLOAT, INTERNAL,  27,  64,  "Ki_t",     "-",         26624.0, 0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_R + DISP_T,   FLOAT, INTERNAL,  28,  66,  "Disp_t",   "-",         26624.0, 0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_R + SM_T,     FLOAT, INTERNAL,  29,  68,  "Sm_t",     "-",         26624.0, 0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_R + K_CLC_T,  FLOAT,   INTERNAL,  30,  70,  "K_clc_t",   "-",         26624.0, 0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_R + K_CLC_T,  FLOAT, INTERNAL,  30,  70,  "K_clc_t",   "-",         26624.0, 0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_R + LIM_LO_T, INT,   INTERNAL,  31,  72,  "Lim_lo_t", "-",         26624.0, 0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_R + LIM_HI_T, INT,   INTERNAL,  32,  74,  "Lim_hi_t", "-",         26624.0, 0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_R + CEL_F_T,  FLOAT, INTERNAL, - 1,  78, "",         "-",         1.0,     0.0, 10000.0, 3, ACCESS_0},  //result
+  {BASE_T_R + CEL_F_T,  FLOAT, INTERNAL, - 1,  78, "Cel_f_t",         "-",         1.0,     0.0, 10000.0, 3, ACCESS_0},  //result
   {CLC_LI_T_R,          INT,   INTERNAL,  -1,  -1, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},  //pwm code for the right channel
-  {MISM_T_R,            FLOAT,   INTERNAL,  -1,  80, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
+  {MISM_T_R,            FLOAT, INTERNAL,  -1,  80, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
   
-  {DEBUG0_R,            FLOAT,   INTERNAL,  -1,  82, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
-  {T_T_R,               FLOAT,   INTERNAL,  -1,  84, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
-  {U_T_R,               FLOAT,   INTERNAL,  -1,  86, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
+  {CEL_T_R,             FLOAT,   INTERNAL,  -1,  82, "Cel_t",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
+  {T_T_R,               FLOAT,   INTERNAL,  -1,  84, "tтп",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
+  {U_T_R,               FLOAT,   INTERNAL,  -1,  86, "Uвх",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
   {E_FF_D_R,            FLOAT,   INTERNAL,  -1,  88, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
   {E_E_R,               FLOAT,   INTERNAL,  -1,  90, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
   {MI_DC_T_R,           FLOAT,   INTERNAL,  -1,  92, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
@@ -72,7 +72,7 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {MI_P_T_R,            FLOAT,   INTERNAL,  -1,  98, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
   {MI_KD_T_R,           FLOAT,   INTERNAL,  -1,  100, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
  
-  {BASE_O2_L + SHIFT_E, FLOAT, INTERNAL,  40,  200,  "Shift_K",  "-",         0.0,     0.0, 10000.0, 0, ACCESS_1},  //Переменные настройки канала кислорода
+  {BASE_O2_L + SHIFT_E, INT, INTERNAL,  40,  200,  "Shift_K",  "-",         0.0,     0.0, 10000.0, 3, ACCESS_1},  //Переменные настройки канала кислорода
   {BASE_O2_L + K_CD_E,  FLOAT, INTERNAL,  41,  202,  "K_cd_E",   "мкВ",       3.46,    0.0, 10000.0, 3, ACCESS_1},
   {BASE_O2_L + T_F_E,   FLOAT, INTERNAL,  42,  204,  "T_f_E",    "c",         1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_O2_L + T_FF_T,  FLOAT, INTERNAL,  43,  206,  "T_ff_T",   "c",         1.0,     0.0, 10000.0, 3, ACCESS_1},
@@ -89,13 +89,13 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_O2_L + X5,      FLOAT, INTERNAL,  54,  228, "X5",       "об.%",      20.0,    0.0, 100.0,   3, ACCESS_1},
   {BASE_O2_L + Y5,      FLOAT, INTERNAL,  55,  230, "Y5",       "об.%",      12.0,    0.0, 100.0,   3, ACCESS_1},
   {BASE_O2_L + K_I_O,   FLOAT, INTERNAL,  56,  232, "K_i_0",    "1/об%",     200.0,   0.0, 10000.0, 3, ACCESS_1},
-  {BASE_O2_L + SH_4_O,  INT,   INTERNAL,  57,  234, "Sh_4_0",   "-",         0.0,     0.0, 10000.0, 0, ACCESS_1},
+  {BASE_O2_L + SH_O,  INT,   INTERNAL,  57,  234, "Sh_0",   "-",         0.0,     0.0, 10000.0, 0, ACCESS_1},
   
-  {BASE_O2_L + E_F_E,   FLOAT, INTERNAL,  -1,  236, "Uчэл",     "мв",       200.0,   0.0, 10000.0, 3, ACCESS_0},
-  {BASE_O2_L + C_KL_O,  FLOAT, INTERNAL,  -1,  238, "",         "-",         1.0,     0.0, 10000.0, 2, ACCESS_0},  //o2 result
-  {CI_O_O_L,            INT,   INTERNAL,  -1,  -1, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, //dac code for the o2 left channel  
+  {BASE_O2_L + E_F_E,   FLOAT, INTERNAL,  -1,  236, "Uчэ",      "мв",       200.0,   0.0, 10000.0, 3, ACCESS_0},
+  {BASE_O2_L + C_KL_O,  FLOAT, INTERNAL,  -1,  238, "O2,%",         "-",         1.0,     0.0, 10000.0, 2, ACCESS_0},  //o2 result
+  {DEBUG_L,            INT,   INTERNAL,  -1,  -1, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
   
-  {BASE_O2_R + SHIFT_E, FLOAT, INTERNAL,  70,  300,  "Shift_K",  "-",        0.0,     0.0, 10000.0, 0, ACCESS_1},
+  {BASE_O2_R + SHIFT_E, INT, INTERNAL,  70,  300,  "Shift_K",  "-",        0.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_O2_R + K_CD_E,  FLOAT, INTERNAL,  71,  302,  "K_cd_E",   "мкВ",      3.46,    0.0, 10000.0, 3, ACCESS_1},
   {BASE_O2_R + T_F_E,   FLOAT, INTERNAL,  72,  304,  "T_f_E",    "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_O2_R + T_FF_T,  FLOAT, INTERNAL,  73,  306,  "T_ff_T",   "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
@@ -112,11 +112,11 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_O2_R + X5,      FLOAT, INTERNAL,  84,  328,  "X5",       "об.%",     20.0,    0.0, 100.0,   3, ACCESS_1},
   {BASE_O2_R + Y5,      FLOAT, INTERNAL,  85,  330,  "Y5",       "об.%",     12.0,    0.0, 100.0,   3, ACCESS_1},
   {BASE_O2_R + K_I_O,   FLOAT, INTERNAL,  86,  332,  "K_i_0",    "1/об%",   200.0,    0.0, 10000.0, 3, ACCESS_1},
-  {BASE_O2_R + SH_4_O,  INT,   INTERNAL,  87,  334,  "Sh_4_0",   "-",         0.0,    0.0, 10000.0, 0, ACCESS_1},
+  {BASE_O2_R + SH_O,  INT,   INTERNAL,  87,  334,  "Sh_0",   "-",         0.0,    0.0, 10000.0, 0, ACCESS_1},
   
-  {BASE_O2_R + E_F_E,   FLOAT, INTERNAL,  -1,  336, "Uчэg",     "мв",       200.0,   0.0, 10000.0, 3, ACCESS_0},
-  {BASE_O2_R + C_KL_O,  FLOAT, INTERNAL,  -1,  338,  "",         "-",         1.0,    0.0, 10000.0, 3, ACCESS_0},  //o2 result  
-  {CI_O_O_R,            INT,   INTERNAL,  -1,  -1, "",    "-",        1.0,     0.0, 10000.0, 2, ACCESS_0}, //dac code for the o2 right channel  
+  {BASE_O2_R + E_F_E,   FLOAT, INTERNAL,  -1,  336,  "Uчэ",      "мв",       200.0,   0.0, 10000.0, 3, ACCESS_0},
+  {BASE_O2_R + C_KL_O,  FLOAT, INTERNAL,  -1,  338,  "O2,%",     "-",         1.0,    0.0, 10000.0, 3, ACCESS_0},  //o2 result  
+  {DEBUG_R,            INT,   INTERNAL,  -1,  -1, "",    "-",        1.0,     0.0, 10000.0, 2, ACCESS_0},  
   
   {BASE_HN_L + T_F_H,   FLOAT, INTERNAL, 110,  400, "T_f_h",    "с",        1.0,     0.0, 10000.0, 3, ACCESS_1},  //Переменные настройки канала химнедожога
   {BASE_HN_L + T_FF_H,  FLOAT, INTERNAL, 111,  402, "T_ff_h",   "с",        1.0,     0.0, 10000.0, 3, ACCESS_1},
@@ -137,9 +137,9 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_HN_L + HN_X4,   FLOAT, INTERNAL, 126,  432, "X4",      "-",        17.0,    0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_L + HN_Y4,   FLOAT, INTERNAL, 127,  434, "Y4",      "-",        6.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_L + K_I_H,   FLOAT, INTERNAL, 128,  440, "K_i_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {BASE_HN_L + SH_4_H,  INT,   INTERNAL, 129,  442, "Sh_4_h",   "-",        0.0,     0.0, 10000.0, 0, ACCESS_1},
+  {BASE_HN_L + SH_H,    INT,   INTERNAL, 129,  442, "Sh_h",   "-",        0.0,     0.0, 10000.0, 0, ACCESS_1},
   {BASE_HN_L + C_KL_HN, FLOAT, INTERNAL,  -1,  444, "",         "-",        1.0,     0.0, 10000.0, 0, ACCESS_0},  //hn right
-  {BASE_HN_L + CI_O_H,  INT,   INTERNAL,  -1,   -1, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, //dac code for the HN left channel
+  {DEBUG_H_R,  INT,   INTERNAL,  -1,   -1, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, //dac code for the HN left channel
   
   {BASE_HN_R + T_F_H,   FLOAT, INTERNAL, 150,  500, "T_f_h",    "с",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_R + T_FF_H,  FLOAT, INTERNAL, 151,  502, "T_ff_h",   "с",        1.0,     0.0, 10000.0, 3, ACCESS_1},
@@ -160,15 +160,15 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_HN_R + HN_X4,   FLOAT, INTERNAL, 166,  532, "X4",    "-",        17.0,    0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_R + HN_Y4,   FLOAT, INTERNAL, 167,  534, "Y4",    "-",        6.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_R + K_I_H,   FLOAT, INTERNAL, 168,  540, "K_i_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {BASE_HN_R + SH_4_H,  INT,   INTERNAL, 169,  542, "Sh_4_h",   "-",        0.0,     0.0, 10000.0, 0, ACCESS_1},
+  {BASE_HN_R + SH_H,    INT,   INTERNAL, 169,  542, "Sh_h",   "-",        0.0,     0.0, 10000.0, 0, ACCESS_1},
   {BASE_HN_R + C_KL_HN, FLOAT, INTERNAL,  -1,  544, "",         "-",        1.0,     0.0, 10000.0, 0, ACCESS_1},  //hn right    
-  {BASE_HN_R + CI_O_H,  INT,   INTERNAL,  -1,   -1, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, //dac code for the HN left channel
+  {DEBUG_H_R,  INT,   INTERNAL,  -1,   -1, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, //dac code for the HN left channel
   
-  {T_CL_E,              FLOAT, INTERNAL,  -1,  800, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},  //cold junction temp  
-  {ADC_1,               INT,   IN,        -1,  900,  "",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
-  {ADC_2,               INT,   IN,        -1,  902,  "",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
-  {ADC_3,               INT,   IN,        -1,  904,  "",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
-  {ADC_4,               INT,   IN,        -1,  906,  "",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
+  {T_CL_E,              FLOAT, INTERNAL,  -1,  800, "Тхк",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},  //cold junction temp  
+  {ADC_1,               INT,   IN,        -1,  900,  "АЦП1",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
+  {ADC_2,               INT,   IN,        -1,  902,  "АЦП2",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
+  {ADC_3,               INT,   IN,        -1,  904,  "АЦП3",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
+  {ADC_4,               INT,   IN,        -1,  906,  "АЦП4",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
   {ADC_1_,              INT,   IN,        -1,  908,  "",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
   {ADC_2_,              INT,   IN,        -1,  910,  "",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
   {ADC_3_,              INT,   IN,        -1,  912,  "",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
@@ -251,19 +251,21 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {RIGHT_CH_ON,         BOOLEAN, INTERNAL, 235,  1602, "",         "",         0.0,     0.0, 0.0,     0, ACCESS_1},
   {DEBUG_1,             FLOAT,   INTERNAL,  -1,  -1, "Debug 1",    "",         0.0,     0.0, 0.0,     0, ACCESS_0},
   {DEBUG_2,             FLOAT,   INTERNAL,  -1,  -1, "Debug 2",    "",         0.0,     0.0, 0.0,     0, ACCESS_0},
-  {RELAY_OUT_TEST_FLAG, BOOLEAN, INTERNAL,  -1,  -1, "",           "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
-  {DAC_TEST_FLAG,       BOOLEAN, INTERNAL,  -1,  -1, "",           "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
-  {PWM_OUT_TEST_FLAG,   BOOLEAN, INTERNAL,  -1,  -1, "",           "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
-        
-  {MAX_O2_L,            FLOAT,   INTERNAL,  236, 2000, "Max",       "-",        1.0,     0.0, 10000.0, 0, ACCESS_1},     
+  {RELAY_OUT_TEST_FLAG, BOOLEAN, INTERNAL,  -1,  1800, "",           "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
+  {DAC_TEST_FLAG,       BOOLEAN, INTERNAL,  -1,  1802, "",           "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
+  {PWM_OUT_TEST_FLAG,   BOOLEAN, INTERNAL,  -1,  1804, "",           "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
+  {OUT_CALIBR_FLAG,     BOOLEAN, INTERNAL,  -1,  1806, "",           "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
+   
+  {MAX_O2_L,            FLOAT,   INTERNAL,  236, 2000, "Max",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     
   {MAX_O2_R,            FLOAT,   INTERNAL,  237, 2002, "Max",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {MAX_XH_L,            FLOAT,   INTERNAL,  238, 2004, "Max",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {MAX_XH_R,            FLOAT,   INTERNAL,  239, 2006, "Max",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
     
-  {CURR_O2_L,           FLOAT,   INTERNAL,  -1, 2044, "Ток",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
-  {CURR_O2_R,           FLOAT,   INTERNAL,  -1, 2046, "Ток",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
-  {CURR_H_L,            FLOAT,   INTERNAL,  -1, 2048, "Ток",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
-  {CURR_H_R,            FLOAT,   INTERNAL,  -1, 2050, "Ток",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}
+  {CURR_O2_L,           FLOAT,   INTERNAL,  240, 2044, "IО2л",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {CURR_O2_R,           FLOAT,   INTERNAL,  241, 2046, "IО2п",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {CURR_H_L,            FLOAT,   INTERNAL,  242, 2048, "Iхнл",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {CURR_H_R,            FLOAT,   INTERNAL,  243, 2050, "Iхнп",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+ // {EMPTY_CELL,          INT,     INTERNAL,  -1,  -1,  "",         "",             0.0,  0.0, 10000.0, 3, ACCESS_0}
 };
 /*
 typedef struct T_DICT_ENTRY{
@@ -272,6 +274,8 @@ typedef struct T_DICT_ENTRY{
 } T_DICT_ENTRY;
 */
 T_VAR dict_vars[(sizeof dict_var_descrs) / (sizeof dict_var_descrs[0])];
+
+volatile char dictLocked = 0;
 
 char accessLevel = 0;
 //------------------------------------------------------------------------------
@@ -289,7 +293,8 @@ char* NotFound(void)
 
 void SetDefaultValues(void)
 {
-  NVIC_IntDisable(DISABLE_INT);
+  lockDict();
+ // NVIC_IntDisable(DISABLE_INT);
   
   if(accessLevel == ACCESS_2)
   {
@@ -310,12 +315,14 @@ void SetDefaultValues(void)
     SaveValuesToFram();
   };
   
-  NVIC_IntEnable(DISABLE_INT);
+ // NVIC_IntEnable(DISABLE_INT);
+  unlockDict();
 };
 
 void LoadValuesFromFram(void)
 {
-  NVIC_IntDisable(DISABLE_INT);
+ // NVIC_IntDisable(DISABLE_INT);
+  lockDict();
   
   for(int i = 0; dict_var_descrs[i].tag != MAX_RECORD - 1; ++i)
     if(dict_var_descrs[i].fram_addr != -1)
@@ -325,12 +332,14 @@ void LoadValuesFromFram(void)
     };
   SendMessage(MSG_VAR_CHANGED);
   
-  NVIC_IntEnable(DISABLE_INT);
+ // NVIC_IntEnable(DISABLE_INT);
+  unlockDict();
 };
 
 void SaveValuesToFram(void)
 {
-  NVIC_IntDisable(DISABLE_INT);
+ // NVIC_IntDisable(DISABLE_INT);
+  lockDict();
   
   for(int i = 0; dict_var_descrs[i].tag != MAX_RECORD - 1; ++i)
     if(dict_var_descrs[i].fram_addr != -1)
@@ -339,7 +348,8 @@ void SaveValuesToFram(void)
     };
   SendMessage(MSG_VAR_CHANGED);
   
-  NVIC_IntEnable(DISABLE_INT);
+ // NVIC_IntEnable(DISABLE_INT);
+  unlockDict();
 };
 
 int GetIntValueByTag(int tag)
@@ -385,7 +395,7 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size)
   char buffer[50];
   char j; //количество символов в строке
   
-  NVIC_IntDisable(DISABLE_INT);
+ // NVIC_IntDisable(DISABLE_INT);
   
   switch(id)
   {
@@ -398,7 +408,7 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size)
     break;
   case ID_MIN:
     j = (dict_var_descrs[tag].var_type == INT?
-         sprintf(buffer, "%d", dict_var_descrs[tag].min_val):
+         sprintf(buffer, "%d", (int)dict_var_descrs[tag].min_val):
            sprintf(buffer, 
                    "%1.*f", 
                    dict_var_descrs[tag].after_point, 
@@ -406,9 +416,9 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size)
     break;
   case ID_MAX:
     j = (dict_var_descrs[tag].var_type == INT?
-         sprintf(buffer, "%d", dict_var_descrs[tag].max_val):
+         sprintf(buffer, "%d", (int)dict_var_descrs[tag].max_val):
            sprintf(buffer, 
-                   "%1.f", 
+                   "%1.*f", 
                    dict_var_descrs[tag].after_point, 
                    dict_var_descrs[tag].max_val));                                 //check it, it may be wrong!
     break;    
@@ -420,7 +430,7 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size)
   };
   strcpy(buff, buffer);
   
-  NVIC_IntEnable(DISABLE_INT);
+ // NVIC_IntEnable(DISABLE_INT);
   return 0; //normal
 };
 
@@ -428,7 +438,8 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size)
 //  if it is enabled by access level
 void setTagValue_(int tag, T_VAR value, char accsessLevel)                       
 {
-  NVIC_IntDisable(DISABLE_INT);
+//  NVIC_IntDisable(DISABLE_INT);
+  lockDict();
   
   if (EditingEnabled(tag));//(accsessLevel && (accsessLevel >= dict_var_descrs[tag].access_level))
   {
@@ -438,7 +449,8 @@ void setTagValue_(int tag, T_VAR value, char accsessLevel)
     SendMessage(MSG_VAR_CHANGED);  
   };
   
-  NVIC_IntEnable(DISABLE_INT);
+ // NVIC_IntEnable(DISABLE_INT);
+  unlockDict();
 }
 
 void setTagValue(int tag, T_VAR value)
@@ -468,7 +480,9 @@ signed int FindRecordByModbusAddr(int addr)
   int probe;
   char found;
   
-  NVIC_IntDisable(DISABLE_INT);
+  //NVIC_IntDisable(DISABLE_INT);
+  lockDict();
+  
   while(high - low > 1)
   {
     probe = (low + high) / 2;
@@ -490,13 +504,15 @@ signed int FindRecordByModbusAddr(int addr)
     else
       low = probe;
   };
+  unlockDict();
+  
   if(dict_var_descrs[low].modbus_addr == addr)
   {
-    NVIC_IntEnable(DISABLE_INT);
+  //  NVIC_IntEnable(DISABLE_INT);
     return low;
   };
   
-  NVIC_IntEnable(DISABLE_INT);
+//  NVIC_IntEnable(DISABLE_INT);
   return -1;
 }
 
@@ -504,7 +520,9 @@ char GetDataByModbusAddr(int addr, unsigned short* data)
 {
   int tag;
   
-  NVIC_IntDisable(DISABLE_INT);
+ // NVIC_IntDisable(DISABLE_INT);
+  lockDict();
+    
   if(!(addr%2))
   {
     tag = FindRecordByModbusAddr(addr);
@@ -527,7 +545,8 @@ char GetDataByModbusAddr(int addr, unsigned short* data)
   };
   *data = 0;
   
-  NVIC_IntEnable(DISABLE_INT);
+ // NVIC_IntEnable(DISABLE_INT);
+  unlockDict();
   return 0;
 };
 
@@ -535,7 +554,8 @@ char SetDataByModbusAddr(int addr, unsigned short value)
 {
   int tag;
   
-  NVIC_IntDisable(DISABLE_INT);
+ // NVIC_IntDisable(DISABLE_INT);
+  lockDict();
     
   if(!(addr%2))
   {
@@ -543,7 +563,8 @@ char SetDataByModbusAddr(int addr, unsigned short value)
     if(tag > -1)
     {
       dict_vars[tag].ival = value;
-      NVIC_IntEnable(DISABLE_INT);
+      unlockDict();
+    //  NVIC_IntEnable(DISABLE_INT);
       return 1;    
     };
   }
@@ -555,12 +576,14 @@ char SetDataByModbusAddr(int addr, unsigned short value)
       dict_vars[tag].ival = value;
       WriteIntToFram(dict_var_descrs[tag].fram_addr, dict_vars[tag].ival);
       SendMessage(MSG_VAR_CHANGED);
-      NVIC_IntEnable(DISABLE_INT);
+      unlockDict();
+     // NVIC_IntEnable(DISABLE_INT);
       return 2;  
     };
   };
   
-  NVIC_IntEnable(DISABLE_INT);
+ // NVIC_IntEnable(DISABLE_INT);
+  unlockDict();
   return 0;  
 };
 //------------------------------------------------------------------------------
@@ -579,3 +602,20 @@ char getAccessLevel(int tag)
 {
   return dict_var_descrs[tag].access_level;
 }
+
+char getDictLocked(void)
+{
+  return dictLocked;
+}
+
+void lockDict(void)
+{
+  dictLocked = true;
+ // __disable_interrupt();
+};
+
+void unlockDict(void)
+{
+  dictLocked = false;
+ // __enable_interrupt();
+};

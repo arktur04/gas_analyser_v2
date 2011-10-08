@@ -69,7 +69,7 @@ const T_SCREEN_DESCRIPTOR screens[] = {
   
   {PARAM_SCREEN, {"Кислород левый (3/3)",   
   K_I_O_L,   
-  SH_4_O_L,
+  SH_O_L,
   EMPTY_CELL, EMPTY_CELL, EMPTY_CELL, 8, TRUE, TRUE, TRUE}}, //8
   
   {PARAM_SCREEN, {"Кислород правый (1/3)",  
@@ -90,7 +90,7 @@ const T_SCREEN_DESCRIPTOR screens[] = {
   
   {PARAM_SCREEN, {"Кислород правый (3/3)",  
   K_I_O_R,
-  SH_4_O_R, 
+  SH_O_R, 
   EMPTY_CELL, EMPTY_CELL, EMPTY_CELL,
   11, TRUE, TRUE, TRUE}}, //11
   
@@ -107,7 +107,7 @@ const T_SCREEN_DESCRIPTOR screens[] = {
   KLIM_H_L,
   T_FD_H_L, 
   K_I_H_L,  
-  SH_4_H_L, 
+  SH_H_L, 
   13, TRUE, TRUE, TRUE}},             //13
   
   {CLAPP_SCREEN, .scr.clapp_screen = {"КЛАПП ХН л. (3/3)",
@@ -131,7 +131,7 @@ const T_SCREEN_DESCRIPTOR screens[] = {
   KLIM_H_R,
   T_FD_H_R,
   K_I_H_R,
-  SH_4_H_R,
+  SH_H_R,
   16, TRUE, TRUE, TRUE}},            //16
   
   {CLAPP_SCREEN, .scr.clapp_screen = {"КЛАПП ХН п. (3/3)",
@@ -174,7 +174,7 @@ const T_SCREEN_DESCRIPTOR screens[] = {
   ADC_1, EMPTY_CELL,
   U_T_L, T_T_L,
   SHIFT_T_L, K_CD_T_L,
-  T_CL_E, CEL_F_T_L,
+  T_CL_E, CEL_T_L,
   EMPTY_CELL, EMPTY_CELL, 
   22, TRUE,  TRUE, TRUE}},
   
@@ -182,7 +182,7 @@ const T_SCREEN_DESCRIPTOR screens[] = {
   ADC_3, EMPTY_CELL,
   U_T_R, T_T_R,
   SHIFT_T_R, K_CD_T_R,
-  T_CL_E, CEL_F_T_R,
+  T_CL_E, CEL_T_R,
   EMPTY_CELL, EMPTY_CELL, 
   23, TRUE,  TRUE, TRUE}},
   
@@ -190,7 +190,7 @@ const T_SCREEN_DESCRIPTOR screens[] = {
   ADC_2, EMPTY_CELL,
   E_F_E_L, C_KL_O_L,
   SHIFT_E_L, K_CD_E_L,
-  CEL_F_T_L, EMPTY_CELL,
+  /*CEL_F_T_L*/CEL_T_L, EMPTY_CELL,
   EMPTY_CELL, EMPTY_CELL, 
   24, TRUE,  TRUE, TRUE}},
   
@@ -198,14 +198,14 @@ const T_SCREEN_DESCRIPTOR screens[] = {
   ADC_4, EMPTY_CELL,
   E_F_E_R, C_KL_O_R,
   SHIFT_E_R, K_CD_E_R,
-  CEL_F_T_R, EMPTY_CELL,
+  /*CEL_F_T_R*/CEL_T_R, EMPTY_CELL,
   EMPTY_CELL, EMPTY_CELL, 
   25, TRUE,  TRUE, TRUE}},
-  //-------------------------------------------newly added screens
+  
   {TWO_COL_SCREEN, .scr.two_col_screen = {"Калибровка выходов", 
   CURR_O2_L, MAX_O2_L,
+  CURR_H_L, MAX_XH_L,
   CURR_O2_R, MAX_O2_R,
-  CURR_H_L,  MAX_XH_L,
   CURR_H_R,  MAX_XH_R,
   EMPTY_CELL, EMPTY_CELL, 
   26, TRUE,  TRUE, TRUE}},

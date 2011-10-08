@@ -75,7 +75,7 @@ void Rs232Screen::Paint(void)
  */ 
   
   LcdLine(119, 0, 119, 7);
-  if(GetPasswordEntered()) 
+  if(getPasswordEntered()) 
     LcdText(121, 1, 127, 7, "*");
   usScreen::Paint();
 };

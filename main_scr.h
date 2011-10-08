@@ -6,8 +6,9 @@
 
 #include "usbase.h"
 #include "screens.h"
+#include "pass_aux_base_class.h"
 
-class MainScreen: public usScreen
+class MainScreen: public PassAuxBaseScreen
 {
 private: 
   char main_sub_state;
@@ -20,7 +21,7 @@ protected:
 public:
  /* usScreen(_message_to_activate = MSG_SCREEN_ACTIVATE):
     message_to_activate(u8 _message_to_activate) {}; */
-  MainScreen():usScreen::usScreen(MSG_MAIN_SCREEN_ACTIVATE, SCR_MAIN)
+  MainScreen():PassAuxBaseScreen::PassAuxBaseScreen(MSG_MAIN_SCREEN_ACTIVATE, SCR_MAIN)
    {main_sub_state = 0; auto_refresh = false;};
     virtual ~MainScreen() {};
 };

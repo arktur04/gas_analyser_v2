@@ -10,6 +10,7 @@ extern "C"
 #include "screens.h"
 #include "variables.h"
 #include "messages.h"
+#include "pass_controller.h"
 };
 #include <string>
 #include "usbase.h"
@@ -70,13 +71,27 @@ void PassScreen::ActiveLoop(void)
     if(param == SCR_PASS)
     {
       SendParamMessage(MSG_CHILD_SCREEN_DEACTIVATED, SCR_PASS);
-      if(editor->getValue().ival == 1111)                                                  //  password
+      if(editor->getValue().ival == 1111)   //  password 1                                               
       {
-        SendMessage(MSG_PASS_OK);
+        SendMessage(MSG_PASS1_OK);
       }
       else
       {
-        SendMessage(MSG_PASS_WRONG);
+        if(editor->getValue().ival == 3141)        //  password 2                                          
+        {
+          SendMessage(MSG_PASS2_OK);
+        }
+        else
+        {
+          if(editor->getValue().ival == 1337)    //  password 3
+          {
+            SendMessage(MSG_PASS3_OK);
+          }
+          else
+          {
+            SendMessage(MSG_PASS_WRONG);
+          };
+        };
       };
     };
   };

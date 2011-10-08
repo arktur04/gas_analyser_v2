@@ -47,11 +47,11 @@ public:
 
 class ChannelTemp: public ChannelProcessor{
 private:
-  int code_t;
-  float k_cd_t, shift_t, u_t, t_t, t_cl_e, cel_t, k_f_t, t_f_t, cel_f_t, cel_f_t_1, 
-  adj_s_t, mism_t, mism_t_1, k_p_t, mi_p_t, mi_d_t, mi_d_t_, mi_d_t_1, mi_kd_t,
-  k_d_t, k_df_t_1, k_df_t_2, t_df_t, ki_t, disp_t, sm_t, sk_int_t, l_comp_t,
-  mi_dc_t, k_clc_t, clc_sh_t;
+  int code_t, shift_t;
+  float k_cd_t, u_t, t_t, t_cl_e, cel_t, k_f_t, t_f_t, cel_f_t,
+  cel_f_t_1, adj_s_t, mism_t, mism_t_1, k_p_t, mi_p_t, mi_d_t, mi_d_t_,
+  mi_d_t_1, mi_kd_t, k_d_t, k_df_t_1, k_df_t_2, t_df_t, ki_t, disp_t, sm_t,
+  sk_int_t, l_comp_t, mi_dc_t, k_clc_t, clc_sh_t;
   int lim_lo_t, lim_hi_t, clc_li_t;
   //----------------------------------------------------------------------------
 public:
@@ -61,18 +61,19 @@ public:
   virtual void Process();
   virtual void SaveResults();
   
-  float GetCelFT() {return cel_f_t;};
+  float getCelFT() {return cel_f_t;};
+  void setCelFT(float _cel_f_t) {cel_f_t = _cel_f_t;};  //debug purp
 };
 
 class ChannelO2: public ChannelProcessor{ 
 private:
-  int code_e, shift_e, cd_sh_e;
-  float k_cd_e, e_e, k_f_e, t_f_e, e_f_e, e_f_e_1, e_lf_e, cel_f_t, cel_ff_t,
-  cel_ff_t_1, k_ff_t, t_ff_t, kel_ff_t, den_o, ex_o, c_o, k_f_o, t_f_o, c_f_o,
-  c_f_o_1, curr_o_o;
+  int code_e, shift_e;//, cd_sh_e;  
+  float k_cd_e, e_e, k_f_e, t_f_e, e_f_e, e_f_e_1, e_lf_e, cel_f_t,
+  cel_ff_t, cel_ff_t_1, k_ff_t, t_ff_t, kel_ff_t, den_o, ex_o, c_o, k_f_o,
+  t_f_o, c_f_o, c_f_o_1, curr_o_o;
   T_CLAPP clapp_o2;
-  float c_kl_o, k_i_o, min, max, a, b;
-  int c_o_o, sh_4_o, ci_o_o, range;
+  float c_kl_o;//, k_i_o, min, max, a, b;
+ // int c_o_o, sh_4_o, ci_o_o, range;
 public:
   virtual void Init();
   virtual void LoadVariables();
@@ -90,8 +91,8 @@ private:
     e_ff_h_1, e_ffd_h, e_ffd_h_1, e_ffd_h_, k_r_h, k_l_h, d_ffd_h, lim_h,
     klim_h, e_li_h, c_h, k_fd_h, t_fd_h, c_fd_h, c_fd_h_1, curr_o_h;
   T_CLAPP clapp_hn;
-  float c_kl_h, k_i_h, min, max, a, b;
-  int ci_h, sh_4_h, ci_o_h;
+  float c_kl_h;//, k_i_h, min, max, a, b;
+//  int ci_h, sh_4_h, ci_o_h;
 public:
   virtual void Init();
   virtual void LoadVariables();

@@ -66,7 +66,7 @@ void kbd_CfgLines(char line)
     (i == line)?OutputClr(key_rows[i]):OutputSet(key_rows[i]);
 }
 
-void InitKeyb(void)
+void initKeyb(void)
 {
   kbd_CfgLines(0);
   key_code = 0;
@@ -75,12 +75,12 @@ void InitKeyb(void)
  // ResetTimer(LAST_KEY_TIMER);
 }
 
-char GetKeyCode(void)
+char getKeyCode(void)
 {
   return key_code;
 }
 
-char KeyCodeToASCII(char code)
+char keyCodeToASCII(char code)
 {
   if((code >= KEY_0) && (code <= KEY_9))
     return (0x30 + code - KEY_0);
@@ -96,7 +96,7 @@ int GetScanCode(void)
   return _scan_code;
 }
 */
-void ProcessKeyFSM(void)
+void processKeyFSM(void)
 {
   switch (key_state)
   {
@@ -270,7 +270,7 @@ void ProcessEncoderFSM(char *encoder_state, char encoder_rotor, char msg_cw, cha
   };
 }
 
-void ProcessKeyb(void)
+void processKeyb(void)
 {
   char input;
   unsigned long scan_code = 0;
@@ -314,5 +314,5 @@ void ProcessKeyb(void)
     if (key_codes[i] == scan_code)
       key_code = i + 1;
   
-  ProcessKeyFSM();
+  processKeyFSM();
 }

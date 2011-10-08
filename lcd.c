@@ -133,7 +133,7 @@ void LCD_horline(char x1, char y1, char x2)
 //------------------------------------------------------------------------------
 void LCD_vertline(char x1, char y1, char y2)
 {
-  char b, page1, page2, mask1, mask2, i;
+  char page1, page2, mask1, mask2, i;
   mask1 = 0xFF << (y1 % 8);
   mask2 = 0xFF >> (7 - (y2 % 8));
   page1 = y1 / 8;
@@ -172,7 +172,7 @@ void LCD_vertline(char x1, char y1, char y2)
 //------------------------------------------------------------------------------
 void LCD_rect(char x1, char y1, char x2, char y2)
 {
-  char b, page1, page2, mask1, mask2, i, j;
+  char page1, page2, mask1, mask2, i, j;
   mask1 = 0xFF << (y1 % 8);
   mask2 = 0xFF >> (7 - (y2 % 8));
   page1 = y1 / 8;

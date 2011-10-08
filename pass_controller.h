@@ -6,7 +6,7 @@
 
 
 char EditAllowed(void);
-char GetPasswordEntered(void);
+char getPasswordEntered(void);
 void ProcessPassController(void);
 
 #endif

@@ -36,10 +36,10 @@
 #define first_delay 50
 #define auto_repeat 10
 
-void InitKeyb(void);
-void ProcessKeyb(void);
-char GetKeyCode(void);
-char KeyCodeToASCII(char code);
+void initKeyb(void);
+void processKeyb(void);
+char getKeyCode(void);
+char keyCodeToASCII(char code);
 
 //int GetScanCode(void);
 #endif

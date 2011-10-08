@@ -275,6 +275,7 @@ inline void LcdEClr(void)
   FIO1CLR = E;
 };
 
+//#pragma diag_suppress=Pe068
 inline void SpiCsSet(void)                                                       
 {
   FIO1SET = SPI_CS;
@@ -527,5 +528,9 @@ inline void Res1Set(void)
 //------------------------------------------------------------------------------
 void InitWdt(void);
 void ResetWdt(void);
+
+void initDebugPin(void);
+void setDebugPin(void);
+void clrDebugPin(void);
 
 #endif /* __BOARD_H */

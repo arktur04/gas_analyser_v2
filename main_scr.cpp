@@ -15,6 +15,7 @@ extern "C"{
 #include <string.h>
 #include "main_scr.h"
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
 char flash_flag = 0;
 /*
@@ -80,8 +81,8 @@ void MainScreen::Paint(void)
   LcdText(44, 0, 84, 8, "Левый");
   LcdText(88, 0, 127, 8, "Правый");
   LcdLine(119, 0, 119, 7);
-  if(GetPasswordEntered()) 
-    LcdText(121, 1, 127, 7, "*"); 
+  
+  PassAuxBaseScreen::Paint();
   
   LcdLine(0, 8, 127, 8);
   LcdLine(0, 9, 127, 9);

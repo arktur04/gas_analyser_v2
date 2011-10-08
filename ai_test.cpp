@@ -76,7 +76,7 @@ void AiTestScreen::Paint(void)
   LcdText(88, 44, 107, 52, str);
 
   LcdLine(119, 0, 119, 7);
-  if(GetPasswordEntered()) 
+  if(getPasswordEntered()) 
     LcdText(121, 1, 127, 7, "*");
   
   usScreen::Paint();

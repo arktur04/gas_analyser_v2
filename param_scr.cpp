@@ -106,7 +106,7 @@ void ParamScreen::Paint(void)
  // LcdLine(49, 10, 49, 63);
  // LcdLine(81, 10, 81, 63);
   LcdLine(119, 0, 119, 7);
-  if(GetPasswordEntered()) 
+  if(getPasswordEntered()) 
     LcdText(121, 1, 127, 7, "*");
   UpdateButtonValues(screen);   
    

@@ -9,21 +9,18 @@
 #include "variables.h"
 //#include "password_screen.h"
 
-char pass_state = 0;
+char passState = 0;
+char passLevel = 0;
 int password_reset_time;
 
-/* if((GetTimer(BACKLIGHT_TIMER) >= scr_backlight_time) &&
-         (scr_backlight_time != 0))
-*/
 char EditAllowed(void)
 {
-//  return 1;                                    //debug !!!
-  if(pass_state == 0)  
+  if(passState == 0)  
   {
    // SendMessage(MSG_PASSWORD_SCREEN_ACTIVATE);
-    pass_state = 1;
+    passState = 1;
   };
-  if(pass_state == 2)
+  if(passState == 2)
   {
     ResetTimer(PASS_TIMER);
     return 1;
@@ -31,33 +28,52 @@ char EditAllowed(void)
   return 0;
 }
 
-char GetPasswordEntered(void)
+char getPasswordEntered(void)
 {
-  return ((pass_state == 2) || (GetIntValueByTag(PASS_RESET_TIME) == -1));
+  if(passState == 2)
+    return passLevel;
+  if(GetIntValueByTag(PASS_RESET_TIME) == -1)
+    return 1;
+  return 0;
 }
 
 void ProcessPassController(void)
 {
- switch(pass_state)
+ switch(passState)
   {
     case 0: //password not entered
+      passLevel = 0;
       break;
     case 1: //password window is active
       if(GetMessage(MSG_PASS_CANCEL) || GetMessage(MSG_PASS_WRONG))                              
       {
-        pass_state = 0;
+        passState = 0;
+        passLevel = 0;
       };      
-      if(GetMessage(MSG_PASS_OK))
+      if(GetMessage(MSG_PASS1_OK))
       {
         ResetTimer(PASS_TIMER);
-        pass_state = 2;
-      };                                                               
+        passState = 2;
+        passLevel = 1;
+      };  
+      if(GetMessage(MSG_PASS2_OK))
+      {
+        ResetTimer(PASS_TIMER);
+        passState = 2;
+        passLevel = 2;
+      };
+      if(GetMessage(MSG_PASS3_OK))
+      {
+        ResetTimer(PASS_TIMER);
+        passState = 2;
+        passLevel = 3;
+      };
       break;
   case 2: //password is entered
     password_reset_time = GetIntValueByTag(PASS_RESET_TIME) * minute;
     if((GetTimer(PASS_TIMER) >= password_reset_time) &&
        (password_reset_time > 0))
-      pass_state = 0;
+      passState = 0;
     break;
   };
 };

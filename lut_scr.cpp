@@ -54,7 +54,7 @@ void LutScreen::PlaceControls(){
 void LutScreen::DrawTableLine(int tag_x, int tag_y, char line)
 {
   const char buf_size = 10;
-  char str[buf_size];
+ // char str[buf_size];
   
   if(tag_x != EMPTY_CELL)
   {
@@ -91,7 +91,7 @@ void LutScreen::DrawTableLine(int tag_x, int tag_y, char line)
 
 void LutScreen::Paint(void)
 { 
-  int tag;
+ // int tag;
   const char buf_size = 10;
   char str[buf_size];
   T_CLAPP_SCREEN_DESCRIPTOR screen;
@@ -117,7 +117,7 @@ void LutScreen::Paint(void)
     };
   
   LcdLine(119, 0, 119, 7);
-  if(GetPasswordEntered()) 
+  if(getPasswordEntered()) 
     LcdText(121, 1, 127, 7, "*");
   usScreen::Paint();
 }

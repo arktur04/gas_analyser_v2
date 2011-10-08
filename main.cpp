@@ -1,8 +1,8 @@
 /*************************************************************************
 *    Main.cpp
 **************************************************************************/
-
-// #define INIT_WDT 
+#define _INIT_WDT 
+#define _DEBUG_PIN
 
 extern "C"{
 #include <intrinsics.h>
@@ -37,6 +37,7 @@ extern "C"{
 #include "disconnect.h"
 #include "lcd_control.h"
 #include "power_control.h"
+#include "current_outs.h"
 };
 #include <math.h>
 
@@ -206,7 +207,6 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
  *************************************************************************/
  int main(void)
 {
-//  char aux;
   TargetResetInit();
   //InitSemaphores();
   ProcessInit();
@@ -215,22 +215,26 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
   NVIC_IntPri(NVIC_TIMER0, 2 << 3);
   NVIC_IntPri(NVIC_TIMER1, 3 << 3);
   NVIC_IntPri(NVIC_TIMER2, 3 << 3);
-  NVIC_IntPri(NVIC_UART0, 4 << 3);
-  NVIC_IntPri(NVIC_UART1, 4 << 3);
+  NVIC_IntPri(NVIC_UART0, 5 << 3);
+  NVIC_IntPri(NVIC_UART1, 5 << 3);
   
   InitSysTick();          //Key, pr = 0
   InitRepetitiveTimer();  //DSP, pr = 1
+  
   InitTimer0();           //sys tick, pr = 2
+  
   InitTimer1();  //left pwm, pr = 3
   InitTimer2();  //right pwm, pr = 3
- // InitTimer3();
   
- // UART_Init(UART0);
   Uart0Init();
   Uart1Init();
   
   SetUart0RxHandler(ModbusRxHandler0);
   SetUart1RxHandler(ModbusRxHandler1);
+  
+#ifdef DEBUG_PIN
+  initDebugPin();
+#endif
   
   __enable_interrupt();
 
@@ -253,7 +257,7 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
  // OutputSet(LCD_LED);
 
   InitMessages();
-  InitKeyb();
+  initKeyb();
  // InitCursor();
   initAdcFsm();
   
@@ -261,15 +265,13 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
   InitPowerControl();
 
   //SendMessage(MSG_MAIN_SCREEN_ACTIVATE);      
-   
-  SendMessage(MSG_TC_CALIBR_SCREEN_ACTIVATE);
  
   LoadValuesFromFram();
   SetIntValueByTag(DAC_TEST_FLAG, FALSE);
 
  // int debug = 0, debug2 = 0;
  // char s[4];
-  unsigned int dac_codes[4];//  = {2048, 256, 256, 256};
+ 
  // char txbuf[] = {0x01, 0x03, 0x00, 0x00, 0x00, 0x01, 0x84, 0x0A};
 
 //  char state = 0;
@@ -329,73 +331,17 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
 #ifdef INIT_WDT
   InitWdt();   
 #endif
-  
- //-------------------------------------------
-  //test sine vars
-  //------------------------------------------
-  float test_min = 550;
-  float test_max = 750;
-  float test_shift = (test_min + test_max) / 2;
-  float test_a = (test_max - test_min) / 2;
-  float test_curr_val;
-  int test_n = 0;
-  //----------------------------------------
-  
-  //--DEBUG------------------------------------------------------------------------------------------DEBUG-------------------
-  FIO1DIR |= SPI_MISO;
-  char debug_= 0;
   while(1)
   {
-    if(debug_)
-      FIO1SET = SPI_MISO;
-    else
-      FIO1CLR = SPI_MISO;
-    debug_ = ~debug_;
-   
-    //-----------------------------------
- /*   if(GetTimer(DEB_TIMER1) > 100)
-    {
-    test_curr_val = test_shift + test_a * sin(2 * 3.1415 * 0.01 * test_n);
-    test_n = (test_n + 1) % 100;
-    
-    SetFloatValueByTag(DEBUG_1, test_curr_val);
-    ResetTimer(DEB_TIMER1);
-    };*/
-    //------------------------------------------
     ProcessPassController();
     /*
     if(GetMessage(MSG_PASSWORD_SCREEN_ACTIVATE))
     {
       pass_screen = new PassScreen();
     };*/
-    //-------------
-    // for test
-    //-------------
-  //  test_curr_val = test_shift + test_a * sin(2 * 3.1415 * 0.1 * test_n);
-  //  test_n = (++test_n) % 1000;
-   // dac_codes[0] =  test_curr_val;
-    //--------------------------
-                                                                                                           
-    //---------------------------------------
-    // DAC test mode
-    if(GetIntValueByTag(DAC_TEST_FLAG))
-    {
-      dac_codes[0] = GetIntValueByTag(DAC_1);
-      dac_codes[1] = GetIntValueByTag(DAC_2);
-      dac_codes[2] = GetIntValueByTag(DAC_3);
-      dac_codes[3] = GetIntValueByTag(DAC_4);
-    }
-    else
-    {
-      dac_codes[0] = GetIntValueByTag(CI_O_O_L);
-      dac_codes[1] = GetIntValueByTag(CI_O_H_L);
-      dac_codes[1] = 3856;
-        
-      dac_codes[2] = GetIntValueByTag(CI_O_O_R);
-      dac_codes[3] = GetIntValueByTag(CI_O_H_R);
-    };
-    WriteToDac(dac_codes);
+    
     // relay test mode
+    
     if(GetIntValueByTag(RELAY_OUT_TEST_FLAG))
     {
       SetRelayState(RELAY_0, GetIntValueByTag(RELAY_OUT_0));
@@ -413,7 +359,7 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
       SetRelayState(RELAY_3, (GetIntValueByTag(FLT_GA_R)?ON:OFF));
       SetRelayState(RELAY_4, (GetIntValueByTag(FTH_O2_R)?ON:OFF));
       SetRelayState(RELAY_5, (GetIntValueByTag(FTH_H_R)?ON:OFF));        
-    };
+    };  
     LoadProcessingVariables();
     // pwm test mode
     if(GetIntValueByTag(PWM_OUT_TEST_FLAG))
@@ -448,7 +394,7 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
    // ProcessMessageWindow();                                                                       //temp del
    // ProcessPassController();                                                           //temp del
   //  ProcessCursor();
-    ProcessKeyb();
+    processKeyb();
     //----------------------------------------
     if(GetMessage(MSG_L_ENCODER_PRESSED))  //key substitution
     {
@@ -459,7 +405,7 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
     ProcessLcdControl();
     //-----------------------------------
     (getSystemCursor())->Process();
-    ProcessSysState();
+  //                                         ProcessSysState();
  //   mainscreen->Process();
 
   //  (GetProcessing())->Process(); 
@@ -497,7 +443,7 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
           paramscreen = new ParamScreen(19, SCR_TH_R);
           break;          
         case 8:
-          if(!EditAllowed() || GetPasswordEntered())                                                                    //!!!!!!!!!!!!!!
+          if(!EditAllowed() || getPasswordEntered())                                                                    //!!!!!!!!!!!!!!
           {
             PassScreen*pass_screen = new PassScreen();
           };
@@ -572,13 +518,13 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
         case 1:
           paramscreen = new ParamScreen(20, SCR_RES_THR_0);
           break;
-        case 2:
-          trend_screen = new TrendScreen(DEBUG_1, 500.0, 800.0, SCR_TREND_L);//(0, SCR_RS232);  //check the tag!
-          break;
-        case 3:
-          trend_screen = new TrendScreen(DEBUG_2, 500.0, 800.0, SCR_TREND_R);                   //check the tag!
-          break;
-        case 4:
+//        case 2:
+//          trend_screen = new TrendScreen(DEBUG_1, 500.0, 800.0, SCR_TREND_L);//(0, SCR_RS232);  //check the tag!
+//          break;
+//        case 3:
+//          trend_screen = new TrendScreen(DEBUG_2, 500.0, 800.0, SCR_TREND_R);                   //check the tag!
+//          break;
+        case 2:                                // changed from: case 4:         
           misc_screen = new MiscScreen();
           break;
         }
@@ -605,7 +551,7 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
         menuscreen = new MenuScreen(3, SCR_MENU_3);
         break;
       case SCR_MENU_3:
-        menuscreen = new MenuScreen(3, SCR_MENU_4);
+        menuscreen = new MenuScreen(4, SCR_MENU_4);
         break;        
       case SCR_MENU_4:
         paramscreen = new ParamScreen(0, SCR_THERM_L_0);
@@ -708,7 +654,7 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
          calibr_screen =  new TwoColSrc(25, SCR_CH_CALIBR_R);
         break;
       case SCR_CH_CALIBR_R:
-        paramscreen = new TwoColSrc(26, SCR_OUT_CALIBR);
+        calibr_screen = new TwoColSrc(26, SCR_OUT_CALIBR);
         break;
       case SCR_OUT_CALIBR:
         paramscreen = new ParamScreen(20, SCR_RES_THR_0);
@@ -720,17 +666,17 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
       case SCR_RES_THR_1:  // new variant
         misc_screen = new MiscScreen();
         break;  
-        /*  old variant
-      case SCR_RES_THR_1:
-        trend_screen = new TrendScreen(DEBUG_1, 500.0, 800.0, SCR_TREND_L);
-        break;
-      case SCR_TREND_L:
-        trend_screen = new TrendScreen(DEBUG_2, 500.0, 800.0, SCR_TREND_R);
-        break;
-      case SCR_TREND_R:
-        misc_screen = new MiscScreen();
-        break;
-        */
+//        //  old variant
+//      case SCR_RES_THR_1:
+//        trend_screen = new TrendScreen(DEBUG_1, 500.0, 800.0, SCR_TREND_L);
+//        break;
+//      case SCR_TREND_L:
+//        trend_screen = new TrendScreen(DEBUG_2, 500.0, 800.0, SCR_TREND_R);
+//        break;
+//      case SCR_TREND_R:
+//        misc_screen = new MiscScreen();
+//        break;
+//        
       };                                                                                               
 
 
@@ -964,25 +910,25 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
         paramscreen = new ParamScreen(21, SCR_RES_THR_1);
         paramscreen->SetFocus(2);
         break; 
-        /*
-      case SCR_TREND_L:
-        paramscreen = new ParamScreen(20, SCR_RES_THR_1);
-        paramscreen->SetFocus(2);
-        break;
-      case SCR_TREND_R:
-        trend_screen = new TrendScreen(DEBUG_1, 500.0, 800.0, SCR_TREND_L);
-        trend_screen->SetFocus(2);
-        break;
-      case SCR_MISC:
-        trend_screen = new TrendScreen(DEBUG_2, 500.0, 800.0, SCR_TREND_R);
-        trend_screen->SetFocus(2);
-        break; */
+//        
+//      case SCR_TREND_L:
+//        paramscreen = new ParamScreen(20, SCR_RES_THR_1);
+//        paramscreen->SetFocus(2);
+//        break;
+//      case SCR_TREND_R:
+//        trend_screen = new TrendScreen(DEBUG_1, 500.0, 800.0, SCR_TREND_L);
+//        trend_screen->SetFocus(2);
+//        break;
+//      case SCR_MISC:
+//        trend_screen = new TrendScreen(DEBUG_2, 500.0, 800.0, SCR_TREND_R);
+//        trend_screen->SetFocus(2);
+//        break; 
       };
     };                                                                                                            
 
     if(GetParamMessage(MSG_BTN_EDIT, &param))
     {
-      if(EditAllowed() || GetPasswordEntered())                                                                    //!!!!!!!!!!!!!!
+      if(EditAllowed() || getPasswordEntered())                                                                    //!!!!!!!!!!!!!!
       {
         editorscreen = new EditorScreen(param);
         SendParamMessage(MSG_EDITOR_SCREEN_ACTIVATE, param);
@@ -992,7 +938,7 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
         PassScreen*pass_screen = new PassScreen();
       };
     };
-                                                                                                       
+                                                                                                     
     if(GetParamMessage(MSG_CHECKBOX, &param))                                                                     
     {
     //  aux = GetIntValueByTag(param & 0xFFFFUL);
@@ -1025,35 +971,6 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
         break;        
       };
     };                                                                                                                                                                                                              
-   
-   /*
-    if(GetIntValueByTag(DAC_TEST_FLAG))
-    {
-      dac_codes[0] = GetIntValueByTag(DAC_1); //3857
-      dac_codes[1] = GetIntValueByTag(DAC_2);
-      dac_codes[2] = GetIntValueByTag(DAC_3);
-      dac_codes[3] = GetIntValueByTag(DAC_4);
-      
-      SetTimer0Width(GetIntValueByTag(PWM_1));
-      SetTimer1Width(GetIntValueByTag(PWM_2));
-    }
-    else
-    {
-      dac_codes[0] = GetIntValueByTag(CI_O_O_L);
-      dac_codes[1] = GetIntValueByTag(CI_O_H_L);
-      dac_codes[2] = GetIntValueByTag(CI_O_O_R);
-      dac_codes[3] = GetIntValueByTag(CI_O_H_R);
-      
-      SetTimer0Width(GetIntValueByTag(BASE_T_L + CLC_LI_T));
-      SetTimer1Width(GetIntValueByTag(BASE_T_R + CLC_LI_T));
-    };
-    
-    WriteToDac(dac_codes);                                                            
-    */
-    //-----------------------------------
-    //  Res0Set();
-  //  SaveAllChanges();
-    //  Res0Clr();
 
     getScreenList()->Process();                                   //temp
 //------------------------------------------------------------------------------
@@ -1073,68 +990,68 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
   if(GetParamMessage(MSG_UART0WRITEMULTIPLEHOLDINGS, &param))
     onMsgWriteMultipleHoldings(param, 1); 
                                                                                                          
-/*    unsigned long param;
-    unsigned short start_addr, num, value;
-    char data_len;
-    
-    union DATAADDR{
-      WRITEMULTIPLEDATA*modbus_data;
-      unsigned long param;
-    };
-    DATAADDR data_addr;
-    
-    unsigned short* preadholdingdata;
-    
-    if(GetParamMessage(MSG_UART0READHOLDINGS, &param))
-    {
-      start_addr = (param & 0xFFFF0000) >> 16;
-      num = (param & 0x0000FFFFUL);
-      
-      preadholdingdata = new unsigned short[num];
-      for(int i = 0; i < num; i++)
-        GetDataByModbusAddr(start_addr + i, &preadholdingdata[i]);
-        
-      ReadMultipleHoldingsAnswer(start_addr, num, preadholdingdata);
-      delete[] preadholdingdata;
-    };
-    
-    if(GetParamMessage(MSG_UART0WRITESINGLEHOLDING, &param))
-    {
-      start_addr = (param & 0xFFFF0000) >> 16;
-      value = (param & 0xFFFF);
-      
-      SetDataByModbusAddr(start_addr, value);
-      WriteSingleRegisterAnswer(start_addr, value);
-    };
-
-    if(GetParamMessage(MSG_UART0WRITEMULTIPLEREGS, &data_addr.param))
-    {   
-       //unsigned short start_addr;
-       // unsigned short num;
-       // char data_len;
-       // char* data[DATABUFSIZE];
-       
-      start_addr = data_addr.modbus_data->start_addr;
-      num = data_addr.modbus_data->num;
-      data_len = data_addr.modbus_data->data_len;
-      
-      if(data_len)
-        for(int i = 0; i < num; i++)
-          SetDataByModbusAddr(start_addr + i, 
-                              data_addr.modbus_data->data[i]);// % data_len]);
-
-      WriteMultipleHoldingsAnswer(start_addr, num);
-      DataUnlock();
-    };
-    
-    if(GetMessage(MSG_UART0PRINTSCREEN)) 
-    {
-      WritePrintScreenAnswer(GetVideoBuff());
-    };*/
+//    unsigned long param;
+//    unsigned short start_addr, num, value;
+//    char data_len;
+//    
+//    union DATAADDR{
+//      WRITEMULTIPLEDATA*modbus_data;
+//      unsigned long param;
+//    };
+//    DATAADDR data_addr;
+//    
+//    unsigned short* preadholdingdata;
+//    
+//    if(GetParamMessage(MSG_UART0READHOLDINGS, &param))
+//    {
+//      start_addr = (param & 0xFFFF0000) >> 16;
+//      num = (param & 0x0000FFFFUL);
+//      
+//      preadholdingdata = new unsigned short[num];
+//      for(int i = 0; i < num; i++)
+//        GetDataByModbusAddr(start_addr + i, &preadholdingdata[i]);
+//        
+//      ReadMultipleHoldingsAnswer(start_addr, num, preadholdingdata);
+//      delete[] preadholdingdata;
+//    };
+//    
+//    if(GetParamMessage(MSG_UART0WRITESINGLEHOLDING, &param))
+//    {
+//      start_addr = (param & 0xFFFF0000) >> 16;
+//      value = (param & 0xFFFF);
+//      
+//      SetDataByModbusAddr(start_addr, value);
+//      WriteSingleRegisterAnswer(start_addr, value);
+//    };
+//
+//    if(GetParamMessage(MSG_UART0WRITEMULTIPLEREGS, &data_addr.param))
+//    {   
+//       //unsigned short start_addr;
+//       // unsigned short num;
+//       // char data_len;
+//       // char* data[DATABUFSIZE];
+//       
+//      start_addr = data_addr.modbus_data->start_addr;
+//      num = data_addr.modbus_data->num;
+//      data_len = data_addr.modbus_data->data_len;
+//      
+//      if(data_len)
+//        for(int i = 0; i < num; i++)
+//          SetDataByModbusAddr(start_addr + i, 
+//                              data_addr.modbus_data->data[i]);// % data_len]);
+//
+//      WriteMultipleHoldingsAnswer(start_addr, num);
+//      DataUnlock();
+//    };
+//    
+//    if(GetMessage(MSG_UART0PRINTSCREEN)) 
+//    {
+//      WritePrintScreenAnswer(GetVideoBuff());
+//    };
 //------------------------------------------------------------------------------                                                    
 //  uarts led control logic
 //------------------------------------------------------------------------------
-                                                                                                                                   
+                                                                                                                                  
     if(GetMessage(MSG_UART0_RX))                                                                                       
     {
       ResetTimer(TIMER_UART0_RX_LED);
@@ -1175,27 +1092,27 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
 //------------------------------------------------------------------------------
 //  threshold logic
 //------------------------------------------------------------------------------
-/*  
-#define FTH_H_L   650  //left hn treshold output
-#define FTH_H_R   651  //right hn treshold output
-#define FTH_O2_L  652  //left o2 treshold output
-#define FTH_O2_R  653  //right o2 treshold output 
-    
-    
-#define THR_H_L   600  //left hn threshold 
-#define THR_H_R   601  //right hn threshold 
-#define THR_O_L   602  //left o2 threshold 
-#define THR_O_R   603  //right o2 threshold 
-#define G_TH_H_L  604  //left hn hysteresis 
-#define G_TH_H_R  605  //right hn hysteresis
-#define G_TH_O_L  606  //left o2 hysteresis
-#define G_TH_O_R  607  //right o2 hysteresis
-
-#define C_KL_O_L   180  //o2 left
-#define C_KL_O_R   181  //o2 right
-#define C_KL_HN_L  182  //hn right
-#define C_KL_HN_R  183  //hn right
-*/
+//  
+//#define FTH_H_L   650  //left hn treshold output
+//#define FTH_H_R   651  //right hn treshold output
+//#define FTH_O2_L  652  //left o2 treshold output
+//#define FTH_O2_R  653  //right o2 treshold output 
+//    
+//    
+//#define THR_H_L   600  //left hn threshold 
+//#define THR_H_R   601  //right hn threshold 
+//#define THR_O_L   602  //left o2 threshold 
+//#define THR_O_R   603  //right o2 threshold 
+//#define G_TH_H_L  604  //left hn hysteresis 
+//#define G_TH_H_R  605  //right hn hysteresis
+//#define G_TH_O_L  606  //left o2 hysteresis
+//#define G_TH_O_R  607  //right o2 hysteresis
+//
+//#define C_KL_O_L   180  //o2 left
+//#define C_KL_O_R   181  //o2 right
+//#define C_KL_HN_L  182  //hn right
+//#define C_KL_HN_R  183  //hn right
+//
                                                                                                                          
     if(!GetIntValueByTag(FTH_O2_L))
     {
@@ -1309,15 +1226,17 @@ void onMsgWriteMultipleHoldings(unsigned long param, char uartNum)
                     (GetIntValueByTag(FTH_O2_L) || GetIntValueByTag(FTH_H_L))?ON:OFF);
     
     SetDispLedState(DISP_LED_R_TR1, (GetIntValueByTag(FLT_GA_R)?ON:OFF)); //GetIntValueByTag(FTH_O2_R)?ON:OFF);
-    SetDispLedState(DISP_LED_R_TR2, 
+    SetDispLedState(DISP_LED_R_TR2,
                     (GetIntValueByTag(FTH_O2_R) || GetIntValueByTag(FTH_H_R))?ON:OFF);
     
-   // SetDispLedState(DISP_LED_L_ENC, ON);                                                  //temp
-   // SetDispLedState(DISP_LED_R_ENC, OFF);                                                 //temp
+    // SetDispLedState(DISP_LED_L_ENC, ON);                                                  //temp
+    // SetDispLedState(DISP_LED_R_ENC, OFF);                                                 //temp
     
     //--------------------------------------------------------------------------
-  //  OutputSet(LCD_LED);
+    //  OutputSet(LCD_LED);
     //--------------------------------------------------------------------------
+    
+    processCurrOuts();
     ProcessLeftPowerControl();
     ProcessRightPowerControl();                                                                                              
     ProcessMessages();

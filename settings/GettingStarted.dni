@@ -1,5 +1,5 @@
 [DebugChecksum]
-Checksum=609429080
+Checksum=-2075566554
 [DisAssemblyWindow]
 NumStates=_ 1
 State 1=_ 1
@@ -19,6 +19,8 @@ UseTrigger=1
 TriggerName=main
 LimitSize=0
 ByteLimit=50
+[BreakpointUsageDialog]
+Placement=_ 461 228 906 510
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -30,7 +32,7 @@ LogFile=_ ""
 Enabled=0
 [DriverProfiling]
 Enabled=0
-Mode=0
+Mode=19324848
 Graph=0
 [Disassemble mode]
 mode=0
@@ -38,7 +40,12 @@ mode=0
 Bp0=_ "STD_CODE" "{$PROJ_DIR$\usbase.cpp}.1218.1@1" 0 0 0 0 "" 0 "" 0
 Bp1=_ "EMUL_DATA" "ADC_2" 0 0 0 116 0 "" 0 "" 0 0 0 4294967295
 Bp2=_ "EMUL_DATA" "ADC_2" 0 0 0 116 0 "" 0 "" 0 0 0 4294967295
-Count=3
+Bp3=_ "EMUL_DATA" "leftTemp.GetCelFT" 0 0 0 116 0 "" 0 "" 0 0 0 4294967295
+Bp4=_ "STD_CODE" "{$PROJ_DIR$\main.cpp}.1072.7@1" 1 0 0 0 "" 0 "" 0
+Bp5=_ "STD_CODE" "{$PROJ_DIR$\main.cpp}.1067.7@1" 1 0 0 0 "" 0 "" 0
+Bp6=_ "STD_CODE" "{$PROJ_DIR$\main.cpp}.1062.7@1" 1 0 0 0 "" 0 "" 0
+Bp7=_ "STD_CODE" "{$PROJ_DIR$\main.cpp}.1057.7@1" 1 0 0 0 "" 0 "" 0
+Count=8
 [Aliases]
 A0=_ "C:\Users\V\Desktop\GettingStarted\main.cpp" "C:\Users\V\Documents\My Dropbox\1768\main.cpp"
 A1=_ "C:\Users\V\Documents\My Dropbox\1768\main.cpp" "C:\Users\V\Documents\My Dropbox\Repos\G_proj\1768\main.cpp"

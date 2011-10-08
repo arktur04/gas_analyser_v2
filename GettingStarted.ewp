@@ -1676,6 +1676,12 @@
     <name>$PROJ_DIR$\cstartup_M.s</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\current_outs.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\current_outs.h</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\dict.c</name>
   </file>
   <file>
@@ -1805,6 +1811,12 @@
     <name>$PROJ_DIR$\param_scr.h</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\pass_aux_base_class.cpp</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\pass_aux_base_class.h</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\pass_controller.c</name>
   </file>
   <file>
@@ -1833,9 +1845,6 @@
   </file>
   <file>
     <name>$PROJ_DIR$\pwm_test.h</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\readme.txt</name>
   </file>
   <file>
     <name>$PROJ_DIR$\relay_control.c</name>

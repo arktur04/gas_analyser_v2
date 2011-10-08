@@ -81,9 +81,9 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define CEL_F_T  13
 #define CLC_LI_T 14
 #define MISM_T   15
-#define DEBUG0   16
-#define U_T      17
-#define T_T      18
+#define CEL_T    16
+#define T_T      17
+#define U_T      18
 #define E_FF_D   19
 #define E_E      20
 #define MI_DC_T  21
@@ -110,7 +110,7 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define CLC_LI_T_L (BASE_T_L + CLC_LI_T)
 #define MISM_T_L   (BASE_T_R + MISM_T)
 
-#define DEBUG0_L   (BASE_T_L + DEBUG0)
+#define CEL_T_L   (BASE_T_L + CEL_T)
 #define U_T_L      (BASE_T_L + U_T)
 #define T_T_L      (BASE_T_L + T_T)
 #define E_FF_D_L   (BASE_T_L + E_FF_D)
@@ -139,7 +139,7 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define CLC_LI_T_R (BASE_T_R + CLC_LI_T)
 #define MISM_T_R   (BASE_T_R + MISM_T)
 
-#define DEBUG0_R   (BASE_T_R + DEBUG0)
+#define CEL_T_R   (BASE_T_R + CEL_T)
 #define U_T_R      (BASE_T_R + U_T)
 #define T_T_R      (BASE_T_R + T_T)
 #define E_FF_D_R   (BASE_T_R + E_FF_D)
@@ -171,11 +171,11 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define X5       14
 #define Y5       15
 #define K_I_O    16
-#define SH_4_O   17
+#define SH_O   17
 
 #define E_F_E    18
 #define C_KL_O   19
-#define CI_O_O   20
+#define DEBUG    20
 
 #define SHIFT_E_L  (BASE_O2_L + SHIFT_E)
 #define K_CD_E_L   (BASE_O2_L + K_CD_E)
@@ -194,11 +194,11 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define X5_L       (BASE_O2_L + X5)
 #define Y5_L       (BASE_O2_L + Y5)
 #define K_I_O_L    (BASE_O2_L + K_I_O)
-#define SH_4_O_L   (BASE_O2_L + SH_4_O)
+#define SH_O_L   (BASE_O2_L + SH_O)
 
 #define E_F_E_L    (BASE_O2_L + E_F_E)
 #define C_KL_O_L   (BASE_O2_L + C_KL_O)
-#define CI_O_O_L   (BASE_O2_L + CI_O_O)
+#define DEBUG_L    (BASE_O2_L + DEBUG)
 
 #define SHIFT_E_R  (BASE_O2_R + SHIFT_E)
 #define K_CD_E_R   (BASE_O2_R + K_CD_E)
@@ -217,11 +217,11 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define X5_R       (BASE_O2_R + X5)
 #define Y5_R       (BASE_O2_R + Y5)
 #define K_I_O_R    (BASE_O2_R + K_I_O)
-#define SH_4_O_R   (BASE_O2_R + SH_4_O)
+#define SH_O_R   (BASE_O2_R + SH_O)
 
 #define E_F_E_R    (BASE_O2_R + E_F_E)
 #define C_KL_O_R   (BASE_O2_R + C_KL_O)
-#define CI_O_O_R   (BASE_O2_R + CI_O_O)
+#define DEBUG_R    (BASE_O2_R + DEBUG)
 
 //Переменные настройки канала химнедожога
 #define BASE_HN_L 95
@@ -246,9 +246,9 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define HN_X4    16
 #define HN_Y4    17
 #define K_I_H    18
-#define SH_4_H   19
+#define SH_H   19
 #define C_KL_HN  20  
-#define CI_O_H   21
+#define DEBUG_HN    21
 
 #define T_F_H_L    (BASE_HN_L + T_F_H)
 #define T_FF_H_L   (BASE_HN_L + T_FF_H)
@@ -269,9 +269,9 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define HN_X4_L    (BASE_HN_L + HN_X4)
 #define HN_Y4_L    (BASE_HN_L + HN_Y4)
 #define K_I_H_L    (BASE_HN_L + K_I_H)
-#define SH_4_H_L   (BASE_HN_L + SH_4_H)
+#define SH_H_L     (BASE_HN_L + SH_H)
 #define C_KL_HN_L  (BASE_HN_L + C_KL_HN)
-#define CI_O_H_L   (BASE_HN_L + CI_O_H)
+#define DEBUG_H_L    (BASE_HN_L + DEBUG_HN)
 
 #define T_F_H_R    (BASE_HN_R + T_F_H)
 #define T_FF_H_R   (BASE_HN_R + T_FF_H)
@@ -292,9 +292,9 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define HN_X4_R    (BASE_HN_R + HN_X4)
 #define HN_Y4_R    (BASE_HN_R + HN_Y4)
 #define K_I_H_R    (BASE_HN_R + K_I_H)
-#define SH_4_H_R   (BASE_HN_R + SH_4_H)
+#define SH_H_R     (BASE_HN_R + SH_H)
 #define C_KL_HN_R  (BASE_HN_R + C_KL_HN)
-#define CI_O_H_R   (BASE_HN_R + CI_O_H)
+#define DEBUG_H_R    (BASE_HN_R + DEBUG_HN)
 
 //----------------------------------------------
 #define T_CL_E     139  //cold junction temp
@@ -431,19 +431,20 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define RELAY_OUT_TEST_FLAG     226
 #define DAC_TEST_FLAG           227 // true if the dac test sreen is active
 #define PWM_OUT_TEST_FLAG       228
+#define OUT_CALIBR_FLAG         229
 
-#define MAX_O2_L                229  
-#define MAX_O2_R                230
-#define MAX_XH_L                231
-#define MAX_XH_R                232   
+#define MAX_O2_L                230  
+#define MAX_O2_R                231
+#define MAX_XH_L                232
+#define MAX_XH_R                233   
   
-#define CURR_O2_L               233
-#define CURR_O2_R               234
-#define CURR_H_L                235
-#define CURR_H_R                236
+#define CURR_O2_L               234
+#define CURR_O2_R               235
+#define CURR_H_L                236
+#define CURR_H_R                237
 
 //------------------------------------------------------------------------------
-#define MAX_RECORD              237
+#define MAX_RECORD              238
 
 //#define MAX_RECORDS 500
 
@@ -489,5 +490,10 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
   char EditingEnabled(int tag);
   char getAccessLevel(int tag);
   //  #define MSG_VAR_CHANGED          10
+  
+  //shared access control
+  char getDictLocked(void);
+  void lockDict(void);
+  void unlockDict(void);
 //------------------------------------------------------------------------------
 #endif

@@ -777,10 +777,21 @@ void PwmInitPio(void)
 //------------------------------------------------------------------------------
 // Debug Control
 //------------------------------------------------------------------------------
-void DebugInitPio(void)
+#define DEBUG_0 (1 << 12)
+
+void initDebugPin(void)
 {
- // FIO1DIR |= RESERVED0;
- // Res0Clr();
+  FIO2DIR |= DEBUG_0;
+}
+
+void setDebugPin(void)
+{
+  FIO2SET |= DEBUG_0;
+}
+
+void clrDebugPin(void)
+{
+  FIO2CLR |= DEBUG_0;
 }
 //------------------------------------------------------------------------------
 //  WDT

@@ -62,7 +62,9 @@ struct {
 
 #define MSG_PASS_WRONG     41
 #define MSG_PASS_CANCEL    42
-#define MSG_PASS_OK        43
+#define MSG_PASS1_OK       43
+#define MSG_PASS2_OK       44
+#define MSG_PASS3_OK       45
 //------------------------------------------------------------------------------
 //  UARTS INTERRUPT REQUESTS
 //------------------------------------------------------------------------------
@@ -103,7 +105,7 @@ struct {
 #define MSG_PARAM_SCREEN_CLOSE        123
 #define MSG_PARAM_SCREEN_DEACTIVATED  124
 
-#define MSG_TC_CALIBR_SCREEN_ACTIVATE 125
+#define MSG_TWOCOL_SCREEN_ACTIVATE    125
 
 
 
