@@ -5,6 +5,7 @@
 #define MENU_SCR_h
 
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
 typedef struct{
   char header[25]; //заголовок экрана
@@ -16,7 +17,7 @@ typedef struct{
   char forward_allowed; //кнопка "вперед" разрешена
 } T_MENU_DESCRIPTOR;
 
-class MenuScreen: public usScreen
+class MenuScreen: public PassAuxBaseScreen
 {
 private:
   usTextButton* pTextButtons[10];

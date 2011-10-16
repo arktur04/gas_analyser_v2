@@ -139,6 +139,7 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_HN_L + K_I_H,   FLOAT, INTERNAL, 128,  440, "K_i_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_L + SH_H,    INT,   INTERNAL, 129,  442, "Sh_h",   "-",        0.0,     0.0, 10000.0, 0, ACCESS_1},
   {BASE_HN_L + C_KL_HN, FLOAT, INTERNAL,  -1,  444, "",         "-",        1.0,     0.0, 10000.0, 0, ACCESS_0},  //hn right
+  {BASE_HN_L + CHUV_HN,  FLOAT,   INTERNAL,  130,   446, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
   {DEBUG_H_R,  INT,   INTERNAL,  -1,   -1, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, //dac code for the HN left channel
   
   {BASE_HN_R + T_F_H,   FLOAT, INTERNAL, 150,  500, "T_f_h",    "ρ",        1.0,     0.0, 10000.0, 3, ACCESS_1},
@@ -161,7 +162,8 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_HN_R + HN_Y4,   FLOAT, INTERNAL, 167,  534, "Y4",    "-",        6.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_R + K_I_H,   FLOAT, INTERNAL, 168,  540, "K_i_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_R + SH_H,    INT,   INTERNAL, 169,  542, "Sh_h",   "-",        0.0,     0.0, 10000.0, 0, ACCESS_1},
-  {BASE_HN_R + C_KL_HN, FLOAT, INTERNAL,  -1,  544, "",         "-",        1.0,     0.0, 10000.0, 0, ACCESS_1},  //hn right    
+  {BASE_HN_R + C_KL_HN, FLOAT, INTERNAL,  -1,  544, "",         "-",        1.0,     0.0, 10000.0, 0, ACCESS_1},  //hn right 
+  {BASE_HN_R + CHUV_HN,  FLOAT,   INTERNAL,  170,   546, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
   {DEBUG_H_R,  INT,   INTERNAL,  -1,   -1, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, //dac code for the HN left channel
   
   {T_CL_E,              FLOAT, INTERNAL,  -1,  800, "Òυκ",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},  //cold junction temp  
@@ -229,7 +231,7 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {ETHERNET_IP_GATE_0,  INT,     INTERNAL, 218,  -1, "",          "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {ETHERNET_IP_GATE_1,  INT,     INTERNAL, 219,  -1, "",          "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {ETHERNET_IP_GATE_2,  INT,     INTERNAL, 220,  -1, "",          "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {ETHERNET_IP_GATE_3 , INT,     INTERNAL, 221,  -1, "",          "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {ETHERNET_IP_GATE_3,  INT,     INTERNAL, 221,  -1, "",          "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {RELAY_OUT_0,         BOOLEAN, INTERNAL,  -1, 1520, "",          "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {RELAY_OUT_1,         BOOLEAN, INTERNAL,  -1, 1522, "",          "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {RELAY_OUT_2,         BOOLEAN, INTERNAL,  -1, 1524, "",          "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},

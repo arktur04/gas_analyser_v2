@@ -15,9 +15,10 @@ extern "C"{
 #include <string.h>
 #include "param_scr.h"
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
 ParamScreen::ParamScreen(char _scr_num, int _scr_id):
-  usScreen(MSG_PARAM_SCREEN_ACTIVATE, _scr_id)
+  PassAuxBaseScreen(MSG_PARAM_SCREEN_ACTIVATE, _scr_id)
 {
   scr_num = _scr_num;
 };
@@ -110,16 +111,16 @@ void ParamScreen::Paint(void)
     LcdText(121, 1, 127, 7, "*");
   UpdateButtonValues(screen);   
    
-  usScreen::Paint();
+  PassAuxBaseScreen::Paint();
 };
 /*
 void ParamScreen::Activated(unsigned long *param)                                   //to remove ???
 {
-  usScreen::Activated();//(param);
+  PassAuxBaseScreen::Activated();//(param);
 };
 
 void ParamScreen::ActiveLoop(void)                            
 {
-  usScreen::ActiveLoop();
+  PassAuxBaseScreen::ActiveLoop();
 };
 */

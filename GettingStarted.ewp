@@ -1667,6 +1667,12 @@
     <name>$PROJ_DIR$\buttons.h</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\calibr_out_scr.cpp</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\calibr_out_scr.h</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\checkbox.c</name>
   </file>
   <file>

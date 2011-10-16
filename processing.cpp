@@ -504,7 +504,7 @@ void ChannelHN::SaveResults()
     //SetIntValueByTag(base_hn + CI_O_H, ci_o_h);
     
     SetFloatValueByTag(base_temp + E_FF_D, c_fd_h);
-    
+    /*
     if(side == LEFT_CH)
     {  
       SetFloatValueByTag(CURR_H_L, curr_o_h);
@@ -512,7 +512,7 @@ void ChannelHN::SaveResults()
     else
     {
       SetFloatValueByTag(CURR_H_R, curr_o_h);
-    }; 
+    }; */
   };
 };
 

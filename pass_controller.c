@@ -70,6 +70,27 @@ void ProcessPassController(void)
       };
       break;
   case 2: //password is entered
+    if(GetMessage(MSG_PASS_WRONG))                              
+    {
+      passState = 0;
+      passLevel = 0;
+    };      
+    if(GetMessage(MSG_PASS1_OK))
+    {
+      ResetTimer(PASS_TIMER);
+      passLevel = 1;
+    };  
+    if(GetMessage(MSG_PASS2_OK))
+    {
+      ResetTimer(PASS_TIMER);
+      passLevel = 2;
+    };
+    if(GetMessage(MSG_PASS3_OK))
+    {
+      ResetTimer(PASS_TIMER);
+      passLevel = 3;
+    };
+    
     password_reset_time = GetIntValueByTag(PASS_RESET_TIME) * minute;
     if((GetTimer(PASS_TIMER) >= password_reset_time) &&
        (password_reset_time > 0))

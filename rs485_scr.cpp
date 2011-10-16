@@ -16,8 +16,9 @@ extern "C"{
 #include <string.h>
 #include "rs485_scr.h"
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
-Rs485Screen::Rs485Screen():usScreen(MSG_RS485_SCREEN_ACTIVATE, SCR_RS485)
+Rs485Screen::Rs485Screen():PassAuxBaseScreen(MSG_RS485_SCREEN_ACTIVATE, SCR_RS485)
 {
   message_to_activate = MSG_RS485_SCREEN_ACTIVATE;   
 };
@@ -80,10 +81,10 @@ void Rs485Screen::Paint(void)
   if(getPasswordEntered()) 
     LcdText(121, 1, 127, 7, "*");
   
-  usScreen::Paint();
+  PassAuxBaseScreen::Paint();
 };
 
 void Rs485Screen::ActiveLoop()
 {
-  usScreen::ActiveLoop();
+  PassAuxBaseScreen::ActiveLoop();
 };

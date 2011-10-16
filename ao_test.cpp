@@ -15,17 +15,18 @@ extern "C"{
 #include <string.h>
 #include "ao_test.h"
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
 static const int dac_tags[] = {DAC_1, DAC_2, DAC_3, DAC_4};
 
-AoTestScreen::AoTestScreen():usScreen(MSG_DAC_OUT_TEST_SCREEN_ACTIVATE, SCR_AO_TEST)
+AoTestScreen::AoTestScreen():PassAuxBaseScreen(MSG_DAC_OUT_TEST_SCREEN_ACTIVATE, SCR_AO_TEST)
 {
  // message_to_activate = MSG_DAC_OUT_TEST_SCREEN_ACTIVATE;  
 };
 
 void AoTestScreen::Activated(unsigned long * param)
 {
-  usScreen::Activated(param);
+  PassAuxBaseScreen::Activated(param);
   SetIntValueByTag(DAC_TEST_FLAG, 1);
 }
   
@@ -86,12 +87,12 @@ void AoTestScreen::AoTestScreen::Paint(void)
   if(getPasswordEntered()) 
     LcdText(121, 1, 127, 7, "*");
   
-  usScreen::Paint();
+  PassAuxBaseScreen::Paint();
 };
 
 void AoTestScreen::ActiveLoop()
 {
-  usScreen::ActiveLoop();
+  PassAuxBaseScreen::ActiveLoop();
 };
 
 AoTestScreen::~AoTestScreen()

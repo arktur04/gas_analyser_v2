@@ -5,8 +5,9 @@
 #define PWM_TEST_SCR_h
 
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 /*
-class AoTestScreen: public usScreen
+class AoTestScreen: public PassAuxBaseScreen
 {
 private:
   usTextButton* pBtns[4];
@@ -21,7 +22,7 @@ public:
   AoTestScreen();
 */
 
-class PwmTestScreen: public usScreen
+class PwmTestScreen: public PassAuxBaseScreen
 {
 private:
   int pwm1, pwm2;

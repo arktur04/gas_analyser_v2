@@ -44,7 +44,7 @@ typedef struct{
 class usBase
 {
 public:
-  u8 tag;
+ // u8 tag;
  // virtual void Delegate(USMESSAGE msg) {};      
 };
 

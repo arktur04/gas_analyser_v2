@@ -451,21 +451,21 @@ char RdyIsLow(char adc_num);
 //------------------------------------------------------------------------------
 // PWM interface definition
 //------------------------------------------------------------------------------
-#define PWM0_OUT (1 << 26) //P3.26
-#define PWM1_OUT (1 << 25) //P3.25
+#define PWM0_OUT (1 << 25) //P3.25
+#define PWM1_OUT (1 << 26) //P3.26
 
-#define PWM0_IN (1 << 28) //P0.28
-#define PWM1_IN (1 << 27) //P0.27
+#define PWM0_IN (1 << 27) //P0.27
+#define PWM1_IN (1 << 28) //P0.28
 
 void PwmInitPio(void);
 
 inline void Pwm0Set(void)
-{ 
+{
   FIO3SET = PWM0_OUT;
 }
 
 inline void Pwm0Clr(void)
-{ 
+{
   FIO3CLR = PWM0_OUT;
 }
 

@@ -7,7 +7,9 @@ extern "C"{
 #include "pass_aux_base_class.h"
 
 static const char*passSign[4] = {" ", "*", "+", "!"};
+
 void PassAuxBaseScreen::Paint(void)
 {
+  usScreen::Paint();
   LcdText(121, 1, 127, 7, passSign[getPasswordEntered()]); 
 };

@@ -16,8 +16,9 @@ extern "C"{
 #include <string.h>
 #include "rs232_scr.h"
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
-Rs232Screen::Rs232Screen():usScreen(MSG_RS232_SCREEN_ACTIVATE, SCR_RS232)
+Rs232Screen::Rs232Screen():PassAuxBaseScreen(MSG_RS232_SCREEN_ACTIVATE, SCR_RS232)
 {
  // message_to_activate = MSG_RS232_SCREEN_ACTIVATE;   
 };
@@ -77,10 +78,10 @@ void Rs232Screen::Paint(void)
   LcdLine(119, 0, 119, 7);
   if(getPasswordEntered()) 
     LcdText(121, 1, 127, 7, "*");
-  usScreen::Paint();
+  PassAuxBaseScreen::Paint();
 };
 
 void Rs232Screen::ActiveLoop()
 {
-  usScreen::ActiveLoop();
+  PassAuxBaseScreen::ActiveLoop();
 };

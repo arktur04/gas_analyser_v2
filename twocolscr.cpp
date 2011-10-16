@@ -16,16 +16,17 @@ extern "C"{
 #include "twocolscr.h"
 #include "usbase.h"
 #include "tagvaluelabel.h"
+#include "pass_aux_base_class.h"
 
-TwoColSrc::TwoColSrc(char _scr_num, int _scr_id):
-  usScreen(MSG_TWOCOL_SCREEN_ACTIVATE, _scr_id)
+TwoColScr::TwoColScr(char _scr_num, int _scr_id):
+  PassAuxBaseScreen(MSG_TWOCOL_SCREEN_ACTIVATE, _scr_id)
 {
   scr_num = _scr_num;
  // message_to_activate = MSG_TC_CALIBR_SCREEN_ACTIVATE;   
   screen = GetScreen(scr_num).scr.two_col_screen;
 };
 
-void TwoColSrc::PlaceControls()
+void TwoColScr::PlaceControls()
 {
   AddControl(new usBmpButton(110, 9, 17, 18, 0, BTN_FORWARD, MSG_BTN_FORWARD, 
                              scr_id));
@@ -44,7 +45,7 @@ void TwoColSrc::PlaceControls()
     };
 };
 
-void TwoColSrc::DrawTableLine(int tag_1, int tag_2, char line)
+void TwoColScr::DrawTableLine(int tag_1, int tag_2, char line)
 {
  // const char buf_size = 10;
  // char str[buf_size];
@@ -58,7 +59,7 @@ void TwoColSrc::DrawTableLine(int tag_1, int tag_2, char line)
   };
 }
 
-void TwoColSrc::Paint(void)
+void TwoColScr::Paint(void)
 {
   const char buf_size = 10;
   char str[buf_size];
@@ -88,5 +89,5 @@ void TwoColSrc::Paint(void)
   if(getPasswordEntered()) 
     LcdText(121, 1, 127, 7, "*");
   
-  usScreen::Paint();
+  PassAuxBaseScreen::Paint();
 };

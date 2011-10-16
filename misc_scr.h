@@ -5,8 +5,9 @@
 #define MISC_TEST_SCR_h
 
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
-class MiscScreen: public usScreen
+class MiscScreen: public PassAuxBaseScreen
 {
 private:
   usTextButton* pBtns[5];

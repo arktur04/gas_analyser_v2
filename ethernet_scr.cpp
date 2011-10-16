@@ -16,8 +16,9 @@ extern "C"{
 #include <string.h>
 #include "ethernet_scr.h"
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
-EthernetScreen::EthernetScreen():usScreen(MSG_ETHERNET_SCREEN_ACTIVATE, SCR_ETHERNET)
+EthernetScreen::EthernetScreen():PassAuxBaseScreen(MSG_ETHERNET_SCREEN_ACTIVATE, SCR_ETHERNET)
 {
  // message_to_activate = MSG_ETHERNET_SCREEN_ACTIVATE; 
 };
@@ -78,10 +79,10 @@ void EthernetScreen::Paint(void)
   if(getPasswordEntered()) 
     LcdText(121, 1, 127, 7, "*");
 
-  usScreen::Paint();
+  PassAuxBaseScreen::Paint();
 };
 
 void EthernetScreen::ActiveLoop()
 {
-  usScreen::ActiveLoop();
+  PassAuxBaseScreen::ActiveLoop();
 };

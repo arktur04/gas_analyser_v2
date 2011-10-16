@@ -15,9 +15,10 @@ extern "C"{
 #include <string.h>
 #include "lut_scr.h"
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
 LutScreen::LutScreen(char _scr_num, int _scr_id):
-  usScreen(MSG_CLAPP_SCREEN_ACTIVATE, _scr_id)
+  PassAuxBaseScreen(MSG_CLAPP_SCREEN_ACTIVATE, _scr_id)
 {
   
   scr_num = _scr_num;
@@ -119,16 +120,16 @@ void LutScreen::Paint(void)
   LcdLine(119, 0, 119, 7);
   if(getPasswordEntered()) 
     LcdText(121, 1, 127, 7, "*");
-  usScreen::Paint();
+  PassAuxBaseScreen::Paint();
 }
 /*
 void LutScreen::Activated(unsigned long *param)                                   //to remove ???
 {
-  usScreen::Activated();//(param);
+  PassAuxBaseScreen::Activated();//(param);
 };
 
 void LutScreen::ActiveLoop(void)                              
 {
- usScreen::ActiveLoop();
+ PassAuxBaseScreen::ActiveLoop();
 };
 */

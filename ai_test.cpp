@@ -15,8 +15,9 @@ extern "C"{
 #include <string.h>
 #include "ai_test.h"
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
-AiTestScreen::AiTestScreen():usScreen(MSG_ADC_IN_TEST_SCREEN_ACTIVATE, SCR_AI_TEST)
+AiTestScreen::AiTestScreen():PassAuxBaseScreen(MSG_ADC_IN_TEST_SCREEN_ACTIVATE, SCR_AI_TEST)
 {
  // message_to_activate = MSG_ADC_IN_TEST_SCREEN_ACTIVATE;  
 };
@@ -79,7 +80,7 @@ void AiTestScreen::Paint(void)
   if(getPasswordEntered()) 
     LcdText(121, 1, 127, 7, "*");
   
-  usScreen::Paint();
+  PassAuxBaseScreen::Paint();
 };
 
 void AiTestScreen::ActiveLoop()
@@ -99,5 +100,5 @@ void AiTestScreen::ActiveLoop()
    //     ResetTimer(SCREEN_REFRESH_TIMER); 
         Update();
      // };
-  usScreen::ActiveLoop();
+  PassAuxBaseScreen::ActiveLoop();
 };

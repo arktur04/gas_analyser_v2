@@ -83,7 +83,7 @@ const T_MENU_DESCRIPTOR menues[MAX_MENU] = {
 };
 
 MenuScreen::MenuScreen(char _scr_num, int _scr_id):
-  usScreen(MSG_MENU_SCREEN_ACTIVATE, _scr_id)
+  PassAuxBaseScreen(MSG_MENU_SCREEN_ACTIVATE, _scr_id)
 {
   scr_num = _scr_num;
   auto_refresh = false;
@@ -134,15 +134,10 @@ void MenuScreen::Paint(void)
  // LcdLine(111, 2, 111, 3);
  // LcdLine(111, 4, 111, 4);
   
-  usScreen::Paint();
+  PassAuxBaseScreen::Paint();
 };
-/*
-void MenuScreen::Activated(unsigned long *param)                                   //to remove ???
-{
-  usScreen::Activated();//(param);
-};
-*/
+
 void MenuScreen::ActiveLoop(void)   
 {
-  usScreen::ActiveLoop(); 
+  PassAuxBaseScreen::ActiveLoop(); 
 };

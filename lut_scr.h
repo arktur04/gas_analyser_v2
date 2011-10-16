@@ -9,8 +9,9 @@ extern "C"{
 };
 
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
-class LutScreen: public usScreen
+class LutScreen: public PassAuxBaseScreen
 {
 private:
   usTextButton* pBtns[5][2];

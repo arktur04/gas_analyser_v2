@@ -5,8 +5,9 @@
 #define RS232_SCR_h
 
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
-class Rs232Screen: public usScreen
+class Rs232Screen: public PassAuxBaseScreen
 {
 private:
   usTextButton* pBtns[2];

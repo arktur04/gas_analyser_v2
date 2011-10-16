@@ -15,10 +15,11 @@ extern "C"{
 #include <string.h>
 #include "do_test.h"
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
 /*
 
-class DoTestScreen: public usScreen
+class DoTestScreen: public PassAuxBaseScreen
 {
 private:
   usCheckBox* pCheckBox[3][2];
@@ -33,17 +34,17 @@ public:
 };
 */
 
-DoTestScreen::DoTestScreen():usScreen(MSG_DISCR_OUT_TEST_SCREEN_ACTIVATE,
+DoTestScreen::DoTestScreen():PassAuxBaseScreen(MSG_DISCR_OUT_TEST_SCREEN_ACTIVATE,
                                       SCR_DO_TEST)
 {
 };
-
+/*
 int DoTestScreen::getTag(char x)
 {
-  int discr_out[6] = {RELAY_OUT_0, RELAY_OUT_1, RELAY_OUT_2, RELAY_OUT_3,
+  static const int discrOutTags[6] = {RELAY_OUT_0, RELAY_OUT_1, RELAY_OUT_2, RELAY_OUT_3,
   RELAY_OUT_4, RELAY_OUT_5};
   return discr_out[x];
-};
+};*/
 
 void DoTestScreen::PlaceControls()
 {
@@ -58,8 +59,9 @@ void DoTestScreen::PlaceControls()
     for(char x = 0; x < 2; x++)
       AddControl(pCheckBox[y][x] = new usCheckBox(x * 55 + 43, y * 11 + 11,
                                                   y + x * 3 + 3,
-                                                  MSG_CHECKBOX, 
-                                                  getTag(y * 2 + x)));
+                                                  MSG_CHECKBOX,
+                                                  discrOutTags[y * 2 + x]));
+                                             //     getTag(y * 2 + x)));
 };
 
 void DoTestScreen::Paint(void)
@@ -79,23 +81,23 @@ void DoTestScreen::Paint(void)
   
   for(char y = 0; y < 3; y++)
     for(char x = 0; x < 2; x++)
-      pCheckBox[y][x]->setChecked(GetIntValueByTag(getTag(y * 2 + x)));
+      pCheckBox[y][x]->setChecked(GetIntValueByTag(discrOutTags[y * 2 + x]));
   
   LcdLine(119, 0, 119, 7);
   if(getPasswordEntered()) 
     LcdText(121, 1, 127, 7, "*");
   
-  usScreen::Paint();
+  PassAuxBaseScreen::Paint();
 };
 
 void DoTestScreen::ActiveLoop()
 {
-  usScreen::ActiveLoop();
+  PassAuxBaseScreen::ActiveLoop();
 };
 
 void DoTestScreen::Activated(unsigned long * param)
 {
-  usScreen::Activated(param);
+  PassAuxBaseScreen::Activated(param);
   SetIntValueByTag(RELAY_OUT_TEST_FLAG, 1);
 };
 

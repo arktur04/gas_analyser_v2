@@ -68,8 +68,7 @@ void ProcessTimers(void)
     T1MR0 = ch0_width;
     pwm_ch = 0;
     ch0_flag = !GetPwm0(); //check the line state
-    Pwm0Set();                                                                               //temp
-    // Pwm1Clr();
+    Pwm0Set();
     T1TCR_bit.CE = 1; 
   }
   else
@@ -91,13 +90,13 @@ void ProcessTimers(void)
 
 void ProcessTimer1(void)
 {
-//  ch0_flag = ~GetPwm0();
+//  ch0_flag = !GetPwm0();
   Pwm0Clr();
 }
 
 void ProcessTimer2(void)
 {
- // ch1_flag = ~GetPwm1();
+//  ch1_flag = !GetPwm1();
   Pwm1Clr();
 }
 

@@ -5,16 +5,18 @@
 #define DO_TEST_SCR_h
 
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
-class DoTestScreen: public usScreen
+static const int discrOutTags[6] = {RELAY_OUT_0, RELAY_OUT_1, RELAY_OUT_2,
+  RELAY_OUT_3, RELAY_OUT_4, RELAY_OUT_5};
+
+class DoTestScreen: public PassAuxBaseScreen
 {
 private:
-  usCheckBox* pCheckBox[3][2];
+  usCheckBox*pCheckBox[3][2];
+  usBmpButton*pBmpButtons[3];
+ // int getTag(char x);
   
-  usBmpButton* pBmpButtons[3];
-  
-  int getTag(char x);
- // char scr_num;
 protected:
   virtual void Paint(void);
   virtual void Activated(unsigned long * param);

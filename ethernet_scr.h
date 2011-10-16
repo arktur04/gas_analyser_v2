@@ -5,8 +5,9 @@
 #define ETHERNET_SCR_h
 
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
-class EthernetScreen: public usScreen
+class EthernetScreen: public PassAuxBaseScreen
 {
 private:
   usTextButton* pBtns[13];

@@ -18,8 +18,9 @@ extern "C"
 #include "pwm_test.h"
 #include "usbase.h"
 //#include "msg.h"
+#include "pass_aux_base_class.h"
 
-PwmTestScreen::PwmTestScreen():usScreen(MSG_PWM_TEST_SCREEN_ACTIVATE, SCR_PWM_TEST)
+PwmTestScreen::PwmTestScreen():PassAuxBaseScreen(MSG_PWM_TEST_SCREEN_ACTIVATE, SCR_PWM_TEST)
 {
  // message_to_activate = MSG_PWM_TEST_SCREEN_ACTIVATE;  
 };
@@ -85,17 +86,17 @@ void PwmTestScreen::Paint(void)
   if(getPasswordEntered()) 
     LcdText(121, 1, 127, 7, "*");
   
-  usScreen::Paint();
+  PassAuxBaseScreen::Paint();
 };
 
 void PwmTestScreen::ActiveLoop()
 {
-  usScreen::ActiveLoop();
+  PassAuxBaseScreen::ActiveLoop();
 };
 
 void PwmTestScreen::Activated(unsigned long *param)
 {
-  usScreen::Activated(param);
+  PassAuxBaseScreen::Activated(param);
   SetIntValueByTag(PWM_OUT_TEST_FLAG, 1);
 };
 

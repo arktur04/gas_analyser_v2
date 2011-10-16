@@ -5,8 +5,9 @@
 #define AI_TEST_SCR_h
 
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
-class AiTestScreen: public usScreen
+class AiTestScreen: public PassAuxBaseScreen
 {
 private:
  int

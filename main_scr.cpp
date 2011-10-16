@@ -82,7 +82,7 @@ void MainScreen::Paint(void)
   LcdText(88, 0, 127, 8, "Правый");
   LcdLine(119, 0, 119, 7);
   
-  PassAuxBaseScreen::Paint();
+ // PassAuxBaseScreen::Paint();
   
   LcdLine(0, 8, 127, 8);
   LcdLine(0, 9, 127, 9);
@@ -240,7 +240,7 @@ void MainScreen::Paint(void)
     sprintf(str, "%.1f", GetFloatValueByTag(CEL_F_T_R));
     LcdText(88, 43, 127, 51, str);  //temp right
   };
-  usScreen::Paint();
+  PassAuxBaseScreen::Paint();
 }
 
 void MainScreen::Activated(unsigned long *param)

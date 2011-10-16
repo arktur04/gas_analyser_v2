@@ -5,8 +5,9 @@
 #define RS485_SCR_h
 
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
-class Rs485Screen: public usScreen
+class Rs485Screen: public PassAuxBaseScreen
 {
 private:
   usTextButton* pBtns[3];

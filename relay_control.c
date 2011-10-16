@@ -1,11 +1,11 @@
-#include "board.h"                      //????
-#include <nxp/iolpc1768.h>             //????
-#include "type.h"                      //????
+//#include "board.h"                      //????
+//#include <nxp/iolpc1768.h>             //????
+//#include "type.h"                      //????
 
 #include "relay_control.h"
 #include "led_control.h"
 
-#include <intrinsics.h>                 //????
+//#include <intrinsics.h>                 //????
 
 void SetRelayState(char relay, char state)
 {

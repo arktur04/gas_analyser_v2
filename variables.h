@@ -225,7 +225,7 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 
 //Переменные настройки канала химнедожога
 #define BASE_HN_L 95
-#define BASE_HN_R 117
+#define BASE_HN_R 118
 
 #define T_F_H    0
 #define T_FF_H   1
@@ -248,7 +248,8 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define K_I_H    18
 #define SH_H   19
 #define C_KL_HN  20  
-#define DEBUG_HN    21
+#define CHUV_HN 21
+#define DEBUG_HN  22
 
 #define T_F_H_L    (BASE_HN_L + T_F_H)
 #define T_FF_H_L   (BASE_HN_L + T_FF_H)
@@ -270,7 +271,8 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define HN_Y4_L    (BASE_HN_L + HN_Y4)
 #define K_I_H_L    (BASE_HN_L + K_I_H)
 #define SH_H_L     (BASE_HN_L + SH_H)
-#define C_KL_HN_L  (BASE_HN_L + C_KL_HN)
+#define C_KL_HN_L     (BASE_HN_L + C_KL_HN)
+#define CHUV_HN_L  (BASE_HN_L + CHUV_HN)
 #define DEBUG_H_L    (BASE_HN_L + DEBUG_HN)
 
 #define T_F_H_R    (BASE_HN_R + T_F_H)
@@ -294,26 +296,27 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define K_I_H_R    (BASE_HN_R + K_I_H)
 #define SH_H_R     (BASE_HN_R + SH_H)
 #define C_KL_HN_R  (BASE_HN_R + C_KL_HN)
+#define CHUV_HN_R  (BASE_HN_R + CHUV_HN)
 #define DEBUG_H_R    (BASE_HN_R + DEBUG_HN)
 
 //----------------------------------------------
-#define T_CL_E     139  //cold junction temp
+#define T_CL_E     141  //cold junction temp
 // output dac and pwm codes
 //#define CI_O_O_L 190  //dac code for the o2 left channel
 //#define CI_O_O_R 192  //dac code for the o2 right channel
 
 //----------------------------------------------
 //adc_codes  (main channel)
-#define ADC_1      140
-#define ADC_2      141
-#define ADC_3      142
-#define ADC_4      143
+#define ADC_1      142
+#define ADC_2      143
+#define ADC_3      144
+#define ADC_4      145
 
 //adc_codes  (second channel)
-#define ADC_1_     144
-#define ADC_2_     145
-#define ADC_3_     146
-#define ADC_4_     147
+#define ADC_1_     146
+#define ADC_2_     147
+#define ADC_3_     148
+#define ADC_4_     149
 /*
 //аналоговые входы, mV
 #define AN_IN_1    250
@@ -327,124 +330,124 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define AN_R_3    256
 #define AN_R_4    257
 */
-#define CHANNEL_STATE_L 148  //1 - on, 0- off, 2 - fail
-#define CHANNEL_STATE_R 149  //1 - on, 0- off, 2 - fail
+#define CHANNEL_STATE_L 150  //1 - on, 0- off, 2 - fail
+#define CHANNEL_STATE_R 151  //1 - on, 0- off, 2 - fail
 //-------------------------
-#define AN_OUT_1  150
-#define AN_OUT_2  151
-#define AN_OUT_3  152
-#define AN_OUT_4  153
+#define AN_OUT_1  152
+#define AN_OUT_2  153
+#define AN_OUT_3  154
+#define AN_OUT_4  155
 
-#define DAC_1     154
-#define DAC_2     155
-#define DAC_3     156
-#define DAC_4     157
+#define DAC_1     156
+#define DAC_2     157
+#define DAC_3     158
+#define DAC_4     159
 
-#define PWM_1     158
-#define PWM_2     159
+#define PWM_1     160
+#define PWM_2     161
 
-#define HEATER_STATE_L     160
-#define HEATER_STATE_R     161
-#define HEATER_OVERLOAD_L  162
-#define HEATER_OVERLOAD_R  163
+#define HEATER_STATE_L     162
+#define HEATER_STATE_R     163
+#define HEATER_OVERLOAD_L  164
+#define HEATER_OVERLOAD_R  165
 
 //failure signals
-#define FLT_CH_L  164 //left sensor failure
-#define FLT_CH_R  165 //right sensor failure
-#define FLT_TP_L  166 //left thermocouple failure
-#define FLT_TP_R  167 //right thermocouple failure
-#define FLT_NE_L  168 //left heater failure
-#define FLT_NE_R  169 //right heater failure
-#define FLT_GA_L  170 //left general failure
-#define FLT_GA_R  171 //right general failure
+#define FLT_CH_L  166 //left sensor failure
+#define FLT_CH_R  167 //right sensor failure
+#define FLT_TP_L  168 //left thermocouple failure
+#define FLT_TP_R  169 //right thermocouple failure
+#define FLT_NE_L  170 //left heater failure
+#define FLT_NE_R  171 //right heater failure
+#define FLT_GA_L  172 //left general failure
+#define FLT_GA_R  173 //right general failure
 
 //tresholds (NVRAM vars)
-#define THR_H_L   172  //left hn threshold 
-#define THR_H_R   173  //right hn threshold 
-#define THR_O_L   174  //left o2 threshold 
-#define THR_O_R   175  //right o2 threshold 
-#define G_TH_H_L  176  //left hn hysteresis 
-#define G_TH_H_R  177  //right hn hysteresis
-#define G_TH_O_L  178  //left o2 hysteresis
-#define G_TH_O_R  179  //right o2 hysteresis
+#define THR_H_L   174  //left hn threshold 
+#define THR_H_R   175  //right hn threshold 
+#define THR_O_L   176  //left o2 threshold 
+#define THR_O_R   177  //right o2 threshold 
+#define G_TH_H_L  178  //left hn hysteresis 
+#define G_TH_H_R  179  //right hn hysteresis
+#define G_TH_O_L  180  //left o2 hysteresis
+#define G_TH_O_R  181  //right o2 hysteresis
 
 //treshold outputs
-#define FTH_H_L   180  //left hn treshold output
-#define FTH_H_R   181  //right hn treshold output
-#define FTH_O2_L  182  //left o2 treshold output
-#define FTH_O2_R  183  //right o2 treshold output
+#define FTH_H_L   182  //left hn treshold output
+#define FTH_H_R   183  //right hn treshold output
+#define FTH_O2_L  184  //left o2 treshold output
+#define FTH_O2_R  185  //right o2 treshold output
 
 //------------------------------------------------------------------------------
-#define RS_232_SPEED  184  //rs-232 speed
-#define RS_232_EVEN   185  //rs-232 even
-#define RS_232_ODD    186  //rs-232 odd
-#define RS_232_STOP   187  //rs-232 stop bits
+#define RS_232_SPEED  186  //rs-232 speed
+#define RS_232_EVEN   187  //rs-232 even
+#define RS_232_ODD    188  //rs-232 odd
+#define RS_232_STOP   189  //rs-232 stop bits
 
-#define RS_485_SPEED  188  //rs-485 speed
-#define RS_485_EVEN   189  //rs-485 even
-#define RS_485_ODD    190  //rs-485 odd
-#define RS_485_STOP   191  //rs-485 stop
-#define RS_485_ADDR   192  //rs-485 addr
+#define RS_485_SPEED  190  //rs-485 speed
+#define RS_485_EVEN   191  //rs-485 even
+#define RS_485_ODD    192  //rs-485 odd
+#define RS_485_STOP   193  //rs-485 stop
+#define RS_485_ADDR   194  //rs-485 addr
 
-#define ETHERNET_IP_ADDR_0      193
-#define ETHERNET_IP_ADDR_1      194
-#define ETHERNET_IP_ADDR_2      195
-#define ETHERNET_IP_ADDR_3      196
+#define ETHERNET_IP_ADDR_0      195
+#define ETHERNET_IP_ADDR_1      196
+#define ETHERNET_IP_ADDR_2      197
+#define ETHERNET_IP_ADDR_3      198
 
-#define ETHERNET_IP_MASK_0      197
-#define ETHERNET_IP_MASK_1      198
-#define ETHERNET_IP_MASK_2      199
-#define ETHERNET_IP_MASK_3      200
+#define ETHERNET_IP_MASK_0      199
+#define ETHERNET_IP_MASK_1      200
+#define ETHERNET_IP_MASK_2      201
+#define ETHERNET_IP_MASK_3      202
 
-#define ETHERNET_IP_GATE_0      201
-#define ETHERNET_IP_GATE_1      202
-#define ETHERNET_IP_GATE_2      203
-#define ETHERNET_IP_GATE_3      204
+#define ETHERNET_IP_GATE_0      203
+#define ETHERNET_IP_GATE_1      204
+#define ETHERNET_IP_GATE_2      205
+#define ETHERNET_IP_GATE_3      206
 
-#define RELAY_OUT_0             205
-#define RELAY_OUT_1             206
-#define RELAY_OUT_2             207
-#define RELAY_OUT_3             208
-#define RELAY_OUT_4             209
-#define RELAY_OUT_5             210
+#define RELAY_OUT_0             207
+#define RELAY_OUT_1             208
+#define RELAY_OUT_2             209
+#define RELAY_OUT_3             210
+#define RELAY_OUT_4             211
+#define RELAY_OUT_5             212
 //--------------------------------------------
-#define INPUT0_RESISTANCE_DETECTOR_LOW_THRESHOLD 211
-#define INPUT0_RESISTANCE_DETECTOR_HI_THRESHOLD  212
-#define INPUT1_RESISTANCE_DETECTOR_LOW_THRESHOLD 213
-#define INPUT1_RESISTANCE_DETECTOR_HI_THRESHOLD  214
-#define INPUT2_RESISTANCE_DETECTOR_LOW_THRESHOLD 215
-#define INPUT2_RESISTANCE_DETECTOR_HI_THRESHOLD  216
-#define INPUT3_RESISTANCE_DETECTOR_LOW_THRESHOLD 217
-#define INPUT3_RESISTANCE_DETECTOR_HI_THRESHOLD  218
+#define INPUT0_RESISTANCE_DETECTOR_LOW_THRESHOLD 213
+#define INPUT0_RESISTANCE_DETECTOR_HI_THRESHOLD  214
+#define INPUT1_RESISTANCE_DETECTOR_LOW_THRESHOLD 215
+#define INPUT1_RESISTANCE_DETECTOR_HI_THRESHOLD  216
+#define INPUT2_RESISTANCE_DETECTOR_LOW_THRESHOLD 217
+#define INPUT2_RESISTANCE_DETECTOR_HI_THRESHOLD  218
+#define INPUT3_RESISTANCE_DETECTOR_LOW_THRESHOLD 219
+#define INPUT3_RESISTANCE_DETECTOR_HI_THRESHOLD  220
 
-#define SCR_BACKLIGHT_TIME      219
-#define PROTECT_RESET_TIME      220
+#define SCR_BACKLIGHT_TIME      221
+#define PROTECT_RESET_TIME      222
 
-#define PASS_RESET_TIME         221
+#define PASS_RESET_TIME         223
 
-#define LEFT_CH_ON              222
-#define RIGHT_CH_ON             223
+#define LEFT_CH_ON              224
+#define RIGHT_CH_ON             225
  
-#define DEBUG_1                 224
-#define DEBUG_2                 225
+#define DEBUG_1                 226
+#define DEBUG_2                 227
 //------------------------------------------------------------------------------
-#define RELAY_OUT_TEST_FLAG     226
-#define DAC_TEST_FLAG           227 // true if the dac test sreen is active
-#define PWM_OUT_TEST_FLAG       228
-#define OUT_CALIBR_FLAG         229
+#define RELAY_OUT_TEST_FLAG     228
+#define DAC_TEST_FLAG           229 // true if the dac test sreen is active
+#define PWM_OUT_TEST_FLAG       230
+#define OUT_CALIBR_FLAG         231
 
-#define MAX_O2_L                230  
-#define MAX_O2_R                231
-#define MAX_XH_L                232
-#define MAX_XH_R                233   
+#define MAX_O2_L                232  
+#define MAX_O2_R                233
+#define MAX_XH_L                234
+#define MAX_XH_R                235  
   
-#define CURR_O2_L               234
-#define CURR_O2_R               235
-#define CURR_H_L                236
-#define CURR_H_R                237
+#define CURR_O2_L               236
+#define CURR_O2_R               237
+#define CURR_H_L                238
+#define CURR_H_R                239
 
 //------------------------------------------------------------------------------
-#define MAX_RECORD              238
+#define MAX_RECORD              240
 
 //#define MAX_RECORDS 500
 

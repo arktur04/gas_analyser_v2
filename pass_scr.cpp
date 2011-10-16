@@ -41,6 +41,7 @@ void PassScreen::Activated(unsigned long * param)
 
 void PassScreen::ActiveLoop(void)
 {
+ 
   unsigned long param;
  // MESSAGE msg;
   usScreen::ActiveLoop();
@@ -71,6 +72,7 @@ void PassScreen::ActiveLoop(void)
     if(param == SCR_PASS)
     {
       SendParamMessage(MSG_CHILD_SCREEN_DEACTIVATED, SCR_PASS);
+      
       if(editor->getValue().ival == 1111)   //  password 1                                               
       {
         SendMessage(MSG_PASS1_OK);

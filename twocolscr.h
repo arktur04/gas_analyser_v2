@@ -5,8 +5,9 @@
 #define TWOCOLSCR_h
 
 #include "usbase.h"
+#include "pass_aux_base_class.h"
 
-class TwoColSrc: public usScreen
+class TwoColScr: public PassAuxBaseScreen
 {
 private:
   usTextButton* pBtns[5][2];
@@ -18,8 +19,8 @@ protected:
   virtual void Paint(void);
   virtual void PlaceControls();
 public:
-  TwoColSrc(char _scr_num, int _scr_id);
-  virtual ~TwoColSrc() {};
+  TwoColScr(char _scr_num, int _scr_id);
+  virtual ~TwoColScr() {};
   
   void set_scr_num(char _scr_num)
   {
