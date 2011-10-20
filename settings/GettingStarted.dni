@@ -1,8 +1,7 @@
 [DebugChecksum]
-Checksum=-1121931791
+Checksum=478079836
 [DisAssemblyWindow]
-NumStates=_ 1
-State 1=_ 1
+NumStates=_ 0
 [InstructionProfiling]
 Enabled=_ 0
 [CodeCoverage]
@@ -33,9 +32,6 @@ Count=4
 LoggingEnabled=_ 0
 LogFile=_ ""
 Category=_ 0
-[TermIOLog]
-LoggingEnabled=_ 0
-LogFile=_ ""
 [Aliases]
 A0=_ "C:\Users\V\Desktop\GettingStarted\main.cpp" "C:\Users\V\Documents\My Dropbox\1768\main.cpp"
 A1=_ "C:\Users\V\Documents\My Dropbox\1768\main.cpp" "C:\Users\V\Documents\My Dropbox\Repos\G_proj\1768\main.cpp"
@@ -45,5 +41,8 @@ SuppressDialog=1
 Enabled=0
 [DriverProfiling]
 Enabled=0
-Mode=184878088
+Mode=66396624
 Graph=0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""

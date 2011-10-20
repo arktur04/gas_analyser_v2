@@ -59,7 +59,7 @@ void PwmTestScreen::Paint(void)
   LcdLine(0, 53, 109, 53);
   
   LcdLine(50, 10, 50, 52);
-  LcdLine(80, 10, 80, 52);
+ // LcdLine(80, 10, 80, 52);
  // LcdLine(84, 10, 84, 52);
   
   LcdText(52, 11, 76, 19, "Печь1");
@@ -67,20 +67,19 @@ void PwmTestScreen::Paint(void)
   
   LcdText(34, 22, 49, 30, "ШИМ");
   LcdText(25, 33, 49, 41, "Обрыв");
-  LcdText(0, 44, 49, 52, "Перегрузка");
+ // LcdText(0, 44, 49, 52, "Перегрузка");
   
   DrawCheckBox(51, 32, GetIntValueByTag(FLT_NE_L), false);
   DrawCheckBox(81, 32, GetIntValueByTag(FLT_NE_R), false);
    
-  DrawCheckBox(51, 43, false, false);                                           // overload checkbox
-  DrawCheckBox(81, 43, false, false);                                           // overload checkbox
-  
+ // DrawCheckBox(51, 43, false, false);                                           // overload checkbox
+ // DrawCheckBox(81, 43, false, false);                                           // overload checkbox
   
   GetStringByTag(PWM_1, ID_CURR_VAL, str, BUF_SIZE);
   pBtns[0]->text.assign(str);
   
   GetStringByTag(PWM_2, ID_CURR_VAL, str, BUF_SIZE);
-  pBtns[1]->text.assign(str);  
+  pBtns[1]->text.assign(str);
 
   LcdLine(119, 0, 119, 7);
   if(getPasswordEntered()) 

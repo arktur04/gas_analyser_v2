@@ -40,10 +40,10 @@ void processCurrOuts(void)
     
     if(GetIntValueByTag(OUT_CALIBR_FLAG))
     {
-      currentValues[0] = GetFloatValueByTag(CURR_O2_L);
-      currentValues[1] = GetFloatValueByTag(CURR_H_L);
-      currentValues[2] = GetFloatValueByTag(CURR_O2_R);
-      currentValues[3] = GetFloatValueByTag(CURR_H_R);
+      currentValues[0] = GetFloatValueByTag(REPR_O2_L);
+      currentValues[1] = GetFloatValueByTag(REPR_H_L);
+      currentValues[2] = GetFloatValueByTag(REPR_O2_R);
+      currentValues[3] = GetFloatValueByTag(REPR_H_R);
     }
     else
     {

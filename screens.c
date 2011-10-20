@@ -203,10 +203,10 @@ const T_SCREEN_DESCRIPTOR screens[] = {
   25, TRUE,  TRUE, TRUE}},
   
   {TWO_COL_SCREEN, .scr.two_col_screen = {"Калибровка выходов", 
-  CURR_O2_L, MAX_O2_L,
-  CURR_H_L, MAX_XH_L,
-  CURR_O2_R, MAX_O2_R,
-  CURR_H_R,  MAX_XH_R,
+  REPR_O2_L, MAX_O2_L,
+  REPR_H_L, MAX_XH_L,
+  REPR_O2_R, MAX_O2_R,
+  REPR_H_R,  MAX_XH_R,
   EMPTY_CELL, EMPTY_CELL, 
   26, TRUE,  TRUE, TRUE}},
 };

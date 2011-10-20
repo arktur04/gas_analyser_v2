@@ -28,6 +28,9 @@ TwoColScr::TwoColScr(char _scr_num, int _scr_id):
 
 void TwoColScr::PlaceControls()
 {
+  signed char y_order_array[5][2];
+  char ord = 0;
+  
   AddControl(new usBmpButton(110, 9, 17, 18, 0, BTN_FORWARD, MSG_BTN_FORWARD, 
                              scr_id));
   AddControl(new usBmpButton(110, 27, 17, 18, 1, BTN_HOME, MSG_BTN_HOME, 
@@ -35,12 +38,21 @@ void TwoColScr::PlaceControls()
   AddControl(new usBmpButton(110, 45, 17, 18, 2, BTN_BACK, MSG_BTN_BACKWARD, 
                              scr_id));  
   
+  
+  for(char x = 0; x < 2; x++)
+    for(char y = 0; y < 5; y++)
+      if(screen.var[y][x] != EMPTY_CELL)
+        y_order_array[y][x] = ord++;
+      else
+        y_order_array[y][x] = -1;
+  
   for(char y = 0; y < 5; y++)
     for(char x = 0; x < 2; x++)
     {
       if(screen.var[y][x] != EMPTY_CELL)
         AddControl(pBtns[y][x] = new usTagValueLabel(x?77:21, y * 11 + 9,
-                                                     33, 11, y + 5 * x + 3,  
+                                                     33, 11,
+                                                     y_order_array[y][x] + 3,  // changed from                    y + 5 * x + 3,  
                                                      screen.var[y][x]));
     };
 };

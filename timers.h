@@ -44,9 +44,9 @@ void ProcessTimer1(void);
 void ProcessTimer2(void);
 void ProcessTimer3(void);
 
-void SetTimer1Width(int width);
+void setTimer1Width(int width, char tpState, char neState, char pwmEnabled);
 
-void SetTimer2Width(int width);
+void setTimer2Width(int width, char tpState, char neState, char pwmEnabled);
 
 char GetHeater0State(void);
 

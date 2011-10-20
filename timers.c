@@ -14,12 +14,24 @@ char pwm_ch = 0;
 int ch0_width;// = 15000;
 int ch1_width;// = 15000;
 
-char ch0_flag, ch1_flag;
+volatile char ch0_flag, ch1_flag;  //current detector bit
+volatile char leftEnabled = 0, rightEnabled = 0; // channel's enabled
 
-void SetTimer1Width(int width)
+
+void setTimer1Width(int width, char tpState, char neState, char pwmEnabled)
 {
   int _width;
+  //---------------------------------------
+  //protection
+  //---------------------------------------
+  leftEnabled = !tpState && pwmEnabled;
   
+  if(neState)
+  {
+    ch0_width = min_width;
+    return;
+  };
+  //---------------------------------------
   _width = 20000 - width;
   if(_width <= min_width)
   {
@@ -36,10 +48,21 @@ void SetTimer1Width(int width)
   ch0_width = _width;
 }
 
-void SetTimer2Width(int width)
+void setTimer2Width(int width, char tpState, char neState, char pwmEnabled)
 {
   int _width;
-
+  //---------------------------------------
+  //protection
+  //---------------------------------------
+  rightEnabled = !tpState && pwmEnabled;
+  
+  if(neState)
+  {
+    ch1_width = min_width;
+    return;
+  };
+  //---------------------------------------
+  
   _width = 20000 - width;
   if(_width <= min_width)
   {
@@ -68,8 +91,8 @@ void ProcessTimers(void)
     T1MR0 = ch0_width;
     pwm_ch = 0;
     ch0_flag = !GetPwm0(); //check the line state
-    Pwm0Set();
-    T1TCR_bit.CE = 1; 
+    if(leftEnabled)Pwm0Set();
+    T1TCR_bit.CE = 1;
   }
   else
   {
@@ -79,8 +102,8 @@ void ProcessTimers(void)
     pwm_ch = 1;
     //  Pwm0Clr();
     ch1_flag = !GetPwm1();  //check the line state
-    Pwm1Set();       
-    T2TCR_bit.CE = 1; 
+    if(rightEnabled)Pwm1Set();
+    T2TCR_bit.CE = 1;
   };
   
   //----------------------------------------------------------------------------

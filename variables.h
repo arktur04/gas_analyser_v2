@@ -425,8 +425,8 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 
 #define PASS_RESET_TIME         223
 
-#define LEFT_CH_ON              224
-#define RIGHT_CH_ON             225
+#define PWM0_ON                 224
+#define PWM1_ON                 225
  
 #define DEBUG_1                 226
 #define DEBUG_2                 227
@@ -441,10 +441,10 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define MAX_XH_L                234
 #define MAX_XH_R                235  
   
-#define CURR_O2_L               236
-#define CURR_O2_R               237
-#define CURR_H_L                238
-#define CURR_H_R                239
+#define REPR_O2_L               236
+#define REPR_O2_R               237
+#define REPR_H_L                238
+#define REPR_H_R                239
 
 //------------------------------------------------------------------------------
 #define MAX_RECORD              240

@@ -361,15 +361,39 @@ void onMsgPrintScreen(char uartNum)
     };  
     LoadProcessingVariables();
     // pwm test mode
-    if(GetIntValueByTag(PWM_OUT_TEST_FLAG))
+    
     {
-      SetTimer1Width(GetIntValueByTag(PWM_1));
-      SetTimer2Width(GetIntValueByTag(PWM_2));
-    }
-    else
-    {
-      SetTimer1Width(GetIntValueByTag(CLC_LI_T_L));                                                               //debug
-      SetTimer2Width(GetIntValueByTag(CLC_LI_T_R));                                                               //debug
+      unsigned int pwmWidthLeft, pwmWidthRight;
+      if(GetIntValueByTag(PWM_OUT_TEST_FLAG))
+      {
+        pwmWidthLeft = GetIntValueByTag(PWM_1);
+        pwmWidthRight = GetIntValueByTag(PWM_2);
+      }
+      else
+      {
+        pwmWidthLeft = GetIntValueByTag(CLC_LI_T_L);
+        pwmWidthRight = GetIntValueByTag(CLC_LI_T_R);
+      };
+      
+      setTimer1Width(pwmWidthLeft,
+                     GetIntValueByTag(FLT_TP_L),
+                     GetIntValueByTag(FLT_NE_L),
+                     GetIntValueByTag(PWM0_ON)?TRUE:FALSE
+                     );
+      setTimer2Width(pwmWidthRight,
+                     GetIntValueByTag(FLT_TP_R),
+                     GetIntValueByTag(FLT_NE_R),
+                     GetIntValueByTag(PWM1_ON)?TRUE:FALSE);                     
+     
+//     setTimer1Width(GetIntValueByTag(PWM2),
+//                     (char)(GetIntValueByTag(FLT_TP_R) != 0),
+//                     (char)(GetIntValueByTag(FLT_NE_R) != 0);
+//    }
+//    else
+//    {
+//      SetTimer1Width(GetIntValueByTag(CLC_LI_T_L));                                                               //debug
+//      SetTimer2Width(GetIntValueByTag(CLC_LI_T_R));                                                               //debug
+//    };
     };
     //---------------------------------------
 
@@ -962,11 +986,11 @@ void onMsgPrintScreen(char uartNum)
         SetIntValueByTag(param & 0xFFFFUL, param & 0xFFFF0000);
         do_testcreen->Update();
         break;
-      case LEFT_CH_ON:
-        SetIntValueByTag(LEFT_CH_ON, param & 0xFFFF0000);
+      case PWM0_ON:
+        SetIntValueByTag(PWM0_ON, param & 0xFFFF0000);
         break;
-      case RIGHT_CH_ON:
-        SetIntValueByTag(RIGHT_CH_ON, param & 0xFFFF0000);
+      case PWM1_ON:
+        SetIntValueByTag(PWM1_ON, param & 0xFFFF0000);
         break;
       };
     };
@@ -1181,6 +1205,7 @@ void onMsgPrintScreen(char uartNum)
     //------------------------------------------------------------------------------
     //  channel control logic
     //------------------------------------------------------------------------------
+    /*
     if(GetIntValueByTag(LEFT_CH_ON))
     {
       if(GetIntValueByTag(FLT_GA_L))
@@ -1208,20 +1233,26 @@ void onMsgPrintScreen(char uartNum)
     }
     else
       SetIntValueByTag(CHANNEL_STATE_R, 0);
-    
+    */
     //--------------------------------------------------------------------------
     // L¨D
     //--------------------------------------------------------------------------
     //    o +-------------------+
     //      |                   |
     //    î |      backlight    | o  - channel on
-    //    o |                   | o  - O2 threshold
+    //    o |                   | o  - fault
     //    o +-------------------+ o  - HN threshold
     //    O    [1] [2] [3] [4]    O  
     //    o    [5] [6] [7] [8]    o  - encoder`s lights
+    //--------------------------------------------------------------------------
+    //  The "channel on" l¸ds have an following meaning:
+    //  0 - heater is turn off
+    //  1 - normal state, heater has a normal temperature
+    //  2 - normal blink - heater is warming, the temperature is not reached
+    //  3 - fast blink - heater is overheated;
     
-    SetDispLedState(DISP_LED_L_STATE, GetIntValueByTag(CHANNEL_STATE_L));
-    SetDispLedState(DISP_LED_R_STATE, GetIntValueByTag(CHANNEL_STATE_R));
+    SetDispLedState(DISP_LED_L_STATE, GetIntValueByTag(PWM0_ON)?ON:OFF);
+    SetDispLedState(DISP_LED_R_STATE, GetIntValueByTag(PWM1_ON)?ON:OFF);
     
     SetDispLedState(DISP_LED_L_TR1, (GetIntValueByTag(FLT_GA_L)?ON:OFF)); //GetIntValueByTag(FTH_O2_L)?ON:OFF); 
     SetDispLedState(DISP_LED_L_TR2, 

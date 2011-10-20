@@ -56,17 +56,20 @@ void MiscScreen::PlaceControls()
                                          MSG_BTN_MISC,
                                          1));
   */
-  AddControl(pBtns[2] = new usTextButton(75, 10, 15, 11, 7,                      //changed from AddControl(pBtns[2] = new usTextButton(75, 30, 15, 11, 7,
+  AddControl(pBtns[2] = new usTextButton(75, 10, 15, 11, 3,                      //changed from AddControl(pBtns[2] = new usTextButton(75, 30, 15, 11, 7,
                                          "", BS_SIMPLE,
                                          MSG_BTN_EDIT, SCR_BACKLIGHT_TIME));
   
-  AddControl(pBtns[3] = new usTextButton(75, 21, 15, 11, 8,                     //  AddControl(pBtns[3] = new usTextButton(75, 41, 15, 11, 8,
+  AddControl(pBtns[3] = new usTextButton(75, 21, 15, 11, 4,                     //  AddControl(pBtns[3] = new usTextButton(75, 41, 15, 11, 8,
                                          "", BS_SIMPLE,
                                          MSG_BTN_EDIT, PASS_RESET_TIME));
   
 //  AddControl(pBtns[4] = new usTextButton(75, 52, 15, 11, 9,
 //                                         "", BS_SIMPLE,
-//                                         MSG_BTN_EDIT, PROTECT_RESET_TIME));  
+//                                         MSG_BTN_EDIT, PROTECT_RESET_TIME));
+  
+  AddControl(pCheckBox[0] = new usCheckBox(44, 54, 5, MSG_CHECKBOX, PWM0_ON));
+  AddControl(pCheckBox[1] = new usCheckBox(99, 54, 6, MSG_CHECKBOX, PWM1_ON));
 };
 
 void MiscScreen::UpdateButtonValues()
@@ -79,8 +82,11 @@ void MiscScreen::UpdateButtonValues()
   GetStringByTag(PASS_RESET_TIME, ID_CURR_VAL, str, BUF_SIZE);
   pBtns[3]->text.assign(str);
   
-  GetStringByTag(PROTECT_RESET_TIME, ID_CURR_VAL, str, BUF_SIZE);
-  pBtns[4]->text.assign(str); 
+ // GetStringByTag(PROTECT_RESET_TIME, ID_CURR_VAL, str, BUF_SIZE);
+ // pBtns[4]->text.assign(str); 
+  
+  pCheckBox[0]->setChecked(GetIntValueByTag(PWM0_ON));
+  pCheckBox[1]->setChecked(GetIntValueByTag(PWM1_ON));
 };
   
 void MiscScreen::Paint(void)
@@ -104,6 +110,8 @@ void MiscScreen::Paint(void)
 //  LcdText(1, 53, 74, 61, "Сброс защит");
 //  LcdText(92, 53, 109, 61, "с");
   
+  LcdText(1, 54, 43, 63, "Лев. ТЭН");
+  LcdText(55, 54, 98, 63, "Прав.ТЭН");
   UpdateButtonValues();
 
   LcdLine(119, 0, 119, 7);

@@ -233,31 +233,16 @@ void InitAdc(void)
 
 void initAdc(char num)
 {
-//  char conf_m_byte, conf_l_byte;
+  for (char i = 0; i < 4; i++)
+  {
+    WriteByteToAdc(num, 0xFF);
+  };
   
- for (char i = 0; i < 4; i++)
- {
-   WriteByteToAdc(num, 0xFF);
- };
- adc_state[num] = 0;                                                                      //  changed from  adc_state[num] = 3;
- /*
-  conf_m_byte = (1 << 4) | G_1 | UNIPOLAR;  //changed 0x48
-  conf_l_byte = (0x01 << 7) | (0x00 << 4)| 0x00;// | (gain << 8) | polarity;
+  SetAdcMode(num, 0x2002);                                                          // 
+  StartAdcConvertion(num, 1, aux_gains[num], UNIPOLAR);                               // newly added lines
+  ResetTimer(ADC_TIME_OUT);                                                       //
   
-  WriteByteToAdc(num, conf_m_byte);
-  WriteByteToAdc(num, conf_l_byte);
-  
-  SetAdcMode(num, 0x8002);       // zero calibration mode                     // changed from: SetAdcMode(num, 0x8002); 
- 
-  WriteByteToAdc(num, 0x58); // ???????????
-  */
-  /*
-  // preparing to next convertion cycle  
-        SetAdcMode(num, 0x200F);
-        // StartAdcConvertion(i, 0x06, main_gains[i], UNIPOLAR);  //temperature snsor
-        StartAdcConvertion(num, 0, main_gains[num], UNIPOLAR);
-        ResetTimer(ADC_TIME_OUT);
- */
+  adc_state[num] = 0;                                                             //  changed from  adc_state[num] = 3;
 }
 
 void initAdcFsm(void)
@@ -437,7 +422,7 @@ void ProcessAdc(void)
     case 4:  //zero-scale calibration
       if(!GetAdcMiso(i))
       {
-        GetAdcValue(i, adc_bits[i]);                              //------!!!-----
+        GetAdcValue(i, adc_bits[i]);
         ResetTimer(ADC_TIME_OUT);
         // preparing to next convertion cycle  
         SetAdcMode(i, main_modes[i]);

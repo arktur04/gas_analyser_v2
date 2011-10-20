@@ -19,7 +19,7 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_T_L + SHIFT_T,  INT, INTERNAL,   0,  0,   "Shift_T",  "á/ð",         55.0,  0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_L + K_CD_T,   FLOAT, INTERNAL,   1,  2,   "K_cd_T",   "E-6\x86\x43", 12.8,  0.0, 10000.0, 3, ACCESS_1}, //changed from "\x86\x43\x88\x65\x80"
   {BASE_T_L + T_F_T,    FLOAT, INTERNAL,   2,  4,   "T_f_T",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_L + ADJ_S_T,  FLOAT, INTERNAL,   3,  6,   "Adj_s_T",  "\x86\x43",   600.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_L + ADJ_S_T,  FLOAT, INTERNAL,   3,  6,   "t\x86çàä.",  "\x86\x43",   600.0,  0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_L + K_P_T,    FLOAT, INTERNAL,   4,  8,   "K_p_T",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_L + K_D_T,    FLOAT, INTERNAL,   5,  10,  "K_d_T",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_L + T_DF_T,   FLOAT, INTERNAL,   6,  12,  "T_df_T",   "ñ",            1.0,  0.0, 10000.0, 3, ACCESS_1},
@@ -47,7 +47,7 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_T_R + SHIFT_T,  INT, INTERNAL,  20,  50,  "Shift_T",  "-",            0.0,  0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_R + K_CD_T,   FLOAT, INTERNAL,  21,  52,  "K_cd_T",   "E-6\x86\x43", 12.8,  0.0, 10000.0, 3, ACCESS_1},  //changed from "\x86\x43\x88\x65\x80"
   {BASE_T_R + T_F_T,    FLOAT, INTERNAL,  22,  54,  "T_f_T",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_R + ADJ_S_T,  FLOAT, INTERNAL,  23,  56,  "Adj_s_T",  "\x86\x43",   600.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_R + ADJ_S_T,  FLOAT, INTERNAL,  23,  56,  "t\x86çàä.",  "\x86\x43",   600.0,  0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_R + K_P_T,    FLOAT, INTERNAL,  24,  58,  "K_p_T",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_R + K_D_T,    FLOAT, INTERNAL,  25,  60,  "K_d_T",    "-",             1.0, 0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_R + T_DF_T,   FLOAT, INTERNAL,  26,  62,  "T_df_T",   "ñ",             1.0, 0.0, 10000.0, 3, ACCESS_1},
@@ -74,9 +74,9 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
  
   {BASE_O2_L + SHIFT_E, INT, INTERNAL,  40,  200,  "Shift_K",  "-",         0.0,     0.0, 10000.0, 3, ACCESS_1},  //Ïåðåìåííûå íàñòðîéêè êàíàëà êèñëîðîäà
   {BASE_O2_L + K_CD_E,  FLOAT, INTERNAL,  41,  202,  "K_cd_E",   "ìêÂ",       3.46,    0.0, 10000.0, 3, ACCESS_1},
-  {BASE_O2_L + T_F_E,   FLOAT, INTERNAL,  42,  204,  "T_f_E",    "c",         1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {BASE_O2_L + T_F_E,   FLOAT, INTERNAL,  42,  204,  "Tô÷ý",    "c",         1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_O2_L + T_FF_T,  FLOAT, INTERNAL,  43,  206,  "T_ff_T",   "c",         1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {BASE_O2_L + T_F_O,   FLOAT, INTERNAL,  44,  208,  "T_f_0",    "c",         1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {BASE_O2_L + T_F_O,   FLOAT, INTERNAL,  44,  208,  "TôÎ",    "c",         1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_O2_L + N,       INT,   INTERNAL,  45,  210,  "N",        "-",         0.0,     0.0, 5.0,     0, ACCESS_1},
   {BASE_O2_L + X1,      FLOAT, INTERNAL,  46,  212,  "X1",       "îá.%",      6.0,     0.0, 100.0,   3, ACCESS_1},
   {BASE_O2_L + Y1,      FLOAT, INTERNAL,  47,  214,  "Y1",       "îá.%",      6.0,     0.0, 100.0,   3, ACCESS_1},
@@ -88,7 +88,7 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_O2_L + Y4,      FLOAT, INTERNAL,  53,  226, "Y4",       "îá.%",      6.0,     0.0, 100.0,   3, ACCESS_1},
   {BASE_O2_L + X5,      FLOAT, INTERNAL,  54,  228, "X5",       "îá.%",      20.0,    0.0, 100.0,   3, ACCESS_1},
   {BASE_O2_L + Y5,      FLOAT, INTERNAL,  55,  230, "Y5",       "îá.%",      12.0,    0.0, 100.0,   3, ACCESS_1},
-  {BASE_O2_L + K_I_O,   FLOAT, INTERNAL,  56,  232, "K_i_0",    "1/îá%",     200.0,   0.0, 10000.0, 3, ACCESS_1},
+  {BASE_O2_L + K_I_O,   FLOAT, INTERNAL,  56,  232, "K_i_0",    "1/ìÀ",     200.0,   0.0, 10000.0, 3, ACCESS_1},
   {BASE_O2_L + SH_O,  INT,   INTERNAL,  57,  234, "Sh_0",   "-",         0.0,     0.0, 10000.0, 0, ACCESS_1},
   
   {BASE_O2_L + E_F_E,   FLOAT, INTERNAL,  -1,  236, "U÷ý",      "ìâ",       200.0,   0.0, 10000.0, 3, ACCESS_0},
@@ -97,9 +97,9 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   
   {BASE_O2_R + SHIFT_E, INT, INTERNAL,  70,  300,  "Shift_K",  "-",        0.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_O2_R + K_CD_E,  FLOAT, INTERNAL,  71,  302,  "K_cd_E",   "ìêÂ",      3.46,    0.0, 10000.0, 3, ACCESS_1},
-  {BASE_O2_R + T_F_E,   FLOAT, INTERNAL,  72,  304,  "T_f_E",    "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {BASE_O2_R + T_F_E,   FLOAT, INTERNAL,  72,  304,  "Tô÷ý",    "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_O2_R + T_FF_T,  FLOAT, INTERNAL,  73,  306,  "T_ff_T",   "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {BASE_O2_R + T_F_O,   FLOAT, INTERNAL,  74,  308,  "T_f_0",    "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {BASE_O2_R + T_F_O,   FLOAT, INTERNAL,  74,  308,  "TôÎ",    "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_O2_R + N,       INT,   INTERNAL,  75,  310,  "N",        "-",        0.0,     0.0, 5.0,     0, ACCESS_1},
   {BASE_O2_R + X1,      FLOAT, INTERNAL,  76,  312,  "X1",       "îá.%",     6.0,     0.0, 100.0,   3, ACCESS_1},
   {BASE_O2_R + Y1,      FLOAT, INTERNAL,  77,  314,  "Y1",       "îá.%",     6.0,     0.0, 100.0,   3, ACCESS_1},
@@ -111,7 +111,7 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_O2_R + Y4,      FLOAT, INTERNAL,  83,  326,  "Y4",       "îá.%",     6.0,     0.0, 100.0,   3, ACCESS_1},
   {BASE_O2_R + X5,      FLOAT, INTERNAL,  84,  328,  "X5",       "îá.%",     20.0,    0.0, 100.0,   3, ACCESS_1},
   {BASE_O2_R + Y5,      FLOAT, INTERNAL,  85,  330,  "Y5",       "îá.%",     12.0,    0.0, 100.0,   3, ACCESS_1},
-  {BASE_O2_R + K_I_O,   FLOAT, INTERNAL,  86,  332,  "K_i_0",    "1/îá%",   200.0,    0.0, 10000.0, 3, ACCESS_1},
+  {BASE_O2_R + K_I_O,   FLOAT, INTERNAL,  86,  332,  "K_i_0",    "1/ìÀ",   200.0,    0.0, 10000.0, 3, ACCESS_1},
   {BASE_O2_R + SH_O,  INT,   INTERNAL,  87,  334,  "Sh_0",   "-",         0.0,    0.0, 10000.0, 0, ACCESS_1},
   
   {BASE_O2_R + E_F_E,   FLOAT, INTERNAL,  -1,  336,  "U÷ý",      "ìâ",       200.0,   0.0, 10000.0, 3, ACCESS_0},
@@ -123,8 +123,8 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_HN_L + T_D_H,   FLOAT, INTERNAL, 112,  404, "T_d_h",    "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_L + K_R_H,   FLOAT, INTERNAL, 113,  406, "K_r_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_L + K_L_H,   FLOAT, INTERNAL, 114,  408, "K_l_h",    "-",        -1.0,    -10.0, 10.0,  3, ACCESS_1},
-  {BASE_HN_L + LIM_H,   FLOAT, INTERNAL, 115,  410, "Lim_h",    "ìÂ",       50.0,    0.0, 5.0,     3, ACCESS_1},
-  {BASE_HN_L + KLIM_H,  FLOAT, INTERNAL, 116,  412, "KLim_h",   "%",       1.0,     0.0, 100.0,   3, ACCESS_1},
+  {BASE_HN_L + LIM_H,   FLOAT, INTERNAL, 115,  410, "Îãð.Õ",    "ìÂ",       50.0,    0.0, 5.0,     3, ACCESS_1},
+  {BASE_HN_L + KLIM_H,  FLOAT, INTERNAL, 116,  412, "KîãðÕ_h",   "%",       1.0,     0.0, 100.0,   3, ACCESS_1},
   {BASE_HN_L + T_FD_H,  FLOAT, INTERNAL, 117,  414, "T_fd_h",   "ñ",        30.0,    0.0, 100.0,   3, ACCESS_1},
   {BASE_HN_L + HN_X0,   FLOAT, INTERNAL, 118,  416, "X0",      "-",        0.0,     0.0, 100.0,   3, ACCESS_1},
   {BASE_HN_L + HN_Y0,   FLOAT, INTERNAL, 119,  418, "Y0",      "-",        0.0,     0.0, 100.0,   3, ACCESS_1},
@@ -136,40 +136,40 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_HN_L + HN_Y3,   FLOAT, INTERNAL, 125,  430, "Y3",      "-",        6.0,     0.0, 100.0,   3, ACCESS_1},
   {BASE_HN_L + HN_X4,   FLOAT, INTERNAL, 126,  432, "X4",      "-",        17.0,    0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_L + HN_Y4,   FLOAT, INTERNAL, 127,  434, "Y4",      "-",        6.0,     0.0, 10000.0, 3, ACCESS_1},
-  {BASE_HN_L + K_I_H,   FLOAT, INTERNAL, 128,  440, "K_i_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {BASE_HN_L + SH_H,    INT,   INTERNAL, 129,  442, "Sh_h",   "-",        0.0,     0.0, 10000.0, 0, ACCESS_1},
-  {BASE_HN_L + C_KL_HN, FLOAT, INTERNAL,  -1,  444, "",         "-",        1.0,     0.0, 10000.0, 0, ACCESS_0},  //hn right
-  {BASE_HN_L + CHUV_HN,  FLOAT,   INTERNAL,  130,   446, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
-  {DEBUG_H_R,  INT,   INTERNAL,  -1,   -1, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, //dac code for the HN left channel
+  {BASE_HN_L + K_I_H,   FLOAT, INTERNAL, 128,  440, "K_i_h",   "1/ìÀ",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {BASE_HN_L + SH_H,    INT,   INTERNAL, 129,  442, "Sh_h",    "-",        0.0,     0.0, 10000.0, 0, ACCESS_1},
+  {BASE_HN_L + C_KL_HN, FLOAT, INTERNAL,  -1,  444, "",        "-",        1.0,     0.0, 10000.0, 0, ACCESS_0},  //hn right
+  {BASE_HN_L + CHUV_HN, FLOAT, INTERNAL, 130,  446, "",        "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
+  {DEBUG_H_R,           INT,   INTERNAL,  -1,   -1, "",        "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, //dac code for the HN left channel
   
   {BASE_HN_R + T_F_H,   FLOAT, INTERNAL, 150,  500, "T_f_h",    "ñ",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_R + T_FF_H,  FLOAT, INTERNAL, 151,  502, "T_ff_h",   "ñ",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_R + T_D_H,   FLOAT, INTERNAL, 152,  504, "T_d_h",    "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_R + K_R_H,   FLOAT, INTERNAL, 153,  506, "K_r_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_R + K_L_H,   FLOAT, INTERNAL, 154,  508, "K_l_h",    "-",        -1.0,    -10.0, 10.0,  3, ACCESS_1},
-  {BASE_HN_R + LIM_H,   FLOAT, INTERNAL, 155,  510, "Lim_h",    "ìÂ",       50.0,    0.0, 5.0,     3, ACCESS_1},
-  {BASE_HN_R + KLIM_H,  FLOAT, INTERNAL, 156,  512, "KLim_h",   "%",        1.0,     0.0, 100.0,   3, ACCESS_1},
+  {BASE_HN_R + LIM_H,   FLOAT, INTERNAL, 155,  510, "Îãð.Õ",    "ìÂ",       50.0,    0.0, 5.0,     3, ACCESS_1},
+  {BASE_HN_R + KLIM_H,  FLOAT, INTERNAL, 156,  512, "KîãðÕ",    "%",        1.0,     0.0, 100.0,   3, ACCESS_1},
   {BASE_HN_R + T_FD_H,  FLOAT, INTERNAL, 157,  514, "T_fd_h",   "ñ",        30.0,    0.0, 100.0,   3, ACCESS_1},
-  {BASE_HN_R + HN_X0,   FLOAT, INTERNAL, 158,  516, "X0",    "-",        0.0,     0.0, 100.0,   3, ACCESS_1},
-  {BASE_HN_R + HN_Y0,   FLOAT, INTERNAL, 159,  518, "Y0",    "-",        0.0,     0.0, 100.0,   3, ACCESS_1},
-  {BASE_HN_R + HN_X1,   FLOAT, INTERNAL, 160,  520, "X1",    "-",        6.0,     0.0, 100.0,   3, ACCESS_1},
-  {BASE_HN_R + HN_Y1,   FLOAT, INTERNAL, 161,  522, "Y1",    "-",        6.0,     0.0, 100.0,   3, ACCESS_1},
-  {BASE_HN_R + HN_X2,   FLOAT, INTERNAL, 162,  524, "X2",    "-",        10.0,    0.0, 100.0,   3, ACCESS_1},
-  {BASE_HN_R + HN_Y2,   FLOAT, INTERNAL, 163,  526, "Y2",    "-",        8.0,     0.0, 100.0,   3, ACCESS_1},
-  {BASE_HN_R + HN_X3,   FLOAT, INTERNAL, 164,  528, "X3",    "-",        14.0,    0.0, 100.0,   3, ACCESS_1},
-  {BASE_HN_R + HN_Y3,   FLOAT, INTERNAL, 165,  530, "Y3",    "-",        6.0,     0.0, 100.0,   3, ACCESS_1},
-  {BASE_HN_R + HN_X4,   FLOAT, INTERNAL, 166,  532, "X4",    "-",        17.0,    0.0, 10000.0, 3, ACCESS_1},
-  {BASE_HN_R + HN_Y4,   FLOAT, INTERNAL, 167,  534, "Y4",    "-",        6.0,     0.0, 10000.0, 3, ACCESS_1},
-  {BASE_HN_R + K_I_H,   FLOAT, INTERNAL, 168,  540, "K_i_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {BASE_HN_R + SH_H,    INT,   INTERNAL, 169,  542, "Sh_h",   "-",        0.0,     0.0, 10000.0, 0, ACCESS_1},
+  {BASE_HN_R + HN_X0,   FLOAT, INTERNAL, 158,  516, "X0",       "-",        0.0,     0.0, 100.0,   3, ACCESS_1},
+  {BASE_HN_R + HN_Y0,   FLOAT, INTERNAL, 159,  518, "Y0",       "-",        0.0,     0.0, 100.0,   3, ACCESS_1},
+  {BASE_HN_R + HN_X1,   FLOAT, INTERNAL, 160,  520, "X1",       "-",        6.0,     0.0, 100.0,   3, ACCESS_1},
+  {BASE_HN_R + HN_Y1,   FLOAT, INTERNAL, 161,  522, "Y1",       "-",        6.0,     0.0, 100.0,   3, ACCESS_1},
+  {BASE_HN_R + HN_X2,   FLOAT, INTERNAL, 162,  524, "X2",       "-",        10.0,    0.0, 100.0,   3, ACCESS_1},
+  {BASE_HN_R + HN_Y2,   FLOAT, INTERNAL, 163,  526, "Y2",       "-",        8.0,     0.0, 100.0,   3, ACCESS_1},
+  {BASE_HN_R + HN_X3,   FLOAT, INTERNAL, 164,  528, "X3",       "-",        14.0,    0.0, 100.0,   3, ACCESS_1},
+  {BASE_HN_R + HN_Y3,   FLOAT, INTERNAL, 165,  530, "Y3",       "-",        6.0,     0.0, 100.0,   3, ACCESS_1},
+  {BASE_HN_R + HN_X4,   FLOAT, INTERNAL, 166,  532, "X4",       "-",        17.0,    0.0, 10000.0, 3, ACCESS_1},
+  {BASE_HN_R + HN_Y4,   FLOAT, INTERNAL, 167,  534, "Y4",       "-",        6.0,     0.0, 10000.0, 3, ACCESS_1},
+  {BASE_HN_R + K_I_H,   FLOAT, INTERNAL, 168,  540, "K_i_h",    "1/ìÀ",     1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {BASE_HN_R + SH_H,    INT,   INTERNAL, 169,  542, "Sh_h",     "-",        0.0,     0.0, 10000.0, 0, ACCESS_1},
   {BASE_HN_R + C_KL_HN, FLOAT, INTERNAL,  -1,  544, "",         "-",        1.0,     0.0, 10000.0, 0, ACCESS_1},  //hn right 
-  {BASE_HN_R + CHUV_HN,  FLOAT,   INTERNAL,  170,   546, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
-  {DEBUG_H_R,  INT,   INTERNAL,  -1,   -1, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, //dac code for the HN left channel
+  {BASE_HN_R + CHUV_HN, FLOAT, INTERNAL, 170,  546, "",         "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
+  {DEBUG_H_R,           INT,   INTERNAL,  -1,   -1, "",         "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, //dac code for the HN left channel
   
-  {T_CL_E,              FLOAT, INTERNAL,  -1,  800, "Òõê",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},  //cold junction temp  
-  {ADC_1,               INT,   IN,        -1,  900,  "ÀÖÏ1",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
-  {ADC_2,               INT,   IN,        -1,  902,  "ÀÖÏ2",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
-  {ADC_3,               INT,   IN,        -1,  904,  "ÀÖÏ3",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
+  {T_CL_E,              FLOAT, INTERNAL,  -1,  800, "Òõê",      "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},  //cold junction temp  
+  {ADC_1,               INT,   IN,        -1,  900, "ÀÖÏ1",      "",         0.0,     0.0, 100.0,   2, ACCESS_0},
+  {ADC_2,               INT,   IN,        -1,  902, "ÀÖÏ2",      "",         0.0,     0.0, 100.0,   2, ACCESS_0},
+  {ADC_3,               INT,   IN,        -1,  904, "ÀÖÏ3",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
   {ADC_4,               INT,   IN,        -1,  906,  "ÀÖÏ4",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
   {ADC_1_,              INT,   IN,        -1,  908,  "",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
   {ADC_2_,              INT,   IN,        -1,  910,  "",         "",         0.0,     0.0, 100.0,   2, ACCESS_0},
@@ -199,14 +199,14 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {FLT_NE_R,            BOOLEAN, INTERNAL,  -1, 1490, "", "", 0.0, 0.0, 0.0, 0, ACCESS_0},
   {FLT_GA_L,            BOOLEAN, INTERNAL,  -1, 1492, "", "", 0.0, 0.0, 0.0, 0, ACCESS_0},
   {FLT_GA_R,            BOOLEAN, INTERNAL,  -1, 1494, "", "", 0.0, 0.0, 0.0, 0, ACCESS_0},
-  {THR_H_L,             FLOAT,   INTERNAL, 180, 1496, "Thr_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     //left hn treshold 
-  {THR_H_R,             FLOAT,   INTERNAL, 181, 1498, "Thr_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     //right hn treshold 
-  {THR_O_L,             FLOAT,   INTERNAL, 182, 1500, "Thr_o",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     //left o2 treshold 
-  {THR_O_R,             FLOAT,   INTERNAL, 183, 1502, "Thr_o",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     //right o2 treshold 
-  {G_TH_H_L,            FLOAT,   INTERNAL, 184, 1504, "G_th_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},    //left hn hysteresis 
-  {G_TH_H_R,            FLOAT,   INTERNAL, 185, 1506, "G_th_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},    //right hn hysteresis
-  {G_TH_O_L,            FLOAT,   INTERNAL, 186, 1508, "G_th_o",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},    //left o2 hysteresis
-  {G_TH_O_R,            FLOAT,   INTERNAL, 187, 1510, "G_th_o",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},    //right o2 hysteresis
+  {THR_H_L,             FLOAT,   INTERNAL, 180, 1496, "Ïîð.Õ",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     //left hn treshold 
+  {THR_H_R,             FLOAT,   INTERNAL, 181, 1498, "Ïîð.Õ",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     //right hn treshold 
+  {THR_O_L,             FLOAT,   INTERNAL, 182, 1500, "Ïîð.Î",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     //left o2 treshold 
+  {THR_O_R,             FLOAT,   INTERNAL, 183, 1502, "Ïîð.Î",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     //right o2 treshold 
+  {G_TH_H_L,            FLOAT,   INTERNAL, 184, 1504, "Ãèñò.Õ",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},    //left hn hysteresis 
+  {G_TH_H_R,            FLOAT,   INTERNAL, 185, 1506, "Ãèñò.Õ",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},    //right hn hysteresis
+  {G_TH_O_L,            FLOAT,   INTERNAL, 186, 1508, "Ãèñò.Î",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},    //left o2 hysteresis
+  {G_TH_O_R,            FLOAT,   INTERNAL, 187, 1510, "Ãèñò.Î",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},    //right o2 hysteresis
   {FTH_H_L,             BOOLEAN, OUT,       -1, 1512, "",          "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},  //left hn treshold output
   {FTH_H_R,             BOOLEAN, OUT,       -1, 1514, "",          "-",        1.0,     0.0, 10000.0, 3, ACCESS_1}, //right hn treshold output
   {FTH_O2_L,            BOOLEAN, OUT,       -1, 1516, "",          "-",        1.0,     0.0, 10000.0, 3, ACCESS_1}, //left o2 treshold output
@@ -249,8 +249,8 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {SCR_BACKLIGHT_TIME,  INT,     INTERNAL, 231,  -1, "îòêë.ïîäñâ", "ìèí",      0.0,     0.0, 0.0,     0, ACCESS_1},
   {PROTECT_RESET_TIME,  INT,     INTERNAL, 232,  -1, "ñáð.çàùèò",  "ñ",        0.0,     0.0, 0.0,     0, ACCESS_1},
   {PASS_RESET_TIME,     INT,     INTERNAL, 233,  -1, "ñáð.ïàðîëÿ", "ìèí",      0.0,     0.0, 0.0,     0, ACCESS_1},
-  {LEFT_CH_ON,          BOOLEAN, INTERNAL, 234,  1600, "",         "",         0.0,     0.0, 0.0,     0, ACCESS_1},
-  {RIGHT_CH_ON,         BOOLEAN, INTERNAL, 235,  1602, "",         "",         0.0,     0.0, 0.0,     0, ACCESS_1},
+  {PWM0_ON,             BOOLEAN, INTERNAL, 234,  1600, "",         "",         0.0,     0.0, 0.0,     0, ACCESS_1},
+  {PWM1_ON,             BOOLEAN, INTERNAL, 235,  1602, "",         "",         0.0,     0.0, 0.0,     0, ACCESS_1},
   {DEBUG_1,             FLOAT,   INTERNAL,  -1,  -1, "Debug 1",    "",         0.0,     0.0, 0.0,     0, ACCESS_0},
   {DEBUG_2,             FLOAT,   INTERNAL,  -1,  -1, "Debug 2",    "",         0.0,     0.0, 0.0,     0, ACCESS_0},
   {RELAY_OUT_TEST_FLAG, BOOLEAN, INTERNAL,  -1,  1800, "",           "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
@@ -263,10 +263,10 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {MAX_XH_L,            FLOAT,   INTERNAL,  238, 2004, "Max",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {MAX_XH_R,            FLOAT,   INTERNAL,  239, 2006, "Max",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
     
-  {CURR_O2_L,           FLOAT,   INTERNAL,  240, 2044, "IÎ2ë",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {CURR_O2_R,           FLOAT,   INTERNAL,  241, 2046, "IÎ2ï",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {CURR_H_L,            FLOAT,   INTERNAL,  242, 2048, "Iõíë",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {CURR_H_R,            FLOAT,   INTERNAL,  243, 2050, "Iõíï",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {REPR_O2_L,           FLOAT,   INTERNAL,  240, 2044, "Î2ë",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {REPR_O2_R,           FLOAT,   INTERNAL,  241, 2046, "Î2ï",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {REPR_H_L,            FLOAT,   INTERNAL,  242, 2048, "ÕÍë",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {REPR_H_R,            FLOAT,   INTERNAL,  243, 2050, "ÕÍï",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
  // {EMPTY_CELL,          INT,     INTERNAL,  -1,  -1,  "",         "",             0.0,  0.0, 10000.0, 3, ACCESS_0}
 };
 /*
