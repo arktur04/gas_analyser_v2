@@ -11,12 +11,11 @@ const unsigned int max_width = 19000;
 const unsigned int min_width = 3500;
 
 char pwm_ch = 0;
-int ch0_width;// = 15000;
-int ch1_width;// = 15000;
+int ch0_width;
+int ch1_width;
 
 volatile char ch0_flag, ch1_flag;  //current detector bit
 volatile char leftEnabled = 0, rightEnabled = 0; // channel's enabled
-
 
 void setTimer1Width(int width, char tpState, char neState, char pwmEnabled)
 {

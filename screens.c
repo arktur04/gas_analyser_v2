@@ -6,9 +6,9 @@
 
 const T_SCREEN_DESCRIPTOR screens[] = {                                    
   {PARAM_SCREEN, {"Термостат левый (1/3)",
-  SHIFT_T_L,
-  K_CD_T_L,
   T_F_T_L, 
+  DELTA_T_PLUS_L, //SHIFT_T_L,
+  DELTA_T_MINUS_L, //K_CD_T_L,
   ADJ_S_T_L,
   K_P_T_L,
   0, TRUE,  TRUE, TRUE}},  //0
@@ -29,9 +29,9 @@ const T_SCREEN_DESCRIPTOR screens[] = {
   EMPTY_CELL, 2, TRUE, TRUE, TRUE}}, //2
   
   {PARAM_SCREEN, {"Термостат правый (1/3)",
-  SHIFT_T_R, 
-  K_CD_T_R,  
   T_F_T_R, 
+  DELTA_T_PLUS_R, //SHIFT_T_R, 
+  DELTA_T_MINUS_R, //K_CD_T_R,  
   ADJ_S_T_R, 
   K_P_T_R,
   3, TRUE,  TRUE, TRUE}},  //3

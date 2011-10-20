@@ -62,7 +62,7 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 
 //Переменные настройки канала термостатирования
 #define BASE_T_L 1
-#define BASE_T_R 27
+#define BASE_T_R 37
 
 #define SHIFT_T  0
 #define K_CD_T   1
@@ -91,6 +91,18 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define L_COMP_T 23
 #define MI_P_T   24
 #define MI_KD_T  25
+
+#define DELTA_T_PLUS  26
+#define DELTA_T_MINUS 27
+
+#define RESERVED_T1  28
+#define RESERVED_T2  29
+#define RESERVED_T3  30
+#define RESERVED_T4  31
+#define RESERVED_T5  32
+#define RESERVED_T6  33
+#define RESERVED_T7  34
+#define RESERVED_T8  35
 
 #define SHIFT_T_L  (BASE_T_L + SHIFT_T)
 #define K_CD_T_L   (BASE_T_L + K_CD_T)
@@ -121,6 +133,17 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define MI_P_T_L   (BASE_T_L + MI_P_T)
 #define MI_KD_T_L  (BASE_T_L + MI_KD_T)
 
+#define DELTA_T_PLUS_L  (BASE_T_L + DELTA_T_PLUS)                                             ///
+#define DELTA_T_MINUS_L  (BASE_T_L + DELTA_T_MINUS)
+#define RESERVED_T1_L  (BASE_T_L + RESERVED_T1)
+#define RESERVED_T2_L  (BASE_T_L + RESERVED_T2)
+#define RESERVED_T3_L  (BASE_T_L + RESERVED_T3)
+#define RESERVED_T4_L  (BASE_T_L + RESERVED_T4)
+#define RESERVED_T5_L  (BASE_T_L + RESERVED_T5)
+#define RESERVED_T6_L  (BASE_T_L + RESERVED_T6)
+#define RESERVED_T7_L  (BASE_T_L + RESERVED_T7)
+#define RESERVED_T8_L  (BASE_T_L + RESERVED_T8)
+
 #define SHIFT_T_R  (BASE_T_R + SHIFT_T)
 #define K_CD_T_R   (BASE_T_R + K_CD_T)
 #define T_F_T_R    (BASE_T_R + T_F_T)
@@ -150,9 +173,20 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define MI_P_T_R   (BASE_T_R + MI_P_T)
 #define MI_KD_T_R  (BASE_T_R + MI_KD_T)
 
+#define DELTA_T_PLUS_R  (BASE_T_R + DELTA_T_PLUS)                                             ///
+#define DELTA_T_MINUS_R  (BASE_T_R + DELTA_T_MINUS)
+#define RESERVED_T1_R  (BASE_T_R + RESERVED_T1)
+#define RESERVED_T2_R  (BASE_T_R + RESERVED_T2)
+#define RESERVED_T3_R  (BASE_T_R + RESERVED_T3)
+#define RESERVED_T4_R  (BASE_T_R + RESERVED_T4)
+#define RESERVED_T5_R  (BASE_T_R + RESERVED_T5)
+#define RESERVED_T6_R  (BASE_T_R + RESERVED_T6)
+#define RESERVED_T7_R  (BASE_T_R + RESERVED_T7)
+#define RESERVED_T8_R  (BASE_T_R + RESERVED_T8)
+
 //Переменные настройки канала кислорода
-#define BASE_O2_L 53
-#define BASE_O2_R 74
+#define BASE_O2_L 73
+#define BASE_O2_R 94
 
 #define SHIFT_E  0
 #define K_CD_E   1
@@ -224,8 +258,8 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define DEBUG_R    (BASE_O2_R + DEBUG)
 
 //Переменные настройки канала химнедожога
-#define BASE_HN_L 95
-#define BASE_HN_R 118
+#define BASE_HN_L 115
+#define BASE_HN_R 138
 
 #define T_F_H    0
 #define T_FF_H   1
@@ -300,23 +334,23 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define DEBUG_H_R    (BASE_HN_R + DEBUG_HN)
 
 //----------------------------------------------
-#define T_CL_E     141  //cold junction temp
+#define T_CL_E     161  //cold junction temp
 // output dac and pwm codes
 //#define CI_O_O_L 190  //dac code for the o2 left channel
 //#define CI_O_O_R 192  //dac code for the o2 right channel
 
 //----------------------------------------------
 //adc_codes  (main channel)
-#define ADC_1      142
-#define ADC_2      143
-#define ADC_3      144
-#define ADC_4      145
+#define ADC_1      162
+#define ADC_2      163
+#define ADC_3      164
+#define ADC_4      165
 
 //adc_codes  (second channel)
-#define ADC_1_     146
-#define ADC_2_     147
-#define ADC_3_     148
-#define ADC_4_     149
+#define ADC_1_     166
+#define ADC_2_     167
+#define ADC_3_     168
+#define ADC_4_     169
 /*
 //аналоговые входы, mV
 #define AN_IN_1    250
@@ -330,124 +364,124 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define AN_R_3    256
 #define AN_R_4    257
 */
-#define CHANNEL_STATE_L 150  //1 - on, 0- off, 2 - fail
-#define CHANNEL_STATE_R 151  //1 - on, 0- off, 2 - fail
+#define CHANNEL_STATE_L 170  //1 - on, 0- off, 2 - fail
+#define CHANNEL_STATE_R 171  //1 - on, 0- off, 2 - fail
 //-------------------------
-#define AN_OUT_1  152
-#define AN_OUT_2  153
-#define AN_OUT_3  154
-#define AN_OUT_4  155
+#define AN_OUT_1  172
+#define AN_OUT_2  173
+#define AN_OUT_3  174
+#define AN_OUT_4  175
 
-#define DAC_1     156
-#define DAC_2     157
-#define DAC_3     158
-#define DAC_4     159
+#define DAC_1     176
+#define DAC_2     177
+#define DAC_3     178
+#define DAC_4     179
 
-#define PWM_1     160
-#define PWM_2     161
+#define PWM_1     180
+#define PWM_2     181
 
-#define HEATER_STATE_L     162
-#define HEATER_STATE_R     163
-#define HEATER_OVERLOAD_L  164
-#define HEATER_OVERLOAD_R  165
+#define HEATER_STATE_L     182
+#define HEATER_STATE_R     183
+#define HEATER_OVERLOAD_L  184
+#define HEATER_OVERLOAD_R  185
 
 //failure signals
-#define FLT_CH_L  166 //left sensor failure
-#define FLT_CH_R  167 //right sensor failure
-#define FLT_TP_L  168 //left thermocouple failure
-#define FLT_TP_R  169 //right thermocouple failure
-#define FLT_NE_L  170 //left heater failure
-#define FLT_NE_R  171 //right heater failure
-#define FLT_GA_L  172 //left general failure
-#define FLT_GA_R  173 //right general failure
+#define FLT_CH_L  186 //left sensor failure
+#define FLT_CH_R  187 //right sensor failure
+#define FLT_TP_L  188 //left thermocouple failure
+#define FLT_TP_R  189 //right thermocouple failure
+#define FLT_NE_L  190 //left heater failure
+#define FLT_NE_R  191 //right heater failure
+#define FLT_GA_L  192 //left general failure
+#define FLT_GA_R  193 //right general failure
 
 //tresholds (NVRAM vars)
-#define THR_H_L   174  //left hn threshold 
-#define THR_H_R   175  //right hn threshold 
-#define THR_O_L   176  //left o2 threshold 
-#define THR_O_R   177  //right o2 threshold 
-#define G_TH_H_L  178  //left hn hysteresis 
-#define G_TH_H_R  179  //right hn hysteresis
-#define G_TH_O_L  180  //left o2 hysteresis
-#define G_TH_O_R  181  //right o2 hysteresis
+#define THR_H_L   194  //left hn threshold 
+#define THR_H_R   195  //right hn threshold 
+#define THR_O_L   196  //left o2 threshold 
+#define THR_O_R   197  //right o2 threshold 
+#define G_TH_H_L  198  //left hn hysteresis 
+#define G_TH_H_R  199  //right hn hysteresis
+#define G_TH_O_L  200  //left o2 hysteresis
+#define G_TH_O_R  201  //right o2 hysteresis
 
 //treshold outputs
-#define FTH_H_L   182  //left hn treshold output
-#define FTH_H_R   183  //right hn treshold output
-#define FTH_O2_L  184  //left o2 treshold output
-#define FTH_O2_R  185  //right o2 treshold output
+#define FTH_H_L   202  //left hn treshold output
+#define FTH_H_R   203  //right hn treshold output
+#define FTH_O2_L  204  //left o2 treshold output
+#define FTH_O2_R  205  //right o2 treshold output
 
 //------------------------------------------------------------------------------
-#define RS_232_SPEED  186  //rs-232 speed
-#define RS_232_EVEN   187  //rs-232 even
-#define RS_232_ODD    188  //rs-232 odd
-#define RS_232_STOP   189  //rs-232 stop bits
+#define RS_232_SPEED  206  //rs-232 speed
+#define RS_232_EVEN   207  //rs-232 even
+#define RS_232_ODD    208  //rs-232 odd
+#define RS_232_STOP   209  //rs-232 stop bits
 
-#define RS_485_SPEED  190  //rs-485 speed
-#define RS_485_EVEN   191  //rs-485 even
-#define RS_485_ODD    192  //rs-485 odd
-#define RS_485_STOP   193  //rs-485 stop
-#define RS_485_ADDR   194  //rs-485 addr
+#define RS_485_SPEED  210  //rs-485 speed
+#define RS_485_EVEN   211  //rs-485 even
+#define RS_485_ODD    212  //rs-485 odd
+#define RS_485_STOP   213  //rs-485 stop
+#define RS_485_ADDR   214  //rs-485 addr
 
-#define ETHERNET_IP_ADDR_0      195
-#define ETHERNET_IP_ADDR_1      196
-#define ETHERNET_IP_ADDR_2      197
-#define ETHERNET_IP_ADDR_3      198
+#define ETHERNET_IP_ADDR_0      215
+#define ETHERNET_IP_ADDR_1      216
+#define ETHERNET_IP_ADDR_2      217
+#define ETHERNET_IP_ADDR_3      218
 
-#define ETHERNET_IP_MASK_0      199
-#define ETHERNET_IP_MASK_1      200
-#define ETHERNET_IP_MASK_2      201
-#define ETHERNET_IP_MASK_3      202
+#define ETHERNET_IP_MASK_0      219
+#define ETHERNET_IP_MASK_1      220
+#define ETHERNET_IP_MASK_2      221
+#define ETHERNET_IP_MASK_3      222
 
-#define ETHERNET_IP_GATE_0      203
-#define ETHERNET_IP_GATE_1      204
-#define ETHERNET_IP_GATE_2      205
-#define ETHERNET_IP_GATE_3      206
+#define ETHERNET_IP_GATE_0      223
+#define ETHERNET_IP_GATE_1      224
+#define ETHERNET_IP_GATE_2      225
+#define ETHERNET_IP_GATE_3      226
 
-#define RELAY_OUT_0             207
-#define RELAY_OUT_1             208
-#define RELAY_OUT_2             209
-#define RELAY_OUT_3             210
-#define RELAY_OUT_4             211
-#define RELAY_OUT_5             212
+#define RELAY_OUT_0             227
+#define RELAY_OUT_1             228
+#define RELAY_OUT_2             229
+#define RELAY_OUT_3             230
+#define RELAY_OUT_4             231
+#define RELAY_OUT_5             232
 //--------------------------------------------
-#define INPUT0_RESISTANCE_DETECTOR_LOW_THRESHOLD 213
-#define INPUT0_RESISTANCE_DETECTOR_HI_THRESHOLD  214
-#define INPUT1_RESISTANCE_DETECTOR_LOW_THRESHOLD 215
-#define INPUT1_RESISTANCE_DETECTOR_HI_THRESHOLD  216
-#define INPUT2_RESISTANCE_DETECTOR_LOW_THRESHOLD 217
-#define INPUT2_RESISTANCE_DETECTOR_HI_THRESHOLD  218
-#define INPUT3_RESISTANCE_DETECTOR_LOW_THRESHOLD 219
-#define INPUT3_RESISTANCE_DETECTOR_HI_THRESHOLD  220
+#define INPUT0_RESISTANCE_DETECTOR_LOW_THRESHOLD 233
+#define INPUT0_RESISTANCE_DETECTOR_HI_THRESHOLD  234
+#define INPUT1_RESISTANCE_DETECTOR_LOW_THRESHOLD 235
+#define INPUT1_RESISTANCE_DETECTOR_HI_THRESHOLD  236
+#define INPUT2_RESISTANCE_DETECTOR_LOW_THRESHOLD 237
+#define INPUT2_RESISTANCE_DETECTOR_HI_THRESHOLD  238
+#define INPUT3_RESISTANCE_DETECTOR_LOW_THRESHOLD 239
+#define INPUT3_RESISTANCE_DETECTOR_HI_THRESHOLD  240
 
-#define SCR_BACKLIGHT_TIME      221
-#define PROTECT_RESET_TIME      222
+#define SCR_BACKLIGHT_TIME      241
+#define PROTECT_RESET_TIME      242
 
-#define PASS_RESET_TIME         223
+#define PASS_RESET_TIME         243
 
-#define PWM0_ON                 224
-#define PWM1_ON                 225
+#define PWM0_ON                 244
+#define PWM1_ON                 245
  
-#define DEBUG_1                 226
-#define DEBUG_2                 227
+#define DEBUG_1                 246
+#define DEBUG_2                 247
 //------------------------------------------------------------------------------
-#define RELAY_OUT_TEST_FLAG     228
-#define DAC_TEST_FLAG           229 // true if the dac test sreen is active
-#define PWM_OUT_TEST_FLAG       230
-#define OUT_CALIBR_FLAG         231
+#define RELAY_OUT_TEST_FLAG     248
+#define DAC_TEST_FLAG           249 // true if the dac test sreen is active
+#define PWM_OUT_TEST_FLAG       250
+#define OUT_CALIBR_FLAG         251
 
-#define MAX_O2_L                232  
-#define MAX_O2_R                233
-#define MAX_XH_L                234
-#define MAX_XH_R                235  
+#define MAX_O2_L                252  
+#define MAX_O2_R                253
+#define MAX_XH_L                254
+#define MAX_XH_R                255  
   
-#define REPR_O2_L               236
-#define REPR_O2_R               237
-#define REPR_H_L                238
-#define REPR_H_R                239
+#define REPR_O2_L               256
+#define REPR_O2_R               257
+#define REPR_H_L                258
+#define REPR_H_R                259
 
 //------------------------------------------------------------------------------
-#define MAX_RECORD              240
+#define MAX_RECORD              260
 
 //#define MAX_RECORDS 500
 

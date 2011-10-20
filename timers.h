@@ -6,27 +6,28 @@
 #define hour (60 * min)
 #define day (24 * hour)
 
-#define MAX_TIMERS 16
+#define MAX_TIMERS 24
 
-#define KEYB_TIMER       0
-//#define LAST_KEY_TIMER   1
-#define CURSOR_TIMER     2
-#define ADC_CONV_TIMER   3
-#define ADC_TIME_OUT     4
+#define KEYB_TIMER           0
+//#define LAST_KEY_TIMER     1
+#define CURSOR_TIMER         2
+#define ADC_CONV_TIMER       3
+#define ADC_TIME_OUT         4
 #define SCREEN_REFRESH_TIMER 5
-#define PASS_TIMER       6
-#define BACKLIGHT_TIMER  7
-#define TEMP_SENS_TIMER  8
-#define LED_BLINK_TIMER  9
-#define TREND_REFRESH_TIMER  10
+#define PASS_TIMER           6
+#define BACKLIGHT_TIMER      7
+#define TEMP_SENS_TIMER      8
+#define LED_BLINK_TIMER      9
+#define LED_FAST_BLINK_TIMER 10
+#define TREND_REFRESH_TIMER  11
 
-#define TIMER_UART0_TX_LED   11
-#define TIMER_UART0_RX_LED   12
-#define TIMER_UART1_TX_LED   13
-#define TIMER_UART1_RX_LED   14
+#define TIMER_UART0_TX_LED   12
+#define TIMER_UART0_RX_LED   13
+#define TIMER_UART1_TX_LED   14
+#define TIMER_UART1_RX_LED   15
 
-#define DEB_TIMER1       14
-#define DEB_TIMER2       15
+#define DEB_TIMER1           16
+#define DEB_TIMER2           17
 
 void InitTimers(void);
 

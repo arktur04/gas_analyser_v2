@@ -24,7 +24,7 @@ char sys_spi_states[SYS_SPI_BUS_WIDTH] = {ON, ON, OFF, OFF, OFF, OFF, OFF, OFF,
 OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF,
 BLINK, OFF, OFF, OFF, OFF, OFF, OFF, OFF};
 
-char blink_flag = 0;
+char blinkFlag = 0, fastBlinkFlag = 0;
 volatile unsigned long sys_state = 0;
 
 void SetDispLedState(char led, char state)
@@ -45,7 +45,13 @@ void ProcessLeds(void)
   {
     ResetTimer(LED_BLINK_TIMER);
     
-    blink_flag = ~blink_flag;
+    blinkFlag = ~blinkFlag;
+  };
+  if(GetTimer(LED_FAST_BLINK_TIMER) > 15)
+  {
+    ResetTimer(LED_FAST_BLINK_TIMER);
+    
+    fastBlinkFlag = ~fastBlinkFlag;
   }; 
   for(char i = 0; i < DISP_LED_NUM; i++)
   {
@@ -58,7 +64,13 @@ void ProcessLeds(void)
       disp_on_state |= disp_leds[i];
       break;
     case BLINK:
-      if(blink_flag)
+      if(blinkFlag)
+        disp_on_state |= disp_leds[i];
+      else
+        disp_off_state |= disp_leds[i];
+      break;
+    case FAST_BLINK:
+      if(fastBlinkFlag)
         disp_on_state |= disp_leds[i];
       else
         disp_off_state |= disp_leds[i];
@@ -77,7 +89,13 @@ void ProcessLeds(void)
       SetSysBit(i);
       break;
     case BLINK:
-      if(blink_flag)
+      if(blinkFlag)
+        SetSysBit(i);
+      else
+        ClrSysBit(i);
+      break;
+      case FAST_BLINK:
+      if(fastBlinkFlag)
         SetSysBit(i);
       else
         ClrSysBit(i);

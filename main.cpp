@@ -1251,9 +1251,24 @@ void onMsgPrintScreen(char uartNum)
     //  2 - normal blink - heater is warming, the temperature is not reached
     //  3 - fast blink - heater is overheated;
     
-    SetDispLedState(DISP_LED_L_STATE, GetIntValueByTag(PWM0_ON)?ON:OFF);
-    SetDispLedState(DISP_LED_R_STATE, GetIntValueByTag(PWM1_ON)?ON:OFF);
-    
+    SetDispLedState(DISP_LED_L_STATE, GetIntValueByTag(PWM0_ON)?
+                    (GetFloatValueByTag(CEL_F_T_L) > 
+                     GetFloatValueByTag(ADJ_S_T_L) + 
+                     GetFloatValueByTag(DELTA_T_PLUS_L))?FAST_BLINK:
+                      (GetFloatValueByTag(CEL_F_T_L) < 
+                       GetFloatValueByTag(ADJ_S_T_L) -
+                       GetFloatValueByTag(DELTA_T_MINUS_L))?BLINK:ON:
+                        OFF);
+   // SetDispLedState(DISP_LED_R_STATE, GetIntValueByTag(PWM1_ON)?ON:OFF);
+    SetDispLedState(DISP_LED_R_STATE, GetIntValueByTag(PWM1_ON)?
+                    (GetFloatValueByTag(CEL_F_T_R) > 
+                     GetFloatValueByTag(ADJ_S_T_R) + 
+                     GetFloatValueByTag(DELTA_T_PLUS_R))?FAST_BLINK:
+                      (GetFloatValueByTag(CEL_F_T_R) < 
+                       GetFloatValueByTag(ADJ_S_T_R) - 
+                       GetFloatValueByTag(DELTA_T_MINUS_R))?BLINK:ON:
+                        OFF);
+
     SetDispLedState(DISP_LED_L_TR1, (GetIntValueByTag(FLT_GA_L)?ON:OFF)); //GetIntValueByTag(FTH_O2_L)?ON:OFF); 
     SetDispLedState(DISP_LED_L_TR2, 
                     (GetIntValueByTag(FTH_O2_L) || 

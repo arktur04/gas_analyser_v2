@@ -13,6 +13,7 @@
 #define OFF   0
 #define ON    1
 #define BLINK 2
+#define FAST_BLINK  3
 
 #define DISP_LED_L_STATE 0     
 #define DISP_LED_L_TR1   1
