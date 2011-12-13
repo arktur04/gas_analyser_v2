@@ -11,7 +11,7 @@
 class CalibrOutScreen: public TwoColScr
 {
 public:
-  CalibrOutScreen():TwoColScr(26, SCR_OUT_CALIBR) {};
+  CalibrOutScreen():TwoColScr(28, SCR_OUT_CALIBR) {};
   virtual void Activated(unsigned long * param);
   virtual ~CalibrOutScreen();
 };

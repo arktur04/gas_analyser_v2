@@ -42,7 +42,7 @@
 #define SYS_OPEN_NET_1  12
 #define SYS_OPEN_NET_2  13
 #define SYS_SHORT_NET_1 14
-#define SYS_SHORT_NET_1 15
+#define SYS_SHORT_NET_2 15
 
 #define SYS_LED_DOUT0 16
 #define SYS_LED_DOUT1 17

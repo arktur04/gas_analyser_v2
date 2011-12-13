@@ -23,16 +23,16 @@ void ProcessDisconn(char ch)
   switch(ch)
   {
   case 0:
-    disconn_adc_code[0] = GetIntValueByTag(ADC_1_);
+    disconn_adc_code[0] = GetIntValueByTag(ADC_1_) / 16;
     break;
   case 1:
-    disconn_adc_code[1] = GetIntValueByTag(ADC_2_);
+    disconn_adc_code[1] = GetIntValueByTag(ADC_2_) / 16;
     break;
   case 2:
-    disconn_adc_code[2] = GetIntValueByTag(ADC_3_);
+    disconn_adc_code[2] = GetIntValueByTag(ADC_3_) / 16;
     break;
   case 3:
-    disconn_adc_code[3] = GetIntValueByTag(ADC_4_);
+    disconn_adc_code[3] = GetIntValueByTag(ADC_4_) / 16;
     break;
   };
   

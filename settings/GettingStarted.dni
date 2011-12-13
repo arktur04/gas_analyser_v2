@@ -1,5 +1,5 @@
 [DebugChecksum]
-Checksum=-732383590
+Checksum=521794645
 [DisAssemblyWindow]
 NumStates=_ 1
 State 1=_ 1
@@ -28,7 +28,8 @@ Bp0=_ "STD_CODE" "{$PROJ_DIR$\usbase.cpp}.1218.1@1" 0 0 0 0 "" 0 "" 0
 Bp1=_ "EMUL_DATA" "ADC_2" 0 0 0 116 0 "" 0 "" 0 0 0 4294967295
 Bp2=_ "EMUL_DATA" "ADC_2" 0 0 0 116 0 "" 0 "" 0 0 0 4294967295
 Bp3=_ "EMUL_DATA" "leftTemp.GetCelFT" 0 0 0 116 0 "" 0 "" 0 0 0 4294967295
-Count=4
+Bp4=_ "STD_CODE" "{$PROJ_DIR$\main.cpp}.672.9@1" 1 0 0 0 "" 0 "" 0
+Count=5
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -45,5 +46,5 @@ SuppressDialog=1
 Enabled=0
 [DriverProfiling]
 Enabled=0
-Mode=184878088
+Mode=9
 Graph=0

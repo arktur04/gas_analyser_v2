@@ -11,5 +11,6 @@ static const char*passSign[4] = {" ", "*", "+", "!"};
 void PassAuxBaseScreen::Paint(void)
 {
   usScreen::Paint();
+  LcdSetColor(BLACK);
   LcdText(121, 1, 127, 7, passSign[getPasswordEntered()]); 
 };

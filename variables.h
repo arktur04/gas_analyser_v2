@@ -386,102 +386,114 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define HEATER_OVERLOAD_R  185
 
 //failure signals
-#define FLT_CH_L  186 //left sensor failure
-#define FLT_CH_R  187 //right sensor failure
-#define FLT_TP_L  188 //left thermocouple failure
-#define FLT_TP_R  189 //right thermocouple failure
-#define FLT_NE_L  190 //left heater failure
-#define FLT_NE_R  191 //right heater failure
-#define FLT_GA_L  192 //left general failure
-#define FLT_GA_R  193 //right general failure
+#define FLT_TP_CLOSE_L     186
+#define FLT_TP_CLOSE_R     187
+#define FLT_CH_L  188 //left sensor failure
+#define FLT_CH_R  189 //right sensor failure
+#define FLT_TP_L  190 //left thermocouple failure
+#define FLT_TP_R  191 //right thermocouple failure
+#define FLT_NE_L  192 //left heater failure
+#define FLT_NE_R  193 //right heater failure
+#define FLT_GA_L  194 //left general failure
+#define FLT_GA_R  195 //right general failure
 
 //tresholds (NVRAM vars)
-#define THR_H_L   194  //left hn threshold 
-#define THR_H_R   195  //right hn threshold 
-#define THR_O_L   196  //left o2 threshold 
-#define THR_O_R   197  //right o2 threshold 
-#define G_TH_H_L  198  //left hn hysteresis 
-#define G_TH_H_R  199  //right hn hysteresis
-#define G_TH_O_L  200  //left o2 hysteresis
-#define G_TH_O_R  201  //right o2 hysteresis
+#define THR_H_L   196  //left hn threshold 
+#define THR_H_R   197  //right hn threshold 
+#define THR_O_L   198  //left o2 threshold 
+#define THR_O_R   199  //right o2 threshold 
+#define G_TH_H_L  200  //left hn hysteresis 
+#define G_TH_H_R  201  //right hn hysteresis
+#define G_TH_O_L  202  //left o2 hysteresis
+#define G_TH_O_R  203  //right o2 hysteresis
 
 //treshold outputs
-#define FTH_H_L   202  //left hn treshold output
-#define FTH_H_R   203  //right hn treshold output
-#define FTH_O2_L  204  //left o2 treshold output
-#define FTH_O2_R  205  //right o2 treshold output
+#define FTH_H_L   204  //left hn treshold output
+#define FTH_H_R   205  //right hn treshold output
+#define FTH_O2_L  206  //left o2 treshold output
+#define FTH_O2_R  207  //right o2 treshold output
 
 //------------------------------------------------------------------------------
-#define RS_232_SPEED  206  //rs-232 speed
-#define RS_232_EVEN   207  //rs-232 even
-#define RS_232_ODD    208  //rs-232 odd
-#define RS_232_STOP   209  //rs-232 stop bits
+#define RS_232_SPEED  208  //rs-232 speed
+#define RS_232_EVEN   209  //rs-232 even
+#define RS_232_ODD    210  //rs-232 odd
+#define RS_232_STOP   211  //rs-232 stop bits
 
-#define RS_485_SPEED  210  //rs-485 speed
-#define RS_485_EVEN   211  //rs-485 even
-#define RS_485_ODD    212  //rs-485 odd
-#define RS_485_STOP   213  //rs-485 stop
-#define RS_485_ADDR   214  //rs-485 addr
+#define RS_485_SPEED  212  //rs-485 speed
+#define RS_485_EVEN   213  //rs-485 even
+#define RS_485_ODD    214  //rs-485 odd
+#define RS_485_STOP   215  //rs-485 stop
+#define RS_485_ADDR   216  //rs-485 addr
 
-#define ETHERNET_IP_ADDR_0      215
-#define ETHERNET_IP_ADDR_1      216
-#define ETHERNET_IP_ADDR_2      217
-#define ETHERNET_IP_ADDR_3      218
+#define ETHERNET_IP_ADDR_0      217
+#define ETHERNET_IP_ADDR_1      218
+#define ETHERNET_IP_ADDR_2      219
+#define ETHERNET_IP_ADDR_3      220
 
-#define ETHERNET_IP_MASK_0      219
-#define ETHERNET_IP_MASK_1      220
-#define ETHERNET_IP_MASK_2      221
-#define ETHERNET_IP_MASK_3      222
+#define ETHERNET_IP_MASK_0      220
+#define ETHERNET_IP_MASK_1      222
+#define ETHERNET_IP_MASK_2      223
+#define ETHERNET_IP_MASK_3      224
 
-#define ETHERNET_IP_GATE_0      223
-#define ETHERNET_IP_GATE_1      224
-#define ETHERNET_IP_GATE_2      225
-#define ETHERNET_IP_GATE_3      226
+#define ETHERNET_IP_GATE_0      225
+#define ETHERNET_IP_GATE_1      226
+#define ETHERNET_IP_GATE_2      227
+#define ETHERNET_IP_GATE_3      228
 
-#define RELAY_OUT_0             227
-#define RELAY_OUT_1             228
-#define RELAY_OUT_2             229
-#define RELAY_OUT_3             230
-#define RELAY_OUT_4             231
-#define RELAY_OUT_5             232
+#define RELAY_OUT_0             229
+#define RELAY_OUT_1             230
+#define RELAY_OUT_2             231
+#define RELAY_OUT_3             232
+#define RELAY_OUT_4             233
+#define RELAY_OUT_5             234
 //--------------------------------------------
-#define INPUT0_RESISTANCE_DETECTOR_LOW_THRESHOLD 233
-#define INPUT0_RESISTANCE_DETECTOR_HI_THRESHOLD  234
-#define INPUT1_RESISTANCE_DETECTOR_LOW_THRESHOLD 235
-#define INPUT1_RESISTANCE_DETECTOR_HI_THRESHOLD  236
-#define INPUT2_RESISTANCE_DETECTOR_LOW_THRESHOLD 237
-#define INPUT2_RESISTANCE_DETECTOR_HI_THRESHOLD  238
-#define INPUT3_RESISTANCE_DETECTOR_LOW_THRESHOLD 239
-#define INPUT3_RESISTANCE_DETECTOR_HI_THRESHOLD  240
+#define INPUT0_RESISTANCE_DETECTOR_LOW_THRESHOLD 235
+#define INPUT0_RESISTANCE_DETECTOR_HI_THRESHOLD  236
+#define INPUT1_RESISTANCE_DETECTOR_LOW_THRESHOLD 237
+#define INPUT1_RESISTANCE_DETECTOR_HI_THRESHOLD  238
+#define INPUT2_RESISTANCE_DETECTOR_LOW_THRESHOLD 239
+#define INPUT2_RESISTANCE_DETECTOR_HI_THRESHOLD  240
+#define INPUT3_RESISTANCE_DETECTOR_LOW_THRESHOLD 241
+#define INPUT3_RESISTANCE_DETECTOR_HI_THRESHOLD  242
 
-#define SCR_BACKLIGHT_TIME      241
-#define PROTECT_RESET_TIME      242
+#define SCR_BACKLIGHT_TIME      243
+#define PROTECT_RESET_TIME      244
 
-#define PASS_RESET_TIME         243
+#define PASS_RESET_TIME         245
 
-#define PWM0_ON                 244
-#define PWM1_ON                 245
+#define PWM0_ON                 246
+#define PWM1_ON                 247
  
-#define DEBUG_1                 246
-#define DEBUG_2                 247
+#define DEBUG_1                 248
+#define DEBUG_2                 249
 //------------------------------------------------------------------------------
-#define RELAY_OUT_TEST_FLAG     248
-#define DAC_TEST_FLAG           249 // true if the dac test sreen is active
-#define PWM_OUT_TEST_FLAG       250
-#define OUT_CALIBR_FLAG         251
+#define RELAY_OUT_TEST_FLAG     250
+#define DAC_TEST_FLAG           251 // true if the dac test sreen is active
+#define PWM_OUT_TEST_FLAG       252
+#define OUT_CALIBR_FLAG         253
 
-#define MAX_O2_L                252  
-#define MAX_O2_R                253
-#define MAX_XH_L                254
-#define MAX_XH_R                255  
+#define MAX_O2_L                254
+#define MAX_O2_R                255
+#define MAX_XH_L                256
+#define MAX_XH_R                257
   
-#define REPR_O2_L               256
-#define REPR_O2_R               257
-#define REPR_H_L                258
-#define REPR_H_R                259
-
+#define REPR_O2_L               258
+#define REPR_O2_R               259
+#define REPR_H_L                260
+#define REPR_H_R                261
 //------------------------------------------------------------------------------
-#define MAX_RECORD              260
+//  parameters of thermpcouple close circuit detector
+//------------------------------------------------------------------------------
+#define CLOSE_DETECT_THR_TEMP   262
+#define CLOSE_DETECT_THR_Y      263
+#define CLOSE_DETECT_TIME       264
+#define CLOSE_STATE_RESET_TIME  265
+//------------------------------------------------------------------------------
+//  owerall working time
+//------------------------------------------------------------------------------
+#define OWERALL_WORKING_TIME    266
+
+#define MAX_RECORD              267
 
 //#define MAX_RECORDS 500
 

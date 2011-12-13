@@ -273,7 +273,8 @@ void ChannelO2::LoadVariables()
     clapp_o2.x[4] = GetFloatValueByTag(base_o2 + X4);
     clapp_o2.y[4] = GetFloatValueByTag(base_o2 + Y4);
     clapp_o2.x[5] = GetFloatValueByTag(base_o2 + X5);
-    clapp_o2.y[5] = GetFloatValueByTag(base_o2 + Y5);     
+    clapp_o2.y[5] = GetFloatValueByTag(base_o2 + Y5);
+    
   //  k_i_o = GetFloatValueByTag(base_o2 + K_I_O);
     //int
   //  sh_4_o = GetIntValueByTag(base_o2 + SH_4_O);  
@@ -411,11 +412,13 @@ void ChannelHN::Process()
     */
     e_ffd_h_ = k_d_h * (e_ffd_h_1 - e_ff_h) + e_ff_h;
     e_ffd_h = e_ff_h - e_ffd_h_;
+    //
+    e_ffd_h_chuv_h = e_ffd_h * chuv_h;
     //step 4
     if(e_ffd_h < 0)
-      d_ffd_h = k_l_h * e_ffd_h;
+      d_ffd_h = k_l_h * e_ffd_h_chuv_h;
     else
-      d_ffd_h = k_r_h * e_ffd_h;
+      d_ffd_h = k_r_h * e_ffd_h_chuv_h;
     //step 5
     if(e_e < lim_h)
       e_li_h = 0;
@@ -479,20 +482,7 @@ void ChannelHN::LoadVariables()
     clapp_hn.x[5] = clapp_hn.x[4];
     clapp_hn.y[5] = clapp_hn.y[4];
     
-  //  k_i_h = GetFloatValueByTag(base_hn + K_I_H);
-    
-  //  sh_4_h = GetIntValueByTag(base_hn + SH_4_H);
-    /*
-    if(side == LEFT_CH)
-    {
-    min = GetFloatValueByTag(MIN_H_L);
-    max = GetFloatValueByTag(MIN_H_L);
-  }
-  else
-    {
-    min = GetFloatValueByTag(MIN_H_R);
-    max = GetFloatValueByTag(MIN_H_R);
-  };*/
+    chuv_h = GetFloatValueByTag(base_hn + CHUV_HN);
   };
 };
 

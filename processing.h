@@ -89,9 +89,9 @@ class ChannelHN: public ChannelProcessor{
 private:
   float e_e, k_f_h, k_ff_h, t_f_h, t_ff_h, k_d_h, t_d_h, e_f_h, e_f_h_1, e_ff_h,
     e_ff_h_1, e_ffd_h, e_ffd_h_1, e_ffd_h_, k_r_h, k_l_h, d_ffd_h, lim_h,
-    klim_h, e_li_h, c_h, k_fd_h, t_fd_h, c_fd_h, c_fd_h_1, curr_o_h;
+    klim_h, e_li_h, c_h, k_fd_h, t_fd_h, c_fd_h, c_fd_h_1, curr_o_h, chuv_h;
   T_CLAPP clapp_hn;
-  float c_kl_h;//, k_i_h, min, max, a, b;
+  float e_ffd_h_chuv_h, c_kl_h;//, k_i_h, min, max, a, b;
 //  int ci_h, sh_4_h, ci_o_h;
 public:
   virtual void Init();

@@ -27,9 +27,10 @@ unsigned int upThrs[4] = {0, THR_UP, 0, THR_UP};
 unsigned int downThrs[4] = {0, THR_DOWN, 0, THR_DOWN};
 
 //char adc_iteration_count = 0;
-unsigned int adc_values[4]; //values of the measured input voltage in adc discretes
-unsigned int adc_values_1[4] = {0, 0, 0, 0};
-unsigned int adc_values_2[4] = {0, 0, 0, 0};
+unsigned int adc_values[3][4] =  //values of the measured input voltage in adc discretes
+{{0, 0, 0, 0},
+{0, 0, 0, 0},
+{0, 0, 0, 0}};
 /*
   adc_values_[4], //temp var
   adc_curr_values[4],// temp var - instant input voltage in adc discrete
@@ -90,7 +91,7 @@ float GetAdcVoltage(char ch)
 }  */
 
 /*
-void StartAdcConvertion(char channel, char gain[4], long int polarity)
+void startAdcConvertion(char channel, char gain[4], long int polarity)
 {
 //writing operation to  the configuration register - 0x10
   WriteByteToAllAdc(0x10);
@@ -134,7 +135,7 @@ void StartAdcConvertion(char channel, char gain[4], long int polarity)
 //configuration register - 0x0300
 // channel, Ref = ext, G = gain, Boost = 0, polarity, Burnout = 0, No bias;
 */
-void StartAdcConvertion(char adc_chan, char channel, char gain, long int polarity)
+void startAdcConvertion(char adc_chan, char channel, char gain, long int polarity)
 {
   char conf_m_byte, conf_l_byte;
   //writing operation to  the configuration register - 0x10
@@ -189,7 +190,7 @@ void StartAdcConvertion(char adc_chan, char channel, char gain, long int polarit
 // 1101 -      8.33 240            50 & 60Hz
 // 1110 -      6.25 320            50 & 60Hz
 // 1111 -      4.17 480            50 & 60Hz
-void SetAdcMode(char adc_num, int mode)
+void setAdcMode(char adc_num, int mode)
 {
   //writing operation to  the mode register - 0x08
   WriteByteToAdc(adc_num, 0x08);
@@ -198,7 +199,7 @@ void SetAdcMode(char adc_num, int mode)
   WriteByteToAdc(adc_num, mode & 0x00FF);
 }
 /*
-void SetAdcMode(int mode)
+void setAdcMode(int mode)
 {
   //writing operation to  the mode register - 0x08
   WriteByteToAllAdc(0x08);
@@ -207,7 +208,7 @@ void SetAdcMode(int mode)
   WriteByteToAllAdc(mode & 0x00FF);
 }*/
 
-void SetAdcModes(int mode[4])
+void setAdcModes(int mode[4])
 {
   //writing operation to  the mode register - 0x08
  /* WriteByteToAdc(0x08);
@@ -225,8 +226,8 @@ void InitAdc(void)
   for(char i = 0; i < 4; i++)
   {
     WriteByteToAdc(i, 0xFF);
-    SetAdcMode(i, 0x2002);//(0x0001);
-    StartAdcConvertion(i, 0, MAIN_GAIN, BIPOLAR);
+    setAdcMode(i, 0x2002);//(0x0001);
+    startAdcConvertion(i, 0, MAIN_GAIN, BIPOLAR);
   };
 }
 */
@@ -238,8 +239,8 @@ void initAdc(char num)
     WriteByteToAdc(num, 0xFF);
   };
   
-  SetAdcMode(num, 0x2002);                                                          // 
-  StartAdcConvertion(num, 1, aux_gains[num], UNIPOLAR);                               // newly added lines
+  setAdcMode(num, 0x2002);                                                        // 
+  startAdcConvertion(num, 1, aux_gains[num], UNIPOLAR);                           // newly added lines
   ResetTimer(ADC_TIME_OUT);                                                       //
   
   adc_state[num] = 0;                                                             //  changed from  adc_state[num] = 3;
@@ -321,36 +322,36 @@ void ProcessAdc(void)
     case 0:
       if(!GetAdcMiso(i))
       {   
-        adc_values[i] = MIDCODE - GetAdcValue(i, adc_bits[i]);
-        code = adc_values[i];// | (gains[main_gains[i]] << 24);
+        adc_values[0][i] = MIDCODE - GetAdcValue(i, adc_bits[i]);
+        code = Mid(adc_values[0][i], adc_values[1][i], adc_values[2][i]);// | (gains[main_gains[i]] << 24);
          
-     //   code = Mid(adc_values[i], adc_values_1[i], adc_values_2[i]);
         SetIntValueByTag(tag_0[i], code);
         // preparing to next convertion cycle  
-        SetAdcMode(i, 0x2002);
-        StartAdcConvertion(i, 1, aux_gains[i], UNIPOLAR);                        // changed from: StartAdcConvertion(i, 1, aux_gains[i], BIPOLAR); 
+        setAdcMode(i, 0x2002);
+        startAdcConvertion(i, 1, aux_gains[i], UNIPOLAR);                        // changed from: startAdcConvertion(i, 1, aux_gains[i], BIPOLAR); 
         ResetTimer(ADC_TIME_OUT);
         adc_state[i] = 1;
-        /*
+        
         //-------------------------------------------------------
         for(int j = 0; j < 4; j++)
         {
-          adc_values_2[j] = adc_values_1[j];
-          adc_values_1[j] = adc_values[j];
-        };*/
+          adc_values[2][j] = adc_values[1][j];
+          adc_values[1][j] = adc_values[0][j];
+        };
         //-------------------------------------------------------  
         // unsigned int upThrs[4] = {15800, 15800, 15800, 15800};
         // unsigned int downThrs[4] = {1024, 1024, 1024, 1024};
-        if(autoRangeAllowed[i] && (adc_values[i] < upThrs[i]) && (main_gains[i] < G_16))
+        /*
+        if(autoRangeAllowed[i] && (code < upThrs[i]) && (main_gains[i] < G_16))
         {
           ++main_gains[i];
        //   adc_state[i] = 3;
         };
-        if(autoRangeAllowed[i] && (adc_values[i] > downThrs[i]) && (main_gains[i] > G_1))
+        if(autoRangeAllowed[i] && (code > downThrs[i]) && (main_gains[i] > G_1))
         {
           --main_gains[i];
         //  adc_state[i] = 3;
-        };
+        };*/
       }
       else
       {
@@ -368,9 +369,9 @@ void ProcessAdc(void)
         SetIntValueByTag(tag_1[i], code);//adc_values[i]);
         //-------------------------------------------------------
         // preparing to next convertion cycle  
-        SetAdcMode(i, main_modes[i]);
-        // StartAdcConvertion(i, 0x06, main_gains[i], UNIPOLAR);  //temperature snsor
-        StartAdcConvertion(i, 0, main_gains[i], BIPOLAR);
+        setAdcMode(i, main_modes[i]);
+        // startAdcConvertion(i, 0x06, main_gains[i], UNIPOLAR);  //temperature snsor
+        startAdcConvertion(i, 0, main_gains[i], BIPOLAR);
         ResetTimer(ADC_TIME_OUT);
         adc_state[i] = 0;
       }
@@ -390,8 +391,8 @@ void ProcessAdc(void)
       if(!GetAdcMiso(i))
       {
         ResetTimer(ADC_TIME_OUT);
-        SetAdcMode(i, 0xa00f);
-     //   StartAdcConvertion(i, 0, main_gains[i], UNIPOLAR); 
+        setAdcMode(i, 0xa00f);
+     //   startAdcConvertion(i, 0, main_gains[i], UNIPOLAR); 
         //-------------------------
         // char conf_m_byte, conf_l_byte;
          //writing operation to  the configuration register - 0x10
@@ -425,8 +426,8 @@ void ProcessAdc(void)
         GetAdcValue(i, adc_bits[i]);
         ResetTimer(ADC_TIME_OUT);
         // preparing to next convertion cycle  
-        SetAdcMode(i, main_modes[i]);
-        StartAdcConvertion(i, 0, main_gains[i], UNIPOLAR);
+        setAdcMode(i, main_modes[i]);
+        startAdcConvertion(i, 0, main_gains[i], UNIPOLAR);
         adc_state[i] = 0;
       }
       else
@@ -485,8 +486,8 @@ void ProcessAdc(void)
         SetIntValueByTag(ADC_4, Mid(adc_values[3], adc_values_1[3], adc_values_2[3]));
            
         // preparing to next convertion cycle  
-        SetAdcMode(0x2002);
-        StartAdcConvertion(1, aux_gains, BIPOLAR); 
+        setAdcMode(0x2002);
+        startAdcConvertion(1, aux_gains, BIPOLAR); 
        // ResetTimer(ADC_CONV_TIMER);
           
         adc_state = 1;
@@ -519,8 +520,8 @@ void ProcessAdc(void)
         SetIntValueByTag(ADC_4_, adc_values[3]);
            
         // preparing to next convertion cycle  
-        SetAdcMode(0x2002);
-        StartAdcConvertion(0, main_gains, UNIPOLAR);
+        setAdcMode(0x2002);
+        startAdcConvertion(0, main_gains, UNIPOLAR);
       //  ResetTimer(ADC_CONV_TIMER);
           
         adc_state = 0;

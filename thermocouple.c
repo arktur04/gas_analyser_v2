@@ -25,12 +25,15 @@ float mvToTemp(float mv)
   float x, temp;
   char range;
   
-  range = 0;
-  if((mv >= 0.0) && (mv < 20.644))
+  if(mv < -5.891)                       // temp < -200
+    return -200.0;
+  if((mv >= -5.891) && (mv < 0))        // temp [-200; 0]
+    range = 0;                            
+  if((mv >= 0.0) && (mv < 20.644))      // temp [0; 500] 
     range = 1;
-  if(mv >= 20.644)
+  if(mv >= 20.644)                      // temp [500; 1372]
     range = 2;
-  if(mv >= 54.886)
+  if(mv >= 54.886)                      //if temp > 1372 
     return 1372.0;
   
   x = 1.0;

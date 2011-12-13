@@ -1,7 +1,7 @@
 /*************************************************************************
 *    Main.cpp
 **************************************************************************/
-#define INIT_WDT 
+#define _INIT_WDT 
 #define _DEBUG_PIN
 
 extern "C"{
@@ -458,18 +458,18 @@ void onMsgPrintScreen(char uartNum)
           paramscreen = new ParamScreen(12, SCR_HN_L_0);
           break;
         case 5:
-          paramscreen = new ParamScreen(15, SCR_HN_R_0);
+          paramscreen = new ParamScreen(16, SCR_HN_R_0);
           break;
         case 6:
-          paramscreen = new ParamScreen(18, SCR_TH_L);
+          paramscreen = new ParamScreen(20, SCR_TH_L);
           break;
         case 7:
-          paramscreen = new ParamScreen(19, SCR_TH_R);
+          paramscreen = new ParamScreen(21, SCR_TH_R);
           break;          
         case 8:
           if(!EditAllowed() || getPasswordEntered())                                                                    //!!!!!!!!!!!!!!
           {
-            PassScreen*pass_screen = new PassScreen();
+            pass_screen = new PassScreen();
           };
           break;                
         case 9:
@@ -498,16 +498,16 @@ void onMsgPrintScreen(char uartNum)
           switch(btn_num)
           {
           case 0:
-            calibr_screen =  new TwoColScr(22, SCR_TC_CALIBR_L);
+            calibr_screen =  new TwoColScr(24, SCR_TC_CALIBR_L);
             break;
           case 1:
-            calibr_screen = new TwoColScr(23, SCR_TC_CALIBR_R);
+            calibr_screen = new TwoColScr(25, SCR_TC_CALIBR_R);
             break;
           case 2:
-            calibr_screen = new TwoColScr(24, SCR_CH_CALIBR_L);
+            calibr_screen = new TwoColScr(26, SCR_CH_CALIBR_L);
             break;
           case 3:
-            calibr_screen = new TwoColScr(25, SCR_CH_CALIBR_R);
+            calibr_screen = new TwoColScr(27, SCR_CH_CALIBR_R);
             break;
           case 4:
             calibr_out_screen = new CalibrOutScreen();// TwoColScr(26, SCR_OUT_CALIBR);
@@ -540,7 +540,7 @@ void onMsgPrintScreen(char uartNum)
                                            "в начальное состояние");
           break;
         case 1:
-          paramscreen = new ParamScreen(20, SCR_RES_THR_0);
+          paramscreen = new ParamScreen(22, SCR_RES_THR_0);
           break;
 //        case 2:
 //          trend_screen = new TrendScreen(DEBUG_1, 500.0, 800.0, SCR_TREND_L);//(0, SCR_RS232);  //check the tag!
@@ -628,21 +628,27 @@ void onMsgPrintScreen(char uartNum)
         lutscreen = new LutScreen(14, SCR_HN_L_2);
         break;
       case SCR_HN_L_2:
-        paramscreen = new ParamScreen(15, SCR_HN_R_0);
+        paramscreen = new ParamScreen(15, SCR_HN_L_3);
+        break;
+      case SCR_HN_L_3:
+        paramscreen = new ParamScreen(16, SCR_HN_R_0);
         break;
         
       case SCR_HN_R_0:
-        paramscreen = new ParamScreen(16, SCR_HN_R_1);
+        paramscreen = new ParamScreen(17, SCR_HN_R_1);
         break;
       case SCR_HN_R_1:
-        lutscreen = new LutScreen(17, SCR_HN_R_2);
+        lutscreen = new LutScreen(18, SCR_HN_R_2);
         break;
       case SCR_HN_R_2:
-        paramscreen = new ParamScreen(18, SCR_TH_L);
+        paramscreen = new ParamScreen(19, SCR_HN_R_3);
+        break;
+      case SCR_HN_R_3:
+        paramscreen = new ParamScreen(20, SCR_TH_L);
         break;
         
       case SCR_TH_L:
-        paramscreen = new ParamScreen(19, SCR_TH_R);
+        paramscreen = new ParamScreen(21, SCR_TH_R);
         break;
       case SCR_TH_R:
         rs232_screen = new Rs232Screen();
@@ -666,25 +672,25 @@ void onMsgPrintScreen(char uartNum)
         pwm_testscreen = new PwmTestScreen();
         break;
       case SCR_PWM_TEST:
-        calibr_screen =  new TwoColScr(22, SCR_TC_CALIBR_L);
+        calibr_screen =  new TwoColScr(24, SCR_TC_CALIBR_L);
         break;
       case SCR_TC_CALIBR_L:
-        calibr_screen =  new TwoColScr(23, SCR_TC_CALIBR_R);
+        calibr_screen =  new TwoColScr(25, SCR_TC_CALIBR_R);
         break;
       case SCR_TC_CALIBR_R:
-         calibr_screen =  new TwoColScr(24, SCR_CH_CALIBR_L);
+         calibr_screen =  new TwoColScr(26, SCR_CH_CALIBR_L);
         break;
       case SCR_CH_CALIBR_L:
-         calibr_screen =  new TwoColScr(25, SCR_CH_CALIBR_R);
+         calibr_screen =  new TwoColScr(27, SCR_CH_CALIBR_R);
         break;
       case SCR_CH_CALIBR_R:
         calibr_out_screen = new CalibrOutScreen(); //TwoColScr(26, SCR_OUT_CALIBR);
         break;
       case SCR_OUT_CALIBR:
-        paramscreen = new ParamScreen(20, SCR_RES_THR_0);
+        paramscreen = new ParamScreen(22, SCR_RES_THR_0);
         break;
       case SCR_RES_THR_0:
-        paramscreen = new ParamScreen(21, SCR_RES_THR_1);
+        paramscreen = new ParamScreen(23, SCR_RES_THR_1);
         break;
         //----------------------------------------------------------------------
       case SCR_RES_THR_1:  // new variant
@@ -701,66 +707,8 @@ void onMsgPrintScreen(char uartNum)
 //        misc_screen = new MiscScreen();
 //        break;
 //        
-      };                                                                                               
-
-
-//#define SCR_MAIN      0 
-//#define SCR_MENU_0    1
-//#define SCR_MENU_1    2
-//#define SCR_MENU_2    3
-//#define SCR_MENU_3    4
-//#define SCR_MENU_4    5
-
-//#define SCR_THERM_L_0 6
-//#define SCR_THERM_L_1 7
-//#define SCR_THERM_L_2 8
-
-//#define SCR_THERM_R_0 9
-//#define SCR_THERM_R_1 10
-//#define SCR_THERM_R_2 11
-
-//#define SCR_O2_L_0    12
-//#define SCR_O2_L_1    13
-//#define SCR_O2_L_2    14
-
-//#define SCR_O2_R_0    15
-//#define SCR_O2_R_1    16
-//#define SCR_O2_R_2    17
-
-//#define SCR_HN_L_0    18
-//#define SCR_HN_L_1    19
-//#define SCR_HN_L_2    20
-
-//#define SCR_HN_R_0    21
-//#define SCR_HN_R_1    22
-//#define SCR_HN_R_2    23
-
-//#define SCR_TH_L      24   
-//#define SCR_TH_R      25
-
-//#define SCR_RS232     26
-//#define SCR_RS485     27
-//#define SCR_ETHERNET  28
-
-//#define SCR_DO_TEST   29
-//#define SCR_AI_TEST   30
-//#define SCR_AO_TEST   31
-//#define SCR_PWM_TEST  32
-//#define SCR_TREND_L   33
-//#define SCR_TREND_R   34
-//#define SCR_MISC      35
-
-//#define SCR_EDITOR    36
-//#define SCR_PASS      37
-//#define SCR_MSG       38
-
-//#define SCR_RES_THR_0 39
-//#define SCR_RES_THR_1 40
-
-//#define SCR_TC_CALIBR_L 41
-//#define SCR_TC_CALIBR_R 42
-                                                                                                                                  
-    };                                                                                             
+      };
+    };
     if(GetParamMessage(MSG_BTN_HOME, &param))
     {
       mainscreen = new MainScreen();
@@ -852,30 +800,38 @@ void onMsgPrintScreen(char uartNum)
         paramscreen = new ParamScreen(13, SCR_HN_L_1);
         paramscreen->SetFocus(2);
         break;
-        
-      case SCR_HN_R_0:
+      case SCR_HN_L_3:
         lutscreen = new LutScreen(14, SCR_HN_L_2);
         lutscreen->SetFocus(2);
         break;
+        
+      case SCR_HN_R_0:
+        paramscreen = new ParamScreen(15, SCR_HN_L_3);
+        paramscreen->SetFocus(2);
+        break;
       case SCR_HN_R_1:
-        paramscreen = new ParamScreen(15, SCR_HN_R_0);
+        paramscreen = new ParamScreen(16, SCR_HN_R_0);
         paramscreen->SetFocus(2);
         break;
       case SCR_HN_R_2:
-        paramscreen = new ParamScreen(16, SCR_HN_R_1);
+        paramscreen = new ParamScreen(17, SCR_HN_R_1);
         paramscreen->SetFocus(2);
         break;
+      case SCR_HN_R_3:
+        lutscreen = new LutScreen(18, SCR_HN_R_2);
+        lutscreen->SetFocus(2);
+        break;        
         
       case SCR_TH_L:
-        lutscreen = new LutScreen(17, SCR_HN_R_2);
-        lutscreen->SetFocus(2);
+        paramscreen = new ParamScreen(19, SCR_HN_R_3);
+        paramscreen->SetFocus(2);
         break;
       case SCR_TH_R:
-        paramscreen = new ParamScreen(18, SCR_TH_L);
+        paramscreen = new ParamScreen(20, SCR_TH_L);
         paramscreen->SetFocus(2);
         break; 
       case SCR_RS232:
-        paramscreen = new ParamScreen(19, SCR_TH_R);
+        paramscreen = new ParamScreen(21, SCR_TH_R);
         paramscreen->SetFocus(2);
         break;
       case SCR_RS485:
@@ -907,31 +863,31 @@ void onMsgPrintScreen(char uartNum)
         pwm_testscreen->SetFocus(2);
         break;
       case SCR_TC_CALIBR_R:
-        calibr_screen =  new TwoColScr(22, SCR_TC_CALIBR_L);       
+        calibr_screen =  new TwoColScr(24, SCR_TC_CALIBR_L);       
         calibr_screen->SetFocus(2); 
         break;
       case SCR_CH_CALIBR_L:
-        calibr_screen =  new TwoColScr(23, SCR_TC_CALIBR_R);       
+        calibr_screen =  new TwoColScr(25, SCR_TC_CALIBR_R);       
         calibr_screen->SetFocus(2);
         break;
       case SCR_CH_CALIBR_R:
-        calibr_screen =  new TwoColScr(24, SCR_CH_CALIBR_L); 
+        calibr_screen =  new TwoColScr(26, SCR_CH_CALIBR_L); 
         calibr_screen->SetFocus(2);
         break;
       case SCR_OUT_CALIBR:
-        calibr_screen =  new TwoColScr(25, SCR_CH_CALIBR_R);
+        calibr_screen =  new TwoColScr(27, SCR_CH_CALIBR_R);
         calibr_screen->SetFocus(2);
         break;        
       case SCR_RES_THR_0:
         calibr_out_screen =  new CalibrOutScreen();//TwoColScr(26, SCR_OUT_CALIBR);
-        calibr_screen->SetFocus(2);
+        calibr_out_screen->SetFocus(2);
         break;
       case SCR_RES_THR_1:
-        paramscreen = new ParamScreen(20, SCR_RES_THR_0);
+        paramscreen = new ParamScreen(22, SCR_RES_THR_0);
         paramscreen->SetFocus(2);
         break;  
       case SCR_MISC:
-        paramscreen = new ParamScreen(21, SCR_RES_THR_1);
+        paramscreen = new ParamScreen(23, SCR_RES_THR_1);
         paramscreen->SetFocus(2);
         break; 
 //        
@@ -959,7 +915,7 @@ void onMsgPrintScreen(char uartNum)
       }
       else
       {
-        PassScreen*pass_screen = new PassScreen();
+        pass_screen = new PassScreen();
       };
     };
                                                                                                      

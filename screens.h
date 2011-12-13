@@ -40,40 +40,42 @@
 #define SCR_HN_L_0    18
 #define SCR_HN_L_1    19
 #define SCR_HN_L_2    20
+#define SCR_HN_L_3    21
 
-#define SCR_HN_R_0    21
-#define SCR_HN_R_1    22
-#define SCR_HN_R_2    23
+#define SCR_HN_R_0    22
+#define SCR_HN_R_1    23
+#define SCR_HN_R_2    24
+#define SCR_HN_R_3    25
 
-#define SCR_TH_L      24
-#define SCR_TH_R      25
+#define SCR_TH_L      26
+#define SCR_TH_R      27
 
-#define SCR_RS232     26
-#define SCR_RS485     27
-#define SCR_ETHERNET  28
+#define SCR_RS232     28
+#define SCR_RS485     29
+#define SCR_ETHERNET  30
 
-#define SCR_DO_TEST   29
-#define SCR_AI_TEST   30
-#define SCR_AO_TEST   31
-#define SCR_PWM_TEST  32
-#define SCR_TREND_L   33
-#define SCR_TREND_R   34
-#define SCR_MISC      35
+#define SCR_DO_TEST   31
+#define SCR_AI_TEST   32
+#define SCR_AO_TEST   33
+#define SCR_PWM_TEST  34
+#define SCR_TREND_L   35
+#define SCR_TREND_R   36
+#define SCR_MISC      37
 
-#define SCR_EDITOR    36
-#define SCR_PASS      37
-#define SCR_MSG       38
+#define SCR_EDITOR    38
+#define SCR_PASS      39
+#define SCR_MSG       40
 
-#define SCR_RES_THR_0 39
-#define SCR_RES_THR_1 40
+#define SCR_RES_THR_0 41
+#define SCR_RES_THR_1 42
 
-#define SCR_TC_CALIBR_L 41
-#define SCR_TC_CALIBR_R 42
+#define SCR_TC_CALIBR_L 43
+#define SCR_TC_CALIBR_R 44
 
-#define SCR_CH_CALIBR_L 43
-#define SCR_CH_CALIBR_R 44
+#define SCR_CH_CALIBR_L 45
+#define SCR_CH_CALIBR_R 46
 
-#define SCR_OUT_CALIBR  45
+#define SCR_OUT_CALIBR  47
 //------------------------------------------------------------------------------
 // 
 //------------------------------------------------------------------------------

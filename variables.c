@@ -15,21 +15,21 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   //---------------------------------------------------------------------------------------------------------------
   //                                                                                           
   //Переменные настройки канала термостатирования                                         
-  {EMPTY_CELL,          INT,   INTERNAL,  -1,  -1,  "",         "",             0.0,  0.0, 10000.0, 3, ACCESS_0},  //empty cell in table
-  {BASE_T_L + SHIFT_T,  INT,   INTERNAL,   0,  0,   "Shift_T",  "б/р",         55.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_L + K_CD_T,   FLOAT, INTERNAL,   1,  2,   "K_cd_T",   "E-6\x86\x43", 12.8,  0.0, 10000.0, 3, ACCESS_1}, //changed from "\x86\x43\x88\x65\x80"
-  {BASE_T_L + T_F_T,    FLOAT, INTERNAL,   2,  4,   "T_f_T",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_L + ADJ_S_T,  FLOAT, INTERNAL,   3,  6,   "t\x86зад.",  "\x86\x43",   600.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_L + K_P_T,    FLOAT, INTERNAL,   4,  8,   "K_p_T",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_L + K_D_T,    FLOAT, INTERNAL,   5,  10,  "K_d_T",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_L + T_DF_T,   FLOAT, INTERNAL,   6,  12,  "T_df_T",   "с",            1.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_L + KI_T,     FLOAT, INTERNAL,   7,  14,  "Ki_t",     "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_L + DISP_T,   FLOAT, INTERNAL,   8,  16,  "Disp_t",   "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_L + SM_T,     FLOAT, INTERNAL,   9,  18,  "Sm_t",     "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_L + K_CLC_T,  FLOAT, INTERNAL,  10,  20,  "K_clc_t",   "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_L + LIM_LO_T, INT,   INTERNAL,  11,  22,  "Lim_lo_t", "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_L + LIM_HI_T, INT,   INTERNAL,  12,  24,  "Lim_hi_t", "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_L + CEL_F_T,  FLOAT, INTERNAL,  -1,  26 , "Cel_f_t",         "-",         1.0,     0.0, 10000.0, 3, ACCESS_0},  //result 
+  {EMPTY_CELL,          INT,   INTERNAL,  -1,  -1, "",         "",             0.0,  0.0, 10000.0, 3, ACCESS_0},  //empty cell in table
+  {BASE_T_L + SHIFT_T,  INT,   INTERNAL,   0,  0,  "Shift_t",  "-",         55.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_L + K_CD_T,   FLOAT, INTERNAL,   1,  2,  "K_cd_t",   "E-6\x86\x43", 12.8,  0.0, 10000.0, 3, ACCESS_1}, //changed from "\x86\x43\x88\x65\x80"
+  {BASE_T_L + T_F_T,    FLOAT, INTERNAL,   2,  4,  "T_f_t",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_L + ADJ_S_T,  FLOAT, INTERNAL,   3,  6,  "Adj_S_t",  "\x86\x43",   600.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_L + K_P_T,    FLOAT, INTERNAL,   4,  8,  "K_p_t",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_L + K_D_T,    FLOAT, INTERNAL,   5,  10, "K_d_t",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_L + T_DF_T,   FLOAT, INTERNAL,   6,  12, "T_df_t",   "с",            1.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_L + KI_T,     FLOAT, INTERNAL,   7,  14, "Ki_t",     "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_L + DISP_T,   FLOAT, INTERNAL,   8,  16, "Disp_t",   "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_L + SM_T,     FLOAT, INTERNAL,   9,  18, "Sm_t",     "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_L + K_CLC_T,  FLOAT, INTERNAL,  10,  20, "K_clc_t",   "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_L + LIM_LO_T, INT,   INTERNAL,  11,  22, "Lim_lo_t", "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_L + LIM_HI_T, INT,   INTERNAL,  12,  24, "Lim_hi_t", "-",        26624.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_L + CEL_F_T,  FLOAT, INTERNAL,  -1,  26, "Cel_f_t", "-",         1.0,     0.0, 10000.0, 3, ACCESS_0},  //result 
   {CLC_LI_T_L,          INT,   INTERNAL,  -1,  -1, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},  //pwm code for the left channel
   {MISM_T_L,            FLOAT, INTERNAL,  -1,  28, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},   
   
@@ -55,13 +55,13 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {RESERVED_T7_L,       FLOAT, INTERNAL,  -1,  66, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
   {RESERVED_T8_L,       FLOAT, INTERNAL,  -1,  68, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
   
-  {BASE_T_R + SHIFT_T,  INT,   INTERNAL,  20,  70,  "Shift_T",  "-",            0.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_R + K_CD_T,   FLOAT, INTERNAL,  21,  72,  "K_cd_T",   "E-6\x86\x43", 12.8,  0.0, 10000.0, 3, ACCESS_1},  //changed from "\x86\x43\x88\x65\x80"
-  {BASE_T_R + T_F_T,    FLOAT, INTERNAL,  22,  74,  "T_f_T",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_R + ADJ_S_T,  FLOAT, INTERNAL,  23,  76,  "t\x86зад.",  "\x86\x43",   600.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_R + K_P_T,    FLOAT, INTERNAL,  24,  78,  "K_p_T",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_R + K_D_T,    FLOAT, INTERNAL,  25,  80,  "K_d_T",    "-",             1.0, 0.0, 10000.0, 3, ACCESS_1},
-  {BASE_T_R + T_DF_T,   FLOAT, INTERNAL,  26,  82,  "T_df_T",   "с",             1.0, 0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_R + SHIFT_T,  INT,   INTERNAL,  20,  70,  "Shift_t",  "-",            0.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_R + K_CD_T,   FLOAT, INTERNAL,  21,  72,  "K_cd_t",   "E-6\x86\x43", 12.8,  0.0, 10000.0, 3, ACCESS_1},  //changed from "\x86\x43\x88\x65\x80"
+  {BASE_T_R + T_F_T,    FLOAT, INTERNAL,  22,  74,  "T_f_t",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_R + ADJ_S_T,  FLOAT, INTERNAL,  23,  76,  "Adj_S_t",  "\x86\x43",   600.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_R + K_P_T,    FLOAT, INTERNAL,  24,  78,  "K_p_t",    "-",            1.0,  0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_R + K_D_T,    FLOAT, INTERNAL,  25,  80,  "K_d_t",    "-",             1.0, 0.0, 10000.0, 3, ACCESS_1},
+  {BASE_T_R + T_DF_T,   FLOAT, INTERNAL,  26,  82,  "T_df_t",   "с",             1.0, 0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_R + KI_T,     FLOAT, INTERNAL,  27,  84,  "Ki_t",     "-",         26624.0, 0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_R + DISP_T,   FLOAT, INTERNAL,  28,  86,  "Disp_t",   "-",         26624.0, 0.0, 10000.0, 3, ACCESS_1},
   {BASE_T_R + SM_T,     FLOAT, INTERNAL,  29,  88,  "Sm_t",     "-",         26624.0, 0.0, 10000.0, 3, ACCESS_1},
@@ -95,10 +95,10 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {RESERVED_T8_R,       FLOAT, INTERNAL,  -1,  140, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
  
   {BASE_O2_L + SHIFT_E, INT,   INTERNAL,  40,  200,  "Shift_K",  "-",         0.0,     0.0, 10000.0, 3, ACCESS_1},  //Переменные настройки канала кислорода
-  {BASE_O2_L + K_CD_E,  FLOAT, INTERNAL,  41,  202,  "K_cd_E",   "мкВ",       3.46,    0.0, 10000.0, 3, ACCESS_1},
-  {BASE_O2_L + T_F_E,   FLOAT, INTERNAL,  42,  204,  "Tфчэ",    "c",         1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {BASE_O2_L + T_FF_T,  FLOAT, INTERNAL,  43,  206,  "T_ff_T",   "c",         1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {BASE_O2_L + T_F_O,   FLOAT, INTERNAL,  44,  208,  "TфО",    "c",         1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {BASE_O2_L + K_CD_E,  FLOAT, INTERNAL,  41,  202,  "K_cd_e",   "мкВ",       3.46,    0.0, 10000.0, 3, ACCESS_1},
+  {BASE_O2_L + T_F_E,   FLOAT, INTERNAL,  42,  204,  "T_f_e",    "c",         1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {BASE_O2_L + T_FF_T,  FLOAT, INTERNAL,  43,  206,  "T_ff_t",   "c",         1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {BASE_O2_L + T_F_O,   FLOAT, INTERNAL,  44,  208,  "T_f_o",    "c",         1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_O2_L + N,       INT,   INTERNAL,  45,  210,  "N",        "-",         0.0,     0.0, 5.0,     0, ACCESS_1},
   {BASE_O2_L + X1,      FLOAT, INTERNAL,  46,  212,  "X1",       "об.%",      6.0,     0.0, 100.0,   3, ACCESS_1},
   {BASE_O2_L + Y1,      FLOAT, INTERNAL,  47,  214,  "Y1",       "об.%",      6.0,     0.0, 100.0,   3, ACCESS_1},
@@ -110,18 +110,18 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_O2_L + Y4,      FLOAT, INTERNAL,  53,  226, "Y4",       "об.%",      6.0,     0.0, 100.0,   3, ACCESS_1},
   {BASE_O2_L + X5,      FLOAT, INTERNAL,  54,  228, "X5",       "об.%",      20.0,    0.0, 100.0,   3, ACCESS_1},
   {BASE_O2_L + Y5,      FLOAT, INTERNAL,  55,  230, "Y5",       "об.%",      12.0,    0.0, 100.0,   3, ACCESS_1},
-  {BASE_O2_L + K_I_O,   FLOAT, INTERNAL,  56,  232, "K_i_0",    "1/мА",     200.0,   0.0, 10000.0, 3, ACCESS_1},
-  {BASE_O2_L + SH_O,    INT,   INTERNAL,  57,  234, "Sh_0",   "-",         0.0,     0.0, 10000.0, 0, ACCESS_1},
+  {BASE_O2_L + K_I_O,   FLOAT, INTERNAL,  56,  232, "K_i_o",    "1/мА",     200.0,   0.0, 10000.0, 3, ACCESS_1},
+  {BASE_O2_L + SH_O,    INT,   INTERNAL,  57,  234, "Sh_o",   "-",         0.0,     0.0, 10000.0, 0, ACCESS_1},
   
   {BASE_O2_L + E_F_E,   FLOAT, INTERNAL,  -1,  236, "Uчэ",      "мв",       200.0,   0.0, 10000.0, 3, ACCESS_0},
   {BASE_O2_L + C_KL_O,  FLOAT, INTERNAL,  -1,  238, "O2,%",         "-",         1.0,     0.0, 10000.0, 2, ACCESS_0},  //o2 result
   {DEBUG_L,             INT,   INTERNAL,  -1,  -1, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
   
   {BASE_O2_R + SHIFT_E, INT,   INTERNAL,  70,  300,  "Shift_K",  "-",        0.0,     0.0, 10000.0, 3, ACCESS_1},
-  {BASE_O2_R + K_CD_E,  FLOAT, INTERNAL,  71,  302,  "K_cd_E",   "мкВ",      3.46,    0.0, 10000.0, 3, ACCESS_1},
-  {BASE_O2_R + T_F_E,   FLOAT, INTERNAL,  72,  304,  "Tфчэ",    "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {BASE_O2_R + T_FF_T,  FLOAT, INTERNAL,  73,  306,  "T_ff_T",   "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {BASE_O2_R + T_F_O,   FLOAT, INTERNAL,  74,  308,  "TфО",    "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {BASE_O2_R + K_CD_E,  FLOAT, INTERNAL,  71,  302,  "K_cd_e",   "мкВ",      3.46,    0.0, 10000.0, 3, ACCESS_1},
+  {BASE_O2_R + T_F_E,   FLOAT, INTERNAL,  72,  304,  "T_f_e",    "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {BASE_O2_R + T_FF_T,  FLOAT, INTERNAL,  73,  306,  "T_ff_t",   "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {BASE_O2_R + T_F_O,   FLOAT, INTERNAL,  74,  308,  "T_f_o",    "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_O2_R + N,       INT,   INTERNAL,  75,  310,  "N",        "-",        0.0,     0.0, 5.0,     0, ACCESS_1},
   {BASE_O2_R + X1,      FLOAT, INTERNAL,  76,  312,  "X1",       "об.%",     6.0,     0.0, 100.0,   3, ACCESS_1},
   {BASE_O2_R + Y1,      FLOAT, INTERNAL,  77,  314,  "Y1",       "об.%",     6.0,     0.0, 100.0,   3, ACCESS_1},
@@ -133,8 +133,8 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_O2_R + Y4,      FLOAT, INTERNAL,  83,  326,  "Y4",       "об.%",     6.0,     0.0, 100.0,   3, ACCESS_1},
   {BASE_O2_R + X5,      FLOAT, INTERNAL,  84,  328,  "X5",       "об.%",     20.0,    0.0, 100.0,   3, ACCESS_1},
   {BASE_O2_R + Y5,      FLOAT, INTERNAL,  85,  330,  "Y5",       "об.%",     12.0,    0.0, 100.0,   3, ACCESS_1},
-  {BASE_O2_R + K_I_O,   FLOAT, INTERNAL,  86,  332,  "K_i_0",    "1/мА",   200.0,    0.0, 10000.0, 3, ACCESS_1},
-  {BASE_O2_R + SH_O,    INT,   INTERNAL,  87,  334,  "Sh_0",   "-",         0.0,    0.0, 10000.0, 0, ACCESS_1},
+  {BASE_O2_R + K_I_O,   FLOAT, INTERNAL,  86,  332,  "K_i_o",    "1/мА",   200.0,    0.0, 10000.0, 3, ACCESS_1},
+  {BASE_O2_R + SH_O,    INT,   INTERNAL,  87,  334,  "Sh_o",   "-",         0.0,    0.0, 10000.0, 0, ACCESS_1},
   
   {BASE_O2_R + E_F_E,   FLOAT, INTERNAL,  -1,  336,  "Uчэ",      "мв",       200.0,   0.0, 10000.0, 3, ACCESS_0},
   {BASE_O2_R + C_KL_O,  FLOAT, INTERNAL,  -1,  338,  "O2,%",     "-",         1.0,    0.0, 10000.0, 3, ACCESS_0},  //o2 result  
@@ -145,8 +145,8 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_HN_L + T_D_H,   FLOAT, INTERNAL, 112,  404, "T_d_h",    "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_L + K_R_H,   FLOAT, INTERNAL, 113,  406, "K_r_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_L + K_L_H,   FLOAT, INTERNAL, 114,  408, "K_l_h",    "-",        -1.0,    -10.0, 10.0,  3, ACCESS_1},
-  {BASE_HN_L + LIM_H,   FLOAT, INTERNAL, 115,  410, "Огр.Х",    "мВ",       50.0,    0.0, 5.0,     3, ACCESS_1},
-  {BASE_HN_L + KLIM_H,  FLOAT, INTERNAL, 116,  412, "KогрХ_h",   "%",       1.0,     0.0, 100.0,   3, ACCESS_1},
+  {BASE_HN_L + LIM_H,   FLOAT, INTERNAL, 115,  410, "Lim_h",    "мВ",       50.0,    0.0, 5.0,     3, ACCESS_1},
+  {BASE_HN_L + KLIM_H,  FLOAT, INTERNAL, 116,  412, "Klim_h",   "%",       1.0,     0.0, 100.0,   3, ACCESS_1},
   {BASE_HN_L + T_FD_H,  FLOAT, INTERNAL, 117,  414, "T_fd_h",   "с",        30.0,    0.0, 100.0,   3, ACCESS_1},
   {BASE_HN_L + HN_X0,   FLOAT, INTERNAL, 118,  416, "X0",      "-",        0.0,     0.0, 100.0,   3, ACCESS_1},
   {BASE_HN_L + HN_Y0,   FLOAT, INTERNAL, 119,  418, "Y0",      "-",        0.0,     0.0, 100.0,   3, ACCESS_1},
@@ -161,7 +161,7 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_HN_L + K_I_H,   FLOAT, INTERNAL, 128,  440, "K_i_h",   "1/мА",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_L + SH_H,    INT,   INTERNAL, 129,  442, "Sh_h",    "-",        0.0,     0.0, 10000.0, 0, ACCESS_1},
   {BASE_HN_L + C_KL_HN, FLOAT, INTERNAL,  -1,  444, "",        "-",        1.0,     0.0, 10000.0, 0, ACCESS_0},  //hn right
-  {BASE_HN_L + CHUV_HN, FLOAT, INTERNAL, 130,  446, "",        "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
+  {BASE_HN_L + CHUV_HN, FLOAT, INTERNAL, 130,  446, "Chuv_h",        "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
   {DEBUG_H_R,           INT,   INTERNAL,  -1,   -1, "",        "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, //dac code for the HN left channel
   
   {BASE_HN_R + T_F_H,   FLOAT, INTERNAL, 150,  500, "T_f_h",    "с",        1.0,     0.0, 10000.0, 3, ACCESS_1},
@@ -169,8 +169,8 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_HN_R + T_D_H,   FLOAT, INTERNAL, 152,  504, "T_d_h",    "c",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_R + K_R_H,   FLOAT, INTERNAL, 153,  506, "K_r_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_R + K_L_H,   FLOAT, INTERNAL, 154,  508, "K_l_h",    "-",        -1.0,    -10.0, 10.0,  3, ACCESS_1},
-  {BASE_HN_R + LIM_H,   FLOAT, INTERNAL, 155,  510, "Огр.Х",    "мВ",       50.0,    0.0, 5.0,     3, ACCESS_1},
-  {BASE_HN_R + KLIM_H,  FLOAT, INTERNAL, 156,  512, "KогрХ",    "%",        1.0,     0.0, 100.0,   3, ACCESS_1},
+  {BASE_HN_R + LIM_H,   FLOAT, INTERNAL, 155,  510, "Lim_h",    "мВ",       50.0,    0.0, 5.0,     3, ACCESS_1},
+  {BASE_HN_R + KLIM_H,  FLOAT, INTERNAL, 156,  512, "Klim_h",    "%",        1.0,     0.0, 100.0,   3, ACCESS_1},
   {BASE_HN_R + T_FD_H,  FLOAT, INTERNAL, 157,  514, "T_fd_h",   "с",        30.0,    0.0, 100.0,   3, ACCESS_1},
   {BASE_HN_R + HN_X0,   FLOAT, INTERNAL, 158,  516, "X0",       "-",        0.0,     0.0, 100.0,   3, ACCESS_1},
   {BASE_HN_R + HN_Y0,   FLOAT, INTERNAL, 159,  518, "Y0",       "-",        0.0,     0.0, 100.0,   3, ACCESS_1},
@@ -185,7 +185,7 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_HN_R + K_I_H,   FLOAT, INTERNAL, 168,  540, "K_i_h",    "1/мА",     1.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_HN_R + SH_H,    INT,   INTERNAL, 169,  542, "Sh_h",     "-",        0.0,     0.0, 10000.0, 0, ACCESS_1},
   {BASE_HN_R + C_KL_HN, FLOAT, INTERNAL,  -1,  544, "",         "-",        1.0,     0.0, 10000.0, 0, ACCESS_1},  //hn right 
-  {BASE_HN_R + CHUV_HN, FLOAT, INTERNAL, 170,  546, "",         "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
+  {BASE_HN_R + CHUV_HN, FLOAT, INTERNAL, 170,  546, "Chuv_h",         "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
   {DEBUG_H_R,           INT,   INTERNAL,  -1,   -1, "",         "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, //dac code for the HN left channel
   
   {T_CL_E,              FLOAT, INTERNAL,  -1,  800, "Тхк",      "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},  //cold junction temp  
@@ -213,6 +213,9 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {HEATER_STATE_R,      BOOLEAN, IN,      -1,  1002, "Обрыв П.",  "",        0.0,     0.0, 1.0, 0, ACCESS_0},
   {HEATER_OVERLOAD_L,   BOOLEAN, IN,      -1,  1004, "Перегр.Л.",  "",        0.0,     0.0, 1.0, 0, ACCESS_0},
   {HEATER_OVERLOAD_R,   BOOLEAN, IN,      -1,  1006, "Перегр.П.",  "",        0.0,     0.0, 1.0, 0, ACCESS_0},
+  
+  {FLT_TP_CLOSE_L,       BOOLEAN, INTERNAL,  -1, 1476, "", "", 0.0, 0.0, 0.0, 0, ACCESS_0}, 
+  {FLT_TP_CLOSE_R,      BOOLEAN, INTERNAL,  -1, 1478, "", "", 0.0, 0.0, 0.0, 0, ACCESS_0},  
   {FLT_CH_L,            BOOLEAN, INTERNAL,  -1, 1480, "", "", 0.0, 0.0, 0.0, 0, ACCESS_0}, 
   {FLT_CH_R,            BOOLEAN, INTERNAL,  -1, 1482, "", "", 0.0, 0.0, 0.0, 0, ACCESS_0},
   {FLT_TP_L,            BOOLEAN, INTERNAL,  -1, 1484, "", "", 0.0, 0.0, 0.0, 0, ACCESS_0},
@@ -221,14 +224,14 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {FLT_NE_R,            BOOLEAN, INTERNAL,  -1, 1490, "", "", 0.0, 0.0, 0.0, 0, ACCESS_0},
   {FLT_GA_L,            BOOLEAN, INTERNAL,  -1, 1492, "", "", 0.0, 0.0, 0.0, 0, ACCESS_0},
   {FLT_GA_R,            BOOLEAN, INTERNAL,  -1, 1494, "", "", 0.0, 0.0, 0.0, 0, ACCESS_0},
-  {THR_H_L,             FLOAT,   INTERNAL, 180, 1496, "Пор.Х",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     //left hn treshold 
-  {THR_H_R,             FLOAT,   INTERNAL, 181, 1498, "Пор.Х",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     //right hn treshold 
-  {THR_O_L,             FLOAT,   INTERNAL, 182, 1500, "Пор.О",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     //left o2 treshold 
-  {THR_O_R,             FLOAT,   INTERNAL, 183, 1502, "Пор.О",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     //right o2 treshold 
-  {G_TH_H_L,            FLOAT,   INTERNAL, 184, 1504, "Гист.Х",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},    //left hn hysteresis 
-  {G_TH_H_R,            FLOAT,   INTERNAL, 185, 1506, "Гист.Х",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},    //right hn hysteresis
-  {G_TH_O_L,            FLOAT,   INTERNAL, 186, 1508, "Гист.О",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},    //left o2 hysteresis
-  {G_TH_O_R,            FLOAT,   INTERNAL, 187, 1510, "Гист.О",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},    //right o2 hysteresis
+  {THR_H_L,             FLOAT,   INTERNAL, 180, 1496, "Thr_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     //left hn treshold 
+  {THR_H_R,             FLOAT,   INTERNAL, 181, 1498, "Thr_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     //right hn treshold 
+  {THR_O_L,             FLOAT,   INTERNAL, 182, 1500, "Thr_o",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     //left o2 treshold 
+  {THR_O_R,             FLOAT,   INTERNAL, 183, 1502, "Thr_o",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     //right o2 treshold 
+  {G_TH_H_L,            FLOAT,   INTERNAL, 184, 1504, "G_th_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},    //left hn hysteresis 
+  {G_TH_H_R,            FLOAT,   INTERNAL, 185, 1506, "G_th_h",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},    //right hn hysteresis
+  {G_TH_O_L,            FLOAT,   INTERNAL, 186, 1508, "G_th_o",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},    //left o2 hysteresis
+  {G_TH_O_R,            FLOAT,   INTERNAL, 187, 1510, "G_th_o",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},    //right o2 hysteresis
   {FTH_H_L,             BOOLEAN, OUT,       -1, 1512, "",          "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},  //left hn treshold output
   {FTH_H_R,             BOOLEAN, OUT,       -1, 1514, "",          "-",        1.0,     0.0, 10000.0, 3, ACCESS_1}, //right hn treshold output
   {FTH_O2_L,            BOOLEAN, OUT,       -1, 1516, "",          "-",        1.0,     0.0, 10000.0, 3, ACCESS_1}, //left o2 treshold output
@@ -289,6 +292,13 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {REPR_O2_R,           FLOAT,   INTERNAL,  241, 2046, "О2п",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {REPR_H_L,            FLOAT,   INTERNAL,  242, 2048, "ХНл",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   {REPR_H_R,            FLOAT,   INTERNAL,  243, 2050, "ХНп",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  
+  {CLOSE_DETECT_THR_TEMP,  FLOAT, INTERNAL, 244, 2052, "",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {CLOSE_DETECT_THR_Y,     FLOAT, INTERNAL, 245, 2054, "",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {CLOSE_DETECT_TIME,      FLOAT, INTERNAL, 246, 2056, "",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {CLOSE_STATE_RESET_TIME, FLOAT, INTERNAL, 247, 2058, "",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+
+  {OWERALL_WORKING_TIME,            FLOAT,   INTERNAL,      248, 2060, "",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
  // {EMPTY_CELL,          INT,     INTERNAL,  -1,  -1,  "",         "",             0.0,  0.0, 10000.0, 3, ACCESS_0}
 };
 /*

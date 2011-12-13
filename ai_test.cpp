@@ -17,15 +17,19 @@ extern "C"{
 #include "usbase.h"
 #include "pass_aux_base_class.h"
 
-AiTestScreen::AiTestScreen():PassAuxBaseScreen(MSG_ADC_IN_TEST_SCREEN_ACTIVATE, SCR_AI_TEST)
+AiTestScreen::AiTestScreen():PassAuxBaseScreen(MSG_ADC_IN_TEST_SCREEN_ACTIVATE,
+                                               SCR_AI_TEST)
 {
  // message_to_activate = MSG_ADC_IN_TEST_SCREEN_ACTIVATE;  
 };
 
 void AiTestScreen::PlaceControls(){
-  AddControl(new usBmpButton(110, 9, 17, 18, 0, BTN_FORWARD, MSG_BTN_FORWARD, SCR_AI_TEST));
-  AddControl(new usBmpButton(110, 27, 17, 18, 1, BTN_HOME, MSG_BTN_HOME, SCR_AI_TEST));
-  AddControl(new usBmpButton(110, 45, 17, 18, 2, BTN_BACK, MSG_BTN_BACKWARD, SCR_AI_TEST));  
+  AddControl(new usBmpButton(110, 9, 17, 18, 0, BTN_FORWARD, MSG_BTN_FORWARD,
+                             SCR_AI_TEST));
+  AddControl(new usBmpButton(110, 27, 17, 18, 1, BTN_HOME, MSG_BTN_HOME, 
+                             SCR_AI_TEST));
+  AddControl(new usBmpButton(110, 45, 17, 18, 2, BTN_BACK, MSG_BTN_BACKWARD,
+                             SCR_AI_TEST));  
 };
 
 void AiTestScreen::Paint(void)
@@ -58,22 +62,22 @@ void AiTestScreen::Paint(void)
   LcdText(64, 44, 83, 52, "AD4'");
 
   //ADC
-  sprintf(str, "%X", adc1_code);
+  sprintf(str, "%d", adc1_code);
   LcdText(22, 11, 61, 19, str);
-  sprintf(str, "%X", adc2_code);
+  sprintf(str, "%d", adc2_code);
   LcdText(22, 22, 61, 30, str);
-  sprintf(str, "%X", adc3_code);
+  sprintf(str, "%d", adc3_code);
   LcdText(22, 33, 61, 41, str);
-  sprintf(str, "%X", adc4_code);
+  sprintf(str, "%d", adc4_code);
   LcdText(22, 44, 61, 52, str);
   
-  sprintf(str, "%X", adc1_code_);
+  sprintf(str, "%d", adc1_code_ / 16);
   LcdText(88, 11, 107, 19, str);
-  sprintf(str, "%X", adc2_code_);
+  sprintf(str, "%d", adc2_code_ / 16);
   LcdText(88, 22, 107, 30, str);
-  sprintf(str, "%X", adc3_code_);
+  sprintf(str, "%d", adc3_code_ / 16);
   LcdText(88, 33, 107, 41, str);
-  sprintf(str, "%X", adc4_code_);
+  sprintf(str, "%d", adc4_code_ / 16);
   LcdText(88, 44, 107, 52, str);
 
   LcdLine(119, 0, 119, 7);

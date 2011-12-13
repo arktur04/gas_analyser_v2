@@ -50,27 +50,30 @@ void MainScreen::Paint(void)
   #define BUF_SIZE 10
   char str[BUF_SIZE];
   const char tp_fault[] = "Îáðûâ";
+  const char tp_close[] = "Êç.ÒÏ";
   const char blank_str[] = "-----";
   
-  char flag_tp_l, flag_che_l, flag_ne_l, flag_o2_l, flag_hn_l, flag_tp_r,
-  flag_che_r, flag_ne_r, flag_o2_r, flag_hn_r, flag_gf_l, flag_gf_r;                                                                          
+  char flag_tp_l, flag_tp_close_l, flag_che_l, flag_ne_l, flag_o2_l, flag_hn_l,
+  flag_gf_l, flag_tp_r, flag_tp_close_r, flag_che_r, flag_ne_r, flag_o2_r,
+  flag_hn_r, flag_gf_r;                                                                          
   
   char curr_color;
   
-  flag_tp_l = GetIntValueByTag(FLT_TP_L);
+  flag_tp_l = 0;//GetIntValueByTag(FLT_TP_L);
   flag_che_l = GetIntValueByTag(FLT_CH_L);
   flag_ne_l = GetIntValueByTag(FLT_NE_L);
   flag_o2_l = GetIntValueByTag(FTH_O2_L);
   flag_hn_l = GetIntValueByTag(FTH_H_L);
+  flag_gf_l = GetIntValueByTag(FLT_GA_L);
+  flag_tp_close_l = 0;//GetIntValueByTag(FLT_TP_CLOSE_L);
 
-  flag_tp_r = GetIntValueByTag(FLT_TP_R);
+  flag_tp_r = 0;//GetIntValueByTag(FLT_TP_R);
   flag_che_r = GetIntValueByTag(FLT_CH_R);
   flag_ne_r = GetIntValueByTag(FLT_NE_R);
   flag_o2_r = GetIntValueByTag(FTH_O2_R);
   flag_hn_r = GetIntValueByTag(FTH_H_R);
-  
-  flag_gf_l = GetIntValueByTag(FLT_GA_L);
   flag_gf_r = GetIntValueByTag(FLT_GA_R);
+  flag_tp_close_r = 1;// GetIntValueByTag(FLT_TP_CLOSE_R);
   
  // flag_tp_l = flag_che_l = flag_ne_l = flag_o2_l = flag_hn_l = flag_tp_r =
  // flag_che_r = flag_ne_r = flag_o2_r = flag_hn_r = flag_gf_l = flag_gf_r = 0;    //temp       
@@ -214,7 +217,7 @@ void MainScreen::Paint(void)
   //---------------------------------
   SetFont(SMALL_FONT);
    
-  curr_color = (flash_flag && flag_tp_l)?WHITE:BLACK;   
+  curr_color = (flash_flag && (flag_tp_l || flag_tp_close_l))?WHITE:BLACK;   
   LcdSetColor(~curr_color); 
   LcdRect(40, 42, 83, 51);
   LcdSetColor(curr_color); 
@@ -224,21 +227,36 @@ void MainScreen::Paint(void)
   }
   else
   {
-    sprintf(str, "%.1f", GetFloatValueByTag(CEL_F_T_L));
-    LcdText(43, 43, 83, 51, str);  //temp left
+    if(flag_tp_close_l)
+    { 
+      LcdText(43, 43, 83, 51, tp_close);
+    }
+    else
+    {
+      sprintf(str, "%.1f", GetFloatValueByTag(CEL_F_T_L));
+      LcdText(43, 43, 83, 51, str);  //temp left
+    };
   };
-  curr_color = (flash_flag && flag_tp_r)?WHITE:BLACK;   
+  curr_color = (flash_flag && (flag_tp_r || flag_tp_close_r))?WHITE:BLACK;   
   LcdSetColor(~curr_color); 
   LcdRect(85, 42, 127, 51);
-  LcdSetColor(curr_color); 
+  LcdSetColor(curr_color);
+  
   if(flag_tp_r)
   { 
     LcdText(88, 43, 127, 51, tp_fault);
   }
   else
   {
-    sprintf(str, "%.1f", GetFloatValueByTag(CEL_F_T_R));
-    LcdText(88, 43, 127, 51, str);  //temp right
+    if(flag_tp_close_r)
+    { 
+      LcdText(88, 43, 127, 51, tp_close);
+    }
+    else
+    {
+      sprintf(str, "%.1f", GetFloatValueByTag(CEL_F_T_R));
+      LcdText(88, 43, 127, 51, str);  //temp right
+    };
   };
   PassAuxBaseScreen::Paint();
 }
