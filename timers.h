@@ -25,9 +25,10 @@
 #define TIMER_UART0_RX_LED   13
 #define TIMER_UART1_TX_LED   14
 #define TIMER_UART1_RX_LED   15
+#define TIMER_ADC_RESET      16
 
-#define DEB_TIMER1           16
-#define DEB_TIMER2           17
+#define DEB_TIMER1           17
+#define DEB_TIMER2           18
 
 void InitTimers(void);
 

@@ -274,8 +274,10 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {SCR_BACKLIGHT_TIME,  INT,     INTERNAL, 231,  -1, "откл.подсв", "мин",      0.0,     0.0, 0.0,     0, ACCESS_1},
   {PROTECT_RESET_TIME,  INT,     INTERNAL, 232,  -1, "сбр.защит",  "с",        0.0,     0.0, 0.0,     0, ACCESS_1},
   {PASS_RESET_TIME,     INT,     INTERNAL, 233,  -1, "сбр.парол€", "мин",      0.0,     0.0, 0.0,     0, ACCESS_1},
-  {PWM0_ON,             BOOLEAN, INTERNAL, 234,  1600, "",         "",         0.0,     0.0, 0.0,     0, ACCESS_1},
-  {PWM1_ON,             BOOLEAN, INTERNAL, 235,  1602, "",         "",         0.0,     0.0, 0.0,     0, ACCESS_1},
+  {ADC_RESET_TIME,      INT,     INTERNAL, 234,  -1, "сбр. adc",    "мин",      0.0,     0.0, 0.0,     0, ACCESS_1},
+    
+  {PWM0_ON,             BOOLEAN, INTERNAL, 235,  1600, "",         "",         0.0,     0.0, 0.0,     0, ACCESS_1},
+  {PWM1_ON,             BOOLEAN, INTERNAL, 236,  1602, "",         "",         0.0,     0.0, 0.0,     0, ACCESS_1},
   {DEBUG_1,             FLOAT,   INTERNAL,  -1,  -1, "Debug 1",    "",         0.0,     0.0, 0.0,     0, ACCESS_0},
   {DEBUG_2,             FLOAT,   INTERNAL,  -1,  -1, "Debug 2",    "",         0.0,     0.0, 0.0,     0, ACCESS_0},
   {RELAY_OUT_TEST_FLAG, BOOLEAN, INTERNAL,  -1,  1800, "",           "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
@@ -283,22 +285,22 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {PWM_OUT_TEST_FLAG,   BOOLEAN, INTERNAL,  -1,  1804, "",           "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
   {OUT_CALIBR_FLAG,     BOOLEAN, INTERNAL,  -1,  1806, "",           "-",        1.0,     0.0, 10000.0, 3, ACCESS_0},
    
-  {MAX_O2_L,            FLOAT,   INTERNAL,  236, 2000, "Max",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     
-  {MAX_O2_R,            FLOAT,   INTERNAL,  237, 2002, "Max",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {MAX_XH_L,            FLOAT,   INTERNAL,  238, 2004, "Max",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {MAX_XH_R,            FLOAT,   INTERNAL,  239, 2006, "Max",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {MAX_O2_L,            FLOAT,   INTERNAL,  237, 2000, "Max",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},     
+  {MAX_O2_R,            FLOAT,   INTERNAL,  238, 2002, "Max",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {MAX_XH_L,            FLOAT,   INTERNAL,  239, 2004, "Max",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {MAX_XH_R,            FLOAT,   INTERNAL,  240, 2006, "Max",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
     
-  {REPR_O2_L,           FLOAT,   INTERNAL,  240, 2044, "ќ2л",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {REPR_O2_R,           FLOAT,   INTERNAL,  241, 2046, "ќ2п",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {REPR_H_L,            FLOAT,   INTERNAL,  242, 2048, "’Ќл",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {REPR_H_R,            FLOAT,   INTERNAL,  243, 2050, "’Ќп",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {REPR_O2_L,           FLOAT,   INTERNAL,  241, 2044, "ќ2л",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {REPR_O2_R,           FLOAT,   INTERNAL,  242, 2046, "ќ2п",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {REPR_H_L,            FLOAT,   INTERNAL,  243, 2048, "’Ќл",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {REPR_H_R,            FLOAT,   INTERNAL,  244, 2050, "’Ќп",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
   
-  {CLOSE_DETECT_THR_TEMP,  FLOAT, INTERNAL, 244, 2052, "",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {CLOSE_DETECT_THR_Y,     FLOAT, INTERNAL, 245, 2054, "",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {CLOSE_DETECT_TIME,      FLOAT, INTERNAL, 246, 2056, "",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
-  {CLOSE_STATE_RESET_TIME, FLOAT, INTERNAL, 247, 2058, "",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {CLOSE_DETECT_THR_TEMP,  FLOAT, INTERNAL, 245, 2052, "",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {CLOSE_DETECT_THR_Y,     FLOAT, INTERNAL, 246, 2054, "",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {CLOSE_DETECT_TIME,      FLOAT, INTERNAL, 247, 2056, "",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {CLOSE_STATE_RESET_TIME, FLOAT, INTERNAL, 248, 2058, "",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
 
-  {OWERALL_WORKING_TIME,            FLOAT,   INTERNAL,      248, 2060, "",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
+  {OWERALL_WORKING_TIME,            FLOAT,   INTERNAL,      249, 2060, "",       "-",        1.0,     0.0, 10000.0, 3, ACCESS_1},
  // {EMPTY_CELL,          INT,     INTERNAL,  -1,  -1,  "",         "",             0.0,  0.0, 10000.0, 3, ACCESS_0}
 };
 /*

@@ -73,7 +73,7 @@ void MainScreen::Paint(void)
   flag_o2_r = GetIntValueByTag(FTH_O2_R);
   flag_hn_r = GetIntValueByTag(FTH_H_R);
   flag_gf_r = GetIntValueByTag(FLT_GA_R);
-  flag_tp_close_r = 1;// GetIntValueByTag(FLT_TP_CLOSE_R);
+  flag_tp_close_r = 0;// GetIntValueByTag(FLT_TP_CLOSE_R);
   
  // flag_tp_l = flag_che_l = flag_ne_l = flag_o2_l = flag_hn_l = flag_tp_r =
  // flag_che_r = flag_ne_r = flag_o2_r = flag_hn_r = flag_gf_l = flag_gf_r = 0;    //temp       

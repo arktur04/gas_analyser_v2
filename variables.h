@@ -460,40 +460,41 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define PROTECT_RESET_TIME      244
 
 #define PASS_RESET_TIME         245
+#define ADC_RESET_TIME          246
 
-#define PWM0_ON                 246
-#define PWM1_ON                 247
+#define PWM0_ON                 247
+#define PWM1_ON                 248
  
-#define DEBUG_1                 248
-#define DEBUG_2                 249
+#define DEBUG_1                 249
+#define DEBUG_2                 250
 //------------------------------------------------------------------------------
-#define RELAY_OUT_TEST_FLAG     250
-#define DAC_TEST_FLAG           251 // true if the dac test sreen is active
-#define PWM_OUT_TEST_FLAG       252
-#define OUT_CALIBR_FLAG         253
+#define RELAY_OUT_TEST_FLAG     251
+#define DAC_TEST_FLAG           252 // true if the dac test sreen is active
+#define PWM_OUT_TEST_FLAG       253
+#define OUT_CALIBR_FLAG         254
 
-#define MAX_O2_L                254
-#define MAX_O2_R                255
-#define MAX_XH_L                256
-#define MAX_XH_R                257
+#define MAX_O2_L                255
+#define MAX_O2_R                256
+#define MAX_XH_L                257
+#define MAX_XH_R                258
   
-#define REPR_O2_L               258
-#define REPR_O2_R               259
-#define REPR_H_L                260
-#define REPR_H_R                261
+#define REPR_O2_L               259
+#define REPR_O2_R               260
+#define REPR_H_L                261
+#define REPR_H_R                262
 //------------------------------------------------------------------------------
 //  parameters of thermpcouple close circuit detector
 //------------------------------------------------------------------------------
-#define CLOSE_DETECT_THR_TEMP   262
-#define CLOSE_DETECT_THR_Y      263
-#define CLOSE_DETECT_TIME       264
-#define CLOSE_STATE_RESET_TIME  265
+#define CLOSE_DETECT_THR_TEMP   263
+#define CLOSE_DETECT_THR_Y      264
+#define CLOSE_DETECT_TIME       265
+#define CLOSE_STATE_RESET_TIME  266
 //------------------------------------------------------------------------------
 //  owerall working time
 //------------------------------------------------------------------------------
-#define OWERALL_WORKING_TIME    266
+#define OWERALL_WORKING_TIME    267
 
-#define MAX_RECORD              267
+#define MAX_RECORD              268
 
 //#define MAX_RECORDS 500
 

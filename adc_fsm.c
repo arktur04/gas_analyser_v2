@@ -26,6 +26,8 @@ char adc_state[4] = {0, 0, 0, 0};
 unsigned int upThrs[4] = {0, THR_UP, 0, THR_UP};
 unsigned int downThrs[4] = {0, THR_DOWN, 0, THR_DOWN};
 
+char ignore_cnt[4];
+
 //char adc_iteration_count = 0;
 unsigned int adc_values[3][4] =  //values of the measured input voltage in adc discretes
 {{0, 0, 0, 0},
@@ -248,6 +250,7 @@ void initAdc(char num)
 
 void initAdcFsm(void)
 {
+  ResetTimer(TIMER_ADC_RESET);
   for(char i = 0; i < 4; i++)
     initAdc(i);
 }
@@ -314,15 +317,38 @@ unsigned long int Mid(unsigned long int val1,
 void ProcessAdc(void)
 {
   unsigned long int code;
-  
+  //----------------------------------------------------------------------------
+  long adcResetTime;
+  adcResetTime = 1; // temp; change from: GetIntValueByTag(ADC_RESET_TIME);
+  if(adcResetTime != -1)
+  {
+    if(GetTimer(TIMER_ADC_RESET) > adcResetTime * minute)
+    {
+      ResetTimer(TIMER_ADC_RESET);
+      for(char i = 0; i < 4; i++)
+      {
+        initAdc(i);
+        ignore_cnt[i] = 1;  //ignore cycles counter
+      };
+    };
+  };
+  //----------------------------------------------------------------------------
   for(char i= 0; i < 4; i++)
   {
     switch(adc_state[i])
     {
     case 0:
       if(!GetAdcMiso(i))
-      {   
-        adc_values[0][i] = MIDCODE - GetAdcValue(i, adc_bits[i]);
+      { 
+        if(!ignore_cnt[i])
+        {
+          adc_values[0][i] = MIDCODE - GetAdcValue(i, adc_bits[i]);
+        }
+        else
+        {
+          GetAdcValue(i, adc_bits[i]);
+          --ignore_cnt[i];
+        };
         code = Mid(adc_values[0][i], adc_values[1][i], adc_values[2][i]);// | (gains[main_gains[i]] << 24);
          
         SetIntValueByTag(tag_0[i], code);
