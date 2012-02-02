@@ -288,8 +288,9 @@ void ChannelO2::SaveResults()
   if(!getDictLocked())
   {
     SetFloatValueByTag(base_temp + E_E, e_e); //debug tags is located in /temp/
-    
     SetFloatValueByTag(base_o2 + C_KL_O, c_kl_o);
+    SetFloatValueByTag(base_o2 + O2_1, c_f_o);
+    
     if(side == LEFT_CH)
     {
     //  SetFloatValueByTag(CURR_O2_L, curr_o_o);
@@ -300,7 +301,6 @@ void ChannelO2::SaveResults()
   //    SetFloatValueByTag(CURR_O2_R, curr_o_o);
       SetFloatValueByTag(E_F_E_R, e_f_e);
     };
-    
    // SetIntValueByTag(base_o2 + CI_O_O, ci_o_o);
   };
 }

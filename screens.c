@@ -207,19 +207,19 @@ const T_SCREEN_DESCRIPTOR screens[] = {
   25, TRUE,  TRUE, TRUE}},                     //25
   
   {TWO_COL_SCREEN, .scr.two_col_screen = {"Калибровка кан. ЧЭ-Л", 
-  ADC_2, EMPTY_CELL,
-  E_F_E_L, C_KL_O_L,
+  ADC_2, E_F_E_L,
   SHIFT_E_L, K_CD_E_L,
   /*CEL_F_T_L*/CEL_T_L, EMPTY_CELL,
-  EMPTY_CELL, EMPTY_CELL, 
+  O2_1_L, C_KL_O_L, 
+  EMPTY_CELL, EMPTY_CELL,
   26, TRUE,  TRUE, TRUE}},                      //26
   
   {TWO_COL_SCREEN, .scr.two_col_screen = {"Калибровка кан. ЧЭ-П", 
-  ADC_4, EMPTY_CELL,
-  E_F_E_R, C_KL_O_R,
+  ADC_4, E_F_E_R,
   SHIFT_E_R, K_CD_E_R,
   /*CEL_F_T_R*/CEL_T_R, EMPTY_CELL,
-  EMPTY_CELL, EMPTY_CELL, 
+  O2_1_R, C_KL_O_R, 
+  EMPTY_CELL, EMPTY_CELL,
   27, TRUE,  TRUE, TRUE}},                       //27
   
   {TWO_COL_SCREEN, .scr.two_col_screen = {"Калибровка выходов", 

@@ -114,8 +114,8 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_O2_L + SH_O,    INT,   INTERNAL,  57,  234, "Sh_o",   "-",         0.0,     0.0, 10000.0, 0, ACCESS_1},
   
   {BASE_O2_L + E_F_E,   FLOAT, INTERNAL,  -1,  236, "Uчэ",      "мв",       200.0,   0.0, 10000.0, 3, ACCESS_0},
-  {BASE_O2_L + C_KL_O,  FLOAT, INTERNAL,  -1,  238, "O2,%",         "-",         1.0,     0.0, 10000.0, 2, ACCESS_0},  //o2 result
-  {DEBUG_L,             INT,   INTERNAL,  -1,  -1, "",    "-",        1.0,     0.0, 10000.0, 3, ACCESS_0}, 
+  {BASE_O2_L + O2_1,    FLOAT, INTERNAL,  -1,  238, "O2_1",    "-",         1.0,     0.0, 10000.0, 2, ACCESS_0},
+  {BASE_O2_L + C_KL_O,  FLOAT, INTERNAL,  -1,  240, "O2_2",         "-",         1.0,     0.0, 10000.0, 2, ACCESS_0},  //o2 result 
   
   {BASE_O2_R + SHIFT_E, INT,   INTERNAL,  70,  300,  "Shift_K",  "-",        0.0,     0.0, 10000.0, 3, ACCESS_1},
   {BASE_O2_R + K_CD_E,  FLOAT, INTERNAL,  71,  302,  "K_cd_e",   "мкВ",      3.46,    0.0, 10000.0, 3, ACCESS_1},
@@ -137,8 +137,8 @@ const T_DICT_VAR_DESCR dict_var_descrs[MAX_RECORD] = {
   {BASE_O2_R + SH_O,    INT,   INTERNAL,  87,  334,  "Sh_o",   "-",         0.0,    0.0, 10000.0, 0, ACCESS_1},
   
   {BASE_O2_R + E_F_E,   FLOAT, INTERNAL,  -1,  336,  "Uчэ",      "мв",       200.0,   0.0, 10000.0, 3, ACCESS_0},
-  {BASE_O2_R + C_KL_O,  FLOAT, INTERNAL,  -1,  338,  "O2,%",     "-",         1.0,    0.0, 10000.0, 3, ACCESS_0},  //o2 result  
-  {DEBUG_R,             INT,   INTERNAL,  -1,  -1, "",    "-",        1.0,     0.0, 10000.0, 2, ACCESS_0},  
+  {BASE_O2_R + O2_1,    FLOAT, INTERNAL,  -1,  238, "O2_1",      "-",         1.0,     0.0, 10000.0, 2, ACCESS_0},
+  {BASE_O2_R + C_KL_O,  FLOAT, INTERNAL,  -1,  340,  "O2_2",     "-",         1.0,    0.0, 10000.0, 2, ACCESS_0},  //o2 result    
   
   {BASE_HN_L + T_F_H,   FLOAT, INTERNAL, 110,  400, "T_f_h",    "с",        1.0,     0.0, 10000.0, 3, ACCESS_1},  //Переменные настройки канала химнедожога
   {BASE_HN_L + T_FF_H,  FLOAT, INTERNAL, 111,  402, "T_ff_h",   "с",        1.0,     0.0, 10000.0, 3, ACCESS_1},

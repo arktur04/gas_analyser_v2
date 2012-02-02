@@ -205,11 +205,11 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define X5       14
 #define Y5       15
 #define K_I_O    16
-#define SH_O   17
+#define SH_O     17
 
 #define E_F_E    18
-#define C_KL_O   19
-#define DEBUG    20
+#define O2_1     19 
+#define C_KL_O   20
 
 #define SHIFT_E_L  (BASE_O2_L + SHIFT_E)
 #define K_CD_E_L   (BASE_O2_L + K_CD_E)
@@ -228,11 +228,11 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define X5_L       (BASE_O2_L + X5)
 #define Y5_L       (BASE_O2_L + Y5)
 #define K_I_O_L    (BASE_O2_L + K_I_O)
-#define SH_O_L   (BASE_O2_L + SH_O)
+#define SH_O_L     (BASE_O2_L + SH_O)
 
 #define E_F_E_L    (BASE_O2_L + E_F_E)
+#define O2_1_L     (BASE_O2_L + O2_1)
 #define C_KL_O_L   (BASE_O2_L + C_KL_O)
-#define DEBUG_L    (BASE_O2_L + DEBUG)
 
 #define SHIFT_E_R  (BASE_O2_R + SHIFT_E)
 #define K_CD_E_R   (BASE_O2_R + K_CD_E)
@@ -251,11 +251,11 @@ signed char GetStringByTag(int tag, char id, char* buff, char buf_size);
 #define X5_R       (BASE_O2_R + X5)
 #define Y5_R       (BASE_O2_R + Y5)
 #define K_I_O_R    (BASE_O2_R + K_I_O)
-#define SH_O_R   (BASE_O2_R + SH_O)
+#define SH_O_R     (BASE_O2_R + SH_O)
 
 #define E_F_E_R    (BASE_O2_R + E_F_E)
+#define O2_1_R     (BASE_O2_R + O2_1)
 #define C_KL_O_R   (BASE_O2_R + C_KL_O)
-#define DEBUG_R    (BASE_O2_R + DEBUG)
 
 //Переменные настройки канала химнедожога
 #define BASE_HN_L 115
